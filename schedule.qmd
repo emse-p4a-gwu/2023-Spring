@@ -1,0 +1,70 @@
+---
+title: Course Schedule
+---
+
+```{r setup, echo=FALSE, message=FALSE, warning=FALSE}
+source(here::here("R", "settings.R"))
+```
+
+```{r echo=FALSE}
+# Setup some common values
+fa <- list(
+  assignment = '<i class="fas fa-book-reader"></i>',
+  class      = '<i class="fas fa-laptop-code"></i>',
+  project    = '<i class="fas fa-pencil-ruler"></i>'
+)
+
+# Make the schedule data frame
+schedule <- get_schedule() %>% 
+  mutate(
+    # Build links
+    class = ifelse(
+      is.na(class_stub), paste0("<b>", class_name, "</b>"),
+        paste0(
+          '<a href="class/', class_stub, '.html">',
+          fa$class, '</a><b> ', class_name, "</b><br> ", class_description)),
+    assignments = ifelse(is.na(assign_due), NA, 
+      paste0(
+        '<a href="hw/', assign_stub, '.html">',
+        fa$assignment, '</a><b> ', assign_name, "</b><br>Due: ", assign_due_md)),
+    mini = ifelse(
+      is.na(mini_name), NA,
+      paste0(
+        '<a href="project-mini/', mini_stub, '.html">',
+        fa$project, '</a><b> ', mini_name, "</b><br>Due: ", mini_due_md)),
+    final = ifelse(
+      is.na(final_name), NA,
+      paste0(
+        '<a href="project-final/', final_stub, '.html">',
+        fa$project, '</a><b> ', final_name, "</b><br>Due: ", final_due_md))
+  )
+
+# Set highlighting based on current week
+highlight <- which(Sys.Date() > schedule$date)
+```
+
+:::{.column-page}
+
+
+```{r echo=FALSE}
+# Make the final schedule
+names(schedule) <- str_to_title(names(schedule))
+schedule %>%
+  rename(
+      `Mini Projects` = Mini,
+      `Final Projects` = Final,
+      `Weekly HW` = Assignments
+  ) %>%
+  select(
+      Week, Date = Date_md, Class, `Weekly HW`, `Mini Projects`,
+      `Final Projects`
+  ) %>%
+  kable(format = 'html', escape = FALSE,
+        align = c('c', 'c', 'l', 'l', 'l', 'l')) %>%
+  kable_styling(full_width = F, bootstrap_options = c("striped", "hover")) %>%
+  column_spec(column = 3, width = '19em') %>%
+  row_spec(highlight, background = "#e1e1e1") 
+```
+
+:::
+
