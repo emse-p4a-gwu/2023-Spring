@@ -1,5 +1,5 @@
 ---
-title: "EMSE 4572: Exploratory Data Analysis (Fall 2022)"
+title: "EMSE 4571: Intro Programming for Analytics (Spring 2023)"
 ---
 
 ::: {.grid}
