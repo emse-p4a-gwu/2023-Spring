@@ -1,9 +1,13 @@
 Having successfully completed this course, students will be able to:
 
-- Write a clear, focused, concise, complex, and arguable research question.
-- Import, manipulate, clean, visualize, and export data in R.
-- Wrangle data from its original format into a fit-for-purpose format.
-- Conduct a systematic exploratory data analysis (EDA) of different types of data.
-- Apply fundamental principles of visualizing information for exploratory analysis and communication.
-- Get data off the web and expose data, code, results on the web.
-- Generate fully reproducible reports that contain code, equations, visualizations, and narrative text.
+- Develop simple programs to effectively solve medium-sized tasks by:
+    - Employing modular, top-down design in program construction.
+    - Pro-actively creating and writing test cases to test and debug code.
+    - Applying computational problem-solving skills to new problems.
+
+- Write clear, robust, and reasonably efficient code for working with data using:
+    - Sequential, conditional, and loop statements.
+    - Numeric, string, and logical data types.
+    - Data structures, including lists, vectors, and data frames.
+
+- Reproducibly import, export, manipulate, and visualize data.

@@ -1,14 +1,16 @@
-title: "EMSE 4572: Exploratory Data Analysis (Fall 2022)"
-name: Exploratory Data Analysis
+title: "EMSE 4571: Intro. to Programming for Analytics (Spring 2023)"
+name: Intro. to Programming for Analytics
 email: jph@gwu.edu
-number: EMSE 4572
-semester: Fall 2022
-weekday: "Wednesdays"
-dates: "Aug. 29 - Dec. 12, 2022"
+number: EMSE 4571
+crn: 66620
+semester: Spring 2023
+weekday: "Thursdays"
+dates: "Jan. 19 - May 11, 2023"
 time: "12:45PM - 3:15PM EST"
-room: '1776 G St C-119'
-room_url: "https://acadtech.gwu.edu/location?id=373&campus=FB&type=building&selection=36"
-slack: "https://emse-eda-f22.slack.com"
-repo: "https://github.com/emse-eda-gwu/2022-Fall"
-site_url: "https://eda.seas.gwu.edu/2022-Fall/"
-root_url: "https://eda.seas.gwu.edu/"
+room: 'Corcoran Hall 207'
+room_address: 725 21st Street NW
+room_url: "https://acadtech.gwu.edu/location?id=382&campus=FB&type=building&selection=37"
+slack: "https://emse-p4a-s23.slack.com"
+repo: "https://github.com/emse-p4a-gwu/2023-Spring"
+site_url: "https://p4a.seas.gwu.edu/2023-Spring/"
+root_url: "https://p4a.seas.gwu.edu/"

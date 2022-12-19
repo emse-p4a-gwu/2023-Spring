@@ -1,0 +1,15 @@
+Prisoners in 2019    NCJ 255115
+
+The full report including text
+and graphics in pdf format is available from: https://www.bjs.gov/index.cfm?ty=pbdetail&iid=7106
+
+p19t02.csv		Table 2. Prisoners under jurisdiction of state or federal correctional authorities, by jurisdiction and sex, 2018 and 2019
+
+Found here:
+https://www.bjs.gov/index.cfm?ty=tp&tid=131
+
+Link to raw zip file here:
+https://www.bjs.gov/content/pub/sheets/p19.zip
+
+statePop.csv from here:
+https://www2.census.gov/programs-surveys/popest/datasets/2010-2019/state/detail/

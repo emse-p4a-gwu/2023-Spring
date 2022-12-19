@@ -10,56 +10,172 @@ project:
   resources:
     - "class/"
     - "content/"
+    - "project-mini/"
+    - "project-final/"
     - "rubrics/"
     - "slides/"
     - "data/"
     - "templates/"
 
 website:
-  sidebar:
-    style: "docked"
-    background: "dark"
-    collapse-level: 1
-    search: true
-    contents:
-      - text: "Home"
-        href: index.html
-      - text: "Syllabus"
-        icon: fa fa-map
-        href: syllabus.html
+  title: EMSE 4572
+  image: images/logo.png
+  site-url: https://eda.seas.gwu.edu/2022-Fall/
+  favicon: images/favicon.ico
+  repo-url: https://github.com/emse-eda-gwu/2022-Fall
+  repo-actions: [edit, issue]
+  description: 'Course website for Fall 2022 semester of the EMSE course "Exploratory Data Analysis" at GWU'
+  search:
+    location: navbar
+    type: overlay
+    copy-button: true
+  open-graph:
+    locale: es_ES
+    site-name: https://eda.seas.gwu.edu/
+  twitter-card:
+    creator: "@johnhelveston"
+    site: "@johnhelveston"
+    image: "images/logo-square.png"
+    card-style: summary
+  navbar:
+    background: primary
+    left:
+      - text: Home
+        href: index.qmd
+      - text: Syllabus
+        href: syllabus.qmd
       - text: "Schedule"
-        icon: fa fa-calendar-alt
-        href: schedule.html
-      - section: "Class"
-        contents:
-          - index.qmd
-      - section: "Assignments"
-        contents:
-          - layout.qmd
-      - section: "Readings"
-        contents:
-          - layout.qmd
-      - section: "References"
-        contents:
-          - layout.qmd
-      - section: "Help"
-        contents:
-          - layout.qmd
-      - section: "About"
-        contents:
-          - text: "About"
-            icon: fa fa-info-circle
-            href: about.html
-          - text: "License"
-            icon: fa fa-gavel
-            href: LICENSE.html
-          - text: "Contact"
-            icon: fa fa-envelope
-            href: mailto:jph@gwu.edu
-          - text: "Source files"
-            icon: fa fa-github
-            href: https://github.com/emse-p4a-gwu/2022-Spring/
-      
+        href: schedule.qmd
+      - text: Class
+        menu:
+        - text: "Aug 31: Getting Started"
+          href: class/1-getting-started.qmd
+        - text: "Sep 07: Tidy Data"
+          href: class/2-tidy-data.qmd
+        - text: "Sep 14: Cleaning Data"
+          href: class/3-cleaning-data.qmd
+        - text: "Sep 21: Centrality & Variability"
+          href: class/4-centrality-variability.qmd
+        - text: "Sep 28: Correlation"
+          href: class/5-correlation.qmd
+        - text: "Oct 05: Visualizing Information"
+          href: class/6-visualizing-information.qmd
+        - text: "Oct 12: Amounts & Proportions"
+          href: class/7-amounts-proportions.qmd
+        - text: "Oct 19: Comparisons"
+          href: class/8-comparisons.qmd
+        - text: "Oct 26: Trends"
+          href: class/9-trends.qmd
+        - text: "Nov 02: Polishing Charts"
+          href: class/10-polishing-charts.qmd
+        - text: "Nov 09: Maps"
+          href: class/11-maps.qmd
+        - text: "Nov 16: Interactive Charts"
+          href: class/12-interactive-charts.qmd
+        - text: "Nov 23: Thanksgiving - no class"
+        - text: "Nov 30: Shiny Apps"
+          href: class/13-shiny-apps.qmd
+        - text: "Dec 07: Communicating Results"
+          href: class/14-communicating-results.qmd
+        - text: "Dec 14: Final Presentations"
+        - text: "Final Interviews"
+          href: class/interviews.qmd
+      - text: "Assignments"
+        menu:
+        - text: "Course Primer (optional)"
+          href: hw/0-course-primer.qmd
+        - text: "Aug 31: Tidy Data (Due Sep 06)"
+          href: hw/1-tidy-data.qmd
+        - text: "Sep 07: Cleaning Data (Due Sep 13)"
+          href: hw/2-cleaning-data.qmd
+        - text: "Sep 14: Centrality & Variability (Due Sep 20)"
+          href: hw/3-centrality-variability.qmd
+        - text: "Sep 21: Correlation (Due Sep 27)"
+          href: hw/4-correlation.qmd
+        - text: "Sep 28: Visualizing Information (Due Oct 04)"
+          href: hw/5-visualizing-information.qmd
+        - text: "Oct 05: Amounts & Proportions (Due Oct 11)"
+          href: hw/6-amounts-proportions.qmd
+        - text: "Oct 12: Comparisons (Due Oct 18)"
+          href: hw/7-comparisons.qmd
+        - text: "Oct 19: Trends (Due Oct 25)"
+          href: hw/8-trends.qmd
+        - text: "Oct 26: Polishing Charts (Due Nov 01)"
+          href: hw/9-polishing-charts.qmd
+        - text: "Nov 02: Maps (Due Nov 08)"
+          href: hw/10-maps.qmd
+        - text: "Nov 09: Interactive Charts (Due Nov 15)"
+          href: hw/11-interactive-charts.qmd
+        - text: "Nov 30: Communicating Results (Due Dec 06)"
+          href: hw/12-communicating-results.qmd
+      - text: "Mini Projects"
+        menu:
+        - text: "Data Cleaning (Due Sep 27)"
+          href: project-mini/1-data-cleaning.qmd
+        - text: "Exploring Data (Due Oct 18)"
+          href: project-mini/2-exploring-data.qmd
+        - text: "Re-design (Due Nov 15)"
+          href: project-mini/3-re-design.qmd
+      - text: "Final Project"
+        menu:
+        - text: "Project Overview"
+          href: project-final/0-overview.qmd
+        - text: Proposal (Due Oct 04)
+          href: project-final/1-proposal.qmd
+        - text: Progress Report (Due Nov 01)
+          href: project-final/2-progress-report.qmd
+        - text: Final Report (Due Dec 11)
+          href: project-final/3-final-report.qmd
+        - text: Final Presentation (Due Dec 13)
+          href: project-final/4-final-presentation.qmd
+      - text: Help
+        menu:
+        - text: Schedule a call w/Prof. Helveston
+          icon: person
+          href: https://jhelvy.appointlet.com/b/professor-helveston
+        - text: Example Projects
+          icon: file-earmark-medical
+          href: help/example-projects.qmd
+        - text: Finding Data
+          icon: search
+          href: help/finding-data.qmd
+        - text: Course Software
+          icon: hdd
+          href: help/course-software.qmd
+        - text: Getting Help
+          icon: question-circle
+          href: help/getting-help.qmd
+        - text: Visualizing Data
+          icon: bar-chart
+          href: help/visualizing-data.qmd
+        - text: Programming in R
+          icon: terminal
+          href: help/programming.qmd
+        - text: R Markdown
+          icon: pen
+          href: help/rmarkdown.qmd
+        - text: Other
+          icon: chevron-expand
+          href: help/other.qmd
+      - icon: slack
+        href: https://emse-eda-f22.slack.com
+      - text: Showcase
+        href: https://eda.seas.gwu.edu/showcase-2022-fall.html
+    right:
+    - icon: list
+      menu:
+      - text: About
+        icon: question-circle
+        href: about.qmd
+      - text: License
+        icon: award
+        href: LICENSE.qmd
+      - text: Contact
+        icon: envelope
+        href: mailto:jph@gwu.edu
+      - text: Source files
+        icon: github
+        href: https://github.com/emse-eda-gwu/2022-Fall
   page-footer:
     center:
       - text: '© 2022 John Paul Helveston <a href="LICENSE.html"><i class="fab fa-creative-commons"></i><i class="fab fa-creative-commons-by"></i><i class="fab fa-creative-commons-sa"></i></a><br><i class="far fa-calendar-alt"></i> {{< var weekday >}} | <i class="far fa-clock"></i> {{< var time >}} | <a href="{{< var room_url >}}"><i class="fa fa-map-marker-alt"></i> {{< var room >}}</a> | <a href="https://www.jhelvy.com"><i class="fas fa-user"></i> Dr. John Paul Helveston</a> | <a href="mailto:{{< var email >}}"><i class="fas fa-envelope"></i> {{< var email >}}</a> | <a href="{{< var repo >}}"><i class="fab fa-github"></i></a>'

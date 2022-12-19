@@ -1,27 +1,52 @@
 Type: Website
-Package: emseeda
-Title: Exploratory Data Analysis
-Version: 0.1.0
+Package: emsep4a
+Title: EMSE 4571 - Intro to Programming for Analytics, Spring 2022
+Version: 1.0
+Maintainer: John Helveston <jph@gwu.edu>
+Author: John Helveston <jph@gwu.edu>
 Authors@R: c(
-    person(given   = "John",
-           family  = "Helveston",
-           role    = c("aut", "cre", "cph"),
-           email   = "john.helveston@gmail.com",
-           comment = c(ORCID = "0000-0002-2657-9191")))
-Depends: R (>= 4.0.2)
+    person("John", "Helveston", email = "jph@gwu.edu", role = c("aut", "cre")),
+    )
+Depends: R (>= 3.4.0)
 License: CC-BY-SA
 Encoding: UTF-8
 Imports:
+    countdown,
     cowplot,
+    DAAG,
+    devtools,
+    dslabs,
+    emo,
+    fastDummies,
     fontawesome,
-    here,
+    gapminder,
     ggrepel,
+    ggthemes,
     gsheet,
+    here,
+    hrbrthemes,
+    janitor,
     kableExtra,
     knitr,
-    quarto,
+    logitr,
+    metathis,
+    nycflights13,
+    palmerpenguins,
+    remotes,
+    reticulate,
     rmarkdown,
-    rvest,
+    roxygen2,
     tidyverse,
+    TurtleGraphics,
+    viridis,
     xaringanExtra,
-    viridis
+    wikifacts,
+    yaml
+Remotes:
+    allisonhorst/palmerpenguins,
+    rstudio/fontawesome,
+    haozhu233/kableExtra,
+    hadley/emo,
+    hrbrmstr/hrbrthemes,
+    jrnold/ggthemes,
+    gadenbuie/xaringanExtra
