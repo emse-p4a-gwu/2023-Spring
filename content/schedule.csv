@@ -1,0 +1,23 @@
+week,date,quiz,quiz_coverage,n_class,stub_class,name_class,description_class,n_assign,stub_assign,name_assign,due_assign,name_reading
+1,2023/01/19,,,1,getting-started,Getting Started,"Class orientation, intro to R, workflow, problem solving",1,getting-started,Getting Started,2023/01/25,"Getting Started
+Operations & Data Types
+Functions & Packages"
+2,2023/01/26,1,Week 1,2,functions-packages,Functions & Packages,"Functions, arguments, installing external packages",2,functions-packages,Functions & Packages,2023/02/01,Creating Functions
+3,2023/02/02,2,Weeks 1 - 2,3,creating-functions,Creating Functions,"Defining your own functions, top-down structure",3,creating-functions,Creating Functions,2023/02/08,"Conditionals
+Testing & Debugging"
+4,2023/02/09,,,4,conditionals-testing,Conditionals & Testing,"If / else statements, writing unit tests",4,conditionals-testing,Conditionals & Testing,2023/02/15,Iteration
+5,2023/02/16,3,Weeks 3 - 4,5,iteration,Iteration,Ins and outs of loops,5,iteration,Iteration,2023/02/22,Vectors
+6,2023/02/23,,,6,vectors,Vectors,Creating and slicing collections of values,6,vectors,Vectors,2023/03/01,Strings
+7,2023/03/02,4,Weeks 5 - 6,7,strings,Strings,All things between quotes,7,strings,Strings,2023/03/08,
+9,2023/03/09,,,8,midterm,Midterm,,,,,,
+8,2023/03/16,,,,spring-break,Spring Break,No class,,,,,
+10,2023/03/23,,,9,data-frames,Data Frames,Rows and columns of data,8,data-frames,Data Frames,2023/03/29,"Data Analysis
+Data Frames
+Data Wrangling"
+11,2023/03/30,,,10,data-wrangling,Data Wrangling,Modifying data frames,9,data-wrangling,Data Wrangling,2023/04/05,Data Visualization
+12,2023/04/06,5,Weeks 9 - 10,11,data-visualization,Data Visualization,Visualizing your data,10,data-visualization,Data Visualization,2023/04/12,Monte Carlo Methods
+13,2023/04/13,,,12,monte-carlo-methods,Monte Carlo Methods,Using simulation to solve problems,11,monte-carlo-methods,Monte Carlo Methods,2023/04/19,Webscraping
+14,2023/04/20,6,Week 12,13,webscraping,Webscraping,Collecting data embedded in web pages,12,webscraping,Webscraping,2023/04/26,Python
+15,2023/04/27,,,14,python-in-r,Python in R,"Python basics, and using python in R",,,,,
+16,2023/05/04,,,,,Reading Day,,,,,,
+17,2023/05/11,,,,,Final Exam,Don't panic!,,,,,
