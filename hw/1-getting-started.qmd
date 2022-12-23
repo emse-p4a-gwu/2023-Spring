@@ -1,0 +1,22 @@
+---
+title: "Homework 1 - Getting Started"
+params:
+  number: 1
+  purpose: |
+    The purposes of this assignment are to:
+    >
+    > - Make sure you understand what you need to do to succeed in this class
+    > - Make sure you have properly set up the software and tools we will use this semester
+    > - Get started practicing basic concepts with R.
+    >
+    > **Skills & Knowledge**: After completing these exercises, you should:
+    >
+    > - Be familiar with the main course tools: Slack, R, and RStudio.
+    > - Be familiar how to use R projects to stay organized.
+    > - Be able to use R to create and store values as objects with meaningful names.
+    > - Know how to compare values in R.
+    > - Know how to use arithmetic, relational, and logical operators in R.
+    > - Know the distinctions between how R handles different types of data types (numbers, strings, & logicals).
+---
+
+Coming soon!

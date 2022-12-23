@@ -1,18 +1,24 @@
-```{r echo=FALSE}
-library(tidyverse)
-library(fontawesome)
+```{r}
+#| echo: false
+#| message: false
+#| warning: false
 
-due <- get_schedule() %>%
-  filter(assign_n == params$number) %>%
-  pull(assign_due_md) %>%
+library(tidyverse)
+
+due <- read_csv(here::here('content', 'schedule.csv')) %>%
+  filter(n_assign == params$number) %>%
+  mutate(due_assign = format(due_assign, format = "%b %d")) %>%
+  pull(due_assign) %>%
   paste0(" by 11:59pm")
 
 url_template <- paste0(
-  'https://eda.seas.gwu.edu/2023-Fall/templates/hw',
+  'https://p4a.seas.gwu.edu/2023-Spring/templates/hw',
   params$number, '.zip')
 ```
 
 > **Due**: `r due`
+>
+> **Submission Instructions**: Create a zip file of all the files in your R project folder for this assignment, then submit your zip file on the corresponding assignment submission on Blackboard.
 >
 > **Weight**: This assignment is worth 5% of your final grade.
 >

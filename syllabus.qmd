@@ -4,8 +4,9 @@ toc: true
 toc-location: right
 ---
 
-```{r setup, echo=FALSE, message=FALSE, warning=FALSE}
-source(here::here("R", "settings.R"))
+```{r}
+#| echo: false
+source("_common.R")
 ```
 
 # Course Information
@@ -24,9 +25,11 @@ Instructor | Course
 
 Please help us all stay safe so we can continue having in-person classes. Please wear a mask in class, and wash your hands often. If you're sick, stay home and send me a message, we'll work it out. Let's work together on this folks.
 
-# Remote attendance / class recording
+# Attendance expectations
 
-You should plan to attend class in person. I will only open a zoom for virtual attendance on an individual case-by-case basis for specific excusable absences (e.g. illness, family matters, etc.). Lectures will **not** be recorded. In-person attendance is critical as we will spend a lot of time working on problems and writing code during class. If you have any questions or need special accommodations, send me a message on slack and we can discuss.
+In-person attendance is critical as we will spend a lot of time working on problems and writing code during class. You should plan to attend class in person each week. Attendance will be taken and will be part of your participation grade.
+
+There will be no option for remote attendance (e.g. zoom), and class sessions will not be recorded. If you have any questions or need special accommodations, send me a message on slack and we can discuss.
 
 # Course Description
 
@@ -135,7 +138,14 @@ Final Interview                | 10 %   | Individual interview
 
 Here's a visual breakdown by category:
 
-```{r grade-breakdown, echo=FALSE, fig.height=3, fig.align='left'}
+```{r}
+#| echo: false
+#| fig.height: 3
+#| fig.align: 'left'
+
+library(dplyr)
+library(forcats)
+library(cowplot)
 library(viridis)
 library(ggrepel)
 

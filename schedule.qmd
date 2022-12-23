@@ -1,69 +1,124 @@
----
-title: Course Schedule
----
+# Course Schedule
 
-```{r setup, echo=FALSE, message=FALSE, warning=FALSE}
-source(here::here("R", "settings.R"))
-```
-
-```{r echo=FALSE}
-# Setup some common values
-fa <- list(
-  assignment = '<i class="fas fa-book-reader"></i>',
-  class      = '<i class="fas fa-laptop-code"></i>',
-  project    = '<i class="fas fa-pencil-ruler"></i>'
-)
-
-# Make the schedule data frame
-schedule <- get_schedule() %>% 
-  mutate(
-    # Build links
-    class = ifelse(
-      is.na(class_stub), paste0("<b>", class_name, "</b>"),
-        paste0(
-          '<a href="class/', class_stub, '.html">',
-          fa$class, '</a><b> ', class_name, "</b><br> ", class_description)),
-    assignments = ifelse(is.na(assign_due), NA, 
-      paste0(
-        '<a href="hw/', assign_stub, '.html">',
-        fa$assignment, '</a><b> ', assign_name, "</b><br>Due: ", assign_due_md)),
-    mini = ifelse(
-      is.na(mini_name), NA,
-      paste0(
-        '<a href="project-mini/', mini_stub, '.html">',
-        fa$project, '</a><b> ', mini_name, "</b><br>Due: ", mini_due_md)),
-    final = ifelse(
-      is.na(final_name), NA,
-      paste0(
-        '<a href="project-final/', final_stub, '.html">',
-        fa$project, '</a><b> ', final_name, "</b><br>Due: ", final_due_md))
-  )
-
-# Set highlighting based on current week
-highlight <- which(Sys.Date() > schedule$date)
-```
+All assignments are due by 11:59pm on the due date.
 
 :::{.column-page}
 
+```{r}
+#| echo: false
+#| message: false
 
-```{r echo=FALSE}
+source("_common.R")
+
+library(kableExtra)
+library(tidyverse)
+
+# Icons
+fa <- list(
+  class      = '<i class="fas fa-laptop-code"></i>',
+  assignment = '<i class="fas fa-pencil-ruler"></i>',
+  reading    = '<i class="fas fa-book"></i>'
+)
+
+schedule_raw <- read_csv(here::here('content', 'schedule.csv'))
+
+# Quiz vars
+quiz <- schedule_raw %>%
+    mutate(
+        quiz = ifelse(
+            is.na(quiz), 
+            "", 
+            paste0('Quiz ', quiz, ":<br><em>", quiz_coverage, "</em>"))
+    ) %>% 
+    select(week, quiz)
+
+# Weekly assignment vars
+assignments <- schedule_raw %>% 
+    filter(!is.na(name_assign)) %>% 
+    mutate(
+        due_assign = format(due_assign, format = "%b %d"),
+        assignments = ifelse(
+            is.na(due_assign), 
+            NA, 
+            paste0(
+                '<a href="hw/', n_assign, "-", stub_assign, '.html">',
+                fa$assignment, '</a><b> ', name_assign, 
+                "</b><br>Due: ", due_assign))
+    ) %>% 
+    select(week, assignments)
+
+# Class vars
+class <- schedule_raw %>%
+    mutate(
+        description_class = ifelse(
+            is.na(description_class), 
+            "", 
+            description_class),
+        class = ifelse(
+            is.na(stub_class), 
+            paste0("<b>", name_class, "</b>"),
+            paste0(
+                '<a href="class/', n_class, "-", stub_class, '.html">',
+                fa$class, '</a><b> ', name_class, "</b><br> ", 
+                description_class)),
+    ) %>% 
+    select(week, class)
+
+# Reading vars
+reading <- schedule_raw %>% 
+    select(week, ends_with("_reading")) %>% 
+    filter(!is.na(name_reading)) %>% 
+    rename(name = name_reading, stub = stub_reading) %>% 
+    mutate(
+        name = str_split(name, '\n'),
+        stub = str_split(stub, '\n')
+    )
+
+# Fix reading names
+reading_root <- 'https://p4a.jhelvy.com/'
+reading$readings <- ""
+for (i in 1:nrow(reading)) {
+  name <- reading[i,]$name[[1]]
+  if ('' %in% name) {
+    result <- ''
+  } else {
+      stub <- reading[i,]$stub[[1]]
+      result <- paste0(
+          '<a href=', reading_root, stub ,'.html target="_blank">',
+          fa$reading, '</a> ', name)
+      result <- paste(result, collapse = '<br>')
+      
+  }
+  reading$readings[i] <- result
+}
+reading$name <- NULL
+reading$stub <- NULL
+
+# Final schedule data frame
+schedule <- schedule_raw %>% 
+    select(week, date) %>% 
+    mutate(date_md = format(date, format = "%b %d")) %>% 
+    left_join(quiz, by = "week") %>% 
+    left_join(class, by = "week") %>% 
+    left_join(assignments, by = "week") %>% 
+    left_join(reading, by = "week")
+
+# Set highlighting based on current week
+highlight <- which(Sys.Date() > schedule$date)
+
 # Make the final schedule
 names(schedule) <- str_to_title(names(schedule))
 schedule %>%
-  rename(
-      `Mini Projects` = Mini,
-      `Final Projects` = Final,
-      `Weekly HW` = Assignments
-  ) %>%
   select(
-      Week, Date = Date_md, Class, `Weekly HW`, `Mini Projects`,
-      `Final Projects`
+      Week, Date = Date_md, Quiz, Class, Assignments, Readings
   ) %>%
   kable(format = 'html', escape = FALSE,
         align = c('c', 'c', 'l', 'l', 'l', 'l')) %>%
   kable_styling(full_width = F, bootstrap_options = c("striped", "hover")) %>%
-  column_spec(column = 3, width = '19em') %>%
-  row_spec(highlight, background = "#e1e1e1") 
+  column_spec(column = 2, width = '2em') %>%
+  column_spec(column = 4, width = '20em') %>% 
+  column_spec(column = 5, width = '9em') %>% 
+  row_spec(highlight, background = "#e1e1e1")
 ```
 
 :::
