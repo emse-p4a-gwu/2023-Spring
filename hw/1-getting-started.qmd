@@ -19,4 +19,104 @@ params:
     > - Know the distinctions between how R handles different types of data types (numbers, strings, & logicals).
 ---
 
-Coming soon!
+```{r}
+#| echo: false
+source(here::here('_common.R'))
+```
+
+```{r child = here::here("fragments", "hw.qmd")}
+```
+
+### Readings
+
+```{r child = here::here("fragments", "readings.qmd")}
+```
+
+### 1) Class setup [SOLO, 10%]
+
+For this class, you'll need to install some software and register for some tools. You should have already done this, but in case you haven't,go to the [course software](ref-course-software.html) page to get setup.
+
+Once you have joined the [class slack]({{< var slack >}}), make a post to the `#welcome` channel introducing yourself - provide your name, year / program, and something interesting about yourself.
+
+### 2) Getting familiar with the course [SOLO, 10%]
+
+Follow [Snoop's advice](https://www.youtube.com/watch?v=Tnlaokj1opA) and read the entire [Course Syllabus](syllabus.html) (actually read the whole thing). Then review the [schedule](schedule.html) and make sure to note important upcoming deadlines.
+
+### 3) Staying organized [SOLO, 10%]
+
+Open RStudio and create a new R project called "hw1" (see the [reading](r1.1-getting-started.html#RStudio_projects) for details on how to do this). Within your project, create a new R _script_ (a ".R" file) and save it as "hw1-netID.R", replacing "netID" with your netID (e.g., "hw1-jph.R"). When you save it, it should show up in the R project folder you just created. Finally, copy the following code to the top of this script and fill out your name, netID, and the names of anyone you worked with on this assignment (your netID is the part of your email address before `"@gwu.edu"`):
+
+```{r eval=FALSE}
+# Name:  Last, First
+# netID: Insert your netID here
+
+# I worked with the following classmates on this assignment:
+# 1) Name: Last, First
+# 2) Name: Last, First
+```
+
+Write your responses to all other questions in this assignment in your R file.
+
+### 4) Objects & Operators: Converting Time [COLLABORATIVE, 20%]
+
+Create objects to store each of the following two values - be sure to use [meaningful variable names](r1.1-getting-started.html#Use_meaningful_variable_names) when creating your objects:
+
+- The number of seconds in a minute
+- The number of minutes in an hour
+- The number of hours in a day
+- The number of days in a typical year (not a leap year)
+
+Now, say you have another object called `time_in_seconds` that contains an integer number of seconds (for example, `time_in_seconds <- 8675309`). Write code to convert the value stored in `time_in_seconds` into the units described below. Your solution may only use arithmetic operators and the objects you created (i.e. you may **not** use any numbers). You may also use the new objects you create in sequential order. For example, you may use the object created in part a) to create the object in part b), and so on.
+
+a) The value of `time_in_seconds` in minutes
+b) The value of `time_in_seconds` in hours
+c) The value of `time_in_seconds` in days
+d) The value of `time_in_seconds` in years
+
+### 5) Logical and relational operators  [SOLO, 20%]
+
+Consider the following objects:
+
+```{r}
+w <- FALSE
+x <- TRUE
+y <- FALSE
+z <- TRUE
+```
+
+Write code to answer the following questions:
+
+a) Write a statement with _logical_ operators that compares the objects `x`, `y`, and `z` and returns `TRUE`
+b) Write a statement with _logical_ operators that compares the objects `x`, `y`, and `z` and returns `FALSE`
+c) Fill in _relational_ operators to make the following statement return `TRUE`:
+
+`! (x __ y) & ! (z __ y)`
+
+d) Fill in _relational_ operators to make this statement return `FALSE`:
+
+`! (w __ y) | (z __ y)`
+
+### 6) Data types [COLLABORATIVE, 20%]
+
+Consider the following objects:
+
+```{r}
+number    <- typeof('3')
+character <- typeof(7)
+false     <- typeof("FALSE")
+true      <- typeof(TRUE)
+```
+
+Write code to answer the following questions:
+
+a) Write a statement with both _relational_ & _logical_ operators that compares the four objects `number`, `character`, `false`, and `true` and returns `TRUE`.
+b) Write a statement with both _relational_ & _logical_ operators that compares the four objects `number`, `character`, `false`, and `true` and returns `FALSE`.
+
+### 7) Read and reflect [SOLO, 10%]
+
+```{r child = here::here("fragments", "reflection.qmd")}
+```
+
+### Submit
+
+Instructions for how to submit your assignment are at the [top of this page]().

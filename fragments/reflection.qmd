@@ -1,0 +1,18 @@
+Read and reflect on the following readings to preview what we will cover in class next week:
+
+<blockquote class="blockquote">
+
+```{r}
+#| echo: false
+#| message: false
+#| results: asis
+
+schedule %>%
+    filter(week == (params$number + 1)) %>%
+    pull(readings) %>%
+    htmltools::HTML()
+```
+
+</blockquote>
+
+Afterwards, in a comment (`#`) in your .R file, write a short reflection on what you've learned and any questions or points of confusion you have about what we've covered thus far. This can just few a few sentences related to this assignment, next week's readings, things going on in the world that remind you something from class, etc. If there's anything that jumped out at you, write it down.

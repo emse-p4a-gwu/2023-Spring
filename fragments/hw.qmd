@@ -5,7 +5,9 @@
 
 library(tidyverse)
 
-due <- read_csv(here::here('content', 'schedule.csv')) %>%
+schedule <- get_schedule()
+
+due <- schedule %>%
   filter(n_assign == params$number) %>%
   mutate(due_assign = format(due_assign, format = "%b %d")) %>%
   pull(due_assign) %>%
