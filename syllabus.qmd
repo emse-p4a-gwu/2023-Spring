@@ -21,23 +21,7 @@ Instructor | Course
 <i class="fab fa-twitter"></i> [\@JohnHelveston](https://twitter.com/JohnHelveston) | <i class="fab fa-slack"></i> [Slack]({{< var slack >}}){target="_blank"}
 </div>
 
-# COVID-19 Precautions
-
-Please help us all stay safe so we can continue having in-person classes. Please wear a mask in class, and wash your hands often. If you're sick, stay home and send me a message, we'll work it out. Let's work together on this folks.
-
-# Attendance expectations
-
-In-person attendance is critical as we will spend a lot of time working on problems and writing code during class. You should plan to attend class in person each week. Attendance will be taken and will be part of your participation grade.
-
-There will be no option for remote attendance (e.g. zoom), and class sessions will not be recorded. If you have any questions or need special accommodations, send me a message on slack and we can discuss.
-
-# Course Description
-
-## GW Bulletin Description (short)
-
-Introduction to exploratory data analysis using the [R programming language](https://www.r-project.org/); data visualization, data cleaning, exploratory analysis, information communication, rmarkdown, reproducibility.
-
-## Unofficial Description
+## Course Description
 
 ```{r child = here::here("fragments", "description.qmd")}
 ```
@@ -52,7 +36,7 @@ Introduction to exploratory data analysis using the [R programming language](htt
 ```{r child = here::here("fragments", "learning-objectives.qmd")}
 ```
 
-# Pep Talk!
+## Pep Talk!
 
 Working in and learning a programming language can be as challenging as learning a new spoken language. Hadley Wickham (chief data scientist at RStudio and author of many amazing R packages you'll be using) [made this wise observation](https://r-posts.com/advice-to-young-and-old-programmers-a-conversation-with-hadley-wickham/):
 
@@ -60,7 +44,7 @@ Working in and learning a programming language can be as challenging as learning
 
 If you're finding yourself taking way too long hitting your head against a wall and not understanding, **take a break**, talk to classmates, ask questions in Slack, and try it again later.
 
-**I promise, you can do this**
+**I promise, you can do this!s**
 
 # Required Texts & Materials
 
@@ -74,66 +58,57 @@ Go to the [Course Software](help/course-software.qmd) page for detailed instruct
 - RStudio (Desktop Version), a free IDE for R, which can be downloaded from [RStudio](https://rstudio.com/products/rstudio/download/)
 - We'll be using [Slack]({{< var slack >}}){target="_blank"} for most communication.
 
-## Texts / Other Useful Resources
+## Texts
 
-Each week students will be responsible for completing assigned readings, most of which will come from these three books, which are available both free online and for purchase via the following links:
-
-- Healy, Kieran. "Data Visualization: A practical introduction" [[free online](http://socviz.co/)], [[buy on amazon](https://www.amazon.com/Data-Visualization-Introduction-Kieran-Healy/dp/0691181624)]
-- Grolemund, Garrett and Wickham, Hadley. "R for Data Science" [[free online](https://r4ds.had.co.nz/)], [[buy on amazon](https://www.amazon.com/Data-Science-Transform-Visualize-Model/dp/1491910399)]
-- Wilke, Claus O. "Fundamentals of Data Visualization" [[free online](https://serialmentor.com/dataviz/)], [[buy on amazon](https://www.amazon.com/Fundamentals-Data-Visualization-Informative-Compelling/dp/1492031089)]
+The main textbook we will use for this course is "Programming for Analytics in R", by Professor Helveston. The book is available freely on the web at [https://p4a.jhelvy.com/](https://p4a.jhelvy.com/){target="_blank"}.
 
 # Assignments
 
-## Class Participation
+## Attendance & Participation
 
-Regular class attendance is **essential**. Much of the class time will be spent doing exercises and coding. Multiple absences, inappropriate or unprofessional behavior during class (such as monopolizing discussions or being rude or disruptive), not participating in classroom exercises, and not being prepared for class will result in poor performance in this class.
+In-person attendance is critical as we will spend a lot of time working on problems and writing code during class. You should plan to attend class in person each week. **Attendance will be taken** and will be part of your participation grade.
+
+There will be no option for remote attendance (e.g. zoom), and class sessions will not be recorded. If you have any questions or need special accommodations, send me a message on slack and we can discuss.
+
+Multiple absences, inappropriate or unprofessional behavior during class (such as monopolizing discussions or being rude or disruptive), not participating in classroom exercises, and not being prepared for class will result in a poor score for attendance and participation.
+
+## Homework Assignments
+
+Homework assignments contain a mix of coding exercises and written exercises. They assess the material taught the week(s) they are assigned, and should take several hours to complete. **Start homeworks early**.
+
+Read the [Collaboration Policy](#collaboration-policy) about collaborating with fellow students on homeworks. While most problems must be worked on individually, some will be marked as "collaborative"; on these problems (and _only_ these problems), you may work on code with other students.
+
+Homeworks will be graded based on style (modularity, readability, commenting, etc.) and functionality (correctness on a series of tests). Your code should be properly annotated with comments that are well-placed, concise, and informative. Your assignments will be graded by an automated grader and the instructional team.
+
+## Readings
+
+In addition to weekly homework assignments, students are expected to read through the assigned weekly reading to prepare for the next class. Check the [schedule](schedule.html) for the reading assignments.
 
 ## Quizzes
 
-There will be 5 quizzes given about once every other week immediately at the beginning of class. You will not be told in advance when there is a quiz, and make up quizzes will not be available if you miss it (except for excused absences). Please show up on time to class each week to ensure that you do not miss a quiz.
+There will be 6 quizzes given about once every other week immediately at the beginning of class. You will not be told in advance when there is a quiz, and make up quizzes will not be available if you miss it (except for excused absences). Please show up on time to class each week to ensure that you do not miss a quiz.
 
-Quizzes will cover material presented in previous classes and assignments during the weeks since the most-recent quiz. Quizzes are **short** (5-10 minutes) and are designed to test for fluency and to demonstrate where additional study is needed. **Quizzes are low-stakes** - your worst one is dropped, and the rest count for a small portion of your final grade. If you do poorly on one or two, use that as feedback on where you need additional improvement.
+Quizzes will cover material presented in previous classes and assignments during the weeks since the most-recent quiz. Quizzes are **short** (10 minutes) and are designed to test for fluency and to demonstrate where additional study is needed. **Quizzes are low-stakes** - your worst one is dropped, and the rest count for a small portion of your final grade. If you do poorly on one or two, use that as feedback on where you need additional improvement.
 
 > **Why quiz at all?** Research shows that giving small quizzes throughout a class can dramatically help with *retention*. It's a phenomenon known as the "retrieval effect" - basically, you have to _practice_ remembering things, otherwise your brain won't remember them. The phenomenon and research on it is explained in detail in the book ["Make It Stick: The Science of Successful Learning,"](https://www.hup.harvard.edu/catalog.php?isbn=9780674729018) by Brown, Roediger, and McDaniel.
 
-## Homework
+## Exams
 
-Students will be responsible for two types of assignments throughout the semester:
-
-- **Weekly Assignments**: Each week, students will be assigned specific readings and exercises to prepare for the next class period. Students will need to submit responses that include a thoughtful reflection on these concepts each week.
-- **Mini Projects**: There will be three mini projects throughout the semester designed to provide hands-on experience with the material covered in class by working with and exploring real data sets and / or creating visualizations. While students may work with their peers on these assignments, each student must submit their own work. Credit for each assignment will be allocated according to a rubric provided in the assignment description.
-
-## Final Project
-
-Throughout the semester, students will work in teams of 2-3 students towards a final project of an exploratory data analysis. At the end of the semester, each student will submit a report of their analysis in the form of an html web page and create a 5 to 10-minute video presentation of their results. To make the overall project more manageable, it will be broken down into several separate "milestone" deliverables due throughout the semester, including a proposal, progress report, presentation video, and final report.
-
-View the [final project overview](project-final/0-overview.qmd) page for more details.
-
-## Final Interview
-
-Rather than have a final exam, each student will have a 10-minute interview by the instructor. The interview will be focused on the final project the student worked and will contain questions related to concepts covered during the course. Students will be provided a list of questions and the grading rubric ahead of the interview.
+There will be one midterm exam covering the first 6 weeks of class, and a standard final exam during the final exam period at the end of the semester covering material from the entire semester. See the [schedule](schedule.html) for details.
 
 # Grading
 
-## Category Breakdown
+## Standard Grading
 
 Final grades will be calculated as follows:
 
-<div style="width:550px">
-
-Item                           | Weight | Notes
--------------------------------|--------|-------------------------------------
-Weekly HW                      | 12 %   |
-Quizzes                        | 8 %    | 5 quizzes, lowest dropped
-Mini Project 1                 | 8 %    | Individual assignments
-Mini Project 2                 | 8 %    |
-Mini Project 3                 | 8 %    |
-Final Project: Proposal        | 9 %    | Teams of 2-3 students
-Final Project: Progress Report | 12 %   |
-Final Project: Report          | 16 %   |
-Final Project: Presentation    | 9 %    |
-Final Interview                | 10 %   | Individual interview
-
+<div style="width:500px">
+Component                  | Weight | Notes
+---------------------------|--------|----------------
+Homeworks & Readings (12x) | 55%    | Lowest 1 dropped
+Quizzes (7x)               | 15%    | Lowest 2 dropped
+Midterm Exam               | 10%    |
+Final Exam                 | 20%    |
 </div>
 
 Here's a visual breakdown by category:
@@ -143,32 +118,26 @@ Here's a visual breakdown by category:
 #| fig.height: 3
 #| fig.align: 'left'
 
-library(dplyr)
-library(forcats)
+library(tidyverse)
 library(cowplot)
 library(viridis)
 library(ggrepel)
 
-df <- data.frame(
+data.frame(
     category = c(
-      'Weekly HW', 'Quizzes', 'Mini Projects', 'Final Project',  'Interview'),
-    percent = c(6, 12, 27, 45, 10)) %>%
+      'Homeworks & Readings', 'Quizzes', 'Midterm', 'Final'),
+    percent = c(55, 15, 10, 20)) %>%
     arrange(desc(percent)) %>%
     mutate(
       cumpercent = cumsum(percent),
       label_y = cumpercent - (percent / 2),
-      category = fct_reorder(category, percent))
-
-ggplot(df) +
-    geom_col(aes(x = "", y = percent, fill = category),
-             width = 1.1, alpha = 0.8) +
-    geom_label(data = filter(df, category %in% c(
-               'Mini Projects', 'Final Project')),
-               aes(x = "", y = label_y, label = category)) +
-    geom_label_repel(data = filter(df, category %in% c(
-                     'Quizzes', 'Interview', 'Weekly HW')),
-                     aes(x = "", y = label_y, label = category),
-                     direction = 'y', label.padding = 0.25, segment.size = 0) +
+      category = fct_reorder(category, percent)) %>% 
+    ggplot() +
+    geom_col(
+      aes(x = "", y = percent, fill = category),
+      width = 1.1, alpha = 0.8) +
+    geom_label(
+      aes(x = "", y = label_y, label = category)) +
     coord_flip() +
     scale_y_continuous(expand = expansion(mult = c(0, 0.05))) +
     scale_fill_viridis(discrete = TRUE) +
@@ -177,9 +146,30 @@ ggplot(df) +
     labs(y = 'Percent of final grade', x = NULL)
 ```
 
+## AMG Grading
+
+An Alternative Minimum Grading (AMG) policy is available to everybody, but is designed specifically for students who struggle in the first part of the course, and then through sustained hard work and dedication manage to elevate their performance in the latter part of the course to a level that merits passing with a C (even if their Standard Grade might be lower than that).
+
+Student cannot "sign up" for AMG grading. Every student will be considered both for Standard Grading and AMG, and the instructor can choose to assign the AMG grade if a student's effort merits it. To qualify for AMG you must put forth sustained effort, which means meeting the following requirements:
+
+- You attend all class periods (with excused exceptions)
+- You complete all assignments
+- You do not violate the Collaboration Policy
+
+To compute your AMG score, first use the following to compute your raw score. If the resulting score is higher than a C, set it back to a C.
+
+<div style="width:300px">
+Course Component   | Weight
+-------------------|----
+Best 10 Homeworks  | 40%
+Best 4 Quizzes     | 10%
+Midterm Exam       | 10%
+Final Exam         | 40%
+</div>
+
 ## Grading Scale
 
-<div style="width:400px">
+<div style="width:350px">
 Grade  | Range       | Grade | Range
 -------|-------------|-------|------------
 A      | 94 - 100%   | C     | 74 - 76.99%
@@ -214,7 +204,7 @@ All course communication will be managed through [Slack]({{< var slack >}}){targ
 
 You can post questions on slack and receive quick responses. This also enables other students to see answers to common questions. Be specific - if your code has an error you don't understand, **include the code and the error message** in your question.
 
-## Office hours
+## Schedule a call with Professor Helveston
 
 Scheduling a time to answer questions is hard, so rather than hold regular office hours, you can use [this link](https://jhelvy.appointlet.com/b/professor-helveston) to schedule a zoom call with me most days of the week.
 
@@ -230,15 +220,44 @@ While the University Library is not a stand in for TAs, you can schedule a consu
 
 ## tl;dr
 
-- **BE NICE. BE HONEST. DON'T CHEAT.**
-- You get **5** late days - use them however you want, but you can't use more than **2** late days on any one assignment.
-- If you're not sure about something, talk with me and we'll figure it out.
+- BE NICE
+- BE ON TIME
+- BE HONEST
+- DON'T CHEAT
 
 ## Late Policy
 
-Each students is allowed **5** late homework submission days - use them however you want, no questions asked. **No more than 2 days can be applied toward a single assignment**. Late days are meant to cover illness, family emergencies, and religious holidays. Assignments submitted more than 2 days after the due date will not be graded. In extreme circumstances, contact the instructor.
+Assignments are due by 11:59pm on the assigned due date unless specified otherwise. Assignments submitted up to 24 hours past this deadline will be graded to a max of 50% of the available points. Assignments submitted beyond 24 hours past the deadline will not be graded and will be assigned a 0.
 
-## Cheating
+If you need a special accommodation such as due to an illness, family emergency, or religious holidays, contact the instructor ahead of time.
+
+## Collaboration Policy
+
+<!-- This policy is mostly copied from the course 15-112 at Carnegie Mellon University -->
+
+Learning how to program is like learning how to ride a bicycle - to get better, you must practice writing code **yourself**. Therefore, we have a set of strict rules regarding what kind of collaboration is allowed, what counts as over-collaboration, and what counts as cheating.
+
+### Good Collaboratiosn
+
+- Discussing which general concepts might be useful in solving a problem (conditionals, loops, etc.).
+- Asking for debugging help with code.
+- Sketch out algorithms on a whiteboard together.
+- To avoid copying the code, you should write up the solution together, discuss it, then erase the solution, wait a few minutes, and write up solutions individually.
+- Help each other debug specific parts of assignment code.
+- General discussion of course concepts.
+- Detailed explanations of example code on the course website.
+- Collaboratively solving a practice problem, with any level of co-writing code and co-debugging.
+
+### Over-collaboration
+
+Over-collaboration results in a warning on the first offense, and a penalty on later offenses. Examples include:
+
+- Explaining to a friend how to solve a problem in high-level terms by going through your own program line-by-line.
+- Helping a friend debug code by suggesting they use your own approach to the problem.
+- Collaborating with a student on an assignment and then _not_ including their name as a collaborator in the assignment writeup.
+- In the case that you have taken this course before, copying your own code from the previous time you took the course.
+
+### Cheating
 
 Cheating results in a penalty on the first offense, and failing the course on the second offense. Cheating on assignments can include:
 
@@ -249,13 +268,19 @@ Cheating results in a penalty on the first offense, and failing the course on th
 - Putting code solutions from the course assignments online.
 - Receiving code-level assistance from any person not associated with the course.
 - Getting someone else to write the assignment code for you.
-- Asking questions about the assignments on any online services outside of the course office hours / Slack.
+- Asking questions about the assignments on any online services outside of the course office hours / [slack]({{< var slack >}}).
 
 Cheating on quizzes, assignments, or the final project can include:
 
 - Referring to any external resources while completing the assignment (phones, notes, etc.).
 - Copying part of an answer off of another student's paper, even if it is very small.
 - Using solutions provided by students who previously took the course.
+
+### GPT3, chatGPT, and other LLMs
+
+Large language models (LLMs) are capable of producing solutions to coding problems assigned in this class. Copying solutions from these engines and submitting them as your own will be considered cheating. 
+
+Copy-pasting code from a LLM is essentially no different than copying from a solution manual or working with / hiring someone more experienced to write your assignments for you. Doing so robs yourself of the opportunity to learn. Don't do it.  
 
 ### Penalties
 
@@ -266,6 +291,18 @@ Violations will be reported to the [Office of Student Rights & Responsibilities]
 - Automatically failing the course.
 
 Depending on the student's prior academic history, violations may also be accompanied by a letter to the Dean of Student Affairs, again at the instructors' discretion. This can lead to university-level penalties, such as being suspended or expelled.
+
+### Plagiarism Detection
+
+Programs are naturally structured, which makes them **very easy** to compare for plagiarism. Automated plagiarism detection systems make this process even easier. [Watch this video](http://www.kosbie.net/cmu/spring-13/15-112/automated-plagiarism-detector-demo.mp4) showing plagiarism detection software in action (this example is using Python code, but this also works for R code).
+    
+**In short, if you copy code, we will know - don't copy code!**
+
+### Grace Period
+
+College is a time when you do a lot of learning. Sometimes, you might make bad decisions or mistakes. The most important thing for you to do is to learn from your mistakes, to constantly grow, and become a better person.
+
+Sometimes, students panic and copy code right before the deadline, then regret what they did afterwards. Therefore, you may rescind any homework submission for up to 24 hours after the deadline with no questions asked. Simply email the course instructors asking to delete the submission in question, and we will do so. Deleted submissions will not be considered during plagiarism detection, though of course they will also not be graded. However, it will always be better to get a 0 (or partial credit) on an assignment than to get a cheating violation!
 
 ## Children in class
 
@@ -330,19 +367,19 @@ Academic dishonesty is defined as cheating of any kind, including misrepresentin
 
 In addition to the formal code of academic integrity, the instructor expects that students will treat this course with the level of professionalism required in the workplace. Remember that real firms are sponsoring student projects throughout the semester; in a workplace setting, these firms would be paying clients for the analyses being conducted. This course prepares students to succeed in the workplace, and maintaining a high degree of professionalism is expected.
 
-# Super Heros
+# Cute Animals
 
 ::: {.grid}
 
 ::: {.g-col-4}
 
-<img src="images/prof_x.gif" width=100%>
+<img src="images/cute_penguin.gif" width=100%>
 
 :::
 
 ::: {.g-col-8}
 
-Once you have read this entire syllabus and viewed the [course schedule](schedule.qmd), please send me a picture of your favorite super hero in a direct message on Slack.
+Once you have read this entire syllabus and viewed the [course schedule](schedule.qmd), please send me a picture of _cute_ picture of your favorite animal in a direct message on Slack.
 
 For real.
 
@@ -358,6 +395,5 @@ Brownie points if it's animated.
 
 Some content on this page is inspired by and / or modified from other sources:
 
-- The "Pep Talk" and "Super Heros" sections are inspired by Andrew Heiss's course [Program Evaluation For Public Service](https://evalf19.classes.andrewheiss.com/syllabus/)
+- The "Pep Talk" and "Cute Animals" sections are inspired by [Andrew Heiss's courses](https://www.andrewheiss.com/teaching/).
 - The cheating policy is modified from the course [15-112](http://www.kosbie.net/cmu/fall-19/15-112/) at Carnegie Mellon University
-
