@@ -9,7 +9,6 @@ project:
     - "!fragments/"
   resources:
     - "class/"
-    - "content/"
     - "rubrics/"
     - "slides/"
     - "data/"
@@ -23,10 +22,7 @@ website:
   repo-url: https://github.com/emse-p4a-gwu/2023-Spring
   repo-actions: [edit, issue]
   description: 'Course website for Spring 2023 semester of the EMSE course "Intro. to Programming for Analytics" at GWU'
-  search:
-    location: navbar
-    type: overlay
-    copy-button: true
+  search: true
   open-graph:
     locale: es_ES
     site-name: https://p4a.seas.gwu.edu/
@@ -89,7 +85,7 @@ website:
 
 format:
   html:
-    theme: materia
+    theme: cosmo
     css: styles.css
     anchor-sections: true
     smooth-scroll: true

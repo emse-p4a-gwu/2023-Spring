@@ -52,8 +52,8 @@ get_schedule <- function() {
                 NA,
                 paste0(
                     '<a href="hw/', n_assign, "-", stub_assign, '.html">',
-                    fa$assignment, '</a><b> ', name_assign,
-                    "</b><br>Due: ", due_assign))
+                    fa$assignment, ' <b>', name_assign,
+                    "</b></a><br>Due: ", due_assign))
         ) %>%
         select(week, assignments)
 
@@ -69,7 +69,7 @@ get_schedule <- function() {
                 paste0("<b>", name_class, "</b>"),
                 paste0(
                     '<a href="class/', n_class, "-", stub_class, '.html">',
-                    fa$class, '</a><b> ', name_class, "</b><br> ",
+                    fa$class, ' <b>', name_class, "</b></a><br> ",
                     description_class)),
         ) %>%
         select(week, class)
@@ -95,7 +95,7 @@ get_schedule <- function() {
             stub <- reading[i,]$stub[[1]]
             result <- paste0(
                 '<a href=', reading_root, stub ,'.html target="_blank">',
-                fa$reading, '</a> ', name)
+                fa$reading, ' ', name, '</a>')
             result <- paste(result, collapse = '<br>')
 
         }
