@@ -39,26 +39,32 @@ website:
     background: primary
     left:
       - text: Home
+        icon: house-door-fill
         href: index.qmd
       - text: Syllabus
+        icon: map-fill
         href: syllabus.qmd
       - text: Schedule
+        icon: calendar-week-fill
         href: schedule.qmd
       - text: Class
+        icon: person-video3
         menu:
         - text: "Aug 31: Getting Started"
           href: class/1-getting-started.qmd
       - text: "Assignments"
+        icon: pencil-square
         menu:
         - text: "Course Primer (optional)"
           href: hw/0-course-primer.qmd
       - text: Readings
+        icon: book-fill
         menu:
         - text: "Project Overview"
           href: project-final/0-overview.qmd
 
       - text: "References"
-        icon: bookmark
+        icon: bookmark-fill
         menu:
           - text: Course Textbook
             icon: book
@@ -108,7 +114,7 @@ website:
 
 format:
   html:
-    theme: paper
+    theme: materia
     css: styles.css
     anchor-sections: true
     smooth-scroll: true
