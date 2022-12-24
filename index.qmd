@@ -1,6 +1,4 @@
----
-title: "EMSE 4571: Intro Programming for Analytics (Spring 2023)"
----
+# EMSE 4571: Intro Programming for Analytics<br>Spring 2023
 
 ::: {.grid}
 

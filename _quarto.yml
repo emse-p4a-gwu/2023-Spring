@@ -35,9 +35,12 @@ website:
     site: "@johnhelveston"
     image: "images/logo-square.png"
     card-style: summary
-  navbar:
-    background: primary
-    left:
+  sidebar:
+    style: "docked"
+    background: "dark"
+    collapse-level: 1
+    search: true
+    contents:
       - text: Home
         icon: house-door-fill
         href: index.qmd
@@ -47,67 +50,39 @@ website:
       - text: Schedule
         icon: calendar-week-fill
         href: schedule.qmd
-      - text: Class
-        icon: person-video3
-        menu:
-        - text: "Aug 31: Getting Started"
-          href: class/1-getting-started.qmd
-      - text: "Assignments"
-        icon: pencil-square
-        menu:
-        - text: "Course Primer (optional)"
-          href: hw/0-course-primer.qmd
-      - text: Readings
-        icon: book-fill
-        menu:
-        - text: "Project Overview"
-          href: project-final/0-overview.qmd
-
-      - text: "References"
+      - text: Textbook
+        icon: book
+        href: https://p4a.jhelvy.com/
+      - text: Software
+        icon: download
+        href: software.qmd
+      - text: References
         icon: bookmark-fill
-        menu:
-          - text: Course Textbook
-            icon: book
-            href: https://p4a.jhelvy.com/
-          - text: Course Software
-            icon: download
-            href: help/course-software.qmd
-          - text: Visualizing Data
-            icon: bar-chart
-            href: help/visualizing-data.qmd
-          - text: Programming in R
-            icon: terminal
-            href: help/programming.qmd
-          - text: Other
-            icon: chevron-expand
-            href: help/other.qmd
-      - text: Help
-        icon: fas fa-question-circle
-        menu:
-          - text: "Slack"
-            icon: slack
-            href: https://emse-p4a-s23.slack.com
-          - text: "Autograder"
-            icon: list-check
-            href: autograder.html
-          - text: "Schedule a meeting w/Prof. Helveston"
-            icon: clock
-            href: https://jhelvy.appointlet.com/b/professor-helveston
-    right:
-    - icon: list
-      menu:
-      - text: About
+        href: references.qmd
+      - text: Autograder
+        icon: list-check
+        href: autograder.html
+      - text: Slack
+        icon: slack
+        href: https://emse-p4a-s23.slack.com
+      - text: "Schedule a call w/Prof. Helveston"
+        icon: clock
+        href: https://jhelvy.appointlet.com/b/professor-helveston
+      - section: Other
         icon: question-circle
-        href: about.qmd
-      - text: License
-        icon: award
-        href: LICENSE.qmd
-      - text: Contact
-        icon: envelope
-        href: mailto:jph@gwu.edu
-      - text: Source files
-        icon: github
-        href: https://github.com/emse-p4a-gwu/2023-Spring
+        contents:
+          - text: About
+            icon: question-circle
+            href: about.qmd
+          - text: License
+            icon: award
+            href: LICENSE.qmd
+          - text: Contact
+            icon: envelope
+            href: mailto:jph@gwu.edu
+          - text: Source files
+            icon: github
+            href: https://github.com/emse-p4a-gwu/2023-Spring
   page-footer:
     center:
       - text: '© 2023 John Paul Helveston <a href="LICENSE.html"><i class="fab fa-creative-commons"></i><i class="fab fa-creative-commons-by"></i><i class="fab fa-creative-commons-sa"></i></a><br><i class="far fa-calendar-alt"></i> {{< var weekday >}} | <i class="far fa-clock"></i> {{< var time >}} | <a href="{{< var room_url >}}"><i class="fa fa-map-marker-alt"></i> {{< var room >}}</a> | <a href="https://www.jhelvy.com"><i class="fas fa-user"></i> Dr. John Paul Helveston</a> | <a href="mailto:{{< var email >}}"><i class="fas fa-envelope"></i> {{< var email >}}</a> | <a href="{{< var repo >}}"><i class="fab fa-github"></i></a>'

@@ -1,8 +1,6 @@
-# Course Schedule
+# Schedule
 
 All assignments are due by 11:59pm on the due date.
-
-:::{.column-page}
 
 ```{r}
 #| echo: false
@@ -26,12 +24,9 @@ schedule %>%
   ) %>%
   kable(format = 'html', escape = FALSE,
         align = c('c', 'c', 'l', 'l', 'l', 'l')) %>%
-  kable_styling(full_width = F, bootstrap_options = c("striped", "hover")) %>%
+  kable_styling(full_width = T, bootstrap_options = c("striped", "hover")) %>%
   column_spec(column = 2, width = '2em') %>%
   column_spec(column = 4, width = '15em') %>% 
   column_spec(column = 5, width = '12em') %>% 
   row_spec(highlight, background = "#e1e1e1")
 ```
-
-:::
-
