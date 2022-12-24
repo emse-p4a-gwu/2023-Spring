@@ -30,7 +30,7 @@ get_schedule <- function() {
         reading    = '<i class="fas fa-book"></i>'
     )
 
-    schedule_raw <- read_csv(here::here('content', 'schedule.csv'))
+    schedule_raw <- read_csv(here::here('schedule.csv'))
 
     # Quiz vars
     quiz <- schedule_raw %>%

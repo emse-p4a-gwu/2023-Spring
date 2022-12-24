@@ -28,8 +28,8 @@ schedule %>%
         align = c('c', 'c', 'l', 'l', 'l', 'l')) %>%
   kable_styling(full_width = F, bootstrap_options = c("striped", "hover")) %>%
   column_spec(column = 2, width = '2em') %>%
-  column_spec(column = 4, width = '20em') %>% 
-  column_spec(column = 5, width = '9em') %>% 
+  column_spec(column = 4, width = '15em') %>% 
+  column_spec(column = 5, width = '12em') %>% 
   row_spec(highlight, background = "#e1e1e1")
 ```
 
