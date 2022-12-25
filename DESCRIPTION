@@ -41,7 +41,3 @@ Imports:
     xaringanExtra,
     wikifacts,
     yaml
-Remotes:
-    hrbrmstr/hrbrthemes,
-    jrnold/ggthemes,
-    gadenbuie/xaringanExtra
