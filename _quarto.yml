@@ -90,4 +90,4 @@ format:
     anchor-sections: true
     smooth-scroll: true
     link-external-newwindow: true
-    include-in-header: "_includes/header.html"
+    link-external-icon: false

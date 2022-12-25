@@ -25,9 +25,9 @@ get_schedule <- function() {
 
     # Icons
     fa <- list(
-        class      = '<i class="fas fa-laptop-code"></i>',
-        assignment = '<i class="fas fa-pencil-ruler"></i>',
-        reading    = '<i class="fas fa-book"></i>'
+        class      = '<i class="bi-laptop-fill"></i>',
+        assignment = '<i class="bi-pencil-fill"></i>',
+        reading    = '<i class="bi-book-fill"></i>'
     )
 
     schedule_raw <- read_csv(here::here('schedule.csv'))
@@ -44,16 +44,15 @@ get_schedule <- function() {
 
     # Weekly assignment vars
     assignments <- schedule_raw %>%
-        filter(!is.na(name_assign)) %>%
         mutate(
             due_assign = format(due_assign, format = "%b %d"),
             assignments = ifelse(
                 is.na(due_assign),
-                NA,
+                "",
                 paste0(
                     '<a href="hw/', n_assign, "-", stub_assign, '.html">',
-                    fa$assignment, ' <b>', name_assign,
-                    "</b></a><br>Due: ", due_assign))
+                    fa$assignment, '</a><b> HW</b>', n_assign,
+                    "</b><br>Due: ", due_assign))
         ) %>%
         select(week, assignments)
 
@@ -69,7 +68,7 @@ get_schedule <- function() {
                 paste0("<b>", name_class, "</b>"),
                 paste0(
                     '<a href="class/', n_class, "-", stub_class, '.html">',
-                    fa$class, ' <b>', name_class, "</b></a><br> ",
+                    fa$class, '</a><b> ', name_class, "</b><br> ",
                     description_class)),
         ) %>%
         select(week, class)
@@ -77,7 +76,6 @@ get_schedule <- function() {
     # Reading vars
     reading <- schedule_raw %>%
         select(week, ends_with("_reading")) %>%
-        filter(!is.na(name_reading)) %>%
         rename(name = name_reading, stub = stub_reading) %>%
         mutate(
             name = str_split(name, '\n'),
@@ -89,13 +87,13 @@ get_schedule <- function() {
     reading$readings <- ""
     for (i in 1:nrow(reading)) {
         name <- reading[i,]$name[[1]]
-        if ('' %in% name) {
+        if (any(is.na(unlist(name)))) {
             result <- ''
         } else {
             stub <- reading[i,]$stub[[1]]
             result <- paste0(
                 '<a href=', reading_root, stub ,'.html target="_blank">',
-                fa$reading, ' ', name, '</a>')
+                fa$reading, '</a> ', name)
             result <- paste(result, collapse = '<br>')
 
         }
