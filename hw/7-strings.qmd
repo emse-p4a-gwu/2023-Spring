@@ -1,0 +1,8 @@
+---
+title: "Homework 7 - Strings"
+title: ""
+params:
+  class: "7-strings"
+---
+
+Coming soon!
