@@ -15,8 +15,7 @@ Imports:
     cowplot,
     DAAG,
     devtools,
-    dslabs,
-    emo,
+    dslabs,2
     fastDummies,
     fontawesome,
     gapminder,
@@ -43,10 +42,7 @@ Imports:
     wikifacts,
     yaml
 Remotes:
-    allisonhorst/palmerpenguins,
-    rstudio/fontawesome,
     haozhu233/kableExtra,
-    hadley/emo,
     hrbrmstr/hrbrthemes,
     jrnold/ggthemes,
     gadenbuie/xaringanExtra
