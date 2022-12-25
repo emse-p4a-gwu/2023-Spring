@@ -39,8 +39,8 @@ assignments <- schedule_raw %>%
             "",
             paste0(
                 '<a href="hw/', n_assign, "-", stub_assign, '.html">',
-                fa$assignment, '</a><b> HW</b>', n_assign,
-                "</b><br>Due: ", due_assign))
+                fa$assignment, '</a> HW ', n_assign,
+                "<br>Due: ", due_assign))
     ) %>%
     select(week, assignments)
 
