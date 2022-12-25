@@ -42,7 +42,6 @@ Imports:
     wikifacts,
     yaml
 Remotes:
-    haozhu233/kableExtra,
     hrbrmstr/hrbrthemes,
     jrnold/ggthemes,
     gadenbuie/xaringanExtra
