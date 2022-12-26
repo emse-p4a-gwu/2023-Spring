@@ -1,0 +1,7 @@
+---
+title: "Vectors"
+params:
+  class: "6-vectors"
+---
+
+Coming soon!

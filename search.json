@@ -1,0 +1,485 @@
+[
+  {
+    "objectID": "LICENSE.html",
+    "href": "LICENSE.html",
+    "title": "Licensing and copyright information",
+    "section": "",
+    "text": "The course material is licensed under the Creative Commons ShareAlike 4.0 International License. In addition to my own developed material, I have also modified material from the courses, workshops, and textbooks listed below:\n\nCourses / workshops\n\n\n\nName\nAuthor(s)\nLinks\n\n\n\n\nSTAT 545\nU. of British Columbia\ncourse; GitHub\n\n\nPatrick Meyer’s Youtube lectures\nProf. Patrick Meyer\nplaylists\n\n\nAndrew Heiss’s data viz courses\nAndrew Heiss\nMPA 635, more here\n\n\nIntro. to Data Visualization, Fall 2018\nPeter Aldhous\ncourse site\n\n\n\n\n\nBooks\n\n\n\nName\nAuthor(s)\nLinks\n\n\n\n\nR for Data Science\nGarrett Grolemund & Hadley Wickham\nonline book; GitHub; purchase\n\n\nData Visualization: A practical introduction\nKieran Healy\nonline book; GitHub; purchase\n\n\nFundamentals of Data Visualization\nClaus O. Wilke\nonline book; purchase"
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
+    "section": "",
+    "text": "This course provides a foundation in programming for analytics using the R programming language with a comparison to Python. Topics covered include fundamentals of programming (operators, data types, objects, functions, conditionals, loops, strings, testing, and debugging) as well as techniques for working with data sets in R and Python (file input/output, data structures, data wrangling, data visualization, external packages, and reproducible reporting). Emphasis will be on producing clear, robust, and reasonably efficient code using top-down design, informal analysis, and effective testing and debugging. Students will primarily work on individual programming assignments to develop skills in computational problem solving, writing code, and working with data. Students will be assessed through quizzes, homework assignments, and exams. Teaching will involve interactive lectures with plenty of time spent live coding and working on practice problems in class. This course assumes no prior programming experience and is an ideal preparation for higher level courses in data analytics.\nThis course was inspired by many other courses / resources that cover similar material. In addition to my own developed material, I have also modified material from other courses and workshops - a full list of sources can be found in the LICENSE page.\nThis course was originally created by Dr. John Paul Helveston at the George Washington University for the Spring 2020 semester."
+  },
+  {
+    "objectID": "class/1-getting-started.html",
+    "href": "class/1-getting-started.html",
+    "title": "Getting Started",
+    "section": "",
+    "text": "KEYBOARD SHORTCUTS FOR SLIDES:\n\nUse ← and → to navigate through the slides.\nUse f to toggle full screen.\nUse o to view an overview of all slides.\nUse h to see a list of other shortcuts.\n\n\n\n\nSLIDES\n View slides\n Download PDF\n\n\n\n\nCLASS PRACTICE\n Notes zip file"
+  },
+  {
+    "objectID": "class/10-data-visualization.html",
+    "href": "class/10-data-visualization.html",
+    "title": "Data Visualization",
+    "section": "",
+    "text": "Coming soon!"
+  },
+  {
+    "objectID": "class/11-monte-carlo-methods.html",
+    "href": "class/11-monte-carlo-methods.html",
+    "title": "Monte Carlo Methods",
+    "section": "",
+    "text": "Coming soon!"
+  },
+  {
+    "objectID": "class/12-webscraping.html",
+    "href": "class/12-webscraping.html",
+    "title": "Webscraping",
+    "section": "",
+    "text": "Coming soon!"
+  },
+  {
+    "objectID": "class/13-python-in-r.html",
+    "href": "class/13-python-in-r.html",
+    "title": "Python in R",
+    "section": "",
+    "text": "Coming soon!"
+  },
+  {
+    "objectID": "class/2-functions-packages.html",
+    "href": "class/2-functions-packages.html",
+    "title": "Functions & Packages",
+    "section": "",
+    "text": "Coming soon!"
+  },
+  {
+    "objectID": "class/3-creating-functions.html",
+    "href": "class/3-creating-functions.html",
+    "title": "Creating Functions",
+    "section": "",
+    "text": "Coming soon!"
+  },
+  {
+    "objectID": "class/4-conditionals-testing.html",
+    "href": "class/4-conditionals-testing.html",
+    "title": "Conditionals & Testing",
+    "section": "",
+    "text": "Coming soon!"
+  },
+  {
+    "objectID": "class/5-iteration.html",
+    "href": "class/5-iteration.html",
+    "title": "Iteration",
+    "section": "",
+    "text": "Coming soon!"
+  },
+  {
+    "objectID": "class/6-vectors.html",
+    "href": "class/6-vectors.html",
+    "title": "Vectors",
+    "section": "",
+    "text": "Coming soon!"
+  },
+  {
+    "objectID": "class/7-strings.html",
+    "href": "class/7-strings.html",
+    "title": "Strings",
+    "section": "",
+    "text": "Coming soon!"
+  },
+  {
+    "objectID": "class/8-data-frames.html",
+    "href": "class/8-data-frames.html",
+    "title": "Data Frames",
+    "section": "",
+    "text": "Coming soon!"
+  },
+  {
+    "objectID": "class/9-data-wrangling.html",
+    "href": "class/9-data-wrangling.html",
+    "title": "Data Wrangling",
+    "section": "",
+    "text": "Coming soon!"
+  },
+  {
+    "objectID": "hw/1-getting-started.html",
+    "href": "hw/1-getting-started.html",
+    "title": "Homework 1 - Getting Started",
+    "section": "",
+    "text": "Due: Jan 25 by 11:59pm\nSubmission Instructions: Create a zip file of all the files in your R project folder for this assignment, then submit your zip file on the corresponding assignment submission on Blackboard.\nWeight: This assignment is worth 5% of your final grade.\nPurpose: The purposes of this assignment are to:\n\nMake sure you understand what you need to do to succeed in this class\nMake sure you have properly set up the software and tools we will use this semester\nGet started practicing basic concepts with R.\n\nSkills & Knowledge: After completing these exercises, you should:\n\nBe familiar with the main course tools: Slack, R, and RStudio.\nBe familiar how to use R projects to stay organized.\nBe able to use R to create and store values as objects with meaningful names.\nKnow how to compare values in R.\nKnow how to use arithmetic, relational, and logical operators in R.\nKnow the distinctions between how R handles different types of data types (numbers, strings, & logicals).\n\nAssessment: Each question indicates the % of the assignment grade, summing to 100%. The credit for each question will be assigned as follows:\n\n0% for not attempting a response.\n50% for attempting the question but with major errors.\n75% for attempting the question but with minor errors.\n100% for correctly answering the question.\n\nThe reflection portion is always worth 10% and graded for completion.\nRules:\n\nProblems marked SOLO may not be worked on with other classmates, though you may consult instructors for help.\nFor problems marked COLLABORATIVE, you may work in groups of up to 3 students who are in this course this semester. You may not split up the work – everyone must work on every problem. And you may not simply copy any code but rather truly work together and submit your own solutions.\n\n\n\nReadings\nThe readings from the last week will serve as a helpful reference as you complete this assignment. You can review them here:\n\n\n\n Getting Started Operations & Data Types\n\n\n\n\n\n1) Class setup [SOLO, 10%]\nFor this class, you’ll need to install some software and register for some tools. You should have already done this, but in case you haven’t,go to the course software page to get setup.\nOnce you have joined the class slack, make a post to the #welcome channel introducing yourself - provide your name, year / program, and something interesting about yourself.\n\n\n2) Getting familiar with the course [SOLO, 10%]\nFollow Snoop’s advice and read the entire Course Syllabus (actually read the whole thing). Then review the schedule and make sure to note important upcoming deadlines.\n\n\n3) Staying organized [SOLO, 10%]\nOpen RStudio and create a new R project called “hw1” (see the reading for details on how to do this). Within your project, create a new R script (a “.R” file) and save it as “hw1-netID.R”, replacing “netID” with your netID (e.g., “hw1-jph.R”). When you save it, it should show up in the R project folder you just created. Finally, copy the following code to the top of this script and fill out your name, netID, and the names of anyone you worked with on this assignment (your netID is the part of your email address before \"@gwu.edu\"):\n\n# Name:  Last, First\n# netID: Insert your netID here\n\n# I worked with the following classmates on this assignment:\n# 1) Name: Last, First\n# 2) Name: Last, First\n\nWrite your responses to all other questions in this assignment in your R file.\n\n\n4) Objects & Operators: Converting Time [COLLABORATIVE, 20%]\nCreate objects to store each of the following two values - be sure to use meaningful variable names when creating your objects:\n\nThe number of seconds in a minute\nThe number of minutes in an hour\nThe number of hours in a day\nThe number of days in a typical year (not a leap year)\n\nNow, say you have another object called time_in_seconds that contains an integer number of seconds (for example, time_in_seconds <- 8675309). Write code to convert the value stored in time_in_seconds into the units described below. Your solution may only use arithmetic operators and the objects you created (i.e. you may not use any numbers). You may also use the new objects you create in sequential order. For example, you may use the object created in part a) to create the object in part b), and so on.\n\nThe value of time_in_seconds in minutes\nThe value of time_in_seconds in hours\nThe value of time_in_seconds in days\nThe value of time_in_seconds in years\n\n\n\n5) Logical and relational operators [SOLO, 20%]\nConsider the following objects:\n\nw <- FALSE\nx <- TRUE\ny <- FALSE\nz <- TRUE\n\nWrite code to answer the following questions:\n\nWrite a statement with logical operators that compares the objects x, y, and z and returns TRUE\nWrite a statement with logical operators that compares the objects x, y, and z and returns FALSE\nFill in relational operators to make the following statement return TRUE:\n\n! (x __ y) & ! (z __ y)\n\nFill in relational operators to make this statement return FALSE:\n\n! (w __ y) | (z __ y)\n\n\n6) Data types [COLLABORATIVE, 20%]\nConsider the following objects:\n\nnumber    <- typeof('3')\ncharacter <- typeof(7)\nfalse     <- typeof(\"FALSE\")\ntrue      <- typeof(TRUE)\n\nWrite code to answer the following questions:\n\nWrite a statement with both relational & logical operators that compares the four objects number, character, false, and true and returns TRUE.\nWrite a statement with both relational & logical operators that compares the four objects number, character, false, and true and returns FALSE.\n\n\n\n7) Read and reflect [SOLO, 10%]\nRead and reflect on the following readings to preview what we will cover in class next week:\n\n\n\n Functions & Packages\n\n\n\nAfterwards, in a comment (#) in your .R file, write a short reflection on what you’ve learned and any questions or points of confusion you have about what we’ve covered thus far. This can just few a few sentences related to this assignment, next week’s readings, things going on in the world that remind you something from class, etc. If there’s anything that jumped out at you, write it down.\n\n\nSubmit\nInstructions for how to submit your assignment are at the top of this page."
+  },
+  {
+    "objectID": "hw/10-data-visualization.html",
+    "href": "hw/10-data-visualization.html",
+    "title": "Homework 10 - Data Visualization",
+    "section": "",
+    "text": "Coming soon!"
+  },
+  {
+    "objectID": "hw/11-monte-carlo-methods.html",
+    "href": "hw/11-monte-carlo-methods.html",
+    "title": "Homework 11 - Monte Carlo Methods",
+    "section": "",
+    "text": "Coming soon!"
+  },
+  {
+    "objectID": "hw/12-webscraping.html",
+    "href": "hw/12-webscraping.html",
+    "title": "Homework 12 - Webscraping",
+    "section": "",
+    "text": "Coming soon!"
+  },
+  {
+    "objectID": "hw/13-python-in-r.html",
+    "href": "hw/13-python-in-r.html",
+    "title": "Homework 13 - Python in R",
+    "section": "",
+    "text": "Coming soon!"
+  },
+  {
+    "objectID": "hw/2-functions-packages.html",
+    "href": "hw/2-functions-packages.html",
+    "title": "Homework 2 - Functions & Packages",
+    "section": "",
+    "text": "Coming soon!"
+  },
+  {
+    "objectID": "hw/3-creating-functions.html",
+    "href": "hw/3-creating-functions.html",
+    "title": "Homework 3 - Creating Functions",
+    "section": "",
+    "text": "Coming soon!"
+  },
+  {
+    "objectID": "hw/4-conditionals-testing.html",
+    "href": "hw/4-conditionals-testing.html",
+    "title": "Homework 4 - Conditionals & Testing",
+    "section": "",
+    "text": "Coming soon!"
+  },
+  {
+    "objectID": "hw/5-iteration.html",
+    "href": "hw/5-iteration.html",
+    "title": "Homework 5 - Iteration",
+    "section": "",
+    "text": "Coming soon!"
+  },
+  {
+    "objectID": "hw/6-vectors.html",
+    "href": "hw/6-vectors.html",
+    "title": "Homework 6 - Vectors",
+    "section": "",
+    "text": "Coming soon!"
+  },
+  {
+    "objectID": "hw/7-strings.html",
+    "href": "hw/7-strings.html",
+    "title": "Homework 7 - Strings",
+    "section": "",
+    "text": "Coming soon!"
+  },
+  {
+    "objectID": "hw/8-data-frames.html",
+    "href": "hw/8-data-frames.html",
+    "title": "Homework 8 - Data Frames",
+    "section": "",
+    "text": "Coming soon!"
+  },
+  {
+    "objectID": "hw/9-data-wrangling.html",
+    "href": "hw/9-data-wrangling.html",
+    "title": "Homework 9 - Data Wrangling",
+    "section": "",
+    "text": "Coming soon!"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "EMSE 4571",
+    "section": "",
+    "text": "EMSE 4571: Intro Programming for AnalyticsSpring 2023\n\n\n\n\n\nDepartment: Engineering Management and Systems Engineering @ GWU\nCredits: 3\nDescription:\nThis course provides a foundation in programming for analytics using the R programming language with a comparison to Python. Topics covered include fundamentals of programming (operators, data types, objects, functions, conditionals, loops, strings, testing, and debugging) as well as techniques for working with data sets in R and Python (file input/output, data structures, data wrangling, data visualization, external packages, and reproducible reporting). Emphasis will be on producing clear, robust, and reasonably efficient code using top-down design, informal analysis, and effective testing and debugging. Students will primarily work on individual programming assignments to develop skills in computational problem solving, writing code, and working with data. Students will be assessed through quizzes, homework assignments, and exams. Teaching will involve interactive lectures with plenty of time spent live coding and working on practice problems in class. This course assumes no prior programming experience and is an ideal preparation for higher level courses in data analytics.\nLearning Objectives:\nHaving successfully completed this course, students will be able to:\n\nDevelop simple programs to effectively solve medium-sized tasks by:\n\nEmploying modular, top-down design in program construction.\nPro-actively creating and writing test cases to test and debug code.\nApplying computational problem-solving skills to new problems.\n\nWrite clear, robust, and reasonably efficient code for working with data using:\n\nSequential, conditional, and loop statements.\nNumeric, string, and logical data types.\nData structures, including lists, vectors, and data frames.\n\nReproducibly import, export, manipulate, and visualize data.\n\nPrerequisites:\nThere are no prerequisites. Students are assumed to have zero prior programming experience for this course."
+  },
+  {
+    "objectID": "references.html",
+    "href": "references.html",
+    "title": "References",
+    "section": "",
+    "text": "Grolemund, Garrett. “Hands-On Programming with R” [free online], [buy on amazon]\nPeng, Roger D. “R Programming for Data Science” [online - pay what you want]\n\n\n\n\n\nGrolemund, Garrett and Wickham, Hadley. “R for Data Science” [free online], [buy on amazon]\nPeng, Roger D. “Exploratory Data Analysis with R” [online - pay what you want]\n16 HOWTO’s, by Lingyun Zhang\n\n\n\n\n\nAll cheatsheets\nData wrangling with the dplyr library\nData visualization with the ggplot2 library\nRMarkdown"
+  },
+  {
+    "objectID": "references.html#principles-of-data-visualization",
+    "href": "references.html#principles-of-data-visualization",
+    "title": "References",
+    "section": "Principles of data visualization",
+    "text": "Principles of data visualization\n\nHealy, Kieran. “Data Visualization: A practical introduction” [free online], [buy on amazon]\nWilke, Claus O. “Fundamentals of Data Visualization” [free online], [buy on amazon]\nVideo: How Humans See Data, by John Rauser. This is probably the best overviews I’ve seen on how to exploit the psychology of how our brains interpret images to make effective visualizations."
+  },
+  {
+    "objectID": "references.html#choosing-the-right-chart",
+    "href": "references.html#choosing-the-right-chart",
+    "title": "References",
+    "section": "Choosing the right chart",
+    "text": "Choosing the right chart\nYou will want to choose different chart types depending on the relationship or message you want to convey. Fortunately, we live in the future and awesome people have created wonderful tools to help you find the most appropriate graph for your data. Take a look through some of these resources - these will come in handy when you start working on your final project:\n\n Stephen Few’s Graph Selection Matrix\nThe Data Visualisation Catalogue\nData-to-Viz\nR Graph Gallery\nVisual Vocabulary\nThe Data Viz Project"
+  },
+  {
+    "objectID": "references.html#making-plots-with-ggplot2",
+    "href": "references.html#making-plots-with-ggplot2",
+    "title": "References",
+    "section": "Making plots with ggplot2",
+    "text": "Making plots with ggplot2\n\nThe R Graph Catalog: 124 examples (with code) for making common ggplots.\nThe ggplot2 Extensions gallery: 64 registered libraries that extend the functionality of ggplot2.\nTop 50 ggplot2 visualizations\nR Cookbook for ggplot2\nRStudio ggplot2 Cheatsheet\nTidyverse ggplot2 reference guide\nggThemeAssist: Package for customizing plot themes and layout\n16 HOWTO’s, by Lingyun Zhang - super useful for making specific types of charts"
+  },
+  {
+    "objectID": "references.html#polishing-ggplot2-plots",
+    "href": "references.html#polishing-ggplot2-plots",
+    "title": "References",
+    "section": "Polishing ggplot2 plots",
+    "text": "Polishing ggplot2 plots\n\nggplot2: Elegant Graphics for Data Analysis\nFollow good design rules"
+  },
+  {
+    "objectID": "references.html#choosing-colors",
+    "href": "references.html#choosing-colors",
+    "title": "References",
+    "section": "Choosing colors",
+    "text": "Choosing colors\n\nColor wheel tool\nggplot2 book chapter 12\nR graph gallery\nCoolors.co - super nice color palette generator"
+  },
+  {
+    "objectID": "references.html#animating-ggplot2-plots",
+    "href": "references.html#animating-ggplot2-plots",
+    "title": "References",
+    "section": "Animating ggplot2 plots",
+    "text": "Animating ggplot2 plots\n\nAnimate your ggplots with gganimate\nHow to make a bar chart race"
+  },
+  {
+    "objectID": "references.html#helpful-tutorials",
+    "href": "references.html#helpful-tutorials",
+    "title": "References",
+    "section": "Helpful Tutorials",
+    "text": "Helpful Tutorials\n\nRStudio Primers\nTidyverse in R\nTransitioning from Excel to R"
+  },
+  {
+    "objectID": "references.html#inspiration",
+    "href": "references.html#inspiration",
+    "title": "References",
+    "section": "Inspiration",
+    "text": "Inspiration\n\nAn Incomplete List of Females in Data Visualization, by Stephanie Evergreen\nThe Links Between Open Science and Star Wars"
+  },
+  {
+    "objectID": "references.html#when-all-else-fails",
+    "href": "references.html#when-all-else-fails",
+    "title": "References",
+    "section": "When all else fails…",
+    "text": "When all else fails…\nYou will inevitably run into problems; things won’t work the way you expect, and you’ll get lots of confusing error messages. When this happens, many turn to the following tried and true problem-solving approaches:"
+  },
+  {
+    "objectID": "schedule.html",
+    "href": "schedule.html",
+    "title": "EMSE 4571",
+    "section": "",
+    "text": "Schedule\nAll assignments are due by 11:59pm on the due date.\n\n\n\n\n \n  \n    Week \n    Date \n    Quiz \n    Class \n    Assignments \n    Readings \n  \n \n\n  \n    1 \n    Jan 19 \n     \n     Getting Started Class orientation, intro to R, workflow, problem solving \n     HW 1Due: Jan 25 \n     Getting Started Operations & Data Types \n  \n  \n    2 \n    Jan 26 \n    Quiz 1:Week 1 \n     Functions & Packages Functions, arguments, installing external packages \n     HW 2Due: Feb 01 \n     Functions & Packages \n  \n  \n    3 \n    Feb 02 \n    Quiz 2:Weeks 1 - 2 \n     Creating Functions Defining your own functions, top-down structure \n     HW 3Due: Feb 08 \n     Creating Functions \n  \n  \n    4 \n    Feb 09 \n     \n     Conditionals & Testing If / else statements, writing unit tests \n     HW 4Due: Feb 15 \n     Conditionals Testing & Debugging \n  \n  \n    5 \n    Feb 16 \n    Quiz 3:Weeks 3 - 4 \n     Iteration Ins and outs of loops \n     HW 5Due: Feb 22 \n     Iteration \n  \n  \n    6 \n    Feb 23 \n     \n     Vectors Creating and slicing collections of values \n     HW 6Due: Mar 01 \n     Vectors \n  \n  \n    7 \n    Mar 02 \n    Quiz 4:Weeks 5 - 6 \n     Strings All things between quotes \n     HW 7Due: Mar 08 \n     Strings \n  \n  \n    9 \n    Mar 09 \n     \n    Midterm \n     \n     \n  \n  \n    8 \n    Mar 16 \n     \n    Spring Break \n     \n     \n  \n  \n    10 \n    Mar 23 \n     \n     Data Frames Rows and columns of data \n     HW 8Due: Mar 29 \n     Data Analysis Data Frames \n  \n  \n    11 \n    Mar 30 \n     \n     Data Wrangling Modifying data frames \n     HW 9Due: Apr 05 \n     Data Wrangling \n  \n  \n    12 \n    Apr 06 \n    Quiz 5:Weeks 9 - 10 \n     Data Visualization Visualizing your data \n     HW 10Due: Apr 12 \n     Data Visualization \n  \n  \n    13 \n    Apr 13 \n     \n     Monte Carlo Methods Using simulation to solve problems \n     HW 11Due: Apr 19 \n     Monte Carlo Methods \n  \n  \n    14 \n    Apr 20 \n    Quiz 6:Week 12 \n     Webscraping Collecting data embedded in web pages \n     HW 12Due: Apr 26 \n     Webscraping \n  \n  \n    15 \n    Apr 27 \n     \n     Python in R Python basics, and using python in R \n     \n     Python in R \n  \n  \n    16 \n    May 04 \n     \n    Reading Day \n     \n     \n  \n  \n    17 \n    May 11 \n     \n    Final Exam"
+  },
+  {
+    "objectID": "software.html",
+    "href": "software.html",
+    "title": "EMSE 4571",
+    "section": "",
+    "text": "Software\n\nYou should install and set everything here before the first day of class.\n\n\nSign up for Slack - you can find a sign up link on the announcement in Blackboard. Use your @gwu.edu email.\nInstall the Slack app on your phone and Turn notifications on!. I’ll send all course communication via Slack, so please make sure your notifications are on so you don’t miss anything.\nDownload and install R (version 4.0.2 or higher).\nDownload and install RStudio (Free desktop version).\nIf you have a Mac, install XQuartz. This is needed for making some figures and is only for Mac (if you’re on Windows or Linux, skip this step).\nSign up for Posit Cloud (the free version). It’s basically the same thing as RStudio, but accessible via a web browser. If things aren’t working on your computer, this is a great backup to quickly get back to working in RStudio.\n\n\nFor reference, “Posit” is the company that makes “RStudio”, the software we’ll use to work with R.\n\nThat’s it - you’re all set for class!"
+  },
+  {
+    "objectID": "syllabus.html#course-description",
+    "href": "syllabus.html#course-description",
+    "title": "Syllabus",
+    "section": "Course Description",
+    "text": "Course Description\nThis course provides a foundation in programming for analytics using the R programming language with a comparison to Python. Topics covered include fundamentals of programming (operators, data types, objects, functions, conditionals, loops, strings, testing, and debugging) as well as techniques for working with data sets in R and Python (file input/output, data structures, data wrangling, data visualization, external packages, and reproducible reporting). Emphasis will be on producing clear, robust, and reasonably efficient code using top-down design, informal analysis, and effective testing and debugging. Students will primarily work on individual programming assignments to develop skills in computational problem solving, writing code, and working with data. Students will be assessed through quizzes, homework assignments, and exams. Teaching will involve interactive lectures with plenty of time spent live coding and working on practice problems in class. This course assumes no prior programming experience and is an ideal preparation for higher level courses in data analytics."
+  },
+  {
+    "objectID": "syllabus.html#prerequisites",
+    "href": "syllabus.html#prerequisites",
+    "title": "Syllabus",
+    "section": "Prerequisites",
+    "text": "Prerequisites\nThere are no prerequisites. Students are assumed to have zero prior programming experience for this course."
+  },
+  {
+    "objectID": "syllabus.html#pep-talk",
+    "href": "syllabus.html#pep-talk",
+    "title": "Syllabus",
+    "section": "Pep Talk!",
+    "text": "Pep Talk!\nWorking in and learning a programming language can be as challenging as learning a new spoken language. Hadley Wickham (chief data scientist at RStudio and author of many amazing R packages you’ll be using) made this wise observation:\n\nIt’s easy when you start out programming to get really frustrated and think, “Oh it’s me, I’m really stupid,” or, “I’m not made out to program.” But, that is absolutely not the case. Everyone gets frustrated. I still get frustrated occasionally when writing R code. It’s just a natural part of programming. So, it happens to everyone and gets less and less over time. Don’t blame yourself. Just take a break, do something fun, and then come back and try again later.\n\nIf you’re finding yourself taking way too long hitting your head against a wall and not understanding, take a break, talk to classmates, ask questions in Slack, and try it again later.\nI promise, you can do this!s"
+  },
+  {
+    "objectID": "syllabus.html#software",
+    "href": "syllabus.html#software",
+    "title": "Syllabus",
+    "section": "Software",
+    "text": "Software\nGo to the Course Software page for detailed instructions on how to install the software we’ll be using. Here’s a quick list:\n\nR (version 4.1.0 or later), which can be downloaded from The Comprehensive R Archive Network (CRAN)\nRStudio (Desktop Version), a free IDE for R, which can be downloaded from RStudio\nWe’ll be using Slack for most communication."
+  },
+  {
+    "objectID": "syllabus.html#texts",
+    "href": "syllabus.html#texts",
+    "title": "Syllabus",
+    "section": "Texts",
+    "text": "Texts\nThe main textbook we will use for this course is “Programming for Analytics in R”, by Professor Helveston. The book is available freely on the web at https://p4a.jhelvy.com/."
+  },
+  {
+    "objectID": "syllabus.html#attendance-participation",
+    "href": "syllabus.html#attendance-participation",
+    "title": "Syllabus",
+    "section": "Attendance & Participation",
+    "text": "Attendance & Participation\nIn-person attendance is critical as we will spend a lot of time working on problems and writing code during class. You should plan to attend class in person each week. Attendance will be taken and will be part of your participation grade.\nThere will be no option for remote attendance (e.g. zoom), and class sessions will not be recorded. If you have any questions or need special accommodations, send me a message on slack and we can discuss.\nMultiple absences, inappropriate or unprofessional behavior during class (such as monopolizing discussions or being rude or disruptive), not participating in classroom exercises, and not being prepared for class will result in a poor score for attendance and participation."
+  },
+  {
+    "objectID": "syllabus.html#homework-assignments",
+    "href": "syllabus.html#homework-assignments",
+    "title": "Syllabus",
+    "section": "Homework Assignments",
+    "text": "Homework Assignments\nHomework assignments contain a mix of coding exercises and written exercises. They assess the material taught the week(s) they are assigned, and should take several hours to complete. Start homeworks early.\nRead the Collaboration Policy about collaborating with fellow students on homeworks. While most problems must be worked on individually, some will be marked as “collaborative”; on these problems (and only these problems), you may work on code with other students.\nHomeworks will be graded based on style (modularity, readability, commenting, etc.) and functionality (correctness on a series of tests). Your code should be properly annotated with comments that are well-placed, concise, and informative. Your assignments will be graded by an automated grader and the instructional team."
+  },
+  {
+    "objectID": "syllabus.html#readings",
+    "href": "syllabus.html#readings",
+    "title": "Syllabus",
+    "section": "Readings",
+    "text": "Readings\nIn addition to weekly homework assignments, students are expected to read through the assigned weekly reading to prepare for the next class. Check the schedule for the reading assignments."
+  },
+  {
+    "objectID": "syllabus.html#quizzes",
+    "href": "syllabus.html#quizzes",
+    "title": "Syllabus",
+    "section": "Quizzes",
+    "text": "Quizzes\nThere will be 6 quizzes given about once every other week immediately at the beginning of class. You will not be told in advance when there is a quiz, and make up quizzes will not be available if you miss it (except for excused absences). Please show up on time to class each week to ensure that you do not miss a quiz.\nQuizzes will cover material presented in previous classes and assignments during the weeks since the most-recent quiz. Quizzes are short (10 minutes) and are designed to test for fluency and to demonstrate where additional study is needed. Quizzes are low-stakes - your worst one is dropped, and the rest count for a small portion of your final grade. If you do poorly on one or two, use that as feedback on where you need additional improvement.\n\nWhy quiz at all? Research shows that giving small quizzes throughout a class can dramatically help with retention. It’s a phenomenon known as the “retrieval effect” - basically, you have to practice remembering things, otherwise your brain won’t remember them. The phenomenon and research on it is explained in detail in the book “Make It Stick: The Science of Successful Learning,” by Brown, Roediger, and McDaniel."
+  },
+  {
+    "objectID": "syllabus.html#exams",
+    "href": "syllabus.html#exams",
+    "title": "Syllabus",
+    "section": "Exams",
+    "text": "Exams\nThere will be one midterm exam covering the first 6 weeks of class, and a standard final exam during the final exam period at the end of the semester covering material from the entire semester. See the schedule for details."
+  },
+  {
+    "objectID": "syllabus.html#standard-grading",
+    "href": "syllabus.html#standard-grading",
+    "title": "Syllabus",
+    "section": "Standard Grading",
+    "text": "Standard Grading\nFinal grades will be calculated as follows:\n\n\n\n\nComponent\nWeight\nNotes\n\n\n\n\nHomeworks & Readings (12x)\n55%\nLowest 1 dropped\n\n\nQuizzes (7x)\n15%\nLowest 2 dropped\n\n\nMidterm Exam\n10%\n\n\n\nFinal Exam\n20%\n\n\n\n\n\nHere’s a visual breakdown by category:"
+  },
+  {
+    "objectID": "syllabus.html#amg-grading",
+    "href": "syllabus.html#amg-grading",
+    "title": "Syllabus",
+    "section": "AMG Grading",
+    "text": "AMG Grading\nAn Alternative Minimum Grading (AMG) policy is available to everybody, but is designed specifically for students who struggle in the first part of the course, and then through sustained hard work and dedication manage to elevate their performance in the latter part of the course to a level that merits passing with a C (even if their Standard Grade might be lower than that).\nStudent cannot “sign up” for AMG grading. Every student will be considered both for Standard Grading and AMG, and the instructor can choose to assign the AMG grade if a student’s effort merits it. To qualify for AMG you must put forth sustained effort, which means meeting the following requirements:\n\nYou attend all class periods (with excused exceptions)\nYou complete all assignments\nYou do not violate the Collaboration Policy\n\nTo compute your AMG score, first use the following to compute your raw score. If the resulting score is higher than a C, set it back to a C.\n\n\n\n\nCourse Component\nWeight\n\n\n\n\nBest 10 Homeworks\n40%\n\n\nBest 4 Quizzes\n10%\n\n\nMidterm Exam\n10%\n\n\nFinal Exam\n40%"
+  },
+  {
+    "objectID": "syllabus.html#grading-scale",
+    "href": "syllabus.html#grading-scale",
+    "title": "Syllabus",
+    "section": "Grading Scale",
+    "text": "Grading Scale\n\n\n\n\nGrade\nRange\nGrade\nRange\n\n\n\n\nA\n94 - 100%\nC\n74 - 76.99%\n\n\nA-\n90 - 93.99%\nC-\n70 - 73.99%\n\n\nB+\n87 - 89.99%\nD+\n67 - 69.99%\n\n\nB\n84 - 86.99%\nD\n64 - 66.99%\n\n\nB-\n80 - 83.99%\nD-\n60 - 63.99%\n\n\nC+\n77 - 79.99%\nF\n< 60%\n\n\n\n\nThe course instructors may choose to change the scales at their discretion. You are guaranteed that your letter grade will never become worse as a result of changing scales."
+  },
+  {
+    "objectID": "syllabus.html#rounding",
+    "href": "syllabus.html#rounding",
+    "title": "Syllabus",
+    "section": "Rounding",
+    "text": "Rounding\nI do not round final grades. Rather, I grade generously throughout the semester. For example, if you give a quiz your best shot and completely fail it, you will likely get a 50% instead of a 0%. The 50% is for trying (if you simply don’t take it, you’ll get a 0%). As a result, I will not modify or round your final score, even if you’re very close to a different letter grade (e.g., a 93.98 is an “A-” and will not be rounded up to an “A”)."
+  },
+  {
+    "objectID": "syllabus.html#slack",
+    "href": "syllabus.html#slack",
+    "title": "Syllabus",
+    "section": "Slack",
+    "text": "Slack\nAll course communication will be managed through Slack. A link to sign up for the course slack page can be found on the one (and only) announcement on Blackboard.\nYou can use Slack to:\n\nAsk general questions.\nAsk for help with an assignment.\nSend direct, private messages to each other or the instructors (just like email…but better!)\n\nAsking for help on Slack:\nYou can post questions on slack and receive quick responses. This also enables other students to see answers to common questions. Be specific - if your code has an error you don’t understand, include the code and the error message in your question."
+  },
+  {
+    "objectID": "syllabus.html#schedule-a-call-with-professor-helveston",
+    "href": "syllabus.html#schedule-a-call-with-professor-helveston",
+    "title": "Syllabus",
+    "section": "Schedule a call with Professor Helveston",
+    "text": "Schedule a call with Professor Helveston\nScheduling a time to answer questions is hard, so rather than hold regular office hours, you can use this link to schedule a zoom call with me most days of the week."
+  },
+  {
+    "objectID": "syllabus.html#tutoring-hours",
+    "href": "syllabus.html#tutoring-hours",
+    "title": "Syllabus",
+    "section": "Tutoring hours",
+    "text": "Tutoring hours\nYour class tutors will each hold a dedicated period of time each week for zoom tutoring hours. Please don’t make your tutors sit and do emails for two hours - come by and ask for help!"
+  },
+  {
+    "objectID": "syllabus.html#library-services",
+    "href": "syllabus.html#library-services",
+    "title": "Syllabus",
+    "section": "Library Services",
+    "text": "Library Services\nWhile the University Library is not a stand in for TAs, you can schedule a consultation for general help with Coding, Programming, Data, Statistical, and GIS. See more at https://academiccommons.gwu.edu/writing-research-help"
+  },
+  {
+    "objectID": "syllabus.html#tldr",
+    "href": "syllabus.html#tldr",
+    "title": "Syllabus",
+    "section": "tl;dr",
+    "text": "tl;dr\n\nBE NICE\nBE ON TIME\nBE HONEST\nDON’T CHEAT"
+  },
+  {
+    "objectID": "syllabus.html#late-policy",
+    "href": "syllabus.html#late-policy",
+    "title": "Syllabus",
+    "section": "Late Policy",
+    "text": "Late Policy\nAssignments are due by 11:59pm on the assigned due date unless specified otherwise. Assignments submitted up to 24 hours past this deadline will be graded to a max of 50% of the available points. Assignments submitted beyond 24 hours past the deadline will not be graded and will be assigned a 0.\nIf you need a special accommodation such as due to an illness, family emergency, or religious holidays, contact the instructor ahead of time."
+  },
+  {
+    "objectID": "syllabus.html#collaboration-policy",
+    "href": "syllabus.html#collaboration-policy",
+    "title": "Syllabus",
+    "section": "Collaboration Policy",
+    "text": "Collaboration Policy\n\nLearning how to program is like learning how to ride a bicycle - to get better, you must practice writing code yourself. Therefore, we have a set of strict rules regarding what kind of collaboration is allowed, what counts as over-collaboration, and what counts as cheating.\n\nGood Collaboratiosn\n\nDiscussing which general concepts might be useful in solving a problem (conditionals, loops, etc.).\nAsking for debugging help with code.\nSketch out algorithms on a whiteboard together.\nTo avoid copying the code, you should write up the solution together, discuss it, then erase the solution, wait a few minutes, and write up solutions individually.\nHelp each other debug specific parts of assignment code.\nGeneral discussion of course concepts.\nDetailed explanations of example code on the course website.\nCollaboratively solving a practice problem, with any level of co-writing code and co-debugging.\n\n\n\nOver-collaboration\nOver-collaboration results in a warning on the first offense, and a penalty on later offenses. Examples include:\n\nExplaining to a friend how to solve a problem in high-level terms by going through your own program line-by-line.\nHelping a friend debug code by suggesting they use your own approach to the problem.\nCollaborating with a student on an assignment and then not including their name as a collaborator in the assignment writeup.\nIn the case that you have taken this course before, copying your own code from the previous time you took the course.\n\n\n\nCheating\nCheating results in a penalty on the first offense, and failing the course on the second offense. Cheating on assignments can include:\n\nCopying or stealing any amount of code from someone currently in the class or someone who has taken the class before.\nNOTE: Copying is never okay, whether the code is provided electronically, visually, audibly, or on paper.\nProviding code you have written for an assignment to anyone else in the class.\nFinding code online and using it in the assignment. One exception: you may use code from the course website.\nPutting code solutions from the course assignments online.\nReceiving code-level assistance from any person not associated with the course.\nGetting someone else to write the assignment code for you.\nAsking questions about the assignments on any online services outside of the course office hours / slack.\n\nCheating on quizzes, assignments, or the final project can include:\n\nReferring to any external resources while completing the assignment (phones, notes, etc.).\nCopying part of an answer off of another student’s paper, even if it is very small.\nUsing solutions provided by students who previously took the course.\n\n\n\nGPT3, chatGPT, and other LLMs\nLarge language models (LLMs) are capable of producing solutions to coding problems assigned in this class. Copying solutions from these engines and submitting them as your own will be considered cheating.\nCopy-pasting code from a LLM is essentially no different than copying from a solution manual or working with / hiring someone more experienced to write your assignments for you. Doing so robs yourself of the opportunity to learn. Don’t do it.\n\n\nPenalties\nViolations will be reported to the Office of Student Rights & Responsibilities. Penalties are decided by the course instructors, and can vary based on the severity of the offense. Possible penalties include:\n\nReceiving a 0 on the assignment/quiz in question.\nReceiving a full letter grade deduction in the course.\nAutomatically failing the course.\n\nDepending on the student’s prior academic history, violations may also be accompanied by a letter to the Dean of Student Affairs, again at the instructors’ discretion. This can lead to university-level penalties, such as being suspended or expelled.\n\n\nPlagiarism Detection\nPrograms are naturally structured, which makes them very easy to compare for plagiarism. Automated plagiarism detection systems make this process even easier. Watch this video showing plagiarism detection software in action (this example is using Python code, but this also works for R code).\nIn short, if you copy code, we will know - don’t copy code!\n\n\nGrace Period\nCollege is a time when you do a lot of learning. Sometimes, you might make bad decisions or mistakes. The most important thing for you to do is to learn from your mistakes, to constantly grow, and become a better person.\nSometimes, students panic and copy code right before the deadline, then regret what they did afterwards. Therefore, you may rescind any homework submission for up to 24 hours after the deadline with no questions asked. Simply email the course instructors asking to delete the submission in question, and we will do so. Deleted submissions will not be considered during plagiarism detection, though of course they will also not be graded. However, it will always be better to get a 0 (or partial credit) on an assignment than to get a cheating violation!"
+  },
+  {
+    "objectID": "syllabus.html#children-in-class",
+    "href": "syllabus.html#children-in-class",
+    "title": "Syllabus",
+    "section": "Children in class",
+    "text": "Children in class\n\n\nI applaud all of you who attend school with children! It is difficult to balance academic, work, and family commitments, and I want you to succeed. Here are my policies regarding children in class:\n\nAll breastfeeding babies are welcome in class as often as necessary.\nNon-nursing babies and older children are welcome whenever alternate arrangements cannot be made. As a parent of young children, I understand that babysitters fall through, partners have conflicting schedules, children get sick, and other issues arise that leave parents with few other options.\nIn cases where children come to class, I invite parents/caregivers to sit close to the door so as to more easily excuse yourself to attend to your child’s needs. Non-parents in the class: please reserve seats near the door for your parenting classmates.\nAll students are expected to join with me in creating a welcoming environment that is respectful of your classmates who bring children to class.\n\nI understand that sleep deprivation and exhaustion are among the most difficult aspects of parenting young children. The struggle of balancing school, work, childcare, and graduate school is tiring, and I will do my best to accommodate any such issues while maintaining the same high expectations for all students enrolled in the class. Please do not hesitate to contact me with any questions or concerns."
+  },
+  {
+    "objectID": "syllabus.html#laurens-promise",
+    "href": "syllabus.html#laurens-promise",
+    "title": "Syllabus",
+    "section": "Lauren’s Promise",
+    "text": "Lauren’s Promise\n\n\nI will listen and believe you if someone is threatening you.\nLauren McCluskey, a 21-year-old honors student athlete, was murdered on October 22, 2018 by a man she briefly dated on the University of Utah campus. We must all take action to ensure that this never happens again.\nIf you are in immediate danger, call 911 or GWU police at 202-994-6111 (GWPD).\nIf you are experiencing sexual assault, domestic violence, or stalking, if you report it to me I will listen and connect you to resources or call GWU’s Counseling and Psychological Services (202-994-5300).\nAny form of sexual harassment or violence will not be excused or tolerated at GWU. GWU has instituted procedures to respond to violations of these laws and standards, programs aimed at the prevention of such conduct, and intervention on behalf of the victims. GWU Police officers will treat victims of sexual assault, domestic violence, and stalking with respect and dignity. Advocates on campus and in the community can help with victims’ physical and emotional health, reporting options, and academic concerns."
+  },
+  {
+    "objectID": "syllabus.html#use-of-course-materials",
+    "href": "syllabus.html#use-of-course-materials",
+    "title": "Syllabus",
+    "section": "Use of Course Materials",
+    "text": "Use of Course Materials\nAll course materials available on the course website are developed open source - you are welcome to post and share them following the licensing guidelines listed in the license page.\nHowever, all solutions to assignments and quizzes are proprietary. Don’t post them online or try to sell them - this is a violation of the student code of conduct."
+  },
+  {
+    "objectID": "syllabus.html#what-to-do-if-the-instructor-does-not-arrive",
+    "href": "syllabus.html#what-to-do-if-the-instructor-does-not-arrive",
+    "title": "Syllabus",
+    "section": "What To Do if the Instructor Does Not Arrive",
+    "text": "What To Do if the Instructor Does Not Arrive\nWait 20 minutes, after that you’re free to leave. One member of the class should be selected to notify the EMSE Department of the Instructor’s absence by calling the EMSE Department 202-994-4892 on next business day."
+  },
+  {
+    "objectID": "syllabus.html#university-policy-on-religious-holidays",
+    "href": "syllabus.html#university-policy-on-religious-holidays",
+    "title": "Syllabus",
+    "section": "University Policy on Religious Holidays",
+    "text": "University Policy on Religious Holidays\nIn accordance with University Policy, students should notify faculty during the first week of the semester of their intention to be absent from class on their day(s) of religious observance. Official university policy here: https://students.gwu.edu/accommodations-religious-holidays\n\nStudents should notify faculty during the first week of the semester of their intention to be absent from class on their day(s) of religious observance.\nFaculty should extend to these students the courtesy of absence without penalty on such occasions, including permission to make up examinations.\nFaculty who intend to observe a religious holiday should arrange at the beginning of the semester to reschedule missed classes or to make other provisions for their course-related activities."
+  },
+  {
+    "objectID": "syllabus.html#support-for-students-outside-the-classroom",
+    "href": "syllabus.html#support-for-students-outside-the-classroom",
+    "title": "Syllabus",
+    "section": "Support for Students Outside the Classroom",
+    "text": "Support for Students Outside the Classroom\nDisability Support Services (DSS): Any student who may need an accommodation based on the potential impact of a disability should contact the Disability Support Services office at 202-994-8250 in the Rome Hall, Suite 102, to establish eligibility and to coordinate reasonable accommodations. For additional information please refer to: https://disabilitysupport.gwu.edu/\nMental Health Services (202-994-5300): The University’s Mental Health Services offers 24/7 assistance and referral to address students’ personal, social, career, and study skills problems. Services for students include: crisis and emergency mental health consultations confidential assessment, counseling services (individual and small group), and referrals. https://healthcenter.gwu.edu/counseling-and-psychological-services"
+  },
+  {
+    "objectID": "syllabus.html#academic-integrity-code",
+    "href": "syllabus.html#academic-integrity-code",
+    "title": "Syllabus",
+    "section": "Academic Integrity Code",
+    "text": "Academic Integrity Code\nAcademic dishonesty is defined as cheating of any kind, including misrepresenting one’s own work, taking credit for the work of others without crediting them and without appropriate authorization, and the fabrication of information. For the remainder of the code, see: https://studentconduct.gwu.edu/code-academic-integrity\nIn addition to the formal code of academic integrity, the instructor expects that students will treat this course with the level of professionalism required in the workplace. Remember that real firms are sponsoring student projects throughout the semester; in a workplace setting, these firms would be paying clients for the analyses being conducted. This course prepares students to succeed in the workplace, and maintaining a high degree of professionalism is expected."
+  }
+]
