@@ -7,10 +7,7 @@ Read and reflect on the following readings to preview what we will cover in clas
 #| message: false
 #| results: asis
 
-schedule %>%
-    filter(week == (params$number + 1)) %>%
-    pull(readings) %>%
-    htmltools::HTML()
+htmltools::HTML(readings_next)
 ```
 
 </blockquote>

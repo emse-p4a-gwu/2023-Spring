@@ -19,17 +19,7 @@ params:
     > - Know the distinctions between how R handles different types of data types (numbers, strings, & logicals).
 ---
 
-```{r}
-#| echo: false
-source(here::here('_common.R'))
-```
-
 ```{r child = here::here("fragments", "hw.qmd")}
-```
-
-### Readings
-
-```{r child = here::here("fragments", "readings.qmd")}
 ```
 
 ### 1) Class setup [SOLO, 10%]
