@@ -1,8 +1,8 @@
 week,date,quiz,quiz_coverage,n_class,stub_class,name_class,description_class,n_assign,stub_assign,name_assign,due_assign,name_reading,stub_reading
-1,2023/01/19,,,1,getting-started,Getting Started,"Class orientation, intro to R, workflow, problem solving",1,getting-started,Getting Started,2023/01/25,"Getting Started
+1,2023/01/19,,,1,getting-started,Getting Started,"Class orientation, intro to R, workflow, operators, data types",1,getting-started,Getting Started,2023/01/25,"Getting Started
 Operations & Data Types","getting-started
 operators-data-types"
-2,2023/01/26,1,Week 1,2,functions-packages,Functions & Packages,"Functions, arguments, installing external packages",2,functions-packages,Functions & Packages,2023/02/01,Functions & Packages,functions-packages
+2,2023/01/26,1,Week 1,2,functions-packages,Functions & Packages,"Functions, arguments, installing external packages, problem solving",2,functions-packages,Functions & Packages,2023/02/01,Functions & Packages,functions-packages
 3,2023/02/02,2,Weeks 1 - 2,3,creating-functions,Creating Functions,"Defining your own functions, top-down structure",3,creating-functions,Creating Functions,2023/02/08,Creating Functions,creating-functions
 4,2023/02/09,,,4,conditionals-testing,Conditionals & Testing,"If / else statements, writing unit tests",4,conditionals-testing,Conditionals & Testing,2023/02/15,"Conditionals
 Testing & Debugging","conditionals
