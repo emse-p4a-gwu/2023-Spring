@@ -3,9 +3,10 @@ class: inverse, middle
 
 # Week `r rmarkdown::metadata$week`: .fancy[`r rmarkdown::metadata$title`]
 
-## 1. Course Goal
-## 2. .orange[Course Introduction]
-## 3. Break: Install Stuff
-## 4. Workflow & Reading In Data
-## 5. Wrangling Data
-## 6. Visualizing Data
+### 1. Course orientation
+
+### BREAK
+
+### 2. .orange[Getting started with R & RStudio]
+### 3. Operators & data types
+### 4. Preview of HW 1

@@ -1,8 +1,9 @@
 ---
 title: "Getting Started"
-subtitle: "EMSE 4572: Exploratory Data Analysis"
-date: August 31, 2022
+subtitle: "EMSE 4571: Intro to Programming for Analytics"
+date: January 19, 2023
 week: 1
+class: "1-getting-started"
 author: "John Paul Helveston"
 institute: "The George Washington University | Dept. of Engineering Management and Systems Engineering"
 output:
@@ -20,85 +21,8 @@ output:
       ratio: "16:9"
 ---
 
-```{r setup, include=FALSE}
-library(knitr)
-library(tidyverse)
-library(here)
-library(fontawesome)
-library(cowplot)
-library(ggrepel)
-library(readxl)
-library(countdown)
-library(metathis)
-options(
-    htmltools.dir.version = FALSE,
-    knitr.table.format = "html",
-    knitr.kable.NA = '',
-    dplyr.width = Inf,
-    width = 250
-)
-knitr::opts_chunk$set(
-    warning = FALSE,
-    message = FALSE,
-    fig.path = "figs/",
-    fig.width = 7.252,
-    fig.height = 4,
-    comment = "#>",
-    fig.retina = 3
-)
-xaringanExtra::use_tile_view()
-xaringanExtra::use_panelset()
-xaringanExtra::use_clipboard()
-xaringanExtra::use_share_again()
-xaringanExtra::style_share_again(share_buttons = "none")
-xaringanExtra::use_extra_styles(
-  hover_code_line = TRUE,
-  mute_unhighlighted_code = FALSE
-)
-# Set up website metadata
-meta() %>%
-  meta_general(
-    description = rmarkdown::metadata$subtitle,
-    generator = "xaringan and remark.js"
-  ) %>%
-  meta_name("github-repo" = "emse-eda-gwu/2022-Fall") %>%
-  meta_social(
-    title = rmarkdown::metadata$title,
-    url = "https://eda.seas.gwu.edu/2022-Fall/",
-    og_type = "website",
-    og_author = "John Paul Helveston",
-    twitter_card_type = "summary_large_image",
-    twitter_creator = "@johnhelveston"
-  )
-
-# Read in data sets for class
-milk_production <- read_csv(here('data', 'milk_production.csv')) 
-lotr <- read_csv(here('data', 'lotr_words.csv'))
-bearPath <- here('data', 'north_america_bear_killings.txt')
-bears <- read.table(bearPath, header = TRUE)
-usptoPath <- here('data', 'uspto_clean_energy_patents.xlsx')
-patents <- read_excel(usptoPath, sheet = "Figure 6-45", skip = 3)
+```{r, child="../setup.Rmd"}
 ```
-
-class: middle, inverse
-
-.leftcol30[
-
-<center>
-<img src="https://raw.githubusercontent.com/emse-eda-gwu/2022-Fall/master/images/logo.png" width=250>
-</center>
-
-]
-
-.rightcol70[
-
-# Week `r rmarkdown::metadata$week`: .fancy[`r rmarkdown::metadata$title`]
-
-### `r fontawesome::fa(name = "building-columns", fill = "white")` `r rmarkdown::metadata$subtitle`
-### `r fontawesome::fa(name = "user", fill = "white")` `r rmarkdown::metadata$author`
-### `r fontawesome::fa(name = "calendar", fill = "white")` `r rmarkdown::metadata$date`
-
-]
 
 ---
 
@@ -112,312 +36,11 @@ class: middle, inverse
 
 ---
 
-## Course 1: [Intro to Programming for Analytics](https://p4a.seas.gwu.edu/)
-
-**"Computational Literacy"**
-
-- Programming: Conditionals (if/else), loops, functions, testing, data types.
-- Analytics: Data structures, import / export, basic data manipulation & visualization.
-
---
-
-## Course 2: [Exploratory Data Analysis](https://eda.seas.gwu.edu/)
-
-**"Data Literacy"**
-
-- Strategies for conducting an exploratory data analysis.
-- Design principles for visualizing and communicating _information_ extracted from data.
-- Reproducibility: Reports that contain code, equations, visualizations, and narrative text.
-
----
-
-class: center, inverse, middle
-
-# **Class goal**: translate _data_ into _information_
-
----
-
-class: center
-
-# **Class goal**: translate _data_ into _information_
-
---
-
-.leftcol[
-
-**Data**
-
-Average student engagement scores
-
- Class       | Type | City | County
- ------------|-------------|------|-------
- Special Ed. | Charter     | 643  | 793
- Special Ed. | Public      | 735  | 928
- General Ed. | Charter     | 590  | 724
- General Ed. | Public      | 863  | 662
-
-]
-
---
-
-.rightcol[
-
-**Information**
-
-```{r student-engagement-final, echo=FALSE, fig.width=6, fig.height=5}
-engagement <- data.frame(
-    City   = c(643, 735, 590, 863),
-    County = c(793, 928, 724, 662),
-    School = c('Special Ed., Charter', 'Special Ed., Public',
-               'General Ed., Charter', 'General Ed., Public'),
-    Highlight = c(0, 0, 0, 1)) %>%
-    gather(Location, Engagement, City:County) %>%
-    mutate(
-      Location = fct_relevel(Location, c('City', 'County')),
-      Highlight = as.factor(Highlight),
-      x = ifelse(Location == 'County', 1, 0))
-engagement_plot <- engagement %>%
-    ggplot(aes(x = x, y = Engagement, group = School, color = Highlight)) +
-    geom_point() +
-    geom_line() +
-    scale_color_manual(values = c('#757575', '#ed573e')) +
-    labs(x = 'Sex', y = 'Engagement',
-         title = paste0('Students in public, general education classes\n',
-                        'in county schools have surprisingly low engagement')) +
-    scale_x_continuous(limits = c(-1.2, 1.2), labels = c('City', 'County'),
-                       breaks = c(0, 1)) +
-    geom_text_repel(aes(label = Engagement, color = as.factor(Highlight)),
-                    data          = subset(engagement, Location == 'County'),
-                    size          = 5,
-                    nudge_x       = 0.1,
-                    segment.color = NA) +
-    geom_text_repel(aes(label = Engagement, color = as.factor(Highlight)),
-                    data          = subset(engagement, Location == 'City'),
-                    size          = 5,
-                    nudge_x       = -0.1,
-                    segment.color = NA) +
-    geom_text_repel(aes(label = School, color = as.factor(Highlight)),
-                    data          = subset(engagement, Location == 'City'),
-                    size          = 5,
-                    nudge_x       = -0.25,
-                    hjust         = 1,
-                    segment.color = NA) +
-    theme_cowplot() +
-    background_grid(major = 'x') +
-    theme(axis.line = element_blank(),
-          axis.title.x = element_blank(),
-          axis.title.y = element_blank(),
-          axis.text.y = element_blank(),
-          axis.ticks = element_blank(),
-          legend.position = 'none')
-engagement_plot
-```
-
-]
-
----
-
-# Data exploration: an iterative process
-
---
-
-.leftcol[
-
-Encode data:
-
-.code60[
-
-```{r}
-engagement_data <- data.frame(
-    City   = c(643, 735, 590, 863),
-    County = c(793, 928, 724, 662),
-    School = c('Special Ed., Charter', 'Special Ed., Public',
-               'General Ed., Charter', 'General Ed., Public'))
-engagement_data
-```
-
-]]
-
---
-
-.rightcol[
-
-Re-format data for plotting:
-
-.code60[
-
-```{r}
-engagement_data <- engagement_data %>%
-    gather(Location, Engagement, City:County) %>%
-    mutate(Location = fct_relevel(
-      Location, c('City', 'County')))
-engagement_data
-```
-
-]]
-
----
-
-# Data exploration: an iterative process
-
-.leftcol[
-
-Initial exploratory plotting:
-
-.code60[
-
-```{r student-engagement-bars1, fig.width=6, fig.height=3}
-engagement_data %>%
-    ggplot() +
-    geom_col(aes(x = Engagement, y = School,
-                 fill = Location),
-             position = 'dodge')
-```
-
-]]
-
---
-
-.rightcol[
-
-More exploratory plotting:<br>highlight difference
-
-```{r student-engagement-bars2, echo=FALSE, fig.width=6, fig.height=5}
-engagement %>%
-    mutate(Highlight = as.factor(Highlight)) %>%
-    ggplot(aes(x=x, y=Engagement, group=School, color=School)) +
-    geom_point() +
-    geom_line() +
-    labs(x='Sex', y='Engagement')
-```
-
-]
-
----
-
-# Data exploration: an iterative process
-
-.leftcol[
-
-Directly label figure:
-
-```{r student-engagement-bars3, echo=FALSE, fig.width=6, fig.height=5}
-engagement %>%
-    mutate(Highlight = as.factor(Highlight)) %>%
-    ggplot(aes(x=x, y=Engagement, group=School, color=School)) +
-    geom_point() +
-    geom_line() +
-    labs(x='Location', y='Engagement') +
-    theme_cowplot() +
-    scale_x_continuous(limits = c(-0.2, 2), labels = c('City', 'County'),
-                       breaks = c(0, 1)) +
-    theme(legend.position = 'none') +
-    geom_text_repel(aes(label = School, color = as.factor(School)),
-                    data          = subset(engagement, Location == 'County'),
-                    size          = 5,
-                    nudge_x       = 0.2,
-                    hjust         = 0,
-                    segment.color = NA)
-```
-
-]
-
---
-
-.rightcol[
-
-Remove unnecessary axes, change colors, fix labels:
-
-```{r, ref.label='student-engagement-final', echo=FALSE, fig.width=6, fig.height=5}
-```
-
-]
-
----
-
-**A fully reproducible analysis**
-
-.panelset[
-
-.panel[.panel-name[Code]
-
-.code40[.leftcol[
-
-```{r, eval=FALSE}
-data <- data.frame(
-    City   = c(643, 735, 590, 863),
-    County = c(793, 928, 724, 662),
-    School = c('Special Ed., Charter', 'Special Ed., Public',
-               'General Ed., Charter', 'General Ed., Public'),
-    Highlight = c(0, 0, 0, 1)) %>%
-    gather(Location, Engagement, City:County) %>%
-    mutate(
-      Location = fct_relevel(Location, c('City', 'County')),
-      Highlight = as.factor(Highlight),
-      x = ifelse(Location == 'County', 1, 0))
-```
-
-]
-
-.rightcol[
-
-```{r, eval=FALSE}
-plot <- ggplot(data, aes(x = x, y = Engagement, group = School, color = Highlight)) +
-    geom_point() +
-    geom_line() +
-    scale_color_manual(values = c('#757575', '#ed573e')) +
-    labs(x = 'Sex', y = 'Engagement',
-         title = paste0('Students in public, general education classes\n',
-                        'in county schools have surprisingly low engagement')) +
-    scale_x_continuous(limits = c(-1.2, 1.2), labels = c('City', 'County'),
-                       breaks = c(0, 1)) +
-    geom_text_repel(aes(label = Engagement, color = as.factor(Highlight)),
-                    data          = subset(engagement, Location == 'County'),
-                    size          = 5,
-                    nudge_x       = 0.1,
-                    segment.color = NA) +
-    geom_text_repel(aes(label = Engagement, color = as.factor(Highlight)),
-                    data          = subset(engagement, Location == 'City'),
-                    size          = 5,
-                    nudge_x       = -0.1,
-                    segment.color = NA) +
-    geom_text_repel(aes(label = School, color = as.factor(Highlight)),
-                    data          = subset(engagement, Location == 'City'),
-                    size          = 5,
-                    nudge_x       = -0.25,
-                    hjust         = 1,
-                    segment.color = NA) +
-    theme_cowplot() +
-    background_grid(major = 'x') +
-    theme(axis.line = element_blank(),
-          axis.title.x = element_blank(),
-          axis.title.y = element_blank(),
-          axis.text.y = element_blank(),
-          axis.ticks = element_blank(),
-          legend.position = 'none')
-```
-
-]]]
-
-.panel[.panel-name[Plot]
-
-```{r, ref.label='student-engagement-final', echo=FALSE, fig.width=6, fig.height=5}
-```
-
-]]
-
----
-
-```{r child="topics/2.Rmd"}
-```
-
----
-
 # Meet your instructor!
 
 .leftcol30[.circle[
 
-<img src="images/helveston.jpg" width="300">
+<img src="https://p4a.seas.gwu.edu/2020-Fall/images/helveston.jpg" width="300">
 
 ]]
 
@@ -427,7 +50,8 @@ plot <- ggplot(data, aes(x = x, y = Engagement, group = School, color = Highligh
 
 .font80[
 
-- 2018 - Present Assistant Professor, Engineering Management & Systems Engineering
+Assistant Professor, Engineering Management & Systems Engineering
+
 - 2016-2018 Postdoc at [Institute for Sustainable Energy](https://www.bu.edu/ise/), Boston University
 - 2016 PhD in Engineering & Public Policy at Carnegie Mellon University
 - 2015 MS in Engineering & Public Policy at Carnegie Mellon University
@@ -441,18 +65,14 @@ plot <- ggplot(data, aes(x = x, y = Engagement, group = School, color = Highligh
 # Meet your tutors!
 
 .leftcol30[.circle[
-
-<img src="images/rossetti.jpg" width="300">
-
+<img src="images/lujin.jpg" width="300">
 ]]
 
 .rightcol70[
-
-### **Michael Rossetti** 
+### **Lujin Zhao**
 
 - Graduate Assistant (GA)
 - PhD student in EMSE
-
 ]
 
 ---
@@ -460,117 +80,132 @@ plot <- ggplot(data, aes(x = x, y = Engagement, group = School, color = Highligh
 # Meet your tutors!
 
 .leftcol30[.circle[
-
-<img src="images/ottinger.png" width="300">
-
+<img src="images/michael.png" width="300">
 ]]
 
 .rightcol70[
-
-### **Eliese Ottinger**
+### **Michael O'Keefe**
 
 - Learning Assistant (LA)
-- EMSE Senior & P4A / EDA alumni
-
+- EMSE Junior & P4A alumni (Fall 2020)
 ]
 
 ---
 
-# Prerequisites
-
-## [EMSE 4574: Intro to Programming for Analytics](https://p4a.seas.gwu.edu/2020-Fall/)
-
-You should be able to:
-
-- Use RStudio to write basic R commands.
-- Know the distinctions between different R operators and data types, including numeric, string, and logical data.
-- Use **tidyverse** functions to wrangle and manipulate data in R.
-- Use the **ggplot2** library to create plots in R.
+# Course orientation
 
 --
 
-> [`r fontawesome::fa(name = "building-columns")` Check out R for Analytics Primer](http://jhelvy.github.io/r4aPrimer/)
+## `r fa('globe')` Everything you need will be on the course website:
+
+### https://p4a.seas.gwu.edu/2022-Spring/
+
+--
+
+## `r fa('puzzle-piece')` Course is broken into **two chunks**:
+
+### 1. Programming
+### 2. Analytics
 
 ---
 
-# Course website
+# Learning Objectives
 
-## `r fa('globe')` Everything you need will be on the course website:<br>https://eda.seas.gwu.edu/2022-Fall/
+<br>
 
---
+## After this class, you will know how to...
 
-## `r fa('calendar')` The [schedule](https://emse-eda-gwu.github.io/2022-Fall/schedule.html) is the best starting point
-
----
-
-# **Quizzes** (8% of grade)
-
---
-
-## `r fa('calendar')` At the start of class every other week-ish, unscheduled. Make ups only for excused absences (i.e. don't be late). 
-
---
-
-## `r fa('calendar')` 5 total, lowest dropped
-
---
-
-## `r fa('clock')` ~5 - 10 minutes
-
---
-
-> **Why quiz at all?** The "retrieval effect" - basically, you have to _practice_ remembering things, otherwise your brain won't remember them (see the book ["Make It Stick: The Science of Successful Learning"](https://www.hup.harvard.edu/catalog.php?isbn=9780674729018))
+### ...write `r fa('r-project')` code to solve medium-sized tasks.
+### ...pro-actively test and debug code.
+### ...reproducibly import, export, manipulate, and visualize data.
 
 ---
 
-## Assignments
+# Homeworks (55% of grade)
 
 --
 
-## 1) `r fa("book")` Weekly Homework / Readings: [HW1](https://eda.seas.gwu.edu/2022-Fall/hw/1-tidy-data.html)
+## `r fa('calendar')` ~Every week (12 total)
 
 --
 
-## 2) `r fa("pen-ruler")` 3 Mini Projects (due 2 weeks from date assigned)
+## `r fa('clock')` Soft due dates (11:59pm Wed. before class)
 
 --
 
-## 3) `r fa("pen-ruler")` [Final Project](https://eda.seas.gwu.edu/2022-Fall/project-final/0-overview.html) (Teams of 2 - 3 students)
+## `r fa('exclamation')` **Don't abuse this flexibility**
 
-Item            | Due Date
-----------------|---------------
-Proposal        | March 12
-Progress Report | April 16
-Final Report    | April 30
-Presentation    | May 03
-Interview       | Exam week
+--
+
+## Two hard deadlines on homework submissions:
+
+### 1. Mar. 10 (HWs 1-7)
+### 2. May. 05 (HWs 8-12)
 
 ---
 
-background-color: #FFF
+# Late submissions
+
+<br>
+
+### - **5** late days - use them anytime, no questions asked
+### - No more than **2** late days on any one assignment
+### - Contact me for special cases (I'm expecting a lot of these)
+
+---
+
+# Quizzes (15% of grade)
+
+--
+
+## `r fa('calendar')` In class every other week-ish (7 total, drop lowest 2)
+
+--
+
+## `r fa('clock')` ~5 minutes (1-3 questions)
+
+--
+
+> **Why quiz at all?** There's a phenomenon called the "retrieval effect" - basically, you have to _practice_ remembering things, otherwise your brain won't remember them (details in the book ["Make It Stick: The Science of Successful Learning"](https://www.hup.harvard.edu/catalog.php?isbn=9780674729018)).
+
+---
+
+# Exams (30% of grade)
+
+<br>
+
+## `r fa('calendar')` Midterm (weeks 1 - 7) on March 10
+
+## `r fa('calendar')` Final (weeks 1 - 13) on May 05
+
+---
 
 # .center[Grades]
 
-<center>
-<img src="https://eda.seas.gwu.edu/2022-Fall/figs/grade-breakdown-1.png" width=90%>
-</center>
+<br>
+
+Component                  | Weight | Notes
+---------------------------|--------|----------------
+Homeworks & Readings (12x) | 55%    | Lowest 1 dropped
+Quizzes (7x)               | 15%    | Lowest 2 dropped
+Midterm Exam               | 10%    |
+Final Exam                 | 20%    |
 
 ---
 
-# .center[Grades]
+# .center[Alternative Minimum Grade (AMG)]
 
-Item                           | Weight | Notes
--------------------------------|--------|-------------------------------------
-Weekly HW                      | 12 %   |
-Quizzes                        | 8 %    | 5 quizzes, lowest dropped
-Mini Project 1                 | 8 %    | Individual assignments
-Mini Project 2                 | 8 %    |
-Mini Project 3                 | 8 %    |
-Final Project: Proposal        | 9 %    | Teams of 2-3 students
-Final Project: Progress Report | 12 %   |
-Final Project: Report          | 16 %   |
-Final Project: Presentation    | 9 %    |
-Final Interview                | 10 %   | Individual interview
+- Designed for those who struggle early but work hard to succeed in 2nd half.
+- Highest possible grade is "C"
+
+<br>
+
+Course Component   | Weight
+-------------------|----
+Best 10 Homeworks  | 40%
+Best 4 Quizzes     | 10%
+Midterm Exam       | 10%
+Final Exam         | 40%
 
 ---
 
@@ -579,32 +214,26 @@ Final Interview                | 10 %   | Individual interview
 --
 
 .leftcol35[
-
 - ## BE NICE
 - ## BE HONEST
 - ## DON'T CHEAT
-
 ]
 
 --
 
 .rightcol65[
+## .center[Copying is good, stealing is bad]
 
-## Copying is good, stealing is bad
-
-> "Plagiarism is trying to pass someone else’s work off as your own. Copying is about reverse-engineering."
+> "Plagiarism is trying to pass someone else's work off as your own. Copying is about reverse-engineering."
 >
 > .right[-- Austin Kleon, from [Steal Like An Artist](https://austinkleon.com/steal/)&ensp;]
-
 ]
 
 ---
 
-# Late submissions
+class: middle, center
 
-## - **5** late days - use them anytime, no questions asked
-## - No more than **2** late days on any one assignment
-## - Contact me for special cases
+# **Don't copy-paste others' code!**
 
 ---
 
@@ -620,10 +249,6 @@ Final Interview                | 10 %   | Individual interview
 
 --
 
-## `r fa("book")` Actually read (before class)!
-
---
-
 ## `r fa("bed")` Get sleep and take breaks often!
 
 --
@@ -632,11 +257,11 @@ Final Interview                | 10 %   | Individual interview
 
 ---
 
-# [Getting Help](https://eda.seas.gwu.edu/2022-Fall/help/getting-help.html)
+# Getting Help
 
 --
 
-## `r fa('slack')` Use [Slack](https://emse-eda-f22.slack.com/) to ask questions.
+## `r fa('slack')` Use [Slack](https://emse-p4a-s22.slack.com/) to ask questions.
 
 --
 
@@ -646,9 +271,9 @@ Final Interview                | 10 %   | Individual interview
 
 ## `r fa('user-clock')` [Schedule a meeting](https://jhelvy.appointlet.com/b/professor-helveston) w/Prof. Helveston:
 
-- Mondays from 8:00-5:00pm
-- Wednesdays from 3:20-5:00pm
-- Thursdays from 12:00-5:00pm
+- Mondays from 8:00am - 2:00pm
+- Wednesdays from 2:00 - 5:00pm
+- Fridays from 12:00 - 2:00pm
 
 --
 
@@ -656,39 +281,1209 @@ Final Interview                | 10 %   | Individual interview
 
 ---
 
-# `r fa('hard-drive')` [Course Software](https://eda.seas.gwu.edu/2022-Fall/help/course-software.html)
+# `r fa('hard-drive')` [Course Software](https://p4a.seas.gwu.edu/2023-Spring/software.html)
+
+<br>
 
 --
 
-## `r fa('slack')` [Slack](https://emse-eda-f22.slack.com/): See bb for link to join;<br>install on phone and **turn notifications on**!
+## `r fa('slack')` [Slack](https://emse-p4a-s23.slack.com/): Install app & **turn notifications on**!
 
 --
 
-## `r fa('r-project')` [R](https://cloud.r-project.org/) & [RStudio](https://rstudio.com/products/rstudio/download/) (Install both)
+## `r fa('r-project')` [R](https://cloud.r-project.org/) & [RStudio](https://rstudio.com/products/rstudio/download/): Install both.
 
 --
 
-## `r fa('cloud')` [RStudio Cloud](https://rstudio.cloud/) (Register for free!)
+## `r fa('r-project')` [RStudio Cloud](https://rstudio.cloud/plans/free): A web-based version of RStudio.
 
 ---
 
 class: inverse, center
 
-<br>
 # .fancy[Break]
 
-# Install Stuff
+## `r fa('hard-drive')` Install [course software](https://p4a.seas.gwu.edu/2023-Spring/software.html) if you haven't
 
 ```{r, echo=FALSE}
 countdown(
-    minutes = 5,
-    warn_when = 30,
-    update_every = 1,
-    left = 0, right = 0, top = 1, bottom = 0,
-    margin = "5%",
-    font_size = "8em"
+  minutes      = 5,
+  warn_when    = 30,
+  update_every = 1,
+  left         = 0,
+  right        = 0,
+  top          = 1,
+  bottom       = 0,
+  margin       = "5%",
+  font_size    = "8em"
 )
 ```
+
+---
+
+```{r child="topics/2.Rmd"}
+```
+
+---
+
+class: center
+
+## What is `r fa('r-project')`? ([Read a brief history here](https://bookdown.org/rdpeng/rprogdatascience/history-and-overview-of-r.html))
+
+Chambers creates "S" (1976, Bell Labs)<br>
+Ross & Robert create "R" (1991, U. of Auckland)
+
+.cols3[
+
+## .center[[John Chambers](https://en.wikipedia.org/wiki/John_Chambers_(statistician)]
+
+<center>
+<img src="https://datascience.stanford.edu/sites/g/files/sbiybj18491/f/styles/large-square/public/john-chambers.png?itok=o9PvzKwG" width=280>
+</center>
+
+]
+
+.cols3[
+
+## .center[[Ross Ihaka](https://en.wikipedia.org/wiki/Ross_Ihaka)]
+
+<center>
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f0/Ross_Ihaka_%285189180796%29.jpg/1280px-Ross_Ihaka_%285189180796%29.jpg" width=100%>
+</center>
+
+]
+
+.cols3[
+
+## .center[[Robert Gentleman](https://en.wikipedia.org/wiki/Robert_Gentleman_(statistician)]
+
+<center>
+<img src="https://upload.wikimedia.org/wikipedia/commons/c/c6/Rober_Gentleman.png" width=250>
+</center>
+
+]
+
+---
+
+class: center, middle
+
+.leftcol[
+
+## `r fa('r-project')`
+
+<center>
+<img src="images/engine.jpg" width=500>
+</center>
+
+]
+
+.rightcol[
+
+## `r fa('r-project')`Studio
+
+<center>
+<img src="images/dashboard.jpg" width=600>
+</center>
+
+]
+
+---
+
+class: center
+
+# RStudio Orientation
+
+.leftcol[
+
+## Open this
+
+<center>
+<img src="images/rstudio_ball.png" width=300>
+</center>
+
+]
+
+.rightcol[
+
+## Not this
+
+<center>
+<img src="images/Rlogo.png" width=400>
+</center>
+
+]
+
+---
+
+# RStudio Orientation
+
+.leftcol70[
+
+<center>
+<img src="images/rstudio_panes.png" width=650>
+</center>
+
+]
+
+.rightcol30[
+
+- Know the boxes
+- Customize the layout
+- Customize the look
+- [Extra themes](https://github.com/gadenbuie/rsthemes)
+
+]
+
+---
+
+# Your first conveRsation
+
+### Write stuff in the console, then press "enter"
+
+--
+
+Example: **addition**
+
+```{r}
+3 + 4
+```
+
+--
+
+Example: **error**
+
+```{r, error=TRUE}
+3 + "4"
+```
+
+---
+
+# Storing values
+
+### Use the "`<-`" symbol to assign _values_ to _objects_
+
+--
+
+```{r}
+x <- 40
+x
+```
+
+--
+
+```{r}
+x + 2
+```
+
+---
+
+# Storing values
+
+### If you overwrite an object, R "forgets" the old value
+
+--
+
+Example:
+
+```{r}
+x <- 42
+x
+```
+
+--
+
+```{r}
+x <- 50
+x
+```
+
+---
+
+# Storing values
+
+<br>
+
+### You can also use the `=` symbol to assign values
+
+```{r}
+x = 50
+x
+```
+
+### (but it's more R-like to use `<-`)
+
+---
+
+# Storing values
+
+### You can store more than just numbers
+
+--
+
+```{r}
+x <- "If you want to view paradise"
+y <- "simply look around and view it"
+```
+
+--
+
+```{r}
+x
+y
+```
+
+---
+
+# Storing values
+
+--
+
+.leftcol[
+
+### **Pro tip 1**:
+
+### Shortcut for `<-` symbol
+
+.left[
+
+|OS | Shortcut
+|:--|:--------
+|mac | `option` + `-`
+|windows | `alt` + `-`
+
+]
+
+(see [here](https://support.rstudio.com/hc/en-us/articles/200711853-Keyboard-Shortcuts) for more shortcuts)
+
+]
+
+--
+
+.rightcol[
+
+### **Pro tip 2**:
+
+### Always surround `<-` with spaces
+
+Example:
+
+```{r, eval=FALSE}
+x<-2
+```
+
+Does this mean `x <- 2` or `x < -2`?
+
+]
+
+---
+
+.leftcol[
+
+## R ignores **extra space**
+
+```{r}
+x     <-       2
+y  <-            3
+z        <- 4
+```
+
+Check:
+```{r}
+x
+y
+z
+```
+
+]
+
+--
+
+.rightcol[
+
+## R cares about **casing**
+
+```{r}
+number <- 2
+Number <- 3
+numbeR <- 4
+```
+
+Check:
+
+```{r}
+number
+Number
+numbeR
+```
+
+]
+
+---
+
+# Use `#` for comments
+
+### R ignores everything after the `#` symbol
+
+Example:
+
+```{r}
+speed <- 42 # This is mph, not km/h
+speed
+```
+
+---
+
+# Use meaningful variable names
+
+--
+
+**Example**: You are recording the speed of a car in mph
+
+--
+
+**Poor** variable name:
+
+```{r}
+x <- 42
+```
+
+--
+
+**Good** variable name:
+
+```{r}
+speed <- 42
+```
+
+--
+
+**Even better** variable name:
+
+```{r}
+speed_mph <- 42
+```
+
+---
+
+# Use standard casing styles
+
+.leftcol60[
+
+<img src="images/horst_casing.jpg" width=600> Art by [Allison Horst](https://github.com/allisonhorst/stats-illustrations)
+
+]
+
+--
+
+.rightcol40[
+
+I recommend using one of these:
+
+- `snake_case_uses_underscores`
+- `camelCaseUsesCaps`
+
+Example:
+
+```{r}
+days_in_week <- 7
+monthsInYear <- 12
+```
+
+]
+
+---
+
+## The workspace
+
+.leftcol[
+
+View all the current objects:
+
+```{r}
+objects()
+```
+
+]
+
+--
+
+.rightcol[
+
+Remove an object by name:
+
+```{r}
+rm(number)
+objects()
+```
+
+]
+
+---
+
+# View prior code in history pane
+
+<img src="images/rstudio_panes.png" width=500>
+
+--
+
+# Use "up" arrow see previous code
+
+---
+
+# Staying organized
+
+--
+
+## 1) Save your code in .R files
+
+> ### File > New File > R Script
+
+--
+
+## 2) Keep work in R Project files
+
+> ### File > New Project...
+
+---
+
+class: inverse
+
+```{r, echo=FALSE}
+countdown(
+  minutes      = 10,
+  warn_when    = 30,
+  update_every = 15,
+  bottom       = 0,
+  left         = 0,
+  font_size    = '2em'
+)
+```
+
+.leftcol[.font80[
+
+## Your turn
+
+### A. Practice getting organized
+
+1. Open RStudio and create a new R project called `week1`.
+2. Create a new R script and save it as `practice.R`.
+3. Open the `practice.R` file and write your answers to these questions in it.
+
+]]
+
+.rightcol[.font80[
+
+### B. Creating & working with objects
+
+1). Create objects to store the values in this table:
+
+| City              | Area (sq mi) | Population (thousands) |
+|-------------------|----------------|------------------------|
+| San Francisco, CA | 47             | 884                    |
+| Chicago, IL       | 228            | 2,716                  |
+| Washington, DC    | 61             | 694                    |
+
+2) Using the objects you created, answer the following questions:
+
+  - Which city has the highest density?
+  - How many _more_ people would need to live in DC for it to have the same population density as San Francisco?
+
+```{r, eval=FALSE, echo=FALSE}
+# Create values
+area_sf <- 47
+area_chicago <- 228
+area_dc <- 61
+pop_sf <- 884
+pop_chicago <- 2716
+pop_dc <- 694
+
+# Compute densities
+dens_sf <- pop_sf / area_sf
+dens_chicago <- pop_chicago / area_chicago
+dens_dc <- pop_dc / area_dc
+dens_sf
+dens_chicago
+dens_dc
+
+# Compute addition DC population to match SF density
+(dens_sf*area_dc) - pop_dc
+```
+]]
+
+---
+
+```{r child="topics/3.Rmd"}
+```
+
+---
+
+# R as a calculator
+
+.leftcol[
+
+## Basic operators:
+
+### - Addition: `+`
+### - Subtraction: `-`
+### - Multiplication: `*`
+### - Division: `/`
+
+]
+
+--
+
+.rightcol[
+
+## Other important operators:
+
+### - Power: `^`
+### - Integer Division: `%/%`
+### - Modulus: `%%`
+
+]
+
+---
+
+# Integer division: `%/%`
+
+Integer division drops the remainder from regular division
+
+--
+
+```{r}
+4 / 3 # Regular division
+4 %/% 3 # Integer division
+```
+
+---
+
+# Integer division: `%/%`
+
+Integer division drops the remainder from regular division
+
+--
+
+What will this return?
+
+```{r, eval=FALSE}
+4 %/% 4
+```
+
+--
+
+```{r, echo=FALSE}
+4 %/% 4
+```
+
+--
+
+What will this return?
+
+```{r, eval=FALSE}
+4 %/% 5
+```
+
+--
+
+```{r, echo=FALSE}
+4 %/% 5
+```
+
+---
+
+# Modulus operator: `%%`
+
+Modulus returns the _remainder_ after doing division
+
+--
+
+```{r}
+5 %% 3
+```
+
+--
+
+```{r}
+3.1415 %% 3
+```
+
+---
+
+# Modulus operator: `%%`
+
+Modulus returns the _remainder_ after doing division
+
+--
+
+What will this return?
+
+```{r, eval=FALSE}
+4 %% 4
+```
+
+--
+
+```{r, echo=FALSE}
+4 %% 4
+```
+
+--
+
+What will this return?
+
+```{r, eval=FALSE}
+4 %% 5
+```
+
+--
+
+```{r, echo=FALSE}
+4 %% 5
+```
+
+---
+
+## Odds and evens with `n %% 2`
+
+--
+
+.leftcol[
+
+If `n %% 2` is `0`, `n` is **EVEN**
+
+```{r}
+10 %% 2
+12 %% 2
+```
+
+Also works with negative numbers!
+
+```{r}
+-42 %% 2
+```
+
+]
+
+--
+
+.rightcol[
+
+If `n %% 2` is `1`, `n` is **ODD**
+
+```{r}
+1 %% 2
+13 %% 2
+```
+
+Also works with negative numbers!
+
+```{r}
+-47 %% 2
+```
+
+]
+
+---
+
+## Number "chopping" with 10s
+
+--
+
+.leftcol[
+
+The mod operator (`%%`) "chops" a number and returns everything to the _right_
+
+```{r}
+123456 %% 1
+123456 %% 10
+123456 %% 100
+```
+
+]
+
+--
+
+.rightcol[
+
+Integer division (`%/%`) "chops" a number and returns everything to the _left_
+
+```{r}
+123456 %/% 1
+123456 %/% 10
+123456 %/% 100
+```
+
+]
+
+---
+
+## Number "chopping" with 10s
+
+- `%%` returns everything to the _right_ (`"chop" ->`)
+- `%/%` returns everything to the _left_ (`<- "chop"`)
+- The "chop" point is always just to the _right_ of the chopping digit
+
+<br>
+
+<div style="width:1000px">
+<table class="table table-condensed">
+<thead>
+<tr class="header">
+<th>Example</th>
+<th>“Chop” point</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>1234 %% 1</code></td>
+<td><code>1234 |</code></td>
+<td>Right of the <code>1</code>’s digit</td>
+</tr>
+<tr class="even">
+<td><code>1234 %% 10</code></td>
+<td><code>123 | 4</code></td>
+<td>Right of the <code>10</code>’s digit</td>
+</tr>
+<tr class="odd">
+<td><code>1234 %% 100</code></td>
+<td><code>12 | 34</code></td>
+<td>Right of the <code>100</code>’s digit</td>
+</tr>
+<tr class="even">
+<td><code>1234 %% 1000</code></td>
+<td><code>1 | 234</code></td>
+<td>Right of the <code>1,000</code>’s digit</td>
+</tr>
+<tr class="odd">
+<td><code>1234 %% 10000</code></td>
+<td><code>| 1234</code></td>
+<td>Right of the <code>10,000</code>’s digit</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+---
+
+# Comparing things: **Relational operators**
+
+--
+
+.leftcol[
+
+### Compare if condition is `TRUE` or `FALSE` using:
+
+- Less than: `<`
+- Less than or equal to : `<=`
+- Greater than or equal to: `>=`
+- Greater than: `>`
+- Equal: `==`
+- Not equal: `!=`
+
+]
+
+--
+
+.rightcol[.code60[
+
+```{r}
+2 < 2
+2 <= 2
+(2 + 2) == 4
+(2 + 2) != 4
+"penguin" == "penguin"
+```
+
+]]
+
+---
+
+# Comparing things: **Logical operators**
+
+<br>
+
+### Make multiple comparisons with:
+
+### - And: `&`
+### - Or: `|`
+### - Not: `!`
+
+---
+
+# Comparing things: **Logical operators**
+
+.leftcol[
+
+With "and" (`&`), every part must be `TRUE`, otherwise the whole statement is `FALSE`:
+
+```{r}
+(2 == 2) & (3 == 3)
+(2 == 2) & (2 == 3)
+```
+
+]
+
+--
+
+.rightcol[
+
+With "or" (`|`), if _any_ part is `TRUE`, the whole statement is `TRUE`:
+
+```{r}
+(2 == 2) | (3 == 3)
+(2 == 2) | (2 == 3)
+```
+
+]
+
+---
+
+# Comparing things: **Logical operators**
+
+The "not" (`!`) symbol produces the _opposite_ statement:
+
+--
+
+```{r, eval=FALSE}
+! (2 == 2)
+```
+
+--
+
+```{r, echo=FALSE}
+! (2 == 2)
+```
+
+--
+
+```{r, eval=FALSE}
+! (2 == 2) | (3 == 3)
+```
+
+--
+
+```{r, echo=FALSE}
+! (2 == 2) | (3 == 3)
+```
+
+--
+
+```{r, eval=FALSE}
+! ((2 == 2) | (3 == 3))
+```
+
+--
+
+```{r, echo=FALSE}
+! ((2 == 2) | (3 == 3))
+```
+
+---
+
+# Comparing things: **Logical operators**
+
+### Order precedence for logical operators: `! > & > |`
+
+--
+
+.leftcol[
+
+```{r}
+TRUE | FALSE & FALSE
+(TRUE | FALSE) & FALSE
+```
+
+]
+
+.rightcol[
+
+```{r}
+! TRUE | TRUE
+! (TRUE | TRUE)
+```
+
+]
+
+---
+
+# Comparing things: **Logical operators**
+
+.leftcol[
+
+### **Pro tip**: Use parentheses
+
+```{r}
+! 3 == 5   # Confusing
+! (3 == 5) # Less confusing
+```
+
+]
+
+---
+
+## Other important points
+
+.leftcol[
+
+### R follows BEDMAS:
+
+1. **B**rackets
+2. **E**xponents
+3. **D**ivision
+4. **M**ultiplication
+5. **A**ddition
+6. **S**ubtraction
+
+]
+
+--
+
+.rightcol[
+
+### **Pro tip**: Use parentheses
+
+```{r}
+1 + 2 * 4   # Confusing
+1 + (2 * 4) # Less confusing
+```
+
+]
+
+---
+
+class: inverse
+
+```{r, echo=FALSE}
+countdown(
+  minutes      = 10,
+  warn_when    = 30,
+  update_every = 15,
+  top          = 0,
+  font_size    = '2em'
+)
+```
+
+# Your turn
+
+Consider the following objects:
+
+```{r}
+w <- TRUE
+x <- FALSE
+y <- TRUE
+```
+
+Write code to answer the following questions:
+1. Fill in _relational_ operators to make the following statement return `TRUE`:
+
+    `! (w __ x) & ! (y __ x)`
+
+2. Fill in _logical_ operators to make this statement return `FALSE`:
+
+    `! (w __ x) | (y __ x)`
+
+```{r, eval=FALSE, echo=FALSE}
+# 1.  Use relational operators to return TRUE
+! (w == x) & ! (y == x)
+
+# 2. Use logical operators to return FALSE
+! (w | x) | (y & x)
+```
+
+---
+
+# Data Types
+
+|Type      | Description                 | Example
+|:---------|:----------------------------|:---------
+|`double`   | Numbers w/decimals (aka "float") | `3.14`
+|`integer`   | Numbers w/out decimals    | `42`
+|`character` | Text (aka "string") | `"this is some text"`
+|`logical`   | Used for comparing objects | `TRUE`, `FALSE`
+
+---
+
+## Use `typeof()` to find the type
+
+```{r}
+typeof(2)
+```
+
+```{r}
+typeof("hello")
+```
+
+```{r}
+typeof(TRUE)
+```
+
+---
+
+# Numeric types (there are 2)
+
+--
+
+.leftcol[
+
+## Integers
+
+### No decimals (e.g. `7`)
+
+]
+
+--
+
+.rightcol[
+
+## Doubles (aka "float")
+
+### Decimals (e.g. `7.0`)
+
+]
+
+---
+
+## In R, numbers are "doubles" by default
+
+--
+
+```{r}
+typeof(3)
+```
+
+### R assumes that `3` is really `3.0`
+
+--
+
+### Make it an integer by adding `L`:
+
+```{r}
+typeof(3L)
+```
+
+---
+
+# Character types
+
+--
+
+### Use single or double quotes around anything:
+
+```{r}
+typeof('hello')
+typeof("3")
+```
+
+--
+
+Use single / double quotes if the string _contains_ a quote symbol:
+
+```{r}
+typeof("don't")
+```
+
+---
+
+# Logical types
+
+--
+
+.leftcol[
+
+Logical data only have two values:<br>`TRUE` or `FALSE`
+
+```{r}
+typeof(TRUE)
+typeof(FALSE)
+```
+
+]
+
+--
+
+.rightcol[
+
+Note that these have to be in all caps,<br>and **not** in quotes:
+
+```{r, error=TRUE}
+typeof('TRUE')
+typeof(True)
+```
+
+]
+
+---
+
+# Logical types
+
+Use to answer questions about logical statements.
+
+Example: Is `1` greater than `2`?
+
+```{r}
+1 > 2
+```
+
+--
+
+Example: Is `2` greater than `1`?
+
+```{r}
+1 < 2
+```
+
+---
+
+## Special values
+
+--
+
+`Inf`: Infinity (_or really big numbers_)
+
+```{r}
+1/0
+```
+
+--
+
+`NaN`: Not a Number
+
+```{r}
+0/0
+```
+
+--
+
+`NA`: Not available (_value is missing_)
+
+--
+
+`NULL`: no value whatsoever
+
+---
+
+class: inverse
+
+# Your turn
+
+```{r, echo=FALSE}
+countdown(
+  minutes      = 5,
+  warn_when    = 30,
+  update_every = 15,
+  top          = 0,
+  font_size    = '2em'
+)
+```
+
+## Will these return `TRUE` or `FALSE`?
+
+## (try to answer first, then run the code to check)
+
+- `! typeof('3') == typeof(3)`
+- `(typeof(7) != typeof("FALSE")) | FALSE`
+- `! (typeof(TRUE) == typeof(FALSE)) & FALSE`
 
 ---
 
@@ -697,772 +1492,6 @@ countdown(
 
 ---
 
-## Workflow for reading in data
+class: center, middle
 
-1) Use R Projects (.Rproj files) to organize your analysis - **don't double-click .R files**!
-
-<img src = "images/rproj.png" width = "75">
-
---
-
-2) Use the `here` package to create file paths
-
-```{r, eval=FALSE}
-path <- here::here("folder", "file.csv")
-```
-
---
-
-3) Import data with these functions:
-
-File type  | Function       | Library
------------|----------------|----------
-`.csv`     | `read_csv()`   | **readr**
-`.txt`     | `read.table()` | **utils**
-`.xlsx`    | `read_excel()` | **readxl**
-
----
-
-# Importing Comma Separated Values (.csv)
-
-Read in `.csv` files with `read_csv()`:
-
-```{r}
-library(tidyverse)
-library(here)
-
-csvPath <- here('data', 'milk_production.csv')
-milk_production <- read_csv(csvPath) #<<
-
-head(milk_production)
-```
-
----
-
-# Importing Text Files (.txt)
-
-Read in `.txt` files with `read.table()`:
-
-```{r}
-txtPath <- here('data', 'nasa_global_temps.txt')
-global_temps <- read.table(txtPath, skip = 5, header = FALSE) #<<
-
-head(global_temps)
-```
-
----
-
-# Importing Text Files (.txt)
-
-Read in `.txt` files with `read.table()`:
-
-```{r}
-txtPath <- here('data', 'nasa_global_temps.txt')
-global_temps <- read.table(txtPath, skip = 5, header = FALSE)
-names(global_temps) <- c('year', 'no_smoothing', 'loess') # Add header #<<
-
-head(global_temps)
-```
-
----
-
-# Importing Excel Files (.xlsx)
-
-Read in `.xlsx` files with `read_excel()`:
-
-```{r}
-library(readxl)
-
-xlsxPath <- here('data', 'pv_cell_production.xlsx')
-pv_cells <- read_excel(xlsxPath, sheet = 'Cell Prod by Country', skip = 2) #<<
-```
-.code70[
-```{r}
-glimpse(pv_cells)
-```
-]
-
----
-
-# Importing Excel Files (.xlsx)
-
-Read in `.xlsx` files with `read_excel()`:
-
-```{r}
-library(readxl)
-
-xlsxPath <- here('data', 'pv_cell_production.xlsx')
-pv_cells <- read_excel(xlsxPath, sheet = 'Cell Prod by Country', skip = 2) %>%
-  mutate(Year = as.numeric(Year)) %>% # Convert "non-years" to NA #<<
-  filter(!is.na(Year)) # Drop NA rows in Year #<<
-```
-.code60[
-```{r}
-glimpse(pv_cells)
-```
-]
-
----
-
-class: inverse
-
-```{r, echo=FALSE}
-countdown(minutes = 10,
-          warn_when = 30,
-          update_every = 1,
-          top = 0,
-          right = 0,
-          font_size = '2em')
-```
-
-# Your turn
-
-Open the `practice.Rmd` file.
-
-Write code to import the following data files from the "data" folder:
-
-- For `lotr_words.csv`, call the data frame `lotr`
-- For `north_america_bear_killings.txt`, call the data frame `bears`
-- For `uspto_clean_energy_patents.xlsx`, call the data frame `patents`
-
----
-
-```{r child="topics/5.Rmd"}
-```
-
----
-
-.leftcol[
-
-# .center[The data frame...<br>in .darkgreen[Excel]]
-
-<center>
-<img src="images/spreadsheet.png" width=340>
-</center>
-
-]
-
-.rightcol[
-
-# .center[The data frame...<br>in `r fontawesome::fa(name = "r-project", fill = "blue")`]
-
-```{r}
-lotr
-```
-
-]
-
----
-
-## **Columns**: _Vectors_ of values (must be same data type)
-
-Extract a column using `$`
-
-```{r}
-lotr$race
-```
-
----
-
-## **Columns**: _Vectors_ of values (must be same data type)
-
-Can also use brackets:
-
-```{r}
-lotr$race
-lotr[,2]
-```
-
----
-
-## **Rows**: Information about individual observations
-
-Information about the first row:
-
-```{r}
-lotr[1,]
-```
-
---
-
-Information about rows 1 & 2:
-
-```{r}
-lotr[1:2,]
-```
-
----
-
-class: inverse
-
-## Quick Practice
-
-Read in the `data.csv` file in the "data" folder:
-
-```{r, eval=FALSE}
-data <- read_csv(here('data', 'data.csv'))
-```
-
-Now answer these questions:
-
-- How many rows and columns are in the data frame?
-- What type of data is each column?
-- Preview the different columns - what do you think this data is about? What might one row represent?
-- How many unique airlines are in the data frame? 
-- What is the shortest and longest air time for any one flight in the data frame?
-
----
-
-class: center
-
-### The tidyverse: `stringr` + `dplyr` + `readr` +  `ggplot2` + ...
-
-<center>
-<img src="images/horst_monsters_tidyverse.jpeg" width="950">
-</center>Art by [Allison Horst](https://www.allisonhorst.com/)
-
----
-
-# .center[The main `dplyr` "verbs"]
-
-<br>
-
-"Verb"        | What it does
---------------|--------------------
-`select()`    | Select columns by name
-`filter()`    | Keep rows that match criteria
-`arrange()`   | Sort rows based on column(s)
-`mutate()`    | Create new columns 
-`summarize()` | Create summary values 
-
----
-
-# .center[Core `tidyverse` concept:<br>**Chain functions together with "pipes"**]
-
-# .center[`%>%`]
-
---
-
-## Think of the words "...and then..."
-
-```{r, eval=FALSE}
-data %>% 
-  do_something() %>% 
-  do_something_else()
-```
-
----
-
-class: center, middle, inverse
-
-# Select columns with `select()`
-
-<br>
-<center>
-<img src="images/rstudio-cheatsheet-select.png" width="900">
-</center>
-
----
-
-# Select columns with `select()`
-
-Select the columns `film` & `race`
-
-```{r}
-lotr %>% 
-  select(film, race)
-```
-
----
-
-# Select columns with `select()`
-
-Use the `-` sign to drop columns
-
-```{r}
-lotr %>% 
-  select(-film)
-```
-
----
-
-class: center, middle, inverse
-
-# Filter for rows with `filter()`
-
-<br>
-<center>
-<img src="images/rstudio-cheatsheet-filter.png" width="900">
-</center>
-
----
-
-# Filter for rows with `filter()`
-
-Keep only the rows with Elf characters
-
-```{r}
-lotr %>% 
-    filter(race == "Elf")
-```
-
----
-
-# Filter for rows with `filter()`
-
-Keep only the rows with Elf or Hobbit characters
-
-```{r}
-lotr %>% 
-    filter((race == "Elf") | (race  == "Hobbit"))
-```
-
----
-
-# Filter for rows with `filter()`
-
-Keep only the rows with Elf or Hobbit characters
-
-```{r}
-lotr %>% 
-    filter(race %in% c("Elf", "Hobbit"))
-```
-
----
-
-# .center[Logic operators for `filter()`]
-
-<br>
-
-Description | Example
-------------|------------
-Values greater than 1 | `value > 1`
-Values greater than or equal to 1 | `value >= 1`
-Values less than 1 | `value < 1`
-Values less than or equal to 1 | `value <= 1`
-Values equal to 1 | `value == 1`
-Values not equal to 1 | `value != 1`
-Values in the set c(1, 4) | `value %in% c(1, 4)`
-
----
-
-# Combine `filter()` and `select()`
-
-Keep only the rows with Elf characters that spoke more than 1000 words, then select everything but the race column
-
-```{r}
-lotr %>% 
-  filter((race == "Elf") & (word_count > 1000)) %>% 
-  select(-race)
-```
-
----
-
-class: center, middle, inverse
-
-## Create new variables with `mutate()`
-
-<br>
-<center>
-<img src="images/rstudio-cheatsheet-mutate.png" width="900">
-</center>
-
----
-
-# Create new variables with `mutate()`
-
-Create a new variable, `word1000` which is `TRUE` if the character spoke 1,000 or more words
-
-```{r}
-lotr %>%
-    mutate(word1000 = word_count >= 1000)
-```
-
----
-
-# .center[Handling if/else conditions]
-
-### .center[`ifelse(<condition>, <if TRUE>, <else>)`]
-
---
-
-```{r}
-lotr %>%
-    mutate(word1000 = ifelse(word_count >= 1000, TRUE, FALSE))
-```
-
----
-
-# Sort data frame with `arrange()`
-
-Sort the `lotr` data frame by `word_count`
-
-```{r}
-lotr %>%
-    arrange(word_count)
-```
-
----
-
-# Sort data frame with `arrange()`
-
-Use the `desc()` function to sort in descending order
-
-```{r}
-lotr %>%
-    arrange(desc(word_count))
-```
-
----
-
-class: inverse
-
-```{r, echo=FALSE}
-countdown(
-    minutes = 10,
-    warn_when = 30,
-    update_every = 1,
-    top = 0,
-    right = 0,
-    font_size = '2em'
-)
-```
-
-# Your turn
-
-Read in the `data.csv` file in the "data" folder:
-
-```{r, eval=FALSE}
-data <- read_csv(here('data', 'data.csv'))
-```
-
-Now answer these questions:
-
-.font80[
-
-- Create a new data frame, `flights_fall`, that contains only flights that departed in the fall semester.
-- Create a new data frame, `flights_dc`, that contains only flights that flew to DC airports (Reagan or Dulles).
-- Create a new data frame, `flights_dc_carrier`, that contains only flights that flew to DC airports (Reagan or Dulles) and only the columns about the month and airline.
-- How many unique airlines were flying to DC airports in July?
-- Create a new variable, `speed`, in miles per hour using the `time` (minutes) and `distance` (miles) variables. 
-- Which flight flew the fastest?
-- Remove rows that have `NA` for `air_time` and re-arrange the resulting data frame based on the longest air time and longest flight distance.
-
-]
-
----
-
-```{r child="topics/6.Rmd"}
-```
-
----
-
-.leftcol[
-
-<img src="images/making_a_ggplot.jpeg" width=600>
-
-]
-
-.rightcol[
-
-# "Grammar of Graphics"
-
-Concept developed by Leland Wilkinson (1999)
-
-**ggplot2** package developed by Hadley Wickham (2005)
-
-]
-
----
-
-# Making plot layers with ggplot2
-
-<br>
-
-### 1. The data 
-### 2. The aesthetic mapping (what goes on the axes?)
-### 3. The geometries (points? bars? etc.)
-### 4. The annotations / labels
-### 5. The theme
-
----
-
-# Layer 1: The data
-
-```{r}
-head(mpg)
-```
-
----
-
-# Layer 1: The data
-
-The `ggplot()` function initializes the plot with whatever data you're using
-
-.leftcol[
-
-```{r ggblank, fig.show='hide'}
-mpg %>% 
-  ggplot()
-```
-
-]
-
-.rightcol[.blackborder[
-
-```{r ref.label='ggblank', echo=FALSE, fig.height=5, fig.width=7}
-```
-
-]]
-
----
-
-# Layer 2: The aesthetic mapping
-
-The `aes()` function determines which variables will be _mapped_ to the geometries<br>(e.g. the axes)
-
-.leftcol[
-
-```{r ggaes, fig.show='hide'}
-mpg %>% 
-  ggplot(aes(x = displ, y = hwy)) #<<
-```
-
-]
-
-.rightcol[.blackborder[
-
-```{r ref.label='ggaes', echo=FALSE, fig.height=5, fig.width=7}
-```
-
-]]
-
----
-
-# Layer 3: The geometries
-
-Use `+` to add geometries, e.g. `geom_points()` for points
-
-.leftcol[
-
-```{r ggpoint, fig.show='hide'}
-mpg %>% 
-  ggplot(aes(x = displ, y = hwy)) +
-  geom_point() #<<
-```
-
-]
-
-.rightcol[.blackborder[
-
-```{r ref.label='ggpoint', echo=FALSE, fig.height=5, fig.width=7}
-```
-
-]]
-
----
-
-# Layer 4: The annotations / labels
-
-Use `labs()` to modify most labels
-
-.leftcol[
-
-```{r gglabs, fig.show='hide'}
-mpg %>% 
-  ggplot(aes(x = displ, y = hwy)) +
-  geom_point() +
-  labs( #<<
-    x = "Engine displacement (liters)",  #<<
-    y = "Highway fuel economy (mpg)",  #<<
-    title = "Most larger engine vehicles are less fuel efficient" #<<
-  ) #<<
-```
-
-]
-
-.rightcol[.blackborder[
-
-```{r ref.label='gglabs', echo=FALSE, fig.height=5, fig.width=7}
-```
-
-]]
-
----
-
-# Layer 5: The theme
-
-.leftcol[
-
-```{r ggtheme_bw, fig.show='hide'}
-mpg %>% 
-  ggplot(aes(x = displ, y = hwy)) +
-  geom_point() +
-  labs(
-    x = "Engine displacement (liters)",  
-    y = "Highway fuel economy (mpg)", 
-    title = "Most larger engine vehicles are less fuel efficient"
-  ) + 
-  theme_bw() #<<
-```
-
-]
-
-.rightcol[.blackborder[
-
-```{r ref.label='ggtheme_bw', echo=FALSE, fig.height=5, fig.width=7}
-```
-
-]]
-
----
-
-### Common themes
-
-.leftcol[
-
-`theme_bw()`
-
-```{r, fig.height=4, fig.width=6}
-mpg %>% 
-  ggplot(aes(x = displ, y = hwy)) +
-  geom_point() +
-  theme_bw() #<<
-```
-
-]
-
-.rightcol[
-
-`theme_minimal()`
-
-```{r, fig.height=4, fig.width=6}
-mpg %>% 
-  ggplot(aes(x = displ, y = hwy)) +
-  geom_point() +
-  theme_minimal() #<<
-```
-
-]
-
----
-
-### Common themes
-
-.leftcol[
-
-`theme_classic()`
-
-```{r, fig.height=4, fig.width=6}
-mpg %>% 
-  ggplot(aes(x = displ, y = hwy)) +
-  geom_point() +
-  theme_classic() #<<
-```
-
-]
-
-.rightcol[
-
-`theme_void()`
-
-```{r, fig.height=4, fig.width=6}
-mpg %>% 
-  ggplot(aes(x = displ, y = hwy)) +
-  geom_point() +
-  theme_void() #<<
-```
-
-]
-
----
-
-class: middle, inverse 
-
-.leftcol[
-
-```{r, echo=FALSE}
-mpg %>% 
-  ggplot() +
-  geom_smooth(aes(x = displ, y = hwy, color = drv))
-```
-
-```{r, echo=FALSE}
-mpg %>% 
-  count(class, drv) %>% 
-  ggplot() +
-  geom_col(aes(x = drv, y = n, fill = class), width = 0.7)
-```
-
-]
-
-.rightcol[
-
-```{r, echo=FALSE}
-countdown(
-    minutes = 15,
-    warn_when = 15,
-    update_every = 1,
-    top = 0,
-    right = 0,
-    font_size = '2em'
-)
-```
-
-## Your turn
-
-Open `practice.Rmd`
-
-Use the `mpg` data frame and ggplot to create these charts
-
-```{r, echo=FALSE}
-mpg %>% 
-  ggplot(aes(x = displ, y = hwy)) +
-  geom_point(aes(color = class)) + 
-  geom_smooth(se = FALSE)
-```
-]
-
----
-
-class: inverse
-
-# Extra practice
-
-.leftcol[
-
-```{r, ggbar_p1, echo=FALSE, fig.height=5, fig.width=7}
-lotr %>%
-  ggplot() +
-  geom_col(aes(x = word_count, y = film, fill = gender)) +
-  labs(
-    x     = "Number of words spoken by characters",
-    y     = 'Film',
-    fill  = "Gender of character",
-    title = "Male characters had far more speakings roles in the LOTR series films"
-  ) +
-  theme_bw()
-```
-
-]
-
-.rightcol[
-
-```{r, fig.height=4, fig.width=6, echo=FALSE}
-mpg %>%
-    mutate(manufacturer = str_to_title(manufacturer)) %>%
-    group_by(manufacturer) %>%
-    summarise(mean_hwy = mean(hwy)) %>%
-    ggplot() +
-    geom_col(
-      aes(x = mean_hwy, y = reorder(manufacturer, mean_hwy)), 
-      width = 0.9) +
-    labs(
-      x = 'Highway fuel economy (mpg)',
-      y = 'Vehicle manufacturer', 
-      title = 'Mean fuel economy by automaker'
-    ) + 
-    theme_minimal()
-```
-
-]
+# `r fa('exclamation')` [HW 1](https://p4a.seas.gwu.edu/2023-Spring/hw1/getting-started.html) - read carefully!
