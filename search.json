@@ -42,8 +42,8 @@
     "text": "Coming soon!"
   },
   {
-    "objectID": "class/13-api.html",
-    "href": "class/13-api.html",
+    "objectID": "class/13-apis.html",
+    "href": "class/13-apis.html",
     "title": "APIs",
     "section": "",
     "text": "Coming soon!"
@@ -116,84 +116,84 @@
     "href": "hw/10-data-visualization.html",
     "title": "Homework 10 - Data Visualization",
     "section": "",
-    "text": "Due: Apr 12 by 11:59pm\nSubmission Instructions: Create a zip file of all the files in your R project folder for this assignment, then submit your zip file on the corresponding assignment submission on Blackboard.\nWeight: This assignment is worth 5% of your final grade.\nPurpose:\nAssessment: Each question indicates the % of the assignment grade, summing to 100%. The credit for each question will be assigned as follows:\n\n0% for not attempting a response.\n50% for attempting the question but with major errors.\n75% for attempting the question but with minor errors.\n100% for correctly answering the question.\n\nThe reflection portion is always worth 10% and graded for completion.\nRules:\n\nProblems marked SOLO may not be worked on with other classmates, though you may consult instructors for help.\nFor problems marked COLLABORATIVE, you may work in groups of up to 3 students who are in this course this semester. You may not split up the work – everyone must work on every problem. And you may not simply copy any code but rather truly work together and submit your own solutions.\n\n\n\nReadings\nThe readings from the last week will serve as a helpful reference as you complete this assignment. You can review them here:\n\n\n\n Data Visualization\n\n\n\nComing soon!"
+    "text": "Coming soon!"
   },
   {
     "objectID": "hw/11-monte-carlo-methods.html",
     "href": "hw/11-monte-carlo-methods.html",
     "title": "Homework 11 - Monte Carlo Methods",
     "section": "",
-    "text": "Due: Apr 19 by 11:59pm\nSubmission Instructions: Create a zip file of all the files in your R project folder for this assignment, then submit your zip file on the corresponding assignment submission on Blackboard.\nWeight: This assignment is worth 5% of your final grade.\nPurpose:\nAssessment: Each question indicates the % of the assignment grade, summing to 100%. The credit for each question will be assigned as follows:\n\n0% for not attempting a response.\n50% for attempting the question but with major errors.\n75% for attempting the question but with minor errors.\n100% for correctly answering the question.\n\nThe reflection portion is always worth 10% and graded for completion.\nRules:\n\nProblems marked SOLO may not be worked on with other classmates, though you may consult instructors for help.\nFor problems marked COLLABORATIVE, you may work in groups of up to 3 students who are in this course this semester. You may not split up the work – everyone must work on every problem. And you may not simply copy any code but rather truly work together and submit your own solutions.\n\n\n\nReadings\nThe readings from the last week will serve as a helpful reference as you complete this assignment. You can review them here:\n\n\n\n Monte Carlo Methods\n\n\n\nComing soon!"
+    "text": "Coming soon!"
   },
   {
     "objectID": "hw/12-webscraping.html",
     "href": "hw/12-webscraping.html",
     "title": "Homework 12 - Webscraping",
     "section": "",
-    "text": "Due: Apr 26 by 11:59pm\nSubmission Instructions: Create a zip file of all the files in your R project folder for this assignment, then submit your zip file on the corresponding assignment submission on Blackboard.\nWeight: This assignment is worth 5% of your final grade.\nPurpose:\nAssessment: Each question indicates the % of the assignment grade, summing to 100%. The credit for each question will be assigned as follows:\n\n0% for not attempting a response.\n50% for attempting the question but with major errors.\n75% for attempting the question but with minor errors.\n100% for correctly answering the question.\n\nThe reflection portion is always worth 10% and graded for completion.\nRules:\n\nProblems marked SOLO may not be worked on with other classmates, though you may consult instructors for help.\nFor problems marked COLLABORATIVE, you may work in groups of up to 3 students who are in this course this semester. You may not split up the work – everyone must work on every problem. And you may not simply copy any code but rather truly work together and submit your own solutions.\n\n\n\nReadings\nThe readings from the last week will serve as a helpful reference as you complete this assignment. You can review them here:\n\n\n\n Webscraping\n\n\n\nComing soon!"
+    "text": "Coming soon!"
   },
   {
     "objectID": "hw/13-apis.html",
     "href": "hw/13-apis.html",
     "title": "Homework 13 - APIs",
     "section": "",
-    "text": "Due: May 03 by 11:59pm\nSubmission Instructions: Create a zip file of all the files in your R project folder for this assignment, then submit your zip file on the corresponding assignment submission on Blackboard.\nWeight: This assignment is worth 5% of your final grade.\nPurpose:\nAssessment: Each question indicates the % of the assignment grade, summing to 100%. The credit for each question will be assigned as follows:\n\n0% for not attempting a response.\n50% for attempting the question but with major errors.\n75% for attempting the question but with minor errors.\n100% for correctly answering the question.\n\nThe reflection portion is always worth 10% and graded for completion.\nRules:\n\nProblems marked SOLO may not be worked on with other classmates, though you may consult instructors for help.\nFor problems marked COLLABORATIVE, you may work in groups of up to 3 students who are in this course this semester. You may not split up the work – everyone must work on every problem. And you may not simply copy any code but rather truly work together and submit your own solutions.\n\n\n\nReadings\nThe readings from the last week will serve as a helpful reference as you complete this assignment. You can review them here:\n\n\n\n APIs\n\n\n\nComing soon!"
+    "text": "Coming soon!"
   },
   {
     "objectID": "hw/2-functions-packages.html",
     "href": "hw/2-functions-packages.html",
     "title": "Homework 2 - Functions & Packages",
     "section": "",
-    "text": "Due: Feb 01 by 11:59pm\nSubmission Instructions: Create a zip file of all the files in your R project folder for this assignment, then submit your zip file on the corresponding assignment submission on Blackboard.\nWeight: This assignment is worth 5% of your final grade.\nPurpose:\nAssessment: Each question indicates the % of the assignment grade, summing to 100%. The credit for each question will be assigned as follows:\n\n0% for not attempting a response.\n50% for attempting the question but with major errors.\n75% for attempting the question but with minor errors.\n100% for correctly answering the question.\n\nThe reflection portion is always worth 10% and graded for completion.\nRules:\n\nProblems marked SOLO may not be worked on with other classmates, though you may consult instructors for help.\nFor problems marked COLLABORATIVE, you may work in groups of up to 3 students who are in this course this semester. You may not split up the work – everyone must work on every problem. And you may not simply copy any code but rather truly work together and submit your own solutions.\n\n\n\nReadings\nThe readings from the last week will serve as a helpful reference as you complete this assignment. You can review them here:\n\n\n\n Functions & Packages\n\n\n\nComing soon!"
+    "text": "Coming soon!"
   },
   {
     "objectID": "hw/3-creating-functions.html",
     "href": "hw/3-creating-functions.html",
     "title": "Homework 3 - Creating Functions",
     "section": "",
-    "text": "Due: Feb 08 by 11:59pm\nSubmission Instructions: Create a zip file of all the files in your R project folder for this assignment, then submit your zip file on the corresponding assignment submission on Blackboard.\nWeight: This assignment is worth 5% of your final grade.\nPurpose:\nAssessment: Each question indicates the % of the assignment grade, summing to 100%. The credit for each question will be assigned as follows:\n\n0% for not attempting a response.\n50% for attempting the question but with major errors.\n75% for attempting the question but with minor errors.\n100% for correctly answering the question.\n\nThe reflection portion is always worth 10% and graded for completion.\nRules:\n\nProblems marked SOLO may not be worked on with other classmates, though you may consult instructors for help.\nFor problems marked COLLABORATIVE, you may work in groups of up to 3 students who are in this course this semester. You may not split up the work – everyone must work on every problem. And you may not simply copy any code but rather truly work together and submit your own solutions.\n\n\n\nReadings\nThe readings from the last week will serve as a helpful reference as you complete this assignment. You can review them here:\n\n\n\n Creating Functions\n\n\n\nComing soon!"
+    "text": "Coming soon!"
   },
   {
     "objectID": "hw/4-conditionals-testing.html",
     "href": "hw/4-conditionals-testing.html",
     "title": "Homework 4 - Conditionals & Testing",
     "section": "",
-    "text": "Due: Feb 15 by 11:59pm\nSubmission Instructions: Create a zip file of all the files in your R project folder for this assignment, then submit your zip file on the corresponding assignment submission on Blackboard.\nWeight: This assignment is worth 5% of your final grade.\nPurpose:\nAssessment: Each question indicates the % of the assignment grade, summing to 100%. The credit for each question will be assigned as follows:\n\n0% for not attempting a response.\n50% for attempting the question but with major errors.\n75% for attempting the question but with minor errors.\n100% for correctly answering the question.\n\nThe reflection portion is always worth 10% and graded for completion.\nRules:\n\nProblems marked SOLO may not be worked on with other classmates, though you may consult instructors for help.\nFor problems marked COLLABORATIVE, you may work in groups of up to 3 students who are in this course this semester. You may not split up the work – everyone must work on every problem. And you may not simply copy any code but rather truly work together and submit your own solutions.\n\n\n\nReadings\nThe readings from the last week will serve as a helpful reference as you complete this assignment. You can review them here:\n\n\n\n Conditionals Testing & Debugging\n\n\n\nComing soon!"
+    "text": "Coming soon!"
   },
   {
     "objectID": "hw/5-iteration.html",
     "href": "hw/5-iteration.html",
     "title": "Homework 5 - Iteration",
     "section": "",
-    "text": "Due: Feb 22 by 11:59pm\nSubmission Instructions: Create a zip file of all the files in your R project folder for this assignment, then submit your zip file on the corresponding assignment submission on Blackboard.\nWeight: This assignment is worth 5% of your final grade.\nPurpose:\nAssessment: Each question indicates the % of the assignment grade, summing to 100%. The credit for each question will be assigned as follows:\n\n0% for not attempting a response.\n50% for attempting the question but with major errors.\n75% for attempting the question but with minor errors.\n100% for correctly answering the question.\n\nThe reflection portion is always worth 10% and graded for completion.\nRules:\n\nProblems marked SOLO may not be worked on with other classmates, though you may consult instructors for help.\nFor problems marked COLLABORATIVE, you may work in groups of up to 3 students who are in this course this semester. You may not split up the work – everyone must work on every problem. And you may not simply copy any code but rather truly work together and submit your own solutions.\n\n\n\nReadings\nThe readings from the last week will serve as a helpful reference as you complete this assignment. You can review them here:\n\n\n\n Iteration\n\n\n\nComing soon!"
+    "text": "Coming soon!"
   },
   {
     "objectID": "hw/6-vectors.html",
     "href": "hw/6-vectors.html",
     "title": "Homework 6 - Vectors",
     "section": "",
-    "text": "Due: Mar 01 by 11:59pm\nSubmission Instructions: Create a zip file of all the files in your R project folder for this assignment, then submit your zip file on the corresponding assignment submission on Blackboard.\nWeight: This assignment is worth 5% of your final grade.\nPurpose:\nAssessment: Each question indicates the % of the assignment grade, summing to 100%. The credit for each question will be assigned as follows:\n\n0% for not attempting a response.\n50% for attempting the question but with major errors.\n75% for attempting the question but with minor errors.\n100% for correctly answering the question.\n\nThe reflection portion is always worth 10% and graded for completion.\nRules:\n\nProblems marked SOLO may not be worked on with other classmates, though you may consult instructors for help.\nFor problems marked COLLABORATIVE, you may work in groups of up to 3 students who are in this course this semester. You may not split up the work – everyone must work on every problem. And you may not simply copy any code but rather truly work together and submit your own solutions.\n\n\n\nReadings\nThe readings from the last week will serve as a helpful reference as you complete this assignment. You can review them here:\n\n\n\n Vectors\n\n\n\nComing soon!"
+    "text": "Coming soon!"
   },
   {
     "objectID": "hw/7-strings.html",
     "href": "hw/7-strings.html",
     "title": "Homework 7 - Strings",
     "section": "",
-    "text": "Due: Mar 08 by 11:59pm\nSubmission Instructions: Create a zip file of all the files in your R project folder for this assignment, then submit your zip file on the corresponding assignment submission on Blackboard.\nWeight: This assignment is worth 5% of your final grade.\nPurpose:\nAssessment: Each question indicates the % of the assignment grade, summing to 100%. The credit for each question will be assigned as follows:\n\n0% for not attempting a response.\n50% for attempting the question but with major errors.\n75% for attempting the question but with minor errors.\n100% for correctly answering the question.\n\nThe reflection portion is always worth 10% and graded for completion.\nRules:\n\nProblems marked SOLO may not be worked on with other classmates, though you may consult instructors for help.\nFor problems marked COLLABORATIVE, you may work in groups of up to 3 students who are in this course this semester. You may not split up the work – everyone must work on every problem. And you may not simply copy any code but rather truly work together and submit your own solutions.\n\n\n\nReadings\nThe readings from the last week will serve as a helpful reference as you complete this assignment. You can review them here:\n\n\n\n Strings\n\n\n\nComing soon!"
+    "text": "Coming soon!"
   },
   {
     "objectID": "hw/8-data-frames.html",
     "href": "hw/8-data-frames.html",
     "title": "Homework 8 - Data Frames",
     "section": "",
-    "text": "Due: Mar 29 by 11:59pm\nSubmission Instructions: Create a zip file of all the files in your R project folder for this assignment, then submit your zip file on the corresponding assignment submission on Blackboard.\nWeight: This assignment is worth 5% of your final grade.\nPurpose:\nAssessment: Each question indicates the % of the assignment grade, summing to 100%. The credit for each question will be assigned as follows:\n\n0% for not attempting a response.\n50% for attempting the question but with major errors.\n75% for attempting the question but with minor errors.\n100% for correctly answering the question.\n\nThe reflection portion is always worth 10% and graded for completion.\nRules:\n\nProblems marked SOLO may not be worked on with other classmates, though you may consult instructors for help.\nFor problems marked COLLABORATIVE, you may work in groups of up to 3 students who are in this course this semester. You may not split up the work – everyone must work on every problem. And you may not simply copy any code but rather truly work together and submit your own solutions.\n\n\n\nReadings\nThe readings from the last week will serve as a helpful reference as you complete this assignment. You can review them here:\n\n\n\n Data Analysis Data Frames\n\n\n\nComing soon!"
+    "text": "Coming soon!"
   },
   {
     "objectID": "hw/9-data-wrangling.html",
     "href": "hw/9-data-wrangling.html",
     "title": "Homework 9 - Data Wrangling",
     "section": "",
-    "text": "Due: Apr 05 by 11:59pm\nSubmission Instructions: Create a zip file of all the files in your R project folder for this assignment, then submit your zip file on the corresponding assignment submission on Blackboard.\nWeight: This assignment is worth 5% of your final grade.\nPurpose:\nAssessment: Each question indicates the % of the assignment grade, summing to 100%. The credit for each question will be assigned as follows:\n\n0% for not attempting a response.\n50% for attempting the question but with major errors.\n75% for attempting the question but with minor errors.\n100% for correctly answering the question.\n\nThe reflection portion is always worth 10% and graded for completion.\nRules:\n\nProblems marked SOLO may not be worked on with other classmates, though you may consult instructors for help.\nFor problems marked COLLABORATIVE, you may work in groups of up to 3 students who are in this course this semester. You may not split up the work – everyone must work on every problem. And you may not simply copy any code but rather truly work together and submit your own solutions.\n\n\n\nReadings\nThe readings from the last week will serve as a helpful reference as you complete this assignment. You can review them here:\n\n\n\n Data Wrangling\n\n\n\nComing soon!"
+    "text": "Coming soon!"
   },
   {
     "objectID": "index.html",
@@ -277,7 +277,7 @@
     "href": "schedule.html",
     "title": "EMSE 4571 / 6571",
     "section": "",
-    "text": "Schedule\nAll assignments are due by 11:59pm on the due date.\n\n\n\n\n \n  \n    Week \n    Date \n    Quiz \n    Class \n    Assignments \n    Readings \n  \n \n\n  \n    1 \n    Jan 19 \n     \n     Getting Started Class orientation, intro to R, workflow, operators, data types \n     HW 1Due: Jan 25 \n     Getting Started Operations & Data Types \n  \n  \n    2 \n    Jan 26 \n    Quiz 1:Week 1 \n     Functions & Packages Functions, arguments, installing external packages, problem solving \n     HW 2Due: Feb 01 \n     Functions & Packages \n  \n  \n    3 \n    Feb 02 \n    Quiz 2:Weeks 1 - 2 \n     Creating Functions Defining your own functions, top-down structure \n     HW 3Due: Feb 08 \n     Creating Functions \n  \n  \n    4 \n    Feb 09 \n     \n     Conditionals & Testing If / else statements, writing unit tests \n     HW 4Due: Feb 15 \n     Conditionals Testing & Debugging \n  \n  \n    5 \n    Feb 16 \n    Quiz 3:Weeks 3 - 4 \n     Iteration Ins and outs of loops \n     HW 5Due: Feb 22 \n     Iteration \n  \n  \n    6 \n    Feb 23 \n     \n     Vectors Creating and slicing collections of values \n     HW 6Due: Mar 01 \n     Vectors \n  \n  \n    7 \n    Mar 02 \n    Quiz 4:Weeks 5 - 6 \n     Strings All things between quotes \n     HW 7Due: Mar 08 \n     Strings \n  \n  \n    9 \n    Mar 09 \n     \n    Midterm \n     \n     \n  \n  \n    8 \n    Mar 16 \n     \n    Spring Break \n     \n     \n  \n  \n    10 \n    Mar 23 \n     \n     Data Frames Rows and columns of data \n     HW 8Due: Mar 29 \n     Data Analysis Data Frames \n  \n  \n    11 \n    Mar 30 \n    Quiz 5:Week 10 \n     Data Wrangling Modifying data frames \n     HW 9Due: Apr 05 \n     Data Wrangling \n  \n  \n    12 \n    Apr 06 \n     \n     Data Visualization Visualizing your data \n     HW 10Due: Apr 12 \n     Data Visualization \n  \n  \n    13 \n    Apr 13 \n    Quiz 6:Weeks 11 - 12 \n     Monte Carlo Methods Using simulation to solve problems \n     HW 11Due: Apr 19 \n     Monte Carlo Methods \n  \n  \n    14 \n    Apr 20 \n     \n     Webscraping Collecting data embedded in web pages \n     HW 12Due: Apr 26 \n     Webscraping \n  \n  \n    15 \n    Apr 27 \n    Quiz 7:Week 13 \n     APIs Collecting data from application programming interfaces (APIs) \n     HW 13Due: May 03 \n     APIs \n  \n  \n    16 \n    May 04 \n     \n    Reading Day \n     \n     \n  \n  \n    17 \n    May 11 \n     \n    Final Exam"
+    "text": "Schedule\nAll assignments are due by 11:59pm on the due date.\n\n\n\n\n\n\n\n \n  \n    Week \n    Date \n    Quiz \n    Class \n    Assignments \n    Readings \n  \n \n\n  \n    1 \n    Jan 19 \n     \n     Getting Started Class orientation, intro to R, workflow, operators, data types \n     HW 1Due: Jan 25 \n     Getting Started Operations & Data Types \n  \n  \n    2 \n    Jan 26 \n    Quiz 1:Week 1 \n     Functions & Packages Functions, arguments, installing external packages, problem solving \n     HW 2Due: Feb 01 \n     Functions & Packages \n  \n  \n    3 \n    Feb 02 \n    Quiz 2:Weeks 1 - 2 \n     Creating Functions Defining your own functions, top-down structure \n     HW 3Due: Feb 08 \n     Creating Functions \n  \n  \n    4 \n    Feb 09 \n     \n     Conditionals & Testing If / else statements, writing unit tests \n     HW 4Due: Feb 15 \n     Conditionals Testing & Debugging \n  \n  \n    5 \n    Feb 16 \n    Quiz 3:Weeks 3 - 4 \n     Iteration Ins and outs of loops \n     HW 5Due: Feb 22 \n     Iteration \n  \n  \n    6 \n    Feb 23 \n     \n     Vectors Creating and slicing collections of values \n     HW 6Due: Mar 01 \n     Vectors \n  \n  \n    7 \n    Mar 02 \n    Quiz 4:Weeks 5 - 6 \n     Strings All things between quotes \n     HW 7Due: Mar 08 \n     Strings \n  \n  \n    9 \n    Mar 09 \n     \n    Midterm \n     \n     \n  \n  \n    8 \n    Mar 16 \n     \n    Spring Break \n     \n     \n  \n  \n    10 \n    Mar 23 \n     \n     Data Frames Rows and columns of data \n     HW 8Due: Mar 29 \n     Data Analysis Data Frames \n  \n  \n    11 \n    Mar 30 \n    Quiz 5:Week 10 \n     Data Wrangling Modifying data frames \n     HW 9Due: Apr 05 \n     Data Wrangling \n  \n  \n    12 \n    Apr 06 \n     \n     Data Visualization Visualizing your data \n     HW 10Due: Apr 12 \n     Data Visualization \n  \n  \n    13 \n    Apr 13 \n    Quiz 6:Weeks 11 - 12 \n     Monte Carlo Methods Using simulation to solve problems \n     HW 11Due: Apr 19 \n     Monte Carlo Methods \n  \n  \n    14 \n    Apr 20 \n     \n     Webscraping Collecting data embedded in web pages \n     HW 12Due: Apr 26 \n     Webscraping \n  \n  \n    15 \n    Apr 27 \n    Quiz 7:Week 13 \n     APIs Collecting data from application programming interfaces (APIs) \n     HW 13Due: May 03 \n     APIs \n  \n  \n    16 \n    May 04 \n     \n    Reading Day \n     \n     \n  \n  \n    17 \n    May 11 \n     \n    Final Exam"
   },
   {
     "objectID": "software.html",
