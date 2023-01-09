@@ -21,30 +21,37 @@
     "text": "KEYBOARD SHORTCUTS FOR SLIDES:\n\nUse ← and → to navigate through the slides.\nUse f to toggle full screen.\nUse o to view an overview of all slides.\nUse h to see a list of other shortcuts.\n\n\n\n\nSLIDES\n View slides\n Download PDF\n\n\n\n\nCLASS PRACTICE\n Notes zip file"
   },
   {
-    "objectID": "class/10-data-visualization.html",
-    "href": "class/10-data-visualization.html",
+    "objectID": "class/10-data-frames.html",
+    "href": "class/10-data-frames.html",
+    "title": "Data Frames",
+    "section": "",
+    "text": "Coming soon!"
+  },
+  {
+    "objectID": "class/11-data-wrangling.html",
+    "href": "class/11-data-wrangling.html",
+    "title": "Data Wrangling",
+    "section": "",
+    "text": "Coming soon!"
+  },
+  {
+    "objectID": "class/12-data-visualization.html",
+    "href": "class/12-data-visualization.html",
     "title": "Data Visualization",
     "section": "",
     "text": "Coming soon!"
   },
   {
-    "objectID": "class/11-monte-carlo-methods.html",
-    "href": "class/11-monte-carlo-methods.html",
+    "objectID": "class/13-monte-carlo-methods.html",
+    "href": "class/13-monte-carlo-methods.html",
     "title": "Monte Carlo Methods",
     "section": "",
     "text": "Coming soon!"
   },
   {
-    "objectID": "class/12-webscraping.html",
-    "href": "class/12-webscraping.html",
+    "objectID": "class/14-webscraping.html",
+    "href": "class/14-webscraping.html",
     "title": "Webscraping",
-    "section": "",
-    "text": "Coming soon!"
-  },
-  {
-    "objectID": "class/13-python-in-r.html",
-    "href": "class/13-python-in-r.html",
-    "title": "Python in R",
     "section": "",
     "text": "Coming soon!"
   },
@@ -91,16 +98,9 @@
     "text": "Coming soon!"
   },
   {
-    "objectID": "class/8-data-frames.html",
-    "href": "class/8-data-frames.html",
-    "title": "Data Frames",
-    "section": "",
-    "text": "Coming soon!"
-  },
-  {
-    "objectID": "class/9-data-wrangling.html",
-    "href": "class/9-data-wrangling.html",
-    "title": "Data Wrangling",
+    "objectID": "class/8-python-in-r.html",
+    "href": "class/8-python-in-r.html",
+    "title": "Python in R",
     "section": "",
     "text": "Coming soon!"
   },
@@ -277,7 +277,7 @@
     "href": "schedule.html",
     "title": "EMSE 4571",
     "section": "",
-    "text": "Schedule\nAll assignments are due by 11:59pm on the due date.\n\n\n\n\n \n  \n    Week \n    Date \n    Quiz \n    Class \n    Assignments \n    Readings \n  \n \n\n  \n    1 \n    Jan 19 \n     \n     Getting Started Class orientation, intro to R, workflow, problem solving \n     HW 1Due: Jan 25 \n     Getting Started Operations & Data Types \n  \n  \n    2 \n    Jan 26 \n    Quiz 1:Week 1 \n     Functions & Packages Functions, arguments, installing external packages \n     HW 2Due: Feb 01 \n     Functions & Packages \n  \n  \n    3 \n    Feb 02 \n    Quiz 2:Weeks 1 - 2 \n     Creating Functions Defining your own functions, top-down structure \n     HW 3Due: Feb 08 \n     Creating Functions \n  \n  \n    4 \n    Feb 09 \n     \n     Conditionals & Testing If / else statements, writing unit tests \n     HW 4Due: Feb 15 \n     Conditionals Testing & Debugging \n  \n  \n    5 \n    Feb 16 \n    Quiz 3:Weeks 3 - 4 \n     Iteration Ins and outs of loops \n     HW 5Due: Feb 22 \n     Iteration \n  \n  \n    6 \n    Feb 23 \n     \n     Vectors Creating and slicing collections of values \n     HW 6Due: Mar 01 \n     Vectors \n  \n  \n    7 \n    Mar 02 \n    Quiz 4:Weeks 5 - 6 \n     Strings All things between quotes \n     HW 7Due: Mar 08 \n     Strings \n  \n  \n    9 \n    Mar 09 \n     \n    Midterm \n     \n     \n  \n  \n    8 \n    Mar 16 \n     \n    Spring Break \n     \n     \n  \n  \n    10 \n    Mar 23 \n     \n     Data Frames Rows and columns of data \n     HW 8Due: Mar 29 \n     Data Analysis Data Frames \n  \n  \n    11 \n    Mar 30 \n     \n     Data Wrangling Modifying data frames \n     HW 9Due: Apr 05 \n     Data Wrangling \n  \n  \n    12 \n    Apr 06 \n    Quiz 5:Weeks 9 - 10 \n     Data Visualization Visualizing your data \n     HW 10Due: Apr 12 \n     Data Visualization \n  \n  \n    13 \n    Apr 13 \n     \n     Monte Carlo Methods Using simulation to solve problems \n     HW 11Due: Apr 19 \n     Monte Carlo Methods \n  \n  \n    14 \n    Apr 20 \n    Quiz 6:Week 12 \n     Webscraping Collecting data embedded in web pages \n     HW 12Due: Apr 26 \n     Webscraping \n  \n  \n    15 \n    Apr 27 \n     \n     Python in R Python basics, and using python in R \n     \n     Python in R \n  \n  \n    16 \n    May 04 \n     \n    Reading Day \n     \n     \n  \n  \n    17 \n    May 11 \n     \n    Final Exam"
+    "text": "Schedule\nAll assignments are due by 11:59pm on the due date.\n\n\n\n\n \n  \n    Week \n    Date \n    Quiz \n    Class \n    Assignments \n    Readings \n  \n \n\n  \n    1 \n    Jan 19 \n     \n     Getting Started Class orientation, intro to R, workflow, operators, data types \n     HW 1Due: Jan 25 \n     Getting Started Operations & Data Types \n  \n  \n    2 \n    Jan 26 \n    Quiz 1:Week 1 \n     Functions & Packages Functions, arguments, installing external packages, problem solving \n     HW 2Due: Feb 01 \n     Functions & Packages \n  \n  \n    3 \n    Feb 02 \n    Quiz 2:Weeks 1 - 2 \n     Creating Functions Defining your own functions, top-down structure \n     HW 3Due: Feb 08 \n     Creating Functions \n  \n  \n    4 \n    Feb 09 \n     \n     Conditionals & Testing If / else statements, writing unit tests \n     HW 4Due: Feb 15 \n     Conditionals Testing & Debugging \n  \n  \n    5 \n    Feb 16 \n    Quiz 3:Weeks 3 - 4 \n     Iteration Ins and outs of loops \n     HW 5Due: Feb 22 \n     Iteration \n  \n  \n    6 \n    Feb 23 \n     \n     Vectors Creating and slicing collections of values \n     HW 6Due: Mar 01 \n     Vectors \n  \n  \n    7 \n    Mar 02 \n    Quiz 4:Weeks 5 - 6 \n     Strings All things between quotes \n     HW 7Due: Mar 08 \n     Strings \n  \n  \n    9 \n    Mar 09 \n    Quiz 5:Week 7 \n     Python in R Python basics, and using python in R \n     HW 8Due: Mar 22 \n     Python in R \n  \n  \n    8 \n    Mar 16 \n     \n    Spring Break \n     \n     \n  \n  \n    10 \n    Mar 23 \n     \n    Midterm \n     \n     \n  \n  \n    11 \n    Mar 30 \n     \n     Data Frames Rows and columns of data \n     HW 9Due: Apr 05 \n     Data Analysis Data Frames \n  \n  \n    12 \n    Apr 06 \n    Quiz 6:Week 10 \n     Data Wrangling Modifying data frames \n     HW 10Due: Apr 12 \n     Data Wrangling \n  \n  \n    13 \n    Apr 13 \n     \n     Data Visualization Visualizing your data \n     HW 11Due: Apr 19 \n     Data Visualization \n  \n  \n    14 \n    Apr 20 \n    Quiz 7:Weeks 11 - 12 \n     Monte Carlo Methods Using simulation to solve problems \n     HW 12Due: Apr 26 \n     Monte Carlo Methods \n  \n  \n    15 \n    Apr 27 \n     \n     Webscraping Collecting data embedded in web pages \n     HW 13Due: May 03 \n     Webscraping \n  \n  \n    16 \n    May 04 \n     \n    Reading Day \n     \n     \n  \n  \n    17 \n    May 11 \n     \n    Final Exam"
   },
   {
     "objectID": "software.html",
