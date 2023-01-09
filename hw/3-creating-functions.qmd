@@ -1,7 +1,10 @@
 ---
 title: "Homework 3 - Creating Functions"
 params:
-  class: "3-creating-functions"
+  number: 3
 ---
+
+```{r child = here::here("fragments", "hw.qmd")}
+```
 
 Coming soon!

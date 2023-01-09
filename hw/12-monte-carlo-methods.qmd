@@ -1,7 +1,7 @@
 ---
-title: "Homework 7 - Strings"
+title: "Homework 12 - Monte Carlo Methods"
 params:
-  number: 7
+  number: 12
 ---
 
 ```{r child = here::here("fragments", "hw.qmd")}

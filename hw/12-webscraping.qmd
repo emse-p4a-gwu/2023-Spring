@@ -1,7 +1,0 @@
----
-title: "Homework 12 - Webscraping"
-params:
-  class: "12-webscraping"
----
-
-Coming soon!

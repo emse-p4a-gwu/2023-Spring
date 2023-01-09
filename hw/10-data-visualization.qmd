@@ -1,7 +1,0 @@
----
-title: "Homework 10 - Data Visualization"
-params:
-  class: "10-data-visualization"
----
-
-Coming soon!

@@ -1,7 +1,0 @@
----
-title: "Homework 11 - Monte Carlo Methods"
-params:
-  class: "11-monte-carlo-methods"
----
-
-Coming soon!
