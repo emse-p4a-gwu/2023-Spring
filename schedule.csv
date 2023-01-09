@@ -12,13 +12,13 @@ testing-debugging"
 7,2023/03/02,4,Weeks 5 - 6,7,strings,Strings,All things between quotes,7,strings,Strings,2023/03/08,Strings,strings
 9,2023/03/09,5,Week 7,8,python,Python in R,"Review of weeks 1 - 7, but in Python!",8,python,Python,2023/03/22,Python in R,python-in-r
 8,2023/03/16,,,,,Spring Break,No class,,,,,,
-10,2023/03/23,,,9,,Midterm,Don't panic!,,,,,,
-11,2023/03/30,,,10,data-frames,Data Frames,Rows and columns of data,9,data-frames,Data Frames,2023/04/05,"Data Analysis
+10,2023/03/23,,,,,Midterm,Don't panic!,,,,,,
+11,2023/03/30,,,9,data-frames,Data Frames,Rows and columns of data,9,data-frames,Data Frames,2023/04/05,"Data Analysis
 Data Frames","data-analysis
 data-frames"
-12,2023/04/06,6,Week 10,11,data-wrangling,Data Wrangling,Modifying data frames,10,data-wrangling,Data Wrangling,2023/04/12,Data Wrangling,data-wrangling
-13,2023/04/13,,,12,data-visualization,Data Visualization,Visualizing your data,11,data-visualization,Data Visualization,2023/04/19,Data Visualization,data-visualization
-14,2023/04/20,7,Weeks 11 - 12,13,monte-carlo-methods,Monte Carlo Methods,Using simulation to solve problems,12,monte-carlo-methods,Monte Carlo Methods,2023/04/26,Monte Carlo Methods,monte-carlo-methods
-15,2023/04/27,,,14,webscraping,Webscraping,Collecting data embedded in web pages,13,webscraping,Webscraping,2023/05/03,Webscraping,webscraping
+12,2023/04/06,6,Week 10,10,data-wrangling,Data Wrangling,Modifying data frames,10,data-wrangling,Data Wrangling,2023/04/12,Data Wrangling,data-wrangling
+13,2023/04/13,,,11,data-visualization,Data Visualization,Visualizing your data,11,data-visualization,Data Visualization,2023/04/19,Data Visualization,data-visualization
+14,2023/04/20,7,Weeks 11 - 12,12,monte-carlo-methods,Monte Carlo Methods,Using simulation to solve problems,12,monte-carlo-methods,Monte Carlo Methods,2023/04/26,Monte Carlo Methods,monte-carlo-methods
+15,2023/04/27,,,13,webscraping,Webscraping,Collecting data embedded in web pages,13,webscraping,Webscraping,2023/05/03,Webscraping,webscraping
 16,2023/05/04,,,,,Reading Day,,,,,,,
 17,2023/05/11,,,,,Final Exam,Don't panic!,,,,,,

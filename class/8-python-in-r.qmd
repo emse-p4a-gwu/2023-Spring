@@ -1,7 +1,0 @@
----
-title: "Python in R"
-params:
-  class: "8-python-in-r"
----
-
-Coming soon!
