@@ -24,17 +24,17 @@ params:
 
 ### 1) Class setup [SOLO, 10%]
 
-For this class, you'll need to install some software and register for some tools. You should have already done this, but in case you haven't,go to the [course software](ref-course-software.html) page to get setup.
+For this class, you'll need to install some software and register for some tools. You should have already done this, but in case you haven't,go to the course [software](software.html) page to get set up.
 
 Once you have joined the [class slack]({{< var slack >}}), make a post to the `#welcome` channel introducing yourself - provide your name, year / program, and something interesting about yourself.
 
 ### 2) Getting familiar with the course [SOLO, 10%]
 
-Follow [Snoop's advice](https://www.youtube.com/watch?v=Tnlaokj1opA) and read the entire [Course Syllabus](syllabus.html) (actually read the whole thing). Then review the [schedule](schedule.html) and make sure to note important upcoming deadlines.
+Follow [Snoop's advice](https://www.youtube.com/watch?v=Tnlaokj1opA) and read the entire [Course Syllabus](../syllabus.html) (actually read the whole thing). Then review the [schedule](../schedule.html) and make sure to note important upcoming deadlines.
 
 ### 3) Staying organized [SOLO, 10%]
 
-Open RStudio and create a new R project called "hw1" (see the [reading](r1.1-getting-started.html#RStudio_projects) for details on how to do this). Within your project, create a new R _script_ (a ".R" file) and save it as "hw1-netID.R", replacing "netID" with your netID (e.g., "hw1-jph.R"). When you save it, it should show up in the R project folder you just created. Finally, copy the following code to the top of this script and fill out your name, netID, and the names of anyone you worked with on this assignment (your netID is the part of your email address before `"@gwu.edu"`):
+Open RStudio and create a new R project called "hw1" (see the [reading](https://p4a.jhelvy.com/getting-started.html#rstudio-projects){target="_blank"} for details on how to do this). Within your project, create a new R _script_ (a ".R" file) and save it as "hw1.R". When you save it, it should show up in the R project folder you just created. Finally, copy the following code to the top of this script and fill out your name, netID, and the names of anyone you worked with on this assignment (your netID is the part of your email address before `"@gwu.edu"`):
 
 ```{r eval=FALSE}
 # Name:  Last, First
@@ -49,7 +49,7 @@ Write your responses to all other questions in this assignment in your R file.
 
 ### 4) Objects & Operators: Converting Time [COLLABORATIVE, 20%]
 
-Create objects to store each of the following two values - be sure to use [meaningful variable names](r1.1-getting-started.html#Use_meaningful_variable_names) when creating your objects:
+Create objects to store each of the following two values - be sure to use [meaningful variable names](https://p4a.jhelvy.com/getting-started.html#use_meaningful_variable_names){target="_blank"} when creating your objects:
 
 - The number of seconds in a minute
 - The number of minutes in an hour
