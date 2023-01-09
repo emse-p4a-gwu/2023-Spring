@@ -1,7 +1,0 @@
----
-title: "Python"
-params:
-  class: "8-python"
----
-
-Coming soon!
