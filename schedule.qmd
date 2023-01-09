@@ -4,12 +4,15 @@ All assignments are due by 11:59pm on the due date.
 
 ```{r}
 #| echo: false
+source("_common.R")
+```
+
+```{r}
+#| echo: false
 #| message: false
 
 library(kableExtra)
 library(tidyverse)
-
-source(here::here('_common.R'))
 
 schedule <- get_schedule()
 

@@ -4,7 +4,4 @@ params:
   number: 4
 ---
 
-```{r child = here::here("fragments", "hw.qmd")}
-```
-
 Coming soon!

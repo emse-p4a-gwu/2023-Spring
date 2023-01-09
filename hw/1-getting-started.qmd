@@ -24,7 +24,7 @@ params:
 
 ### 1) Class setup [SOLO, 10%]
 
-For this class, you'll need to install some software and register for some tools. You should have already done this, but in case you haven't,go to the course [software](software.html) page to get set up.
+For this class, you'll need to install some software and register for some tools. You should have already done this, but in case you haven't,go to the course [software](../software.html) page to get set up.
 
 Once you have joined the [class slack]({{< var slack >}}), make a post to the `#welcome` channel introducing yourself - provide your name, year / program, and something interesting about yourself.
 
@@ -49,7 +49,7 @@ Write your responses to all other questions in this assignment in your R file.
 
 ### 4) Objects & Operators: Converting Time [COLLABORATIVE, 20%]
 
-Create objects to store each of the following two values - be sure to use [meaningful variable names](https://p4a.jhelvy.com/getting-started.html#use_meaningful_variable_names){target="_blank"} when creating your objects:
+Create objects to store each of the following two values - be sure to use [meaningful variable names](https://p4a.jhelvy.com/getting-started.html#use-meaningful-variable-names){target="_blank"} when creating your objects:
 
 - The number of seconds in a minute
 - The number of minutes in an hour
