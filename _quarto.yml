@@ -15,7 +15,7 @@ project:
     - "templates/"
 
 website:
-  title: EMSE 4571
+  title: EMSE 4571 / 6571
   image: images/logo.png
   site-url: https://p4a.seas.gwu.edu/2023-Spring/
   favicon: images/favicon.ico
