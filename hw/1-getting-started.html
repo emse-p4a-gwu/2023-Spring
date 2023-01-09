@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>EMSE 4571 - Homework 1 - Getting Started</title>
+<title>EMSE 4571 / 6571 - Homework 1 - Getting Started</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -126,11 +126,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 
 <link rel="stylesheet" href="../styles.css">
-<meta property="og:title" content="EMSE 4571 - Homework 1 - Getting Started">
+<meta property="og:title" content="EMSE 4571 / 6571 - Homework 1 - Getting Started">
 <meta property="og:description" content="The readings from the last week will serve as a helpful reference as you complete this assignment. You can review them here:">
 <meta property="og:site-name" content="https://p4a.seas.gwu.edu/">
 <meta property="og:locale" content="es_ES">
-<meta name="twitter:title" content="EMSE 4571 - Homework 1 - Getting Started">
+<meta name="twitter:title" content="EMSE 4571 / 6571 - Homework 1 - Getting Started">
 <meta name="twitter:description" content="The readings from the last week will serve as a helpful reference as you complete this assignment. You can review them here:">
 <meta name="twitter:image" content="https://p4a.seas.gwu.edu/2023-Spring/images/logo-square.png">
 <meta name="twitter:creator" content="@johnhelveston">
@@ -159,7 +159,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation docked overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
-      <a href="../">EMSE 4571</a> 
+      <a href="../">EMSE 4571 / 6571</a> 
     </div>
       </div>
       <div class="mt-2 flex-shrink-0 align-items-center">
@@ -318,16 +318,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </section>
 <section id="class-setup-solo-10" class="level3">
 <h3 class="anchored" data-anchor-id="class-setup-solo-10">1) Class setup [SOLO, 10%]</h3>
-<p>For this class, you’ll need to install some software and register for some tools. You should have already done this, but in case you haven’t,go to the <a href="ref-course-software.html">course software</a> page to get setup.</p>
+<p>For this class, you’ll need to install some software and register for some tools. You should have already done this, but in case you haven’t,go to the course <a href="software.html">software</a> page to get set up.</p>
 <p>Once you have joined the <a href="https://emse-p4a-s23.slack.com">class slack</a>, make a post to the <code>#welcome</code> channel introducing yourself - provide your name, year / program, and something interesting about yourself.</p>
 </section>
 <section id="getting-familiar-with-the-course-solo-10" class="level3">
 <h3 class="anchored" data-anchor-id="getting-familiar-with-the-course-solo-10">2) Getting familiar with the course [SOLO, 10%]</h3>
-<p>Follow <a href="https://www.youtube.com/watch?v=Tnlaokj1opA">Snoop’s advice</a> and read the entire <a href="syllabus.html">Course Syllabus</a> (actually read the whole thing). Then review the <a href="schedule.html">schedule</a> and make sure to note important upcoming deadlines.</p>
+<p>Follow <a href="https://www.youtube.com/watch?v=Tnlaokj1opA">Snoop’s advice</a> and read the entire <a href="../syllabus.html">Course Syllabus</a> (actually read the whole thing). Then review the <a href="../schedule.html">schedule</a> and make sure to note important upcoming deadlines.</p>
 </section>
 <section id="staying-organized-solo-10" class="level3">
 <h3 class="anchored" data-anchor-id="staying-organized-solo-10">3) Staying organized [SOLO, 10%]</h3>
-<p>Open RStudio and create a new R project called “hw1” (see the <a href="r1.1-getting-started.html#RStudio_projects">reading</a> for details on how to do this). Within your project, create a new R <em>script</em> (a “.R” file) and save it as “hw1-netID.R”, replacing “netID” with your netID (e.g., “hw1-jph.R”). When you save it, it should show up in the R project folder you just created. Finally, copy the following code to the top of this script and fill out your name, netID, and the names of anyone you worked with on this assignment (your netID is the part of your email address before <code>"@gwu.edu"</code>):</p>
+<p>Open RStudio and create a new R project called “hw1” (see the <a href="https://p4a.jhelvy.com/getting-started.html#rstudio-projects" target="_blank">reading</a> for details on how to do this). Within your project, create a new R <em>script</em> (a “.R” file) and save it as “hw1.R”. When you save it, it should show up in the R project folder you just created. Finally, copy the following code to the top of this script and fill out your name, netID, and the names of anyone you worked with on this assignment (your netID is the part of your email address before <code>"@gwu.edu"</code>):</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Name:  Last, First</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co"># netID: Insert your netID here</span></span>
@@ -340,7 +340,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </section>
 <section id="objects-operators-converting-time-collaborative-20" class="level3">
 <h3 class="anchored" data-anchor-id="objects-operators-converting-time-collaborative-20">4) Objects &amp; Operators: Converting Time [COLLABORATIVE, 20%]</h3>
-<p>Create objects to store each of the following two values - be sure to use <a href="r1.1-getting-started.html#Use_meaningful_variable_names">meaningful variable names</a> when creating your objects:</p>
+<p>Create objects to store each of the following two values - be sure to use <a href="https://p4a.jhelvy.com/getting-started.html#use_meaningful_variable_names" target="_blank">meaningful variable names</a> when creating your objects:</p>
 <ul>
 <li>The number of seconds in a minute</li>
 <li>The number of minutes in an hour</li>
