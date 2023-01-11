@@ -65,14 +65,18 @@ Assistant Professor, Engineering Management & Systems Engineering
 # Meet your tutors!
 
 .leftcol30[.circle[
-<img src="images/lujin.jpg" width="300">
+
+<img src="images/rossetti.jpg" width="300">
+
 ]]
 
 .rightcol70[
-### **Lujin Zhao**
+
+### **Michael Rossetti**
 
 - Graduate Assistant (GA)
 - PhD student in EMSE
+
 ]
 
 ---
@@ -80,14 +84,18 @@ Assistant Professor, Engineering Management & Systems Engineering
 # Meet your tutors!
 
 .leftcol30[.circle[
-<img src="images/michael.png" width="300">
+
+<img src="images/ottinger.png" width="300">
+
 ]]
 
 .rightcol70[
-### **Michael O'Keefe**
+
+### **Ben Buechner**
 
 - Learning Assistant (LA)
-- EMSE Junior & P4A alumni (Fall 2020)
+- EMSE Sophomore & P4A / EDA alumni
+
 ]
 
 ---
@@ -98,14 +106,14 @@ Assistant Professor, Engineering Management & Systems Engineering
 
 ## `r fa('globe')` Everything you need will be on the course website:
 
-### https://p4a.seas.gwu.edu/2022-Spring/
+### https://p4a.seas.gwu.edu/2023-Spring/
 
 --
 
 ## `r fa('puzzle-piece')` Course is broken into **two chunks**:
 
-### 1. Programming
-### 2. Analytics
+### 1. Programming (before Spring Break)
+### 2. Analytics (after Spring Break)
 
 ---
 
@@ -121,26 +129,21 @@ Assistant Professor, Engineering Management & Systems Engineering
 
 ---
 
-# Homeworks (55% of grade)
+# Attendance / Participation
+
+### **Attendance will be taken** and will be part of your participation grade (7%).
+
+---
+
+# Homeworks (48% of grade)
 
 --
 
-## `r fa('calendar')` ~Every week (12 total)
+## `r fa('calendar')` ~Every week (13 total, lowest dropped)
 
 --
 
-## `r fa('clock')` Soft due dates (11:59pm Wed. before class)
-
---
-
-## `r fa('exclamation')` **Don't abuse this flexibility**
-
---
-
-## Two hard deadlines on homework submissions:
-
-### 1. Mar. 10 (HWs 1-7)
-### 2. May. 05 (HWs 8-12)
+## `r fa('clock')` Due 11:59pm Wed. before class
 
 ---
 
@@ -148,9 +151,9 @@ Assistant Professor, Engineering Management & Systems Engineering
 
 <br>
 
-### - **5** late days - use them anytime, no questions asked
-### - No more than **2** late days on any one assignment
-### - Contact me for special cases (I'm expecting a lot of these)
+### - **3** late days - use them anytime, no questions asked
+### - After that, 50% off for up to 24 hours after deadline, 0% afterwards
+### - Contact me for special cases
 
 ---
 
@@ -162,7 +165,7 @@ Assistant Professor, Engineering Management & Systems Engineering
 
 --
 
-## `r fa('clock')` ~5 minutes (1-3 questions)
+## `r fa('clock')` 10 minutes (1-3 questions)
 
 --
 
@@ -174,9 +177,9 @@ Assistant Professor, Engineering Management & Systems Engineering
 
 <br>
 
-## `r fa('calendar')` Midterm (weeks 1 - 7) on March 10
+## `r fa('calendar')` Midterm (weeks 1 - 7) on March 09
 
-## `r fa('calendar')` Final (weeks 1 - 13) on May 05
+## `r fa('calendar')` Final (weeks 1 - 14) on May 11
 
 ---
 
@@ -186,7 +189,8 @@ Assistant Professor, Engineering Management & Systems Engineering
 
 Component                  | Weight | Notes
 ---------------------------|--------|----------------
-Homeworks & Readings (12x) | 55%    | Lowest 1 dropped
+Participation / Attendance | 7%     |
+Homeworks & Readings (13x) | 48%    | Lowest 1 dropped
 Quizzes (7x)               | 15%    | Lowest 2 dropped
 Midterm Exam               | 10%    |
 Final Exam                 | 20%    |
@@ -214,26 +218,20 @@ Final Exam         | 40%
 --
 
 .leftcol35[
+
 - ## BE NICE
 - ## BE HONEST
 - ## DON'T CHEAT
+
 ]
 
 --
 
 .rightcol65[
-## .center[Copying is good, stealing is bad]
-
-> "Plagiarism is trying to pass someone else's work off as your own. Copying is about reverse-engineering."
->
-> .right[-- Austin Kleon, from [Steal Like An Artist](https://austinkleon.com/steal/)&ensp;]
-]
-
----
-
-class: middle, center
 
 # **Don't copy-paste others' code!**
+
+]
 
 ---
 
@@ -261,7 +259,7 @@ class: middle, center
 
 --
 
-## `r fa('slack')` Use [Slack](https://emse-p4a-s22.slack.com/) to ask questions.
+## `r fa('slack')` Use [Slack](https://emse-p4a-s23.slack.com/) to ask questions.
 
 --
 
