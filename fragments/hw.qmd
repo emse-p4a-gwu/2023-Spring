@@ -32,7 +32,7 @@ url_template <- paste0(
 >
 > **Submission Instructions**: Create a zip file of all the files in your R project folder for this assignment, then submit your zip file on the corresponding assignment submission on Blackboard.
 >
-> **Weight**: This assignment is worth 5% of your final grade.
+> **Weight**: This assignment is worth 4% of your final grade.
 >
 > **Purpose**: `r params$purpose`
 >
