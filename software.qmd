@@ -2,7 +2,7 @@
 
 > **You should install and set everything here _before_ the first day of class.**
 
-1. Sign up for [Slack]({{< var slack >}}). You should have been sent an email invitation to join. If not, you can find a sign up link on the announcement in Blackboard. Use your `@gwu.edu` email to sign up.
+1. Sign up for [Slack]({{< var slack >}}). You should have been sent a link to join in the course intro email. If not, email Professor Helveston for an invite link. Use your `@gwu.edu` email to sign up.
 
 2. Install the Slack app on your phone and **Turn notifications on!**. I'll send all course communication via Slack, so please make sure your notifications are on so you don't miss anything. 
 
