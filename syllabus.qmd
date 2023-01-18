@@ -209,13 +209,13 @@ All course communication will be managed through [Slack]({{< var slack >}}){targ
 - Ask for help with an assignment.
 - Send direct, private messages to each other or the instructors (just like email...but better!)
 
-**Asking for help on Slack**:
+> **Asking for help on Slack**: You can post questions on slack and receive quick responses. This also enables other students to see answers to common questions. Be specific - if your code has an error you don't understand, **include the code and the error message** in your question.
 
-You can post questions on slack and receive quick responses. This also enables other students to see answers to common questions. Be specific - if your code has an error you don't understand, **include the code and the error message** in your question.
+## AMA Hours
 
-## Schedule a call with Professor Helveston
+I will hold regular "Ask Me Anything" hours each week. The specific hours will be posted on the course slack. During this period, you can come to my office (SEH 2830) and ask me anything. And I mean anything. Most of the time you may just have a question related to class, but I am also happy to discuss anything else with you regarding life, important decisions, career, art, music, dance, etc.
 
-Scheduling a time to answer questions is hard, so rather than hold regular office hours, you can use [this link](https://jhelvy.appointlet.com/b/professor-helveston) to schedule a zoom call with me most days of the week.
+If the AMA hours don't work with your schedule, you can always schedule a zoom call with me using [this link](https://jhelvy.appointlet.com/b/professor-helveston). I'm available most days of the week.
 
 ## Tutoring hours
 
