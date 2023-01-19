@@ -237,7 +237,9 @@ While the University Library is not a stand in for TAs, you can schedule a consu
 
 ## Late Policy
 
-Assignments are due by 11:59pm on the assigned due date unless specified otherwise. Assignments submitted up to 24 hours past this deadline will be graded to a max of 50% of the available points. Assignments submitted beyond 24 hours past the deadline will not be graded and will be assigned a 0.
+Each students is allowed **3** late homework submission days - use them however you want, no questions asked. These are meant to cover illness, family emergencies, and religious holidays.
+
+Beyond those, assignments are due by 11:59pm on the assigned due date unless specified otherwise. Assignments submitted up to 24 hours past this deadline will be graded to a max of 50% of the available points. Assignments submitted beyond 24 hours past the deadline will not be graded and will be assigned a 0.
 
 If you need a special accommodation such as due to an illness, family emergency, or religious holidays, contact the instructor ahead of time.
 
