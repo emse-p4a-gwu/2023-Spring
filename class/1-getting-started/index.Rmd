@@ -40,7 +40,7 @@ output:
 
 .leftcol30[.circle[
 
-<img src="https://p4a.seas.gwu.edu/2020-Fall/images/helveston.jpg" width="300">
+<img src="https://www.jhelvy.com/images/helveston.jpg" width="300">
 
 ]]
 
@@ -76,6 +76,7 @@ Assistant Professor, Engineering Management & Systems Engineering
 
 - Graduate Assistant (GA)
 - PhD student in EMSE
+- Website: https://prof-rossetti.org/
 
 ]
 
@@ -85,7 +86,7 @@ Assistant Professor, Engineering Management & Systems Engineering
 
 .leftcol30[.circle[
 
-<img src="images/ottinger.png" width="300">
+<img src="images/buechner.jpg" width="300">
 
 ]]
 
@@ -129,13 +130,17 @@ Assistant Professor, Engineering Management & Systems Engineering
 
 ---
 
-# Attendance / Participation
+# Attendance / Participation (7%)
 
-### **Attendance will be taken** and will be part of your participation grade (7%).
+<br>
+
+### **Attendance will be taken** and will be part of your participation grade
 
 ---
 
 # Homeworks (48% of grade)
+
+<br>
 
 --
 
@@ -159,13 +164,15 @@ Assistant Professor, Engineering Management & Systems Engineering
 
 # Quizzes (15% of grade)
 
+<br>
+
 --
 
 ## `r fa('calendar')` In class every other week-ish (7 total, drop lowest 2)
 
 --
 
-## `r fa('clock')` 10 minutes (1-3 questions)
+## `r fa('clock')` ~10-15 minutes (1-3 questions)
 
 --
 
@@ -229,9 +236,20 @@ Final Exam         | 40%
 
 .rightcol65[
 
-# **Don't copy-paste others' code!**
+## **Don't copy-paste others' code!**
 
 ]
+
+---
+
+# On chatGPT
+
+<br>
+
+### Using an AI to do your assignments is the same as using an external expert. 
+### It's cheating. 
+
+### **Don't do it**.
 
 ---
 
@@ -267,11 +285,7 @@ Final Exam         | 40%
 
 --
 
-## `r fa('user-clock')` [Schedule a meeting](https://jhelvy.appointlet.com/b/professor-helveston) w/Prof. Helveston:
-
-- Mondays from 8:00am - 2:00pm
-- Wednesdays from 2:00 - 5:00pm
-- Fridays from 12:00 - 2:00pm
+## `r fa('user-clock')` [Schedule a call](https://jhelvy.appointlet.com/b/professor-helveston) w/Prof. Helveston
 
 --
 
@@ -293,7 +307,7 @@ Final Exam         | 40%
 
 --
 
-## `r fa('r-project')` [RStudio Cloud](https://rstudio.cloud/plans/free): A web-based version of RStudio.
+## `r fa('r-project')` [RStudio Cloud](https://posit.cloud/plans/free): A (free) web-based version of RStudio.
 
 ---
 
@@ -336,7 +350,7 @@ Ross & Robert create "R" (1991, U. of Auckland)
 ## .center[[John Chambers](https://en.wikipedia.org/wiki/John_Chambers_(statistician)]
 
 <center>
-<img src="https://datascience.stanford.edu/sites/g/files/sbiybj18491/f/styles/large-square/public/john-chambers.png?itok=o9PvzKwG" width=280>
+<img src="https://datascience.stanford.edu/sites/g/files/sbiybj25376/files/styles/medium_square/public/media/image/john-chambers_0.png?h=78b7a964&itok=8v_bN9yZ" width=280>
 </center>
 
 ]
@@ -364,6 +378,8 @@ Ross & Robert create "R" (1991, U. of Auckland)
 ---
 
 class: center, middle
+
+## What is RStudio?
 
 .leftcol[
 
@@ -508,7 +524,7 @@ x = 50
 x
 ```
 
-### (but it's more R-like to use `<-`)
+### ...but you should use `<-`
 
 ---
 
@@ -663,6 +679,18 @@ speed_mph <- 42
 
 ---
 
+class: center 
+
+# Use standard casing styles
+
+<center>
+<img src="images/horst_casing.jpg" width=700>
+</center>
+Art by [Allison Horst](https://github.com/allisonhorst/stats-illustrations)
+
+
+---
+
 # Use standard casing styles
 
 .leftcol60[
@@ -670,8 +698,6 @@ speed_mph <- 42
 <img src="images/horst_casing.jpg" width=600> Art by [Allison Horst](https://github.com/allisonhorst/stats-illustrations)
 
 ]
-
---
 
 .rightcol40[
 
@@ -773,7 +799,7 @@ countdown(
 
 ### B. Creating & working with objects
 
-1). Create objects to store the values in this table:
+1) Create objects to store the values in this table:
 
 | City              | Area (sq mi) | Population (thousands) |
 |-------------------|----------------|------------------------|
@@ -1194,6 +1220,8 @@ TRUE | FALSE & FALSE
 
 ]
 
+--
+
 .rightcol[
 
 ```{r}
@@ -1254,7 +1282,7 @@ class: inverse
 
 ```{r, echo=FALSE}
 countdown(
-  minutes      = 10,
+  minutes      = 8,
   warn_when    = 30,
   update_every = 15,
   top          = 0,
@@ -1492,4 +1520,6 @@ countdown(
 
 class: center, middle
 
-# `r fa('exclamation')` [HW 1](https://p4a.seas.gwu.edu/2023-Spring/hw1/getting-started.html) - read carefully!
+# Go to the [schedule](https://p4a.seas.gwu.edu/2023-Spring/schedule.html)
+
+# ...and read carefully!

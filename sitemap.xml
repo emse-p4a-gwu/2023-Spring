@@ -2,138 +2,138 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://p4a.seas.gwu.edu/2023-Spring/LICENSE.html</loc>
-    <lastmod>2023-01-18T19:52:34.473Z</lastmod>
+    <lastmod>2023-01-19T12:25:01.789Z</lastmod>
   </url>
   <url>
     <loc>https://p4a.seas.gwu.edu/2023-Spring/about.html</loc>
-    <lastmod>2023-01-18T19:52:41.427Z</lastmod>
+    <lastmod>2023-01-19T12:25:06.367Z</lastmod>
   </url>
   <url>
     <loc>https://p4a.seas.gwu.edu/2023-Spring/autograder.html</loc>
-    <lastmod>2023-01-18T19:52:42.225Z</lastmod>
+    <lastmod>2023-01-19T12:25:06.820Z</lastmod>
   </url>
   <url>
     <loc>https://p4a.seas.gwu.edu/2023-Spring/class/1-getting-started.html</loc>
-    <lastmod>2023-01-18T19:52:46.059Z</lastmod>
+    <lastmod>2023-01-19T12:25:08.631Z</lastmod>
   </url>
   <url>
     <loc>https://p4a.seas.gwu.edu/2023-Spring/class/10-data-visualization.html</loc>
-    <lastmod>2023-01-18T19:52:46.881Z</lastmod>
+    <lastmod>2023-01-19T12:25:09.104Z</lastmod>
   </url>
   <url>
     <loc>https://p4a.seas.gwu.edu/2023-Spring/class/11-monte-carlo-methods.html</loc>
-    <lastmod>2023-01-18T19:52:47.498Z</lastmod>
+    <lastmod>2023-01-19T12:25:09.575Z</lastmod>
   </url>
   <url>
     <loc>https://p4a.seas.gwu.edu/2023-Spring/class/12-webscraping.html</loc>
-    <lastmod>2023-01-18T19:52:48.080Z</lastmod>
+    <lastmod>2023-01-19T12:25:10.060Z</lastmod>
   </url>
   <url>
     <loc>https://p4a.seas.gwu.edu/2023-Spring/class/13-apis.html</loc>
-    <lastmod>2023-01-18T19:52:48.547Z</lastmod>
+    <lastmod>2023-01-19T12:25:10.528Z</lastmod>
   </url>
   <url>
     <loc>https://p4a.seas.gwu.edu/2023-Spring/class/2-functions-packages.html</loc>
-    <lastmod>2023-01-18T19:52:49.362Z</lastmod>
+    <lastmod>2023-01-19T12:25:10.982Z</lastmod>
   </url>
   <url>
     <loc>https://p4a.seas.gwu.edu/2023-Spring/class/3-creating-functions.html</loc>
-    <lastmod>2023-01-18T19:52:50.343Z</lastmod>
+    <lastmod>2023-01-19T12:25:11.450Z</lastmod>
   </url>
   <url>
     <loc>https://p4a.seas.gwu.edu/2023-Spring/class/4-conditionals-testing.html</loc>
-    <lastmod>2023-01-18T19:52:51.275Z</lastmod>
+    <lastmod>2023-01-19T12:25:11.919Z</lastmod>
   </url>
   <url>
     <loc>https://p4a.seas.gwu.edu/2023-Spring/class/5-iteration.html</loc>
-    <lastmod>2023-01-18T19:52:52.028Z</lastmod>
+    <lastmod>2023-01-19T12:25:12.400Z</lastmod>
   </url>
   <url>
     <loc>https://p4a.seas.gwu.edu/2023-Spring/class/6-vectors.html</loc>
-    <lastmod>2023-01-18T19:52:52.874Z</lastmod>
+    <lastmod>2023-01-19T12:25:12.908Z</lastmod>
   </url>
   <url>
     <loc>https://p4a.seas.gwu.edu/2023-Spring/class/7-strings.html</loc>
-    <lastmod>2023-01-18T19:52:53.658Z</lastmod>
+    <lastmod>2023-01-19T12:25:13.373Z</lastmod>
   </url>
   <url>
     <loc>https://p4a.seas.gwu.edu/2023-Spring/class/8-data-frames.html</loc>
-    <lastmod>2023-01-18T19:52:54.633Z</lastmod>
+    <lastmod>2023-01-19T12:25:13.873Z</lastmod>
   </url>
   <url>
     <loc>https://p4a.seas.gwu.edu/2023-Spring/class/9-data-wrangling.html</loc>
-    <lastmod>2023-01-18T19:52:55.469Z</lastmod>
+    <lastmod>2023-01-19T12:25:14.340Z</lastmod>
   </url>
   <url>
     <loc>https://p4a.seas.gwu.edu/2023-Spring/hw/1-getting-started.html</loc>
-    <lastmod>2023-01-18T19:53:04.198Z</lastmod>
+    <lastmod>2023-01-19T12:25:21.343Z</lastmod>
   </url>
   <url>
     <loc>https://p4a.seas.gwu.edu/2023-Spring/hw/10-data-visualization.html</loc>
-    <lastmod>2023-01-18T19:53:04.809Z</lastmod>
+    <lastmod>2023-01-19T12:25:21.828Z</lastmod>
   </url>
   <url>
     <loc>https://p4a.seas.gwu.edu/2023-Spring/hw/11-monte-carlo-methods.html</loc>
-    <lastmod>2023-01-18T19:53:05.288Z</lastmod>
+    <lastmod>2023-01-19T12:25:22.329Z</lastmod>
   </url>
   <url>
     <loc>https://p4a.seas.gwu.edu/2023-Spring/hw/12-webscraping.html</loc>
-    <lastmod>2023-01-18T19:53:05.756Z</lastmod>
+    <lastmod>2023-01-19T12:25:22.807Z</lastmod>
   </url>
   <url>
     <loc>https://p4a.seas.gwu.edu/2023-Spring/hw/13-apis.html</loc>
-    <lastmod>2023-01-18T19:53:06.259Z</lastmod>
+    <lastmod>2023-01-19T12:25:23.272Z</lastmod>
   </url>
   <url>
     <loc>https://p4a.seas.gwu.edu/2023-Spring/hw/2-functions-packages.html</loc>
-    <lastmod>2023-01-18T19:53:06.755Z</lastmod>
+    <lastmod>2023-01-19T12:25:23.731Z</lastmod>
   </url>
   <url>
     <loc>https://p4a.seas.gwu.edu/2023-Spring/hw/3-creating-functions.html</loc>
-    <lastmod>2023-01-18T19:53:07.282Z</lastmod>
+    <lastmod>2023-01-19T12:25:24.204Z</lastmod>
   </url>
   <url>
     <loc>https://p4a.seas.gwu.edu/2023-Spring/hw/4-conditionals-testing.html</loc>
-    <lastmod>2023-01-18T19:53:07.784Z</lastmod>
+    <lastmod>2023-01-19T12:25:24.679Z</lastmod>
   </url>
   <url>
     <loc>https://p4a.seas.gwu.edu/2023-Spring/hw/5-iteration.html</loc>
-    <lastmod>2023-01-18T19:53:08.259Z</lastmod>
+    <lastmod>2023-01-19T12:25:25.138Z</lastmod>
   </url>
   <url>
     <loc>https://p4a.seas.gwu.edu/2023-Spring/hw/6-vectors.html</loc>
-    <lastmod>2023-01-18T19:53:08.760Z</lastmod>
+    <lastmod>2023-01-19T12:25:25.608Z</lastmod>
   </url>
   <url>
     <loc>https://p4a.seas.gwu.edu/2023-Spring/hw/7-strings.html</loc>
-    <lastmod>2023-01-18T19:53:09.279Z</lastmod>
+    <lastmod>2023-01-19T12:25:26.097Z</lastmod>
   </url>
   <url>
     <loc>https://p4a.seas.gwu.edu/2023-Spring/hw/8-data-frames.html</loc>
-    <lastmod>2023-01-18T19:53:09.797Z</lastmod>
+    <lastmod>2023-01-19T12:25:26.581Z</lastmod>
   </url>
   <url>
     <loc>https://p4a.seas.gwu.edu/2023-Spring/hw/9-data-wrangling.html</loc>
-    <lastmod>2023-01-18T19:53:10.275Z</lastmod>
+    <lastmod>2023-01-19T12:25:27.074Z</lastmod>
   </url>
   <url>
     <loc>https://p4a.seas.gwu.edu/2023-Spring/index.html</loc>
-    <lastmod>2023-01-18T19:53:12.365Z</lastmod>
+    <lastmod>2023-01-19T12:25:28.670Z</lastmod>
   </url>
   <url>
     <loc>https://p4a.seas.gwu.edu/2023-Spring/references.html</loc>
-    <lastmod>2023-01-18T19:53:13.010Z</lastmod>
+    <lastmod>2023-01-19T12:25:29.277Z</lastmod>
   </url>
   <url>
     <loc>https://p4a.seas.gwu.edu/2023-Spring/schedule.html</loc>
-    <lastmod>2023-01-18T19:53:17.509Z</lastmod>
+    <lastmod>2023-01-19T12:25:33.290Z</lastmod>
   </url>
   <url>
     <loc>https://p4a.seas.gwu.edu/2023-Spring/software.html</loc>
-    <lastmod>2023-01-18T19:53:18.006Z</lastmod>
+    <lastmod>2023-01-19T12:25:33.742Z</lastmod>
   </url>
   <url>
     <loc>https://p4a.seas.gwu.edu/2023-Spring/syllabus.html</loc>
-    <lastmod>2023-01-18T19:53:26.831Z</lastmod>
+    <lastmod>2023-01-19T12:25:40.425Z</lastmod>
   </url>
 </urlset>
