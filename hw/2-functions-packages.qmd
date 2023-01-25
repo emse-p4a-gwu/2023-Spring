@@ -81,7 +81,7 @@ In your hw2.R file, create two objects that store the following character values
 - The _name_ of your favorite super hero.
 - The _super power(s)_ your hero has.
 
-Use [meaningful variable names](https://p4a.jhelvy.com/getting-started.html#use_meaningful_variable_names){target="_blank"} to store these values.
+Use [meaningful variable names](https://p4a.jhelvy.com/getting-started.html#use-meaningful-variable-names){target="_blank"} to store these values.
 
 Next, install the **stringr** package. Try using the `str_to_lower()`, `str_to_upper()`, and `str_to_title()` functions from the **stringr** package on the objects you created. In a code comment, describe what these functions do.
 
@@ -89,7 +89,7 @@ Finally, use the `paste()` function to merge your super hero's name and power in
 
 ### 5) Installing packages from Github: the **BRRR** package [SOLO, 10%]
 
-The vast majority of the time, you will install external packages using the `install.packages()` function. This installs packages from the [Comprehensive R Archive Network](https://cran.r-project.org/) (CRAN), where most packages are published. But you can also install packages that are under development or haven't been published to CRAN yet. Most of the time, these packages are hosted on GitHub - an online platform for sharing code (it's also where all of the files that make up this website are [stored](https://github.com/emse-p4a-gwu/2020-Fall/)).
+The vast majority of the time, you will install external packages using the `install.packages()` function. This installs packages from the [Comprehensive R Archive Network](https://cran.r-project.org/) (CRAN), where most packages are published. But you can also install packages that are under development or haven't been published to CRAN yet. Most of the time, these packages are hosted on GitHub - an online platform for sharing code (it's also where all of the files that make up this website are [stored](https://github.com/emse-p4a-gwu/2023-Spring/)).
 
 To install a package from GitHub, you first need to install the **remotes** package. Then you can use the `remotes::install_github()` function to install packages directly from GitHub. To try this out, install the **remotes** package, then trying installing the **BRRR** package:
 
@@ -105,7 +105,7 @@ Not sure what this package does? Well, one of the other nice things about packag
 
 ### 6) Turtle practice [COLLABORATIVE, 20%]
 
-In case you missed the intro to the **TurtleGraphics** package in class, go ahead and install and load the package. You might also want to review the [related lesson page](https://p4a.jhelvy.com/functions-packages.html#Turtle_Graphics){target="_blank"} and the [class slides](../class/2-functions-packages/2-functions-packages.pdf). Then complete these tasks:
+In case you missed the intro to the **TurtleGraphics** package in class, go ahead and install and load the package. You might also want to review the [related lesson page](https://p4a.jhelvy.com/functions-packages.html#turtle-graphics){target="_blank"} and the [class slides](../class/2-functions-packages.html). Then complete these tasks:
 
 a) Load the **TurtleGraphics** package, then initiate your turtle with the `turtle_init()` function.
 b) Read through the following commands (don't run them). In a code comment, type a description of what you think the turtle is going to do.
@@ -123,7 +123,7 @@ c) Now run the above commands to check if the turtle did what you expected. Cong
 d) Using what you've learned about how to manipulate your turtle, write **two different solutions** for producing the following image (hint: the length of one side of the square is `50` units):
 
 <center>
-<img src="images/turtle_cross_box.png" width=456>
+<img src="../images/turtle_cross_box.png" width=456>
 </center>
 
 ### 7) Read and reflect [SOLO, 10%]
