@@ -390,13 +390,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>The <em>name</em> of your favorite super hero.</li>
 <li>The <em>super power(s)</em> your hero has.</li>
 </ul>
-<p>Use <a href="https://p4a.jhelvy.com/getting-started.html#use_meaningful_variable_names" target="_blank">meaningful variable names</a> to store these values.</p>
+<p>Use <a href="https://p4a.jhelvy.com/getting-started.html#use-meaningful-variable-names" target="_blank">meaningful variable names</a> to store these values.</p>
 <p>Next, install the <strong>stringr</strong> package. Try using the <code>str_to_lower()</code>, <code>str_to_upper()</code>, and <code>str_to_title()</code> functions from the <strong>stringr</strong> package on the objects you created. In a code comment, describe what these functions do.</p>
 <p>Finally, use the <code>paste()</code> function to merge your super hero’s name and power in a coherent sentence. For example, if the name is <code>"Professor Xavier"</code> and the the power is <code>"reads peoples' minds"</code>, then a final sentence might be: <code>"Professor Xavier reads peoples' minds!"</code>. (Note that I intentionally did not tell you how to use the <code>paste()</code> function…you’ll have to figure that one out)</p>
 </section>
 <section id="installing-packages-from-github-the-brrr-package-solo-10" class="level3">
 <h3 class="anchored" data-anchor-id="installing-packages-from-github-the-brrr-package-solo-10">5) Installing packages from Github: the <strong>BRRR</strong> package [SOLO, 10%]</h3>
-<p>The vast majority of the time, you will install external packages using the <code>install.packages()</code> function. This installs packages from the <a href="https://cran.r-project.org/">Comprehensive R Archive Network</a> (CRAN), where most packages are published. But you can also install packages that are under development or haven’t been published to CRAN yet. Most of the time, these packages are hosted on GitHub - an online platform for sharing code (it’s also where all of the files that make up this website are <a href="https://github.com/emse-p4a-gwu/2020-Fall/">stored</a>).</p>
+<p>The vast majority of the time, you will install external packages using the <code>install.packages()</code> function. This installs packages from the <a href="https://cran.r-project.org/">Comprehensive R Archive Network</a> (CRAN), where most packages are published. But you can also install packages that are under development or haven’t been published to CRAN yet. Most of the time, these packages are hosted on GitHub - an online platform for sharing code (it’s also where all of the files that make up this website are <a href="https://github.com/emse-p4a-gwu/2023-Spring/">stored</a>).</p>
 <p>To install a package from GitHub, you first need to install the <strong>remotes</strong> package. Then you can use the <code>remotes::install_github()</code> function to install packages directly from GitHub. To try this out, install the <strong>remotes</strong> package, then trying installing the <strong>BRRR</strong> package:</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>remotes<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">"brooke-watson/BRRR"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -408,7 +408,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </section>
 <section id="turtle-practice-collaborative-20" class="level3">
 <h3 class="anchored" data-anchor-id="turtle-practice-collaborative-20">6) Turtle practice [COLLABORATIVE, 20%]</h3>
-<p>In case you missed the intro to the <strong>TurtleGraphics</strong> package in class, go ahead and install and load the package. You might also want to review the <a href="https://p4a.jhelvy.com/functions-packages.html#Turtle_Graphics" target="_blank">related lesson page</a> and the <a href="../class/2-functions-packages/2-functions-packages.pdf">class slides</a>. Then complete these tasks:</p>
+<p>In case you missed the intro to the <strong>TurtleGraphics</strong> package in class, go ahead and install and load the package. You might also want to review the <a href="https://p4a.jhelvy.com/functions-packages.html#turtle-graphics" target="_blank">related lesson page</a> and the <a href="../class/2-functions-packages.html">class slides</a>. Then complete these tasks:</p>
 <ol type="a">
 <li>Load the <strong>TurtleGraphics</strong> package, then initiate your turtle with the <code>turtle_init()</code> function.</li>
 <li>Read through the following commands (don’t run them). In a code comment, type a description of what you think the turtle is going to do.</li>
@@ -428,7 +428,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Using what you’ve learned about how to manipulate your turtle, write <strong>two different solutions</strong> for producing the following image (hint: the length of one side of the square is <code>50</code> units):</li>
 </ol>
 <center>
-<img src="images/turtle_cross_box.png" width="456">
+<img src="../images/turtle_cross_box.png" width="456">
 </center>
 </section>
 <section id="read-and-reflect-solo-10" class="level3">
