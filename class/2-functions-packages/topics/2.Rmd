@@ -1,0 +1,16 @@
+
+class: inverse, middle
+
+# Week `r rmarkdown::metadata$week`: .fancy[`r rmarkdown::metadata$title`]
+
+## 1. Functions
+## 2. .orange[Manipulating data types]
+
+### BREAK
+
+## 3. External packages 📦
+## 4. Polya's problem solving technique
+
+
+
+
