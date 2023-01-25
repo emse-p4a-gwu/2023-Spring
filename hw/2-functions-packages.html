@@ -20,69 +20,6 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1.6em;
   vertical-align: middle;
 }
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-    color: #aaaaaa;
-  }
-pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
-code span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code span.at { color: #7d9029; } /* Attribute */
-code span.bn { color: #40a070; } /* BaseN */
-code span.bu { color: #008000; } /* BuiltIn */
-code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code span.ch { color: #4070a0; } /* Char */
-code span.cn { color: #880000; } /* Constant */
-code span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code span.dt { color: #902000; } /* DataType */
-code span.dv { color: #40a070; } /* DecVal */
-code span.er { color: #ff0000; font-weight: bold; } /* Error */
-code span.ex { } /* Extension */
-code span.fl { color: #40a070; } /* Float */
-code span.fu { color: #06287e; } /* Function */
-code span.im { color: #008000; font-weight: bold; } /* Import */
-code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
-code span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code span.op { color: #666666; } /* Operator */
-code span.ot { color: #007020; } /* Other */
-code span.pp { color: #bc7a00; } /* Preprocessor */
-code span.sc { color: #4070a0; } /* SpecialChar */
-code span.ss { color: #bb6688; } /* SpecialString */
-code span.st { color: #4070a0; } /* String */
-code span.va { color: #19177c; } /* Variable */
-code span.vs { color: #4070a0; } /* VerbatimString */
-code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
 
@@ -127,11 +64,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 <link rel="stylesheet" href="../styles.css">
 <meta property="og:title" content="EMSE 4571 / 6571 - Homework 2 - Functions &amp; Packages">
-<meta property="og:description" content="The readings from the last week will serve as a helpful reference as you complete this assignment. You can review them here:">
+<meta property="og:description" content="Coming soon!">
 <meta property="og:site-name" content="https://p4a.seas.gwu.edu/">
 <meta property="og:locale" content="es_ES">
 <meta name="twitter:title" content="EMSE 4571 / 6571 - Homework 2 - Functions &amp; Packages">
-<meta name="twitter:description" content="The readings from the last week will serve as a helpful reference as you complete this assignment. You can review them here:">
+<meta name="twitter:description" content="Coming soon!">
 <meta name="twitter:image" content="https://p4a.seas.gwu.edu/2023-Spring/images/logo-square.png">
 <meta name="twitter:creator" content="@johnhelveston">
 <meta name="twitter:site" content="@johnhelveston">
@@ -269,186 +206,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 </header>
 
-<div class="cell">
-
-</div>
-<blockquote class="blockquote">
-<p><strong>Due</strong>: Feb 01 by 11:59pm</p>
-<p><strong>Submission Instructions</strong>: Create a zip file of all the files in your R project folder for this assignment, then submit your zip file on the corresponding assignment submission on Blackboard.</p>
-<p><strong>Weight</strong>: This assignment is worth 4% of your final grade.</p>
-<p><strong>Purpose</strong>: The purposes of this assignment are:</p>
-<ul>
-<li>To practice using functions in R.</li>
-<li>To practice converting data types in R.</li>
-<li>To practice installing, loading, and using external packages.</li>
-</ul>
-<p><strong>Skills &amp; Knowledge</strong>: After completing these exercises, you should be able to:</p>
-<ul>
-<li>Be familiar with how to specify arguments in functions.</li>
-<li>Be comfortable converting data between logical, character, and numeric types.</li>
-<li>Be comfortable installing external libraries and accessing functions in them.</li>
-</ul>
-<p><strong>Assessment</strong>: Each question indicates the % of the assignment grade, summing to 100%. The credit for each question will be assigned as follows:</p>
-<ul>
-<li>0% for not attempting a response.</li>
-<li>50% for attempting the question but with <em>major</em> errors.</li>
-<li>75% for attempting the question but with <em>minor</em> errors.</li>
-<li>100% for correctly answering the question.</li>
-</ul>
-<p>The reflection portion is always worth 10% and graded for completion.</p>
-<p><strong>Rules</strong>:</p>
-<ul>
-<li>Problems marked <strong>SOLO</strong> may not be worked on with other classmates, though you may consult instructors for help.</li>
-<li>For problems marked <strong>COLLABORATIVE</strong>, you may work in groups of up to 3 students who are in this course this semester. You may not split up the work – everyone must work on every problem. And you may not simply copy any code but rather truly work together and submit your own solutions.</li>
-</ul>
-</blockquote>
-<section id="readings" class="level3">
-<h3 class="anchored" data-anchor-id="readings">Readings</h3>
-<p>The readings from the last week will serve as a helpful reference as you complete this assignment. You can review them here:</p>
-<blockquote class="blockquote">
-<div class="cell" data-layout-align="center">
-<div class="cell-output-display">
-<a href="https://p4a.jhelvy.com/functions-packages.html" target="_blank"><i class="bi-book-fill"></i></a> Functions &amp; Packages
-</div>
-</div>
-</blockquote>
-</section>
-<section id="staying-organized-solo-10" class="level3">
-<h3 class="anchored" data-anchor-id="staying-organized-solo-10">1) Staying organized [SOLO, 10%]</h3>
-<p>Just like we did in HW1, we’re going to use an R project to keep everything in this assignment tidy. Create a new R project called “hw2” and save a new R script in it called “hw2.R”. Copy the following code to the top of this script and fill out your name, GW netID, and the names of anyone you worked with on this assignment:</p>
-<div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Name:  Last, First</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co"># netID: Insert your netID here</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co"># I worked with the following classmates on this assignment:</span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co"># 1) Name: Last, First</span></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co"># 2) Name: Last, First</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>Write your responses to all other questions in this assignment in your hw2.R file.</p>
-</section>
-<section id="polya-problem-solving-1-collaborative-15" class="level3">
-<h3 class="anchored" data-anchor-id="polya-problem-solving-1-collaborative-15">2) Polya problem solving 1 [COLLABORATIVE, 15%]</h3>
-<p>Consider the points A, B, and C defined by the following cartesian coordinates:</p>
-<div style="width:150px">
-<table class="table">
-<thead>
-<tr class="header">
-<th>Point</th>
-<th><code>x</code></th>
-<th><code>y</code></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>A</td>
-<td>1</td>
-<td>1</td>
-</tr>
-<tr class="even">
-<td>B</td>
-<td>5</td>
-<td>1</td>
-</tr>
-<tr class="odd">
-<td>C</td>
-<td>5</td>
-<td>4</td>
-</tr>
-</tbody>
-</table>
-</div>
-<p>Your task is to find out if the triangle formed by the points A, B, and C is a <a href="https://en.wikipedia.org/wiki/Right_triangle">right triangle</a>. Apply Polya’s problem solving technique:</p>
-<ol type="1">
-<li><strong>Understand the problem</strong>: In a code comment, write the question you are trying to solve in your own words, then create objects for each relevant piece of information provided in the problem statement.</li>
-<li><strong>Devise a plan</strong>: In code comments, describe the steps you will take in your plan to solve the problem.</li>
-<li><strong>Carry out the plan</strong>: Write code below your comments to carry out your plan.</li>
-<li><strong>Check your work</strong>: <em>Examine</em> your solution and any intermediate values you computed along the way. Do the values make sense (e.g.&nbsp;do you get negative numbers when you expected positive numbers)? Is there another way you could have solved it to check that you get the same result?</li>
-</ol>
-</section>
-<section id="polya-problem-solving-2-collaborative-20" class="level3">
-<h3 class="anchored" data-anchor-id="polya-problem-solving-2-collaborative-20">3) Polya problem solving 2 [COLLABORATIVE, 20%]</h3>
-<p>Kevin is deciding between purchasing a Chevy Bolt, which sells for $29,390 (after subsidies), and a Toyota Camry, which sells for $24,000. The Bolt efficiency is 28 kWh of electricity per 100 miles while the Camry efficiency is 28 miles per gallon (mpg) on average. The average price of electricity (in DC, where Kevin lives) is $0.13 / kWh, and the average price of gasoline is $3.00 / gallon. Kevin drives 12,000 miles each year on average.</p>
-<p>To help him make a decision about which car to buy, answer the following questions:</p>
-<ol type="a">
-<li>How long (in years) would he have to drive the Bolt for the money he saves in fuel savings to be greater than the price premium compared to the Camry?</li>
-<li>What would the price of gasoline need to be such that the fuel savings from driving the Bolt for 3 years would be greater than the price premium compared to the Camry?</li>
-<li>How many miles would Kevin need to drive each year such that the fuel savings from driving the Bolt for 3 years would be greater than the price premium compared to the Camry?</li>
-</ol>
-<p>To solve each problem, apply Polya’s problem solving technique:</p>
-<ol type="1">
-<li><strong>Understand the problem</strong>: In a code comment, write the question you are trying to solve in your own words, then create objects for each relevant piece of information provided in the problem statement.</li>
-<li><strong>Devise a plan</strong>: In code comments, describe the steps you will take in your plan to solve the problem.</li>
-<li><strong>Carry out the plan</strong>: Write code below your comments to carry out your plan.</li>
-<li><strong>Check your work</strong>: <em>Examine</em> your solution and any intermediate values you computed along the way. Do the values make sense (e.g.&nbsp;do you get negative numbers when you expected positive numbers)? Is there another way you could have solved it to check that you get the same result?</li>
-</ol>
-</section>
-<section id="working-with-strings-the-stringr-package-solo-15" class="level3">
-<h3 class="anchored" data-anchor-id="working-with-strings-the-stringr-package-solo-15">4) Working with strings: the <strong>stringr</strong> package [SOLO, 15%]</h3>
-<p>Who is your favorite super hero character? If you don’t already have one, <a href="https://www.britannica.com/topic/list-of-superheroes-2024795">pick one</a> (mine is <a href="https://en.wikipedia.org/wiki/Professor_X">Professor Xavier</a>, and no it’s not just because he’s a professor :P).</p>
-<p>In your hw2.R file, create two objects that store the following character values:</p>
-<ul>
-<li>The <em>name</em> of your favorite super hero.</li>
-<li>The <em>super power(s)</em> your hero has.</li>
-</ul>
-<p>Use <a href="https://p4a.jhelvy.com/getting-started.html#use_meaningful_variable_names" target="_blank">meaningful variable names</a> to store these values.</p>
-<p>Next, install the <strong>stringr</strong> package. Try using the <code>str_to_lower()</code>, <code>str_to_upper()</code>, and <code>str_to_title()</code> functions from the <strong>stringr</strong> package on the objects you created. In a code comment, describe what these functions do.</p>
-<p>Finally, use the <code>paste()</code> function to merge your super hero’s name and power in a coherent sentence. For example, if the name is <code>"Professor Xavier"</code> and the the power is <code>"reads peoples' minds"</code>, then a final sentence might be: <code>"Professor Xavier reads peoples' minds!"</code>. (Note that I intentionally did not tell you how to use the <code>paste()</code> function…you’ll have to figure that one out)</p>
-</section>
-<section id="installing-packages-from-github-the-brrr-package-solo-10" class="level3">
-<h3 class="anchored" data-anchor-id="installing-packages-from-github-the-brrr-package-solo-10">5) Installing packages from Github: the <strong>BRRR</strong> package [SOLO, 10%]</h3>
-<p>The vast majority of the time, you will install external packages using the <code>install.packages()</code> function. This installs packages from the <a href="https://cran.r-project.org/">Comprehensive R Archive Network</a> (CRAN), where most packages are published. But you can also install packages that are under development or haven’t been published to CRAN yet. Most of the time, these packages are hosted on GitHub - an online platform for sharing code (it’s also where all of the files that make up this website are <a href="https://github.com/emse-p4a-gwu/2020-Fall/">stored</a>).</p>
-<p>To install a package from GitHub, you first need to install the <strong>remotes</strong> package. Then you can use the <code>remotes::install_github()</code> function to install packages directly from GitHub. To try this out, install the <strong>remotes</strong> package, then trying installing the <strong>BRRR</strong> package:</p>
-<div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>remotes<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">"brooke-watson/BRRR"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<blockquote class="blockquote">
-<p>Note: Packages on GitHub are <em>in development</em> and often require other packages to work. So if you get an installation error about some other package dependency, try restarting your R session and try again.</p>
-</blockquote>
-<p>Not sure what this package does? Well, one of the other nice things about packages listed on GitHub is the authors tend to write detailed descriptions - check out the <a href="https://github.com/brooke-watson/BRRR">GitHub page for the BRRR package</a>. Then try using the <code>BRRR::skrrrahh()</code> function with different number arguments (turn your volume up). In the <code>#hw</code> channel on slack, post your favorite argument to <code>skrrrahh()</code> (mine is 24).</p>
-</section>
-<section id="turtle-practice-collaborative-20" class="level3">
-<h3 class="anchored" data-anchor-id="turtle-practice-collaborative-20">6) Turtle practice [COLLABORATIVE, 20%]</h3>
-<p>In case you missed the intro to the <strong>TurtleGraphics</strong> package in class, go ahead and install and load the package. You might also want to review the <a href="https://p4a.jhelvy.com/functions-packages.html#Turtle_Graphics" target="_blank">related lesson page</a> and the <a href="../class/2-functions-packages/2-functions-packages.pdf">class slides</a>. Then complete these tasks:</p>
-<ol type="a">
-<li>Load the <strong>TurtleGraphics</strong> package, then initiate your turtle with the <code>turtle_init()</code> function.</li>
-<li>Read through the following commands (don’t run them). In a code comment, type a description of what you think the turtle is going to do.</li>
-</ol>
-<div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">turtle_init</span>()</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">turtle_move</span>(<span class="at">distance =</span> <span class="dv">25</span>, <span class="at">direction =</span> <span class="st">"forward"</span>)</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="fu">turtle_move</span>(<span class="at">distance =</span> <span class="dv">50</span>, <span class="at">direction =</span> <span class="st">"backward"</span>)</span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="fu">turtle_reset</span>()</span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="fu">turtle_turn</span>(<span class="at">angle =</span> <span class="dv">90</span>, <span class="at">direction =</span> <span class="st">"right"</span>)</span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="fu">turtle_move</span>(<span class="at">distance =</span> <span class="dv">25</span>, <span class="at">direction =</span> <span class="st">"forward"</span>)</span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="fu">turtle_move</span>(<span class="at">distance =</span> <span class="dv">50</span>, <span class="at">direction =</span> <span class="st">"backward"</span>)</span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="fu">turtle_reset</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<ol start="3" type="a">
-<li>Now run the above commands to check if the turtle did what you expected. Congratulations, you’ve just practiced “code tracing”! Reading through code <em>before</em> running it then comparing the result with your expectation is an excellent method for improving your your computational thinking skills and your fluency with a particular language.</li>
-<li>Using what you’ve learned about how to manipulate your turtle, write <strong>two different solutions</strong> for producing the following image (hint: the length of one side of the square is <code>50</code> units):</li>
-</ol>
-<center>
-<img src="images/turtle_cross_box.png" width="456">
-</center>
-</section>
-<section id="read-and-reflect-solo-10" class="level3">
-<h3 class="anchored" data-anchor-id="read-and-reflect-solo-10">7) Read and reflect [SOLO, 10%]</h3>
-<p>Read and reflect on the following readings to preview what we will cover in class next week:</p>
-<blockquote class="blockquote">
-<div class="cell" data-layout-align="center">
-<div class="cell-output-display">
-<a href="https://p4a.jhelvy.com/creating-functions.html" target="_blank"><i class="bi-book-fill"></i></a> Creating Functions
-</div>
-</div>
-</blockquote>
-<p>Afterwards, in a comment (<code>#</code>) in your .R file, write a short reflection on what you’ve learned and any questions or points of confusion you have about what we’ve covered thus far. This can just few a few sentences related to this assignment, next week’s readings, things going on in the world that remind you something from class, etc. If there’s anything that jumped out at you, write it down.</p>
-</section>
-<section id="submit" class="level3">
-<h3 class="anchored" data-anchor-id="submit">Submit</h3>
-<p>Instructions for how to submit your assignment are at the <a href="">top of this page</a>.</p>
+<p>Coming soon!</p>
 
 
-</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
