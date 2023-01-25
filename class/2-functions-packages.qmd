@@ -4,4 +4,5 @@ params:
   class: "2-functions-packages"
 ---
 
-Coming soon!
+```{r child = here::here("fragments", "class.qmd")}
+```
