@@ -123,7 +123,7 @@ c) Now run the above commands to check if the turtle did what you expected. Cong
 d) Using what you've learned about how to manipulate your turtle, write **two different solutions** for producing the following image (hint: the length of one side of the square is `50` units):
 
 <center>
-<img src="../images/turtle_cross_box.png" width=456>
+<img src="../images/turtle_cross_box.png" width=600>
 </center>
 
 ### 7) Read and reflect [SOLO, 10%]
@@ -134,3 +134,5 @@ d) Using what you've learned about how to manipulate your turtle, write **two di
 ### Submit
 
 Instructions for how to submit your assignment are at the [top of this page]().
+
+
