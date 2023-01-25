@@ -2,6 +2,135 @@
 title: "Homework 2 - Functions & Packages"
 params:
   number: 2
+  purpose: |
+    The purposes of this assignment are:
+    >
+    > - To practice using functions in R.
+    > - To practice converting data types in R.
+    > - To practice installing, loading, and using external packages.
+    >
+    > **Skills & Knowledge**: After completing these exercises, you should be able to:
+    >
+    > - Be familiar with how to specify arguments in functions.
+    > - Be comfortable converting data between logical, character, and numeric types.
+    > - Be comfortable installing external libraries and accessing functions in them.
 ---
 
-Coming soon!
+```{r child = here::here("fragments", "hw.qmd")}
+```
+
+### 1) Staying organized [SOLO, 10%]
+
+Just like we did in HW1, we're going to use an R project to keep everything in this assignment tidy. Create a new R project called "hw2" and save a new R script in it called "hw2.R". Copy the following code to the top of this script and fill out your name, GW netID, and the names of anyone you worked with on this assignment:
+
+```{r eval=FALSE}
+# Name:  Last, First
+# netID: Insert your netID here
+
+# I worked with the following classmates on this assignment:
+# 1) Name: Last, First
+# 2) Name: Last, First
+```
+
+Write your responses to all other questions in this assignment in your hw2.R file.
+
+### 2) Polya problem solving 1 [COLLABORATIVE, 15%]
+
+Consider the points A, B, and C defined by the following cartesian coordinates:
+
+<div style="width:150px">
+
+Point | `x` | `y`
+------|-----|-----
+A     |  1  |  1
+B     |  5  |  1
+C     |  5  |  4
+
+</div>
+
+Your task is to find out if the triangle formed by the points A, B, and C is a [right triangle](https://en.wikipedia.org/wiki/Right_triangle). Apply Polya's problem solving technique:
+
+1. **Understand the problem**: In a code comment, write the question you are trying to solve in your own words, then create objects for each relevant piece of information provided in the problem statement.
+2. **Devise a plan**: In code comments, describe the steps you will take in your plan to solve the problem.
+3. **Carry out the plan**: Write code below your comments to carry out your plan.
+4. **Check your work**: _Examine_ your solution and any intermediate values you computed along the way. Do the values make sense (e.g. do you get negative numbers when you expected positive numbers)? Is there another way you could have solved it to check that you get the same result?
+
+### 3) Polya problem solving 2 [COLLABORATIVE, 20%]
+
+Kevin is deciding between purchasing a Chevy Bolt, which sells for $29,390 (after subsidies), and a Toyota Camry, which sells for $24,000. The Bolt efficiency is 28 kWh of electricity per 100 miles while the Camry efficiency is 28 miles per gallon (mpg) on average. The average price of electricity (in DC, where Kevin lives) is $0.13 / kWh, and the average price of gasoline is $3.00 / gallon. Kevin drives 12,000 miles each year on average.
+
+To help him make a decision about which car to buy, answer the following questions:
+
+a. How long (in years) would he have to drive the Bolt for the money he saves in fuel savings to be greater than the price premium compared to the Camry?
+b. What would the price of gasoline need to be such that the fuel savings from driving the Bolt for 3 years would be greater than the price premium compared to the Camry?
+c. How many miles would Kevin need to drive each year such that the fuel savings from driving the Bolt for 3 years would be greater than the price premium compared to the Camry?
+
+To solve each problem, apply Polya's problem solving technique:
+
+1. **Understand the problem**: In a code comment, write the question you are trying to solve in your own words, then create objects for each relevant piece of information provided in the problem statement.
+2. **Devise a plan**: In code comments, describe the steps you will take in your plan to solve the problem.
+3. **Carry out the plan**: Write code below your comments to carry out your plan.
+4. **Check your work**: _Examine_ your solution and any intermediate values you computed along the way. Do the values make sense (e.g. do you get negative numbers when you expected positive numbers)? Is there another way you could have solved it to check that you get the same result?
+
+### 4) Working with strings: the **stringr** package [SOLO, 15%]
+
+Who is your favorite super hero character? If you don't already have one, [pick one](https://www.britannica.com/topic/list-of-superheroes-2024795) (mine is [Professor Xavier](https://en.wikipedia.org/wiki/Professor_X), and no it's not just because he's a professor :P).
+
+In your hw2.R file, create two objects that store the following character values:
+
+- The _name_ of your favorite super hero.
+- The _super power(s)_ your hero has.
+
+Use [meaningful variable names](https://p4a.jhelvy.com/getting-started.html#use_meaningful_variable_names){target="_blank"} to store these values.
+
+Next, install the **stringr** package. Try using the `str_to_lower()`, `str_to_upper()`, and `str_to_title()` functions from the **stringr** package on the objects you created. In a code comment, describe what these functions do.
+
+Finally, use the `paste()` function to merge your super hero's name and power in a coherent sentence. For example, if the name is `"Professor Xavier"` and the the power is `"reads peoples' minds"`, then a final sentence might be: `"Professor Xavier reads peoples' minds!"`. (Note that I intentionally did not tell you how to use the `paste()` function...you'll have to figure that one out)
+
+### 5) Installing packages from Github: the **BRRR** package [SOLO, 10%]
+
+The vast majority of the time, you will install external packages using the `install.packages()` function. This installs packages from the [Comprehensive R Archive Network](https://cran.r-project.org/) (CRAN), where most packages are published. But you can also install packages that are under development or haven't been published to CRAN yet. Most of the time, these packages are hosted on GitHub - an online platform for sharing code (it's also where all of the files that make up this website are [stored](https://github.com/emse-p4a-gwu/2020-Fall/)).
+
+To install a package from GitHub, you first need to install the **remotes** package. Then you can use the `remotes::install_github()` function to install packages directly from GitHub. To try this out, install the **remotes** package, then trying installing the **BRRR** package:
+
+```{r}
+#| eval: false
+
+remotes::install_github("brooke-watson/BRRR")
+```
+
+> Note: Packages on GitHub are _in development_ and often require other packages to work. So if you get an installation error about some other package dependency, try restarting your R session and try again.
+
+Not sure what this package does? Well, one of the other nice things about packages listed on GitHub is the authors tend to write detailed descriptions - check out the [GitHub page for the BRRR package](https://github.com/brooke-watson/BRRR). Then try using the `BRRR::skrrrahh()` function with different number arguments (turn your volume up). In the `#hw` channel on slack, post your favorite argument to `skrrrahh()` (mine is 24).
+
+### 6) Turtle practice [COLLABORATIVE, 20%]
+
+In case you missed the intro to the **TurtleGraphics** package in class, go ahead and install and load the package. You might also want to review the [related lesson page](https://p4a.jhelvy.com/functions-packages.html#Turtle_Graphics){target="_blank"} and the [class slides](../class/2-functions-packages/2-functions-packages.pdf). Then complete these tasks:
+
+a) Load the **TurtleGraphics** package, then initiate your turtle with the `turtle_init()` function.
+b) Read through the following commands (don't run them). In a code comment, type a description of what you think the turtle is going to do.
+```{r eval=FALSE}
+turtle_init()
+turtle_move(distance = 25, direction = "forward")
+turtle_move(distance = 50, direction = "backward")
+turtle_reset()
+turtle_turn(angle = 90, direction = "right")
+turtle_move(distance = 25, direction = "forward")
+turtle_move(distance = 50, direction = "backward")
+turtle_reset()
+```
+c) Now run the above commands to check if the turtle did what you expected. Congratulations, you've just practiced "code tracing"! Reading through code _before_ running it then comparing the result with your expectation is an excellent method for improving your your computational thinking skills and your fluency with a particular language.
+d) Using what you've learned about how to manipulate your turtle, write **two different solutions** for producing the following image (hint: the length of one side of the square is `50` units):
+
+<center>
+<img src="images/turtle_cross_box.png" width=456>
+</center>
+
+### 7) Read and reflect [SOLO, 10%]
+
+```{r child = here::here("fragments", "reflection.qmd")}
+```
+
+### Submit
+
+Instructions for how to submit your assignment are at the [top of this page]().
