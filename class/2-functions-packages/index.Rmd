@@ -47,12 +47,12 @@ countdown(
 
 .leftcol[
 
-## Go to `#classroom` channel in Slack for quiz link
+## Write your name on the quiz!
 
 ## Rules:
 
-- You may use your notes.
-- You may **not** use any other resources (e.g. RStudio, the internet, your classmates, etc.)
+- Work alone; no outside help of any kind is allowed.
+- No calculators, no notes, no books, no computers, no phones.
 
 ]
 
