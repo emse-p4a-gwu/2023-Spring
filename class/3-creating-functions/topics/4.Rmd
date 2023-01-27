@@ -1,0 +1,19 @@
+
+class: inverse, middle
+
+.leftcol60[
+
+# Week `r rmarkdown::metadata$week`: .fancy[`r rmarkdown::metadata$title`]
+
+### 1. Function syntax
+### 2. Local vs global variables
+
+### BREAK
+
+### 3. Top-down design
+### 4. .orange[Coding style]
+]
+
+.rightcol40[
+<img src="images/code_style.jpg" width="370px">
+]
