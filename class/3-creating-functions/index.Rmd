@@ -782,7 +782,7 @@ sum_of_squares <- function(a, b) {
 
 - Use ` <- ` for assignment, not ` = `
 - Put spacing around operators<br>(e.g. `x <- 1`, not `x<-1`)
-- Use [meaningful variable names](https://p4a.seas.gwu.edu/2022-Spring/r1.1-getting-started.html#Use_meaningful_variable_names)
+- Use [meaningful variable names](https://p4a.jhelvy.com/getting-started.html#use-meaningful-variable-names)
 - This applies to file names too<br>(e.g. "`hw1.R`" vs. "`untitled.R`")
 
 ]
