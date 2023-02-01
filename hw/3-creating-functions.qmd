@@ -21,7 +21,7 @@ params:
 
 ### 1) Staying organized [SOLO, 5%]
 
-As always, we're going to use an R project to keep everything in this assignment tidy. Download and use [this template](/templates/hw3.zip) for your assignment. Inside the "hw3" folder, open and edit the R script called "hw3.R" and fill out your name, Net ID, and the names of anyone you worked with on this assignment.
+As always, we're going to use an R project to keep everything in this assignment tidy. Download and use [this template](templates/hw3.zip) for your assignment. Inside the "hw3" folder, open and edit the R script called "hw3.R" and fill out your name, Net ID, and the names of anyone you worked with on this assignment.
 
 ### 2) `integerSquareRoot(n)` [SOLO, 10%]
 
