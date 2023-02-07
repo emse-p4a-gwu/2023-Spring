@@ -1,4 +1,4 @@
-# EMSE 4571 / 6571<br>Intro Programming for Analytics<br>Spring 2023
+# EMSE 4571 / 6571<br>Intro to Programming for Analytics<br>Spring 2023
 
 ::: {.grid}
 
