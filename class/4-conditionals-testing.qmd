@@ -4,4 +4,5 @@ params:
   class: "4-conditionals-testing"
 ---
 
-Coming soon!
+```{r child = here::here("fragments", "class.qmd")}
+```

@@ -64,11 +64,11 @@ ul.task-list li input[type="checkbox"] {
 
 <link rel="stylesheet" href="../styles.css">
 <meta property="og:title" content="EMSE 4571 / 6571 - Homework 4 - Conditionals &amp; Testing">
-<meta property="og:description" content="Coming soon!">
+<meta property="og:description" content="The readings from the last week will serve as a helpful reference as you complete this assignment. You can review them here:">
 <meta property="og:site-name" content="https://p4a.seas.gwu.edu/">
 <meta property="og:locale" content="es_ES">
 <meta name="twitter:title" content="EMSE 4571 / 6571 - Homework 4 - Conditionals &amp; Testing">
-<meta name="twitter:description" content="Coming soon!">
+<meta name="twitter:description" content="The readings from the last week will serve as a helpful reference as you complete this assignment. You can review them here:">
 <meta name="twitter:image" content="https://p4a.seas.gwu.edu/2023-Spring/images/logo-square.png">
 <meta name="twitter:creator" content="@johnhelveston">
 <meta name="twitter:site" content="@johnhelveston">
@@ -206,9 +206,131 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<p>Coming soon!</p>
+<div class="cell">
+
+</div>
+<blockquote class="blockquote">
+<p><strong>Due</strong>: Feb 15 by 11:59pm</p>
+<p><strong>Submission Instructions</strong>: Create a zip file of all the files in your R project folder for this assignment, then submit your zip file on the corresponding assignment submission on Blackboard.</p>
+<p><strong>Weight</strong>: This assignment is worth 4% of your final grade.</p>
+<p><strong>Purpose</strong>: The purposes of this assignment are:</p>
+<ul>
+<li>To practice using conditional statements while writing functions in R.</li>
+<li>To practice the skill of writing and using test functions to understand the problem.</li>
+<li>To practice computational problem solving.</li>
+</ul>
+<p><strong>Assessment</strong>: Each question indicates the % of the assignment grade, summing to 100%. The credit for each question will be assigned as follows:</p>
+<ul>
+<li>0% for not attempting a response.</li>
+<li>50% for attempting the question but with <em>major</em> errors.</li>
+<li>75% for attempting the question but with <em>minor</em> errors.</li>
+<li>100% for correctly answering the question.</li>
+</ul>
+<p>The reflection portion is always worth 10% and graded for completion.</p>
+<p><strong>Rules</strong>:</p>
+<ul>
+<li>Problems marked <strong>SOLO</strong> may not be worked on with other classmates, though you may consult instructors for help.</li>
+<li>For problems marked <strong>COLLABORATIVE</strong>, you may work in groups of up to 3 students who are in this course this semester. You may not split up the work – everyone must work on every problem. And you may not simply copy any code but rather truly work together and submit your own solutions.</li>
+</ul>
+</blockquote>
+<section id="readings" class="level3">
+<h3 class="anchored" data-anchor-id="readings">Readings</h3>
+<p>The readings from the last week will serve as a helpful reference as you complete this assignment. You can review them here:</p>
+<blockquote class="blockquote">
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<a href="https://p4a.jhelvy.com/conditionals.html" target="_blank"><i class="bi-book-fill"></i></a> Conditionals<br><a href="https://p4a.jhelvy.com/testing-debugging.html" target="_blank"><i class="bi-book-fill"></i></a> Testing &amp; Debugging
+</div>
+</div>
+</blockquote>
+<blockquote class="blockquote">
+<h3 id="using-the-autograder" class="anchored">Using the <a href="../autograder.html">autograder</a></h3>
+<ul>
+<li>You can check your solutions to problems 2 - 7 by logging into the <a href="../autograder.html">autograder</a> and uploading your <code>hw4.R</code> file.</li>
+<li><strong>The file must be named <code>hw4.R</code> or it won’t work.</strong></li>
+<li>Your user name is your netID, and your password is inside the <code>readme.txt</code> file in the Box folder I shared with you.</li>
+</ul>
+</blockquote>
+</section>
+<section id="staying-organized-solo-5" class="level3">
+<h3 class="anchored" data-anchor-id="staying-organized-solo-5">1) Staying organized [SOLO, 5%]</h3>
+<p>Download and use <a href="templates/hw4.zip">this template</a> for your assignment. Inside the “hw4” folder, open and edit the R script called “hw4.R” and fill out your name, Net ID, and the names of anyone you worked with on this assignment.</p>
+<blockquote class="blockquote">
+<h3 id="writing-test-functions" class="anchored"><strong>Writing test functions</strong></h3>
+<p>For each of the following functions, write a test function first, and then write the function. <strong>Your test functions will count for half of the available credit for each problem</strong>. Think carefully about the test cases to include in your test functions.</p>
+</blockquote>
+</section>
+<section id="guessanimalhasfourlegs-climbstrees-solo-10" class="level3">
+<h3 class="anchored" data-anchor-id="guessanimalhasfourlegs-climbstrees-solo-10">2) <code>guessAnimal(hasFourLegs, climbsTrees)</code> [SOLO, 10%]</h3>
+<p>Write the function <code>guessAnimal(hasFourLegs, climbsTrees)</code> that returns a statement guessing an animal based on whether it has four legs and whether it climbs trees. Here is the expected behavior:</p>
+<div style="width:500px">
+<table class="table">
+<thead>
+<tr class="header">
+<th><code>hasFourLegs</code></th>
+<th><code>climbsTrees</code></th>
+<th>statement</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>TRUE</code></td>
+<td><code>TRUE</code></td>
+<td>“It’s probably a cat”</td>
+</tr>
+<tr class="even">
+<td><code>TRUE</code></td>
+<td><code>FALSE</code></td>
+<td>“It’s probably a dog”</td>
+</tr>
+<tr class="odd">
+<td><code>FALSE</code></td>
+<td><code>TRUE</code></td>
+<td>“It’s probably a snake”</td>
+</tr>
+<tr class="even">
+<td><code>FALSE</code></td>
+<td><code>FALSE</code></td>
+<td>“Hmm, I’m not sure”</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="ispositivemultipleof4or7n-solo-15" class="level3">
+<h3 class="anchored" data-anchor-id="ispositivemultipleof4or7n-solo-15">3) <code>isPositiveMultipleOf4Or7(n)</code> [SOLO, 15%]</h3>
+<p>Write the function <code>isPositiveMultipleOf4Or7(n)</code> that returns <code>TRUE</code> if <code>n</code> is a positive multiple of 4 or 7 and <code>FALSE</code> otherwise. Note than <code>n</code> could be any data type.</p>
+</section>
+<section id="isevenpositiveintx-collaborative-20" class="level3">
+<h3 class="anchored" data-anchor-id="isevenpositiveintx-collaborative-20">4) <code>isEvenPositiveInt(x)</code> [COLLABORATIVE, 20%]</h3>
+<p>Given an arbitrary value <code>x</code>, return <code>TRUE</code> if it is an integer, and it is positive, and it is even (all 3 must be true), or <code>FALSE</code> otherwise. If the value <code>x</code> is not an integer, the function should return <code>FALSE</code> rather than error. So, <code>isEvenPositiveInt("yikes!")</code> returns <code>FALSE</code>, and <code>isEvenPositiveInt(123456)</code> returns <code>TRUE</code>.</p>
+</section>
+<section id="isleapyearyear-solo-20" class="level3">
+<h3 class="anchored" data-anchor-id="isleapyearyear-solo-20">5) <code>isLeapYear(year)</code> [SOLO, 20%]</h3>
+<p>Write the function <code>isLeapYear(year)</code> that returns <code>TRUE</code> if <code>year</code> is a <a href="https://www.mathsisfun.com/leap-years.html">leap year</a> and <code>FALSE</code> otherwise. Assume that <code>year</code> is a positive integer.</p>
+</section>
+<section id="getthecentsn-collaborative-20" class="level3">
+<h3 class="anchored" data-anchor-id="getthecentsn-collaborative-20">6) <code>getTheCents(n)</code> [COLLABORATIVE, 20%]</h3>
+<p>Write the function <code>getTheCents(n)</code> which takes a value <code>n</code> that represents a payment in US dollars and returns the number of cents in the payment. For example, if <code>n</code> is <code>2.45</code>, the function should return <code>45</code>. If <code>n</code> is an integer, the function should return <code>0</code>, as it has <code>0</code> cents; if it isn’t a number, it should return <code>NULL</code>, because a non-number payment make no cents (ha!). If the payment has partial cents (for example, <code>3.953</code>), it should be rounded to the nearest cent (in this case, <code>95</code> cents).</p>
+</section>
+<section id="read-and-reflect-solo-10" class="level3">
+<h3 class="anchored" data-anchor-id="read-and-reflect-solo-10">7) Read and reflect [SOLO, 10%]</h3>
+<p>Read and reflect on the following readings to preview what we will cover in class next week:</p>
+<blockquote class="blockquote">
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<a href="https://p4a.jhelvy.com/iteration.html" target="_blank"><i class="bi-book-fill"></i></a> Iteration
+</div>
+</div>
+</blockquote>
+<p>Afterwards, in a comment (<code>#</code>) in your .R file, write a short reflection on what you’ve learned and any questions or points of confusion you have about what we’ve covered thus far. This can just few a few sentences related to this assignment, next week’s readings, things going on in the world that remind you something from class, etc. If there’s anything that jumped out at you, write it down.</p>
+</section>
+<section id="submit" class="level3">
+<h3 class="anchored" data-anchor-id="submit">Submit</h3>
+<p>Instructions for how to submit your assignment are at the <a href="">top of this page</a>.</p>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

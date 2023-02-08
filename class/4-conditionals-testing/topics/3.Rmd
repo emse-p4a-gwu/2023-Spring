@@ -1,0 +1,19 @@
+
+class: inverse, middle
+
+# Week `r rmarkdown::metadata$week`: .fancy[`r rmarkdown::metadata$title`]
+
+.leftcol[
+## 1. Conditionals
+## 2. Testing
+
+## BREAK
+
+## 3. .orange[Tips]
+]
+
+.rightcol[
+<center>
+<img src="images/test_cases_fry.png">
+</center>
+]
