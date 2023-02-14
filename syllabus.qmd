@@ -293,6 +293,8 @@ Large language models (LLMs) are capable of producing solutions to some of the c
 
 Copy-pasting code from a LLM is essentially no different than copying from a solutions manual or working with / hiring someone more experienced to write your assignments for you. Doing so robs yourself of the opportunity to learn. Don't do it. 
 
+As you gain more experience programming, AIs will become an incredibly useful tool. They can generate templates for things you are trying to build, and they can help you identify bugs in your code. However, for this class, the use of AIs for homework assignments is not permitted. In this course, we are building foundational skills in computational thinking, and the best way to build those skills is to write the code on your own. In the follow-on course to this one ([EMSE 4572: Exploratory Data Analysis](https://eda.seas.gwu.edu/)), the use of AI engines will be allowed to support your projects.
+
 ### Penalties
 
 Violations will be reported to the [Office of Student Rights & Responsibilities](https://studentconduct.gwu.edu/charging-academic-integrity-violations). Penalties are decided by the course instructors, and can vary based on the severity of the offense. Possible penalties include:
