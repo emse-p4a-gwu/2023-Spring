@@ -1,0 +1,23 @@
+
+class: inverse, middle
+
+# Week `r rmarkdown::metadata$week`: .fancy[`r rmarkdown::metadata$title`]
+
+.leftcol[
+### 1. for loops
+### 2. breaking and skipping
+
+### BREAK
+
+### 3. .orange[while loops]
+]
+
+.rightcol[
+# Lame joke time:
+
+A friend calls her programmer roommate and said, "_while_ you're out, buy some milk"...
+
+...she never returned home.
+
+<img src="images/laugh_emoji.png" width="100">
+]

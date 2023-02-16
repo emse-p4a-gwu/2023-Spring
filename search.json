@@ -74,7 +74,7 @@
     "href": "class/5-iteration.html",
     "title": "Iteration",
     "section": "",
-    "text": "Coming soon!"
+    "text": "KEYBOARD SHORTCUTS FOR SLIDES:\n\nUse ← and → to navigate through the slides.\nUse f to toggle full screen.\nUse o to view an overview of all slides.\nUse h to see a list of other shortcuts.\n\n\n\n\nSLIDES\n View slides\n Download PDF\n\n\n\n\nCLASS PRACTICE\n Notes zip file"
   },
   {
     "objectID": "class/6-vectors.html",
@@ -161,11 +161,53 @@
     "text": "Due: Feb 15 by 11:59pm\nSubmission Instructions: Create a zip file of all the files in your R project folder for this assignment, then submit your zip file on the corresponding assignment submission on Blackboard.\nWeight: This assignment is worth 4% of your final grade.\nPurpose: The purposes of this assignment are:\n\nTo practice using conditional statements while writing functions in R.\nTo practice the skill of writing and using test functions to understand the problem.\nTo practice computational problem solving.\n\nAssessment: Each question indicates the % of the assignment grade, summing to 100%. The credit for each question will be assigned as follows:\n\n0% for not attempting a response.\n50% for attempting the question but with major errors.\n75% for attempting the question but with minor errors.\n100% for correctly answering the question.\n\nThe reflection portion is always worth 10% and graded for completion.\nRules:\n\nProblems marked SOLO may not be worked on with other classmates, though you may consult instructors for help.\nFor problems marked COLLABORATIVE, you may work in groups of up to 3 students who are in this course this semester. You may not split up the work – everyone must work on every problem. And you may not simply copy any code but rather truly work together and submit your own solutions.\n\n\n\nReadings\nThe readings from the last week will serve as a helpful reference as you complete this assignment. You can review them here:\n\n\n\n Conditionals Testing & Debugging\n\n\n\n\nUsing the autograder\n\nYou can check your solutions to problems 2 - 7 by logging into the autograder and uploading your hw4.R file.\nThe file must be named hw4.R or it won’t work.\nYour user name is your netID, and your password is inside the readme.txt file in the Box folder I shared with you.\n\n\n\n\n1) Staying organized [SOLO, 5%]\nDownload and use this template for your assignment. Inside the “hw4” folder, open and edit the R script called “hw4.R” and fill out your name, Net ID, and the names of anyone you worked with on this assignment.\n\nWriting test functions\nFor each of the following functions, write a test function first, and then write the function. Your test functions will count for half of the available credit for each problem. Think carefully about the test cases to include in your test functions.\n\n\n\n2) guessAnimal(hasFourLegs, climbsTrees) [SOLO, 10%]\nWrite the function guessAnimal(hasFourLegs, climbsTrees) that returns a statement guessing an animal based on whether it has four legs and whether it climbs trees. Here is the expected behavior:\n\n\n\n\nhasFourLegs\nclimbsTrees\nstatement\n\n\n\n\nTRUE\nTRUE\n“It’s probably a cat”\n\n\nTRUE\nFALSE\n“It’s probably a dog”\n\n\nFALSE\nTRUE\n“It’s probably a snake”\n\n\nFALSE\nFALSE\n“Hmm, I’m not sure”\n\n\n\n\n\n\n3) isPositiveMultipleOf4Or7(n) [SOLO, 15%]\nWrite the function isPositiveMultipleOf4Or7(n) that returns TRUE if n is a positive multiple of 4 or 7 and FALSE otherwise. Note than n could be any data type.\n\n\n4) isEvenPositiveInt(x) [COLLABORATIVE, 20%]\nGiven an arbitrary value x, return TRUE if it is an integer, and it is positive, and it is even (all 3 must be true), or FALSE otherwise. If the value x is not an integer, the function should return FALSE rather than error. So, isEvenPositiveInt(\"yikes!\") returns FALSE, and isEvenPositiveInt(123456) returns TRUE.\n\n\n5) isLeapYear(year) [SOLO, 20%]\nWrite the function isLeapYear(year) that returns TRUE if year is a leap year and FALSE otherwise. Assume that year is a positive integer.\n\n\n6) getTheCents(n) [COLLABORATIVE, 20%]\nWrite the function getTheCents(n) which takes a value n that represents a payment in US dollars and returns the number of cents in the payment. For example, if n is 2.45, the function should return 45. If n is an integer, the function should return 0, as it has 0 cents; if it isn’t a number, it should return NULL, because a non-number payment make no cents (ha!). If the payment has partial cents (for example, 3.953), it should be rounded to the nearest cent (in this case, 95 cents).\n\n\n7) Read and reflect [SOLO, 10%]\nRead and reflect on the following readings to preview what we will cover in class next week:\n\n\n\n Iteration\n\n\n\nAfterwards, in a comment (#) in your .R file, write a short reflection on what you’ve learned and any questions or points of confusion you have about what we’ve covered thus far. This can just few a few sentences related to this assignment, next week’s readings, things going on in the world that remind you something from class, etc. If there’s anything that jumped out at you, write it down.\n\n\nSubmit\nInstructions for how to submit your assignment are at the top of this page."
   },
   {
-    "objectID": "hw/5-iteration.html",
-    "href": "hw/5-iteration.html",
+    "objectID": "hw/5-iteration.html#happy-numbers-collaborative",
+    "href": "hw/5-iteration.html#happy-numbers-collaborative",
     "title": "Homework 5 - Iteration",
-    "section": "",
-    "text": "Coming soon!"
+    "section": "Happy Numbers [COLLABORATIVE]",
+    "text": "Happy Numbers [COLLABORATIVE]\nBackground: Read the first paragraph from the Wikipedia page on happy numbers. After some thought, we see that no matter what number we start with, when we keep replacing the number by the sum of the squares of its digits, we’ll always either arrive at 4 (unhappy) or at 1 (happy). With that in mind, we want to write the function nthHappyNumber(n). However, to write that function, we’ll first need to write isHappyNumber(n), which determines whether a number is “happy” or not. And to right that function, we’ll first need to write sumOfSquaresOfDigits(n). And that’s top-down design! Here we go…"
+  },
+  {
+    "objectID": "hw/5-iteration.html#sumofsquaresofdigitsn-10",
+    "href": "hw/5-iteration.html#sumofsquaresofdigitsn-10",
+    "title": "Homework 5 - Iteration",
+    "section": "4) sumOfSquaresOfDigits(n) [10%]",
+    "text": "4) sumOfSquaresOfDigits(n) [10%]\nWrite the function sumOfSquaresOfDigits(n) which takes a non-negative integer, n, and returns the sum of the squares of its digits (assume that n will always be a positive integer, so no need to check for bad inputs)."
+  },
+  {
+    "objectID": "hw/5-iteration.html#ishappynumbern-10",
+    "href": "hw/5-iteration.html#ishappynumbern-10",
+    "title": "Homework 5 - Iteration",
+    "section": "5) isHappyNumber(n) [10%]",
+    "text": "5) isHappyNumber(n) [10%]\nWrite the function isHappyNumber(n) which takes a possibly-negative integer and returns TRUE if it is happy and FALSE otherwise. Note that all numbers less than 1 are not happy."
+  },
+  {
+    "objectID": "hw/5-iteration.html#nthhappynumbern-15",
+    "href": "hw/5-iteration.html#nthhappynumbern-15",
+    "title": "Homework 5 - Iteration",
+    "section": "6) nthHappyNumber(n) [15%]",
+    "text": "6) nthHappyNumber(n) [15%]\nWrite the function nthHappyNumber(n) which takes a non-negative integer, n, and returns the nth happy number, where nthHappyNumber(1) returns the first happy number (1)."
+  },
+  {
+    "objectID": "hw/5-iteration.html#turtle-loops-collaborative",
+    "href": "hw/5-iteration.html#turtle-loops-collaborative",
+    "title": "Homework 5 - Iteration",
+    "section": "Turtle loops! [COLLABORATIVE]",
+    "text": "Turtle loops! [COLLABORATIVE]\n(Note: the autograder won’t test these functions)"
+  },
+  {
+    "objectID": "hw/5-iteration.html#turtlesquares-redux-10",
+    "href": "hw/5-iteration.html#turtlesquares-redux-10",
+    "title": "Homework 5 - Iteration",
+    "section": "7) turtleSquare(s) redux [10%]",
+    "text": "7) turtleSquare(s) redux [10%]\nRe-write the turtleSquare(s) function from HW2, but this time use a for loop to draw the sides of the square. The following code should produce a square with a side length of 50:\n\nlibrary(TurtleGraphics)\nturtle_init()\nturtle_do({\n    turtleSquare(50)\n})"
+  },
+  {
+    "objectID": "hw/5-iteration.html#concentricturtlesquaresspacing-5-15",
+    "href": "hw/5-iteration.html#concentricturtlesquaresspacing-5-15",
+    "title": "Homework 5 - Iteration",
+    "section": "8) concentricTurtleSquares(spacing = 5) [15%]",
+    "text": "8) concentricTurtleSquares(spacing = 5) [15%]\nWrite the function concentricTurtleSquares(spacing) that uses the TurtleGraphics package to draw concentric squares from the center of the terrarium and outward. The spacing argument determines the spacing between each square, and the default value should be spacing = 5. Also, spacing >= 1, and your function must not allow the turtle to escape the terrarium. Hint: you may want to use turtleSquare(s) as a helper function. The following code should produce concentric squares with a spacing of 5:\n\nlibrary(TurtleGraphics)\nturtle_init()\nturtle_do({\n    concentricTurtleSquares(5)\n})\n\n\n\n\n\n9) Read and reflect [SOLO, 10%]\nRead and reflect on the following readings to preview what we will cover in class next week:\n\n\n\n Vectors\n\n\n\nAfterwards, in a comment (#) in your .R file, write a short reflection on what you’ve learned and any questions or points of confusion you have about what we’ve covered thus far. This can just few a few sentences related to this assignment, next week’s readings, things going on in the world that remind you something from class, etc. If there’s anything that jumped out at you, write it down.\n\n\nSubmit\nInstructions for how to submit your assignment are at the top of this page.\n\n(Note: the autograder won’t test these functions)\n\n\nBonus 1) turtleSquareRotated(s, degrees) [SOLO, 3%]\nWrite the function turtleSquareRotated(s, degrees) that uses the TurtleGraphics package to draw a square with side length s < 100 and rotated by degrees <= 180 counterclockwise from the horizontal plane. The rotated square should be centered in the turtle’s terrarium. Hint: you’re going to need to use the cosine (cos()) and sine (sin()) functions; in R, these functions take angles in radians (not degrees), so remember to convert your angles (180 degrees = \\(\\pi\\)). The following code should produce a square with a side length of 30 and rotated by 30 degrees:\n\nlibrary(TurtleGraphics)\nturtle_init()\nturtle_do({\n    turtleSquareRotated(30, 30)\n})\n\n\n\n\n\n\nBonus 2) turtleSquareStar(s, degreeSpacing = 20) [SOLO, 3%]\nWrite the function turtleSquareStar(s, degreeSpacing) that uses the turtleSquareRotated(s, degrees) as a helper function to draw a sequence of overlapping rotated squares with side length s < 70 to form a star. The degreeSpacing argument determines the spacing in degrees between each rotated square, and the default value should be degreeSpacing = 20. Also, 1 <= degreeSpacing <= 60, and your function must not allow the turtle to escape the terrarium. The following code should produce the star of rotated squares with a side length of 50 and 20 degree spacings between each square:\n\nlibrary(TurtleGraphics)\nturtle_init()\nturtle_do({\n    turtleSquareStar(50, 20)\n})"
   },
   {
     "objectID": "hw/6-vectors.html",
