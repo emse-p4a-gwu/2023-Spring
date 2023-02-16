@@ -353,17 +353,18 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </section>
 <section id="turtle-loops-collaborative" class="level2">
 <h2 class="anchored" data-anchor-id="turtle-loops-collaborative">Turtle loops! [COLLABORATIVE]</h2>
-<p>(<em>Note: the autograder won’t test these functions</em>)</p>
+<p>(<em>Note: Please put your solutions to these below the <code># ignore_rest</code> comment so that the autograder doesn’t test these functions</em>)</p>
 </section>
 <section id="turtlesquares-redux-10" class="level2">
 <h2 class="anchored" data-anchor-id="turtlesquares-redux-10">7) <code>turtleSquare(s)</code> <em>redux</em> [10%]</h2>
-<p>Re-write the <code>turtleSquare(s)</code> function from <a href="hw2-functions.html">HW2</a>, but this time use a <code>for</code> loop to draw the sides of the square. The following code should produce a square with a side length of 50:</p>
+<p>Re-write the <code>turtleSquare(s)</code> function from <a href="https://p4a.seas.gwu.edu/2023-Spring/hw/3-creating-functions.html#turtlesquares-collaborative-10">HW3</a>, but this time you must use a <code>for</code> loop to draw the sides of the square. The following code should produce a square with a side length of 50:</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(TurtleGraphics)</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">turtle_init</span>()</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">turtle_do</span>({</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">turtleSquare</span>(<span class="dv">50</span>)</span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>})</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">turtle_init</span>()</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">turtle_do</span>({</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">turtleSquare</span>(<span class="dv">50</span>)</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>})</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <center>
 <img src="images/turtle_square.png" width="456">
@@ -374,10 +375,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Write the function <code>concentricTurtleSquares(spacing)</code> that uses the <code>TurtleGraphics</code> package to draw concentric squares from the center of the terrarium and outward. The <code>spacing</code> argument determines the spacing between each square, and the default value should be <code>spacing = 5</code>. Also, <code>spacing &gt;= 1</code>, and your function must not allow the turtle to escape the terrarium. Hint: you may want to use <code>turtleSquare(s)</code> as a helper function. The following code should produce concentric squares with a spacing of 5:</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(TurtleGraphics)</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">turtle_init</span>()</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="fu">turtle_do</span>({</span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">concentricTurtleSquares</span>(<span class="dv">5</span>)</span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>})</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="fu">turtle_init</span>()</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="fu">turtle_do</span>({</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">concentricTurtleSquares</span>(<span class="dv">5</span>)</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>})</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <center>
 <img src="images/turtle_concentricSquares.png" width="456">
@@ -398,7 +400,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h3 class="anchored" data-anchor-id="submit">Submit</h3>
 <p>Instructions for how to submit your assignment are at the <a href="">top of this page</a>.</p>
 <hr>
-<p>(<em>Note: the autograder won’t test these functions</em>)</p>
 </section>
 <section id="bonus-1-turtlesquarerotateds-degrees-solo-3" class="level3">
 <h3 class="anchored" data-anchor-id="bonus-1-turtlesquarerotateds-degrees-solo-3">Bonus 1) <code>turtleSquareRotated(s, degrees)</code> [SOLO, 3%]</h3>
