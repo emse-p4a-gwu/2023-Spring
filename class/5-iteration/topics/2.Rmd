@@ -1,0 +1,17 @@
+
+class: inverse, middle
+
+# Week `r rmarkdown::metadata$week`: .fancy[`r rmarkdown::metadata$title`]
+
+.leftcol[
+### 1. for loops
+### 2. .orange[breaking and skipping]
+
+### BREAK
+
+### 3. while loops
+]
+
+.rightcol[
+<img src="images/breaking.gif" width="400">
+]
