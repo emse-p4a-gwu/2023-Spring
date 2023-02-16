@@ -116,16 +116,16 @@ for (i in 1:3) {
 # integer from m to n up until the sum is less than or equal to the value
 # max. Your solution **must** use both break and next statements.
 
-sumOfOddsFromMToNMax <- function(m, n, max) {
-    return(42) # Replace with your code
-}
-
 test_sumOfOddsFromMToNMax <- function() {
     cat("Testing sumOfOddsFromMToNMax()...")
     stopifnot(sumOfOddsFromMToNMax(1, 5, 4) == (1 + 3))
     stopifnot(sumOfOddsFromMToNMax(1, 5, 3) == (1))
     stopifnot(sumOfOddsFromMToNMax(1, 5, 10) == (1 + 3 + 5))
     cat("Passed!")
+}
+
+sumOfOddsFromMToNMax <- function(m, n, max) {
+    return(42) # Replace with your code
 }
 
 test_sumOfOddsFromMToNMax()
@@ -203,10 +203,6 @@ test_nthMultipleOf4Or7()
 #    integer, n, and returns TRUE if it is a prime number and
 #    FALSE otherwise. Here's some test cases:
 
-isPrime <- function(n) {
-    # Write code here
-}
-
 test_isPrime <- function() {
     cat("Testing isPrime()...")
     stopifnot(isPrime(1) == FALSE)
@@ -215,6 +211,10 @@ test_isPrime <- function() {
     stopifnot(isPrime(13) == TRUE)
     stopifnot(isPrime(14) == FALSE)
     cat("Passed!")
+}
+
+isPrime <- function(n) {
+    return(42) # Replace with your code
 }
 
 test_isPrime()
@@ -226,10 +226,6 @@ test_isPrime()
 #    returns the first prime number (2). Hint: use the function
 #    isPrime(n) as a helper function!
 
-nthPrime <- function(n) {
-    # Write code here
-}
-
 test_nthPrime <- function() {
     cat("Testing nthPrime()...")
     stopifnot(nthPrime(1) == 2)
@@ -238,6 +234,10 @@ test_nthPrime <- function() {
     stopifnot(nthPrime(4) == 7)
     stopifnot(nthPrime(7) == 17)
     cat("Passed!")
+}
+
+nthPrime <- function(n) {
+    return(42) # Replace with your code
 }
 
 test_nthPrime()
