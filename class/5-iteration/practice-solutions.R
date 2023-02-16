@@ -163,6 +163,14 @@ for (i in 1:3) {
 # integer from m to n up until the sum is less than or equal to the value
 # max. Your solution **must** use both break and next statements.
 
+test_sumOfOddsFromMToNMax <- function() {
+    cat("Testing sumOfOddsFromMToNMax()...")
+    stopifnot(sumOfOddsFromMToNMax(1, 5, 4) == (1 + 3))
+    stopifnot(sumOfOddsFromMToNMax(1, 5, 3) == (1))
+    stopifnot(sumOfOddsFromMToNMax(1, 5, 10) == (1 + 3 + 5))
+    cat("Passed!")
+}
+
 sumOfOddsFromMToNMax <- function(m, n, max) {
     total <- 0
     for (i in m:n) {
@@ -176,14 +184,6 @@ sumOfOddsFromMToNMax <- function(m, n, max) {
         }
     }
     return(total)
-}
-
-test_sumOfOddsFromMToNMax <- function() {
-    cat("Testing sumOfOddsFromMToNMax()...")
-    stopifnot(sumOfOddsFromMToNMax(1, 5, 4) == (1 + 3))
-    stopifnot(sumOfOddsFromMToNMax(1, 5, 3) == (1))
-    stopifnot(sumOfOddsFromMToNMax(1, 5, 10) == (1 + 3 + 5))
-    cat("Passed!")
 }
 
 test_sumOfOddsFromMToNMax()
@@ -272,16 +272,6 @@ test_nthMultipleOf4Or7()
 #    integer, n, and returns TRUE if it is a prime number and
 #    FALSE otherwise. Here's some test cases:
 
-isPrime <- function(n) {
-    if (n == 2) { return(TRUE) }
-    for (i in seq(2, n-1)) {
-        if (n %% i == 0) {
-            return(FALSE)
-        }
-    }
-    return(TRUE)
-}
-
 test_isPrime <- function() {
     cat("Testing isPrime()...")
     stopifnot(isPrime(1) == FALSE)
@@ -290,6 +280,16 @@ test_isPrime <- function() {
     stopifnot(isPrime(13) == TRUE)
     stopifnot(isPrime(14) == FALSE)
     cat("Passed!")
+}
+
+isPrime <- function(n) {
+    if (n == 2) { return(TRUE) }
+    for (i in seq(2, n-1)) {
+        if (n %% i == 0) {
+            return(FALSE)
+        }
+    }
+    return(TRUE)
 }
 
 test_isPrime()
@@ -301,6 +301,16 @@ test_isPrime()
 #    returns the first prime number (2). Hint: use the function
 #    isPrime(n) as a helper function!
 
+test_nthPrime <- function() {
+    cat("Testing nthPrime()...")
+    stopifnot(nthPrime(1) == 2)
+    stopifnot(nthPrime(2) == 3)
+    stopifnot(nthPrime(3) == 5)
+    stopifnot(nthPrime(4) == 7)
+    stopifnot(nthPrime(7) == 17)
+    cat("Passed!")
+}
+
 nthPrime <- function(n) {
     counter <- 1
     guess <- 0
@@ -311,16 +321,6 @@ nthPrime <- function(n) {
         }
     }
     return(guess)
-}
-
-test_nthPrime <- function() {
-    cat("Testing nthPrime()...")
-    stopifnot(nthPrime(1) == 2)
-    stopifnot(nthPrime(2) == 3)
-    stopifnot(nthPrime(3) == 5)
-    stopifnot(nthPrime(4) == 7)
-    stopifnot(nthPrime(7) == 17)
-    cat("Passed!")
 }
 
 test_nthPrime()
