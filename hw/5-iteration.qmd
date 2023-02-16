@@ -56,14 +56,15 @@ Write the function `nthHappyNumber(n)` which takes a non-negative integer, `n`, 
 
 ## Turtle loops! [COLLABORATIVE]
 
-(_Note: the autograder won't test these functions_)
+(_Note: Please put your solutions to these below the `# ignore_rest` comment so that the autograder doesn't test these functions_)
 
 ## 7) `turtleSquare(s)` _redux_ [10%]
 
-Re-write the `turtleSquare(s)` function from [HW2](hw2-functions.html), but this time use a `for` loop to draw the sides of the square. The following code should produce a square with a side length of 50:
+Re-write the `turtleSquare(s)` function from [HW3](https://p4a.seas.gwu.edu/2023-Spring/hw/3-creating-functions.html#turtlesquares-collaborative-10), but this time you must use a `for` loop to draw the sides of the square. The following code should produce a square with a side length of 50:
 
 ```{r, eval=FALSE}
 library(TurtleGraphics)
+
 turtle_init()
 turtle_do({
     turtleSquare(50)
@@ -80,6 +81,7 @@ Write the function `concentricTurtleSquares(spacing)` that uses the `TurtleGraph
 
 ```{r, eval=FALSE}
 library(TurtleGraphics)
+
 turtle_init()
 turtle_do({
     concentricTurtleSquares(5)
@@ -100,8 +102,6 @@ turtle_do({
 Instructions for how to submit your assignment are at the [top of this page]().
 
 ---
-
-(_Note: the autograder won't test these functions_)
 
 ### Bonus 1) `turtleSquareRotated(s, degrees)` [SOLO, 3%]
 
