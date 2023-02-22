@@ -64,11 +64,11 @@ ul.task-list li input[type="checkbox"] {
 
 <link rel="stylesheet" href="../styles.css">
 <meta property="og:title" content="EMSE 4571 / 6571 - Homework 6 - Vectors">
-<meta property="og:description" content="Coming soon!">
+<meta property="og:description" content="The readings from the last week will serve as a helpful reference as you complete this assignment. You can review them here:">
 <meta property="og:site-name" content="https://p4a.seas.gwu.edu/">
 <meta property="og:locale" content="es_ES">
 <meta name="twitter:title" content="EMSE 4571 / 6571 - Homework 6 - Vectors">
-<meta name="twitter:description" content="Coming soon!">
+<meta name="twitter:description" content="The readings from the last week will serve as a helpful reference as you complete this assignment. You can review them here:">
 <meta name="twitter:image" content="https://p4a.seas.gwu.edu/2023-Spring/images/logo-square.png">
 <meta name="twitter:creator" content="@johnhelveston">
 <meta name="twitter:site" content="@johnhelveston">
@@ -206,9 +206,101 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<p>Coming soon!</p>
+<div class="cell">
+
+</div>
+<blockquote class="blockquote">
+<p><strong>Due</strong>: Mar 01 by 11:59pm</p>
+<p><strong>Submission Instructions</strong>: Create a zip file of all the files in your R project folder for this assignment, then submit your zip file on the corresponding assignment submission on Blackboard.</p>
+<p><strong>Weight</strong>: This assignment is worth 4% of your final grade.</p>
+<p><strong>Purpose</strong>: The purposes of this assignment are:</p>
+<ul>
+<li>To practice using vectors in R.</li>
+<li>To practice computational problem solving with vectors.</li>
+</ul>
+<p><strong>Assessment</strong>: Each question indicates the % of the assignment grade, summing to 100%. The credit for each question will be assigned as follows:</p>
+<ul>
+<li>0% for not attempting a response.</li>
+<li>50% for attempting the question but with <em>major</em> errors.</li>
+<li>75% for attempting the question but with <em>minor</em> errors.</li>
+<li>100% for correctly answering the question.</li>
+</ul>
+<p>The reflection portion is always worth 10% and graded for completion.</p>
+<p><strong>Rules</strong>:</p>
+<ul>
+<li>Problems marked <strong>SOLO</strong> may not be worked on with other classmates, though you may consult instructors for help.</li>
+<li>For problems marked <strong>COLLABORATIVE</strong>, you may work in groups of up to 3 students who are in this course this semester. You may not split up the work – everyone must work on every problem. And you may not simply copy any code but rather truly work together and submit your own solutions.</li>
+</ul>
+</blockquote>
+<section id="readings" class="level3">
+<h3 class="anchored" data-anchor-id="readings">Readings</h3>
+<p>The readings from the last week will serve as a helpful reference as you complete this assignment. You can review them here:</p>
+<blockquote class="blockquote">
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<a href="https://p4a.jhelvy.com/vectors.html" target="_blank"><i class="bi-book-fill"></i></a> Vectors
+</div>
+</div>
+</blockquote>
+<blockquote class="blockquote">
+<h3 id="using-the-autograder" class="anchored">Using the <a href="../autograder.html">autograder</a></h3>
+<ul>
+<li>You can check your solutions to problems 2 - 6 by logging into the <a href="../autograder.html">autograder</a> and uploading your <code>hw6.R</code> file.</li>
+<li><strong>The file must be named <code>hw6.R</code> or it won’t work.</strong></li>
+<li>Your user name is your netID, and your password is inside the <code>readme.txt</code> file in the Box folder I shared with you.</li>
+</ul>
+</blockquote>
+</section>
+<section id="staying-organized-solo-5" class="level3">
+<h3 class="anchored" data-anchor-id="staying-organized-solo-5">1) Staying organized [SOLO, 5%]</h3>
+<p>Download and use <a href="templates/hw6.zip">this template</a> for your assignment. Inside the “hw6” folder, open and edit the R script called “hw6.R” and fill out your name, GW Net ID, and the names of anyone you worked with on this assignment.</p>
+<blockquote class="blockquote">
+<h3 id="writing-test-functions" class="anchored"><strong>Writing test functions</strong></h3>
+<p>For each of the following functions, write a test function first, and then write the function. <strong>Your test functions will count for half of the available credit for each problem</strong>. Think carefully about the test cases to include in your test functions.</p>
+</blockquote>
+<blockquote class="blockquote">
+<h3 id="using-good-style" class="anchored"><strong>Using good style</strong></h3>
+<p>For this assignment, you must use good style to receive full credit. Follow the best practices described in <a href="http://adv-r.had.co.nz/Style.html">this style guide</a>.</p>
+</blockquote>
+</section>
+<section id="vectorfactorialn-solo-10" class="level3">
+<h3 class="anchored" data-anchor-id="vectorfactorialn-solo-10">2) <code>vectorFactorial(n)</code> [SOLO, 10%]</h3>
+<p>Write the function <code>vectorFactorial(n)</code> which computes the factorial of <code>n</code> using vectors to avoid using a loop. Hint: there are some useful functions listed in the <a href="https://p4a.jhelvy.com/vectors.html#numeric-vectors">vectors chapter</a> for performing operators on a numeric vector.</p>
+</section>
+<section id="nthhighestvaluen-x-solo-15" class="level3">
+<h3 class="anchored" data-anchor-id="nthhighestvaluen-x-solo-15">3) <code>nthHighestValue(n, x)</code> [SOLO, 15%]</h3>
+<p>Write a function to find the nth highest value in a given vector. For example, if <code>x</code> equals <code>c(5, 1, 3)</code>, then <code>nthHighestValue(1, x)</code> should return <code>5</code>, because <code>5</code> is the 1st highest value in <code>x</code>, and <code>nthHighestValue(2, x)</code> should return <code>3</code> because it’s the 2nd highest value in <code>x</code>. Assume only numeric inputs, and assume that <code>n &lt;= length(x)</code>. <strong>You may not use loops</strong>.</p>
+</section>
+<section id="dotproducta-b-collaborative-20" class="level3">
+<h3 class="anchored" data-anchor-id="dotproducta-b-collaborative-20">4) <code>dotProduct(a, b)</code> [COLLABORATIVE, 20%]</h3>
+<p><strong>Background</strong>: the “dot product” of two vectors is the sum of the products of the corresponding terms. So the dot product of the vectors <code>c(1, 2, 3)</code> and <code>c(4, 5, 6)</code> is <code>(1*4) + (2*5) + (3*6)</code>, or <code>4 + 10 + 18 = 32</code>. With this in mind, write the function <code>dotProduct(a, b)</code>. This function takes two vectors and returns the dot product of those vectors. If the vectors are not equal length, ignore the extra elements in the longer vector. <strong>You may not use loops</strong>.</p>
+</section>
+<section id="middlevaluea-collaborative-20" class="level3">
+<h3 class="anchored" data-anchor-id="middlevaluea-collaborative-20">5) <code>middleValue(a)</code> [COLLABORATIVE, 20%]</h3>
+<p>Write the function <code>middleValue(a)</code> that takes a vector of numbers <code>a</code> and returns the value of the middle element (or the average of the two middle elements).</p>
+</section>
+<section id="rotatevectora-n-collaborative-20" class="level3">
+<h3 class="anchored" data-anchor-id="rotatevectora-n-collaborative-20">6) <code>rotateVector(a, n)</code> [COLLABORATIVE, 20%]</h3>
+<p>Write the function <code>rotateVector(a, n)</code> which takes a vector <code>a</code> and an integer <code>n</code> and returns a new vector where each element in <code>a</code> is shifted to the right by <code>n</code> indices. For example, if <code>a</code> is <code>c(1, 2, 3, 4)</code> and <code>n</code> is <code>1</code>, the result should be <code>c(4, 1, 2, 3)</code>, but if <code>n</code> is <code>-1</code>, the result should be <code>c(2, 3, 4, 1)</code>. If <code>n</code> is larger than the length of <code>a</code>, the function should continue to rotate the vector beyond its starting point. So, if <code>a = c(1, 2, 3, 4)</code> and <code>n = 5</code>, then the result should be <code>a = c(4, 1, 2, 3)</code>.</p>
+</section>
+<section id="read-and-reflect-solo-10" class="level3">
+<h3 class="anchored" data-anchor-id="read-and-reflect-solo-10">7) Read and reflect [SOLO, 10%]</h3>
+<p>Read and reflect on the following readings to preview what we will cover in class next week:</p>
+<blockquote class="blockquote">
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<a href="https://p4a.jhelvy.com/strings.html" target="_blank"><i class="bi-book-fill"></i></a> Strings
+</div>
+</div>
+</blockquote>
+<p>Afterwards, in a comment (<code>#</code>) in your .R file, write a short reflection on what you’ve learned and any questions or points of confusion you have about what we’ve covered thus far. This can just few a few sentences related to this assignment, next week’s readings, things going on in the world that remind you something from class, etc. If there’s anything that jumped out at you, write it down.</p>
+</section>
+<section id="submit" class="level3">
+<h3 class="anchored" data-anchor-id="submit">Submit</h3>
+<p>Instructions for how to submit your assignment are at the <a href="">top of this page</a>.</p>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

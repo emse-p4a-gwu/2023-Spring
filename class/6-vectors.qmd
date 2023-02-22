@@ -4,4 +4,5 @@ params:
   class: "6-vectors"
 ---
 
-Coming soon!
+```{r child = here::here("fragments", "class.qmd")}
+```
