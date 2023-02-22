@@ -1,0 +1,13 @@
+
+class: inverse, middle
+
+# Week `r rmarkdown::metadata$week`: .fancy[`r rmarkdown::metadata$title`]
+
+### 1. Making vectors
+### 2. Vector operations
+### 3. Comparing vectors
+
+### BREAK
+
+### 4. Slicing vectors
+### 5. Lists
