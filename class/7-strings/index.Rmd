@@ -1,0 +1,1108 @@
+---
+title: "Strings"
+subtitle: "EMSE 4571: Intro to Programming for Analytics"
+date: March 02, 2023
+week: 7
+class: "7-strings"
+author: "John Paul Helveston"
+institute: "The George Washington University | Dept. of Engineering Management and Systems Engineering"
+output:
+  xaringan::moon_reader:
+    css:
+      - default
+      - css/lexis.css
+      - css/lexis-fonts.css
+    lib_dir: libs
+    seal: false
+    nature:
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+      ratio: "16:9"
+---
+
+```{r, child="../setup.Rmd"}
+```
+
+---
+
+class: inverse
+
+# Quiz 4
+
+```{r, echo=FALSE}
+countdown(
+  minutes      = 10,
+  warn_when    = 30,
+  update_every = 1,
+  top          = 0,
+  right        = 0,
+  font_size    = '3em'
+)
+```
+
+.leftcol[
+
+## Write your name on the quiz!
+
+## Rules:
+
+- Work alone; no outside help of any kind is allowed.
+- No calculators, no notes, no books, no computers, no phones.
+
+]
+
+.rightcol[
+
+<br>
+<center>
+<img src="https://github.com/emse-p4a-gwu/2022-Spring/raw/main/images/quiz_doge.png" width="400">
+</center>
+
+]
+
+---
+
+```{r child="topics/0.Rmd"}
+```
+
+---
+
+```{r child="topics/1.Rmd"}
+```
+
+---
+
+.code90[
+
+## Install the `stringr` library
+
+```{r, eval=FALSE}
+install.packages("stringr")
+```
+
+(Only do this once...and you already did this in HW 2)
+
+]
+
+--
+
+<br>
+
+.code90[
+
+## Load the `stringr` library
+
+```{r, eval=FALSE}
+library(stringr)
+```
+
+(Do this every time you use the package)
+
+]
+
+---
+
+## Make a string with 'single' or "double" quotes
+
+```{r}
+cat("This is a string")
+cat('This is a string')
+```
+
+---
+
+## Use single vs. double quotes where it makes sense
+
+Use double quotes when `'` is in the string
+
+```{r}
+cat("It's great!")
+```
+
+Use single quotes when `"` is in the string
+
+```{r}
+cat('I said, "Hello"')
+```
+
+---
+
+# What if a string has both `'` and `"` symbols?
+
+Example: `It's nice to say, "Hello"`
+
+--
+
+.code80[
+
+```{r, error = TRUE}
+cat("It's nice to say, "Hello"")
+```
+
+]
+
+--
+
+.code80[
+
+```{r, error = TRUE}
+cat('It's nice to say, "Hello"')
+```
+
+]
+
+---
+
+# "Escaping" to the rescue!
+
+--
+
+### Use the `\` symbol to "escape" a literal symbol
+
+```{r}
+cat("It's nice to say, \"Hello\"") # Double quote
+cat('It\'s nice to say, "Hello"') # Single quote
+```
+
+---
+
+## Commonly escaped symbols
+
+.leftcol[
+
+New line: `\n`
+
+```{r}
+cat('This\nthat') 
+```
+
+Tab space: `\t`
+
+```{r}
+cat('This\tthat') 
+```
+
+]
+
+.rightcol[
+
+Backslash: `\\`
+
+```{r}
+cat('This\\that')
+```
+
+]
+
+---
+
+## **String constants**: Sets of common strings
+
+--
+
+```{r}
+letters
+```
+
+--
+
+```{r}
+LETTERS
+```
+
+---
+
+## **String constants**: Sets of common strings
+
+```{r}
+month.name
+```
+
+--
+
+```{r}
+month.abb
+```
+
+---
+
+## The **stringr** library has a few _longer_ string constants:
+### `fruit`, `words`, `sentences`
+
+--
+
+.leftcol[.code70[
+
+```{r}
+length(fruit)
+fruit[1:4]
+length(words)
+words[1:4]
+```
+
+]]
+
+.rightcol[.code70[
+
+```{r}
+length(sentences)
+sentences[1:4]
+```
+
+]]
+
+---
+
+```{r child="topics/2.Rmd"}
+```
+
+---
+
+class: center
+
+## Case conversion & substrings
+
+|Function         |  Description                            |
+|:----------------|:----------------------------------------|
+|`str_to_lower()` | converts string to lower case           |
+|`str_to_upper()` | converts string to upper case           |
+|`str_to_title()` | converts string to title case           |
+|`str_length()`   | number of characters                    |
+|`str_sub()`      | extracts substrings                     |
+|`str_locate()`   | returns indices of substrings           |
+|`str_dup()`      | duplicates characters                   |
+
+---
+
+# Case conversion
+
+```{r}
+x <- "Want to hear a joke about paper? Never mind, it's tearable."
+```
+
+--
+
+```{r}
+str_to_lower(x)
+```
+
+--
+
+```{r}
+str_to_upper(x)
+```
+
+--
+
+```{r}
+str_to_title(x)
+```
+
+---
+
+# Comparing strings
+
+.leftcol[
+
+Case matters:
+
+```{r}
+a <- "Apples"
+b <- "apples"
+a == b
+```
+
+]
+
+--
+
+.rightcol[
+
+Convert case _before_ comparing if you want to compare the string text without casing:
+
+```{r}
+str_to_lower(a) == str_to_lower(b)
+str_to_upper(a) == str_to_upper(b)
+```
+
+]
+
+---
+
+# Get the number of characters in a string
+
+--
+
+.leftcol[
+
+The `length()` function returns the _vector_ length:
+
+```{r}
+length("hello world")
+```
+
+]
+
+--
+
+.rightcol[
+
+To get the # of characters, use `str_length()`:
+
+```{r}
+str_length("hello world")
+str_length(" ") # Spaces count
+str_length("")  # Empty string
+```
+
+]
+
+---
+
+## Access characters by their index with `str_sub()`
+
+--
+
+.leftcol[
+
+Indices start at 1:
+
+```{r}
+str_sub("Apple", 1, 3)
+```
+
+Negative numbers count backwards from end:
+
+```{r}
+str_sub("Apple", -3, -1)
+```
+
+]
+
+--
+
+.rightcol[
+
+Modify a string with `str_sub()`:
+
+```{r}
+x <- 'abcdef'
+str_sub(x, 1, 3) <- 'ABC'
+x
+```
+
+]
+
+---
+
+## Get the indices of substrings
+
+Extract the substring `"Good"` from the following string:
+
+```{r}
+x <- 'thisIsGoodPractice'
+```
+
+--
+
+.leftcol[
+
+**1)**: Use `str_locate()` to get<br>the **start** and **end** indices:
+
+```{r}
+indices <- str_locate(x, 'Good')
+indices
+```
+
+]
+
+--
+
+.rightcol[
+
+**2)**: Use `str_sub()` to get the substring:
+
+```{r}
+str_sub(x, indices[1], indices[2])
+```
+
+]
+
+---
+
+# Repeat a string with `str_dup()`
+
+```{r}
+str_dup("holla", 3)
+```
+
+--
+
+Note the difference with `rep()`:
+
+```{r}
+rep("holla", 3)
+```
+
+---
+
+# `stringr` functions work on vectors
+
+--
+
+```{r}
+x <- c("apples", "oranges")
+x
+```
+
+--
+
+.leftcol[
+
+Get the first 3 letters in each string:
+
+```{r}
+str_sub(x, 1, 3)
+```
+
+]
+
+--
+
+.rightcol[
+
+Duplicate each string twice
+
+```{r}
+str_dup(x, 2)
+```
+
+]
+
+---
+
+# Quick practice
+
+```{r, echo=FALSE}
+countdown(
+  minutes      = 5,
+  warn_when    = 30,
+  update_every = 1,
+  top          = 0,
+  right        = 0,
+  font_size    = '2em'
+)
+```
+
+Create this string object: 
+
+```{r, eval=FALSE}
+x <- 'thisIsGoodPractice'
+```
+
+Then use **stringr** functions to transform `x` into the following strings:
+
+.leftcol[
+
+- `'thisIsGood'`
+- `'practice'`
+- `'GOOD'`
+- `'thisthisthis'`
+- `'GOODGOODGOOD'`
+
+]
+
+.rightcol[
+
+**Hint**: You'll need these:
+
+- `str_to_lower()`
+- `str_to_upper()`
+- `str_locate()`
+- `str_sub()`
+- `str_dup()`
+
+]
+
+---
+
+```{r child="topics/3.Rmd"}
+```
+
+---
+
+class: center
+
+## Padding, splitting, & merging
+
+|Function         |  Description                            |
+|:----------------|:----------------------------------------|
+|`str_trim()`     | removes leading and trailing whitespace |
+|`str_pad()`      | pads a string                           |
+|`paste()`        | string concatenation                    |
+|`str_split()`    | split a string into a vector            |
+
+---
+
+# Remove excess white space with `str_trim()`
+
+--
+
+```{r}
+x <- "         aStringWithSpace        "
+x
+```
+
+--
+
+```{r}
+str_trim(x) # Trims both sides by default
+```
+
+--
+
+```{r}
+str_trim(x, side = "left") # Only trim left side
+```
+
+--
+
+```{r}
+str_trim(x, side = "right") # Only trim right side
+```
+
+---
+
+## Add white space (or other characters) with `str_pad()`
+
+--
+
+```{r}
+x <- "hello"
+x
+```
+
+--
+
+```{r}
+str_pad(x, width = 10) # Inserts pad on left by default
+```
+
+--
+
+```{r}
+str_pad(x, width = 10, side = "both") # Pad both sides
+```
+
+--
+
+```{r}
+str_pad(x, width = 10, side = "both", pad = '*') # Specify the pad
+```
+
+---
+
+# Combine strings into one string with `paste()`
+
+--
+
+```{r}
+paste('x', 'y', 'z')
+```
+
+Control separation with `sep` argument (default is `" "`:
+
+```{r}
+paste('x', 'y', 'z', sep = "-")
+```
+
+---
+
+# Combine strings into one string with `paste()`
+
+--
+
+Note the difference with _vectors_ of strings:
+
+```{r}
+paste(c('x', 'y', 'z'))
+```
+
+To make a single string from a vector of strings, use `collapse`:
+
+```{r}
+paste(c('x', 'y', 'z'), collapse = "")
+```
+
+---
+
+## Split a string into multiple strings with `str_split()`
+
+--
+
+```{r}
+x <- 'This string has spaces-and-dashes'
+x
+```
+
+--
+
+```{r}
+str_split(x, " ") # Split on the spaces
+```
+
+--
+
+```{r}
+str_split(x, "-") # Split on the dashes
+```
+
+---
+
+## What's with the `[[1]]` thing?
+
+--
+
+`str_split()` returns a `list` of vectors
+
+--
+
+```{r}
+x <- c('babble', 'scrabblebabble')
+str_split(x, 'bb')
+```
+
+--
+
+If you're only splitting one string, add `[[1]]` to get the first vector:
+
+```{r}
+str_split('hooray', 'oo')[[1]]
+```
+
+---
+
+# Common splits (**memorize these!**)
+
+--
+
+Splitting on `""` breaks a string into _characters_:
+
+```{r}
+str_split("apples", "")[[1]]
+```
+
+--
+
+Splitting on `" "` breaks a _sentence_ into words:
+
+```{r}
+x <- "If you want to view paradise, simply look around and view it"
+str_split(x, " ")[[1]]
+```
+
+---
+
+## Quick practice:
+
+```{r, echo=FALSE}
+countdown(
+  minutes      = 5,
+  warn_when    = 30,
+  update_every = 1,
+  top          = 0,
+  right        = 0,
+  font_size    = '2em'
+)
+```
+
+.font90[
+
+Create the following objects:
+
+```{r, eval=FALSE}
+x <- 'this_is_good_practice'
+y <- c('hello', 'world')
+```
+
+Use `stringr` functions to transform `x` and `y` into the following:
+
+.leftcol60[
+
+- `"hello world"`
+- `"***hello world***"`
+- `c("this", "is", "good", "practice")`
+- `"this is good practice"`
+- `"hello world, this is good practice"`
+
+]
+
+.rightcol40[
+
+**Hint**: You'll need these:
+
+- `str_trim()`
+- `str_pad()`
+- `paste()`
+- `str_split()`
+
+]]
+
+---
+
+class: inverse
+
+```{r, echo=FALSE}
+countdown(
+  minutes      = 15,
+  warn_when    = 30,
+  update_every = 1,
+  top          = 0,
+  right        = 0,
+  font_size    = '2em'
+)
+```
+
+## Your turn
+
+1) `reverseString(s)`
+
+Write a function that returns the string `s` in reverse order.
+
+- `reverseString("aWordWithCaps") == "spaChtiWdroWa"`
+- `reverseString("abcde") == "edcba"`
+- `reverseString("") == ""`
+
+2) `isPalindrome(s)`
+
+Write a function that returns `TRUE` if the string `s` is a [Palindrome](https://en.wikipedia.org/wiki/Palindrome) and `FALSE` otherwise.
+
+- `isPalindrome("abcba") == TRUE`
+- `isPalindrome("abcb") == FALSE`
+- `isPalindrome("321123") == TRUE`
+
+---
+
+class: inverse, center
+
+# .fancy[Break]
+
+```{r, echo=FALSE}
+countdown(
+  minutes      = 5,
+  warn_when    = 30,
+  update_every = 1,
+  left         = 0,
+  right        = 0,
+  top          = 1,
+  bottom       = 0,
+  margin       = "5%",
+  font_size    = "8em"
+)
+```
+
+---
+
+```{r child="topics/4.Rmd"}
+```
+
+---
+
+class: center
+
+## Detecting & replacing
+
+|Function         |  Description                            |
+|:----------------|:----------------------------------------|
+|`str_sort()`     | sort a string alphabetically            |
+|`str_order()`    | get the order of a sorted string        |
+|`str_detect()`   | match a string in another string        |
+|`str_replace()`  | replace a string in another string      |
+
+---
+
+## Sort string vectors alphabetically with `str_sort()`
+
+```{r}
+x <- c('Y', 'M', 'C', 'A')
+x
+```
+
+--
+
+```{r}
+str_sort(x)
+```
+
+--
+
+```{r}
+str_sort(x, decreasing = TRUE)
+```
+
+---
+
+### Detect pattern in string: `str_detect(string, pattern)`
+
+--
+
+```{r}
+tenFruit <- fruit[1:10]
+tenFruit
+```
+
+--
+
+```{r}
+str_detect(tenFruit, "berry")
+```
+
+--
+
+How many in vector have the string `"berry"`?
+
+```{r}
+sum(str_detect(tenFruit, "berry"))
+```
+
+---
+
+## Count number of times pattern appears in string
+
+`str_count(string, pattern)`
+
+--
+
+Example:
+
+```{r}
+x <- c("apple", "banana", "pear")
+str_count(x, "a")
+```
+
+--
+
+Note the difference with `str_detect()`:
+
+```{r}
+str_detect(x, "a")
+```
+
+---
+
+## Detect if string _starts_ with pattern
+
+Which fruits **start** with "a"?
+
+```{r}
+fiveFruit <- fruit[1:5]
+fiveFruit
+```
+
+--
+
+.leftcol[
+
+**Wrong**:
+
+```{r}
+str_detect(fiveFruit, "a")
+```
+
+]
+
+--
+
+.rightcol[
+
+**Right**:
+
+```{r}
+str_detect(fiveFruit, "^a")
+```
+
+]
+
+---
+
+# Detect if string _ends_ with pattern
+
+Which fruits **end** with an "e"?
+
+```{r}
+fiveFruit
+```
+
+--
+
+.leftcol[
+
+**Wrong**:
+
+```{r}
+str_detect(fiveFruit, "e")
+```
+
+]
+
+--
+
+.rightcol[
+
+**Right**:
+
+```{r}
+str_detect(fiveFruit, "e$")
+```
+
+]
+
+---
+
+## Remember:
+
+### If you _start_ with power (`^`), you'll _end_ up with money (`$`).
+
+--
+
+```{r}
+fiveFruit
+```
+
+--
+
+```{r}
+str_detect(fiveFruit, "^a") # Start with power (^)
+```
+
+--
+
+```{r}
+str_detect(fiveFruit, "e$") # End with money ($)
+```
+
+---
+
+# Quick practice:
+
+```{r, echo=FALSE}
+countdown(
+  minutes      = 5,
+  warn_when    = 30,
+  update_every = 1,
+  top          = 0,
+  right        = 0,
+  font_size    = '2em'
+)
+```
+
+```{r}
+fruit[1:5]
+```
+
+Use `stringr` functions to answer the following questions about the  `fruit` vector:
+
+1. How many fruit have the string `"rr"` in it?
+2. Which fruit end with string `"fruit"`?
+3. Which fruit contain more than one `"o"` character?
+
+**Hint**: You'll need to use `str_detect()` and `str_count()`
+
+---
+
+# Replace matched strings with new string
+
+`str_replace(string, pattern, replacement)`
+
+--
+
+```{r}
+x <- c("apple", "pear", "banana")
+```
+
+--
+
+```{r}
+str_replace(x, "a", "-") # Only replaces the first match
+```
+
+--
+
+```{r}
+str_replace_all(x, "a", "-") # Replaces all matches
+```
+
+---
+
+### Quick practice redux
+
+```{r}
+x <- 'this_is_good_practice'
+```
+
+Convert `x` into: `"this is good practice"`
+
+--
+
+We did this earlier:
+
+```{r}
+paste(str_split(x, "_")[[1]], collapse = " ")
+```
+
+--
+
+But now we can do this!
+
+```{r}
+str_replace_all(x, "_", " ")
+```
+
+---
+
+class: inverse
+
+```{r, echo=FALSE}
+countdown(
+  minutes      = 15,
+  warn_when    = 30,
+  update_every = 1,
+  top          = 0,
+  right        = 0,
+  font_size    = '2em'
+)
+```
+
+## Your turn
+
+.font90[
+
+1) `sortString(s)`: Write the function `sortString(s)` that takes a string `s` and returns back an alphabetically sorted string.
+
+- `sortString("cba") == "abc"`
+- `sortString("abedhg") == "abdegh"`
+- `sortString("AbacBc") == "aAbBcc"`
+
+2) `areAnagrams(s1, s2)`: Write the function `areAnagrams(s1, s2)` that takes two strings, `s1` and `s2`, and returns `TRUE` if the strings are [anagrams](https://en.wikipedia.org/wiki/Anagram), and `FALSE` otherwise. **Treat lower and upper case as the same letters**.
+
+- `areAnagrams("", "") == TRUE`
+- `areAnagrams("aabbccdd", "bbccddee") == FALSE`
+- `areAnagrams("TomMarvoloRiddle", "IAmLordVoldemort") == TRUE`
+
+]
+
+---
+
+### [Homework 7](https://p4a.seas.gwu.edu/2023-Spring/hw/7-strings.html)
+
+- Deadline extended to the Wednesday after the midterm: **March 14**
+
+--
+
+### Midterm
+
+- In class next week. 
+- 100 minutes (finish by 2:25pm). 
+- You can bring a single 8.5 x 11 sheet of paper (front & back) with anything on it.
+- You must turn in your note sheet with your exam (I'll give it back after grading).

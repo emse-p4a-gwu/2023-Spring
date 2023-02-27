@@ -1,0 +1,12 @@
+
+class: inverse, middle
+
+# Week `r rmarkdown::metadata$week`: .fancy[`r rmarkdown::metadata$title`]
+
+### 1. Making strings
+### 2. Case conversion & substrings
+### 3. Padding, splitting, & merging
+
+### BREAK
+
+### 4. .orange[Detecting & replacing]
