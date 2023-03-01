@@ -47,7 +47,7 @@ website:
         icon: calendar-week-fill
         href: schedule.qmd
       - text: Textbook
-        icon: book
+        icon: book-fill
         href: https://p4a.jhelvy.com/
       - text: Software
         icon: download
@@ -62,19 +62,19 @@ website:
         icon: slack
         href: https://emse-p4a-s23.slack.com
       - text: "Schedule a call w/Prof. Helveston"
-        icon: clock
+        icon: clock-fill
         href: https://jhelvy.appointlet.com/b/professor-helveston
       - section: Other
-        icon: question-circle
+        icon: question-circle-fill
         contents:
           - text: About
-            icon: question-circle
+            icon: question-circle-fill
             href: about.qmd
           - text: License
-            icon: award
+            icon: award-fill
             href: LICENSE.qmd
           - text: Contact
-            icon: envelope
+            icon: envelope-fill
             href: mailto:jph@gwu.edu
           - text: Source files
             icon: github
