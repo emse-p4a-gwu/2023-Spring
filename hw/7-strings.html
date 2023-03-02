@@ -64,11 +64,11 @@ ul.task-list li input[type="checkbox"] {
 
 <link rel="stylesheet" href="../styles.css">
 <meta property="og:title" content="EMSE 4571 / 6571 - Homework 7 - Strings">
-<meta property="og:description" content="Coming soon!">
+<meta property="og:description" content="The readings from the last week will serve as a helpful reference as you complete this assignment. You can review them here:">
 <meta property="og:site-name" content="https://p4a.seas.gwu.edu/">
 <meta property="og:locale" content="es_ES">
 <meta name="twitter:title" content="EMSE 4571 / 6571 - Homework 7 - Strings">
-<meta name="twitter:description" content="Coming soon!">
+<meta name="twitter:description" content="The readings from the last week will serve as a helpful reference as you complete this assignment. You can review them here:">
 <meta name="twitter:image" content="https://p4a.seas.gwu.edu/2023-Spring/images/logo-square.png">
 <meta name="twitter:creator" content="@johnhelveston">
 <meta name="twitter:site" content="@johnhelveston">
@@ -206,9 +206,111 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<p>Coming soon!</p>
+<div class="cell">
+
+</div>
+<blockquote class="blockquote">
+<p><strong>Due</strong>: Mar 08 by 11:59pm</p>
+<p><strong>Submission Instructions</strong>: Create a zip file of all the files in your R project folder for this assignment, then submit your zip file on the corresponding assignment submission on Blackboard.</p>
+<p><strong>Weight</strong>: This assignment is worth 4% of your final grade.</p>
+<p><strong>Purpose</strong>: The purposes of this assignment are:</p>
+<ul>
+<li>To practice manipulating strings in R with the <strong>stringr</strong> package.</li>
+<li>To practice computational problem solving with strings.</li>
+</ul>
+<p><strong>Assessment</strong>: Each question indicates the % of the assignment grade, summing to 100%. The credit for each question will be assigned as follows:</p>
+<ul>
+<li>0% for not attempting a response.</li>
+<li>50% for attempting the question but with <em>major</em> errors.</li>
+<li>75% for attempting the question but with <em>minor</em> errors.</li>
+<li>100% for correctly answering the question.</li>
+</ul>
+<p>The reflection portion is always worth 10% and graded for completion.</p>
+<p><strong>Rules</strong>:</p>
+<ul>
+<li>Problems marked <strong>SOLO</strong> may not be worked on with other classmates, though you may consult instructors for help.</li>
+<li>For problems marked <strong>COLLABORATIVE</strong>, you may work in groups of up to 3 students who are in this course this semester. You may not split up the work – everyone must work on every problem. And you may not simply copy any code but rather truly work together and submit your own solutions.</li>
+</ul>
+</blockquote>
+<section id="readings" class="level3">
+<h3 class="anchored" data-anchor-id="readings">Readings</h3>
+<p>The readings from the last week will serve as a helpful reference as you complete this assignment. You can review them here:</p>
+<blockquote class="blockquote">
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<a href="https://p4a.jhelvy.com/strings.html" target="_blank"><i class="bi-book-fill"></i></a> Strings
+</div>
+</div>
+</blockquote>
+<blockquote class="blockquote">
+<h3 id="using-the-autograder" class="anchored">Using the <a href="../autograder.html">autograder</a></h3>
+<ul>
+<li>You can check your solutions to problems 2 - 7 by logging into the <a href="../autograder.html">autograder</a> and uploading your <code>hw7.R</code> file.</li>
+<li><strong>The file must be named <code>hw7.R</code> or it won’t work.</strong></li>
+<li>Your user name is your netID, and your password is inside the <code>readme.txt</code> file in the Box folder I shared with you.</li>
+</ul>
+</blockquote>
+</section>
+<section id="staying-organized-solo-5" class="level3">
+<h3 class="anchored" data-anchor-id="staying-organized-solo-5">1) Staying organized [SOLO, 5%]</h3>
+<p>Download and use <a href="templates/hw7.zip">this template</a> for your assignment. Inside the “hw7” folder, open and edit the R script called “hw7.R” and fill out your name, GW Net ID, and the names of anyone you worked with on this assignment.</p>
+<blockquote class="blockquote">
+<h3 id="writing-test-functions" class="anchored"><strong>Writing test functions</strong></h3>
+<p>For each of the following functions, write a test function first, and then write the function. <strong>Your test functions will count for half of the available credit for each problem</strong>. Think carefully about the test cases to include in your test functions.</p>
+</blockquote>
+<blockquote class="blockquote">
+<h3 id="using-good-style" class="anchored"><strong>Using good style</strong></h3>
+<p>For this assignment, you must use good style to receive full credit. Follow the best practices described in <a href="http://adv-r.had.co.nz/Style.html">this style guide</a>.</p>
+</blockquote>
+</section>
+<section id="strtolowers-solo-10" class="level3">
+<h3 class="anchored" data-anchor-id="strtolowers-solo-10">2) <code>strToLower(s)</code> [SOLO, 10%]</h3>
+<p>Write a function that does exactly what <code>str_to_lower()</code> does (i.e.&nbsp;returns the same string but with all letters in lower case) without using <code>str_to_lower()</code> or the Base R <code>tolower()</code> function. Hint: check out the <code>str_replace_all()</code> function!</p>
+</section>
+<section id="getmiddlecharacters-solo-15" class="level3">
+<h3 class="anchored" data-anchor-id="getmiddlecharacters-solo-15">3) <code>getMiddleCharacter(s)</code> [SOLO, 15%]</h3>
+<p>Write a function that takes a single string, <code>s</code>, and returns the middle character of the string. If the string has an even number of characters, then return the two middle characters. So <code>getMiddleCharacter("one")</code> should return <code>"n"</code>, and <code>getMiddleCharacter("feet")</code> should return <code>"ee"</code>.</p>
+</section>
+<section id="rotatestringlefts-k-collaborative-15" class="level3">
+<h3 class="anchored" data-anchor-id="rotatestringlefts-k-collaborative-15">4) <code>rotateStringLeft(s, k)</code> [COLLABORATIVE, 15%]</h3>
+<p>Write the function <code>rotateStringLeft(s, k)</code> that takes a string <code>s</code> and a non-negative integer <code>k</code>, and returns the string <code>s</code> rotated <code>k</code> places to the left. So, if <code>s = "iknowkungfu"</code> and <code>k = 2</code>, then the result should be <code>"nowkungfuik"</code>. If <code>k</code> is larger than the length of <code>s</code>, the function should continue to rotate the string beyond its starting point. So, if <code>s = "iknowkungfu"</code> and <code>k = 11</code>, then the result should be <code>"iknowkungfu"</code>, but if <code>k = 12</code>, the result should be <code>"knowkungfui"</code>.</p>
+</section>
+<section id="isdigits-collaborative-15" class="level3">
+<h3 class="anchored" data-anchor-id="isdigits-collaborative-15">5) <code>isDigit(s)</code> [COLLABORATIVE, 15%]</h3>
+<p>Write the function <code>isDigit(s)</code> that takes a string <code>s</code> and returns <code>TRUE</code> if all characters in the string are numeric integers and <code>FALSE</code> otherwise. So <code>isDigit("123")</code> should return <code>TRUE</code>, <code>isDigit("123N")</code> should return <code>FALSE</code>, and <code>isDigit("")</code> should return <code>FALSE</code>. Hint: the value <code>'\\d'</code> can be used to search for whether a string has as digit, so <code>str_detect("r2d2", '\\d')</code> would return <code>TRUE</code> but <code>str_detect("rd", '\\d')</code> would return <code>FALSE</code>.</p>
+</section>
+<section id="getthegerundssentence-collaborative-15" class="level3">
+<h3 class="anchored" data-anchor-id="getthegerundssentence-collaborative-15">6) <code>getTheGerunds(sentence)</code> [COLLABORATIVE, 15%]</h3>
+<p>Write a function that takes a single string, <code>sentence</code>, and returns a vector of all the gerunds in it (i.e.&nbsp;all the words that end in <code>"ing"</code>). So <code>getTheGerunds("I like hiking and swimming")</code> should return <code>c("hiking", "swimming")</code>. If there are no gerunds in <code>sentence</code>, the function should return <code>NULL</code>. Hint: first solve how you might separate a single-string sentence into a vector of words.</p>
+</section>
+<section id="samecharss1-s2-collaborative-15" class="level3">
+<h3 class="anchored" data-anchor-id="samecharss1-s2-collaborative-15">7) <code>sameChars(s1, s2)</code> [COLLABORATIVE, 15%]</h3>
+<p>Write the function <code>sameChars(s1, s2)</code> that takes two strings and returns <code>TRUE</code> if the two strings are composed of the same characters (though perhaps in different numbers and in different orders); that is, if every character that is in the first string is in the second (and vice versa), and <code>FALSE</code> otherwise. This test is case-sensitive, so <code>"ABC"</code> and <code>"abc"</code> do not contain the same characters. The function returns <code>FALSE</code> if either parameter is not a string, but returns <code>TRUE</code> if both strings are empty.</p>
+</section>
+<section id="read-and-reflect-solo-10" class="level3">
+<h3 class="anchored" data-anchor-id="read-and-reflect-solo-10">8) Read and reflect [SOLO, 10%]</h3>
+<p>When we come back from spring break, we’ll be shifting the focus of the class to working with data.</p>
+<p>Read and reflect on the following readings to preview what we will cover in class next week:</p>
+<blockquote class="blockquote">
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<a href="https://p4a.jhelvy.com/data-analysis.html" target="_blank"><i class="bi-book-fill"></i></a> Data Analysis<br><a href="https://p4a.jhelvy.com/data-frames.html" target="_blank"><i class="bi-book-fill"></i></a> Data Frames
+</div>
+</div>
+</blockquote>
+<p>Afterwards, in a comment (<code>#</code>) in your .R file, write a short reflection on what you’ve learned and any questions or points of confusion you have about what we’ve covered thus far. This can just few a few sentences related to this assignment, next week’s readings, things going on in the world that remind you something from class, etc. If there’s anything that jumped out at you, write it down.</p>
+</section>
+<section id="submit" class="level3">
+<h3 class="anchored" data-anchor-id="submit">Submit</h3>
+<p>Instructions for how to submit your assignment are at the <a href="">top of this page</a>.</p>
+<hr>
+</section>
+<section id="bonus-hasbalancedparenthesess-solo-3" class="level3">
+<h3 class="anchored" data-anchor-id="bonus-hasbalancedparenthesess-solo-3"><strong>Bonus</strong>: <code>hasBalancedParentheses(s)</code> [SOLO, 3%]</h3>
+<p>Write the function <code>hasBalancedParentheses(s)</code>, which takes a string <code>s</code> and returns <code>TRUE</code> if the parentheses in <code>s</code> are balanced and <code>FALSE</code> otherwise (ignoring all non-parentheses in the string). We say that parentheses are “balanced” if each right parenthesis closes (matches) an open (unmatched) left parenthesis, and no left parentheses are left unclosed (unmatched) at the end of the text. So, for example, <code>"( ( ( ) ( ) ) ( ) )"</code> is balanced, but <code>"( ) )"</code> is not balanced, and <code>"( ) ) ("</code> is also not balanced. Hint: keep track of how many right parentheses remain unmatched as you iterate over the string.</p>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

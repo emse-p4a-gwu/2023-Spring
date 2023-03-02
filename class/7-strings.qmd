@@ -4,4 +4,5 @@ params:
   class: "7-strings"
 ---
 
-Coming soon!
+```{r child = here::here("fragments", "class.qmd")}
+```
