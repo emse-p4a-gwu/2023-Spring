@@ -2,6 +2,71 @@
 title: "Homework 7 - Strings"
 params:
   number: 7
+  purpose: |
+    The purposes of this assignment are:
+    >
+    > - To practice manipulating strings in R with the **stringr** package.
+    > - To practice computational problem solving with strings.
 ---
 
-Coming soon!
+```{r child = here::here("fragments", "hw.qmd")}
+```
+
+> ### Using the [autograder](../autograder.html)
+>
+> - You can check your solutions to problems 2 - 7 by logging into the [autograder](../autograder.html) and uploading your `hw7.R` file.
+> - **The file must be named `hw7.R` or it won't work.**
+> - Your user name is your netID, and your password is inside the `readme.txt` file in the Box folder I shared with you.
+
+### 1) Staying organized [SOLO, 5%]
+
+Download and use [this template](templates/hw7.zip) for your assignment. Inside the "hw7" folder, open and edit the R script called "hw7.R" and fill out your name, GW Net ID, and the names of anyone you worked with on this assignment.
+
+> ### **Writing test functions**
+>
+> For each of the following functions, write a test function first, and then write the function. **Your test functions will count for half of the available credit for each problem**. Think carefully about the test cases to include in your test functions.
+
+> ### **Using good style**
+>
+> For this assignment, you must use good style to receive full credit. Follow the best practices described in [this style guide](http://adv-r.had.co.nz/Style.html).
+
+### 2) `strToLower(s)` [SOLO, 10%]
+
+Write a function that does exactly what `str_to_lower()` does (i.e. returns the same string but with all letters in lower case) without using `str_to_lower()` or the Base R `tolower()` function. Hint: check out the `str_replace_all()` function!
+
+### 3) `getMiddleCharacter(s)` [SOLO, 15%]
+
+Write a function that takes a single string, `s`, and returns the middle character of the string. If the string has an even number of characters, then return the two middle characters. So `getMiddleCharacter("one")` should return `"n"`, and `getMiddleCharacter("feet")` should return `"ee"`.
+
+### 4) `rotateStringLeft(s, k)` [COLLABORATIVE, 15%]
+
+Write the function `rotateStringLeft(s, k)` that takes a string `s` and a non-negative integer `k`, and returns the string `s` rotated `k` places to the left. So, if `s = "iknowkungfu"` and `k = 2`, then the result should be `"nowkungfuik"`. If `k` is larger than the length of `s`, the function should continue to rotate the string beyond its starting point. So, if `s = "iknowkungfu"` and `k = 11`, then the result should be `"iknowkungfu"`, but if `k = 12`, the result should be `"knowkungfui"`.
+
+### 5) `isDigit(s)` [COLLABORATIVE, 15%]
+
+Write the function `isDigit(s)` that takes a string `s` and returns `TRUE` if all characters in the string are numeric integers and `FALSE` otherwise. So `isDigit("123")` should return `TRUE`, `isDigit("123N")` should return `FALSE`, and `isDigit("")` should return `FALSE`. Hint: the value `'\\d'` can be used to search for whether a string has as digit, so `str_detect("r2d2", '\\d')` would return `TRUE` but `str_detect("rd", '\\d')` would return `FALSE`.
+
+### 6) `getTheGerunds(sentence)` [COLLABORATIVE, 15%]
+
+Write a function that takes a single string, `sentence`, and returns a vector of all the gerunds in it (i.e. all the words that end in `"ing"`). So `getTheGerunds("I like hiking and swimming")` should return `c("hiking", "swimming")`. If there are no gerunds in `sentence`, the function should return `NULL`. Hint: first solve how you might separate a single-string sentence into a vector of words.
+
+### 7) `sameChars(s1, s2)` [COLLABORATIVE, 15%]
+
+Write the function `sameChars(s1, s2)` that takes two strings and returns `TRUE` if the two strings are composed of the same characters (though perhaps in different numbers and in different orders); that is, if every character that is in the first string is in the second (and vice versa), and `FALSE` otherwise. This test is case-sensitive, so `"ABC"` and `"abc"` do not contain the same characters. The function returns `FALSE` if either parameter is not a string, but returns `TRUE` if both strings are empty.
+
+### 8) Read and reflect [SOLO, 10%]
+
+When we come back from spring break, we'll be shifting the focus of the class to working with data.
+
+```{r child = here::here("fragments", "reflection.qmd")}
+```
+
+### Submit
+
+Instructions for how to submit your assignment are at the [top of this page]().
+
+---
+
+### **Bonus**: `hasBalancedParentheses(s)` [SOLO, 3%]
+
+Write the function `hasBalancedParentheses(s)`, which takes a string `s` and returns `TRUE` if the parentheses in `s` are balanced and `FALSE` otherwise (ignoring all non-parentheses in the string). We say that parentheses are "balanced" if each right parenthesis closes (matches) an open (unmatched) left parenthesis, and no left parentheses are left unclosed (unmatched) at the end of the text. So, for example, `"( ( ( ) ( ) ) ( ) )"` is balanced, but `"( ) )"` is not balanced, and `"( ) ) ("` is also not balanced. Hint: keep track of how many right parentheses remain unmatched as you iterate over the string.
