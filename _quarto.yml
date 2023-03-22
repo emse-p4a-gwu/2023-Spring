@@ -12,7 +12,6 @@ project:
     - "rubrics/"
     - "slides/"
     - "data/"
-    - "templates/"
 
 website:
   title: EMSE 4571 / 6571

@@ -2,6 +2,65 @@
 title: "Homework 8 - Data Frames"
 params:
   number: 8
+  purpose: |
+    The purposes of this assignment are:
+    >
+    > - To practice creating data frames in R.
+    > - To practice merging and slicing data frames in R.
+
 ---
 
-Coming soon!
+```{r child = here::here("fragments", "hw.qmd")}
+```
+
+### 1) Staying organized [SOLO, 5%]
+
+Download and use [this template](templates/hw8.zip) for your assignment. Inside the "hw8" folder, open and edit the R script called `hw8.R` and fill out your name, GW netID, and the names of anyone you worked with on this assignment.
+
+> ### **Using good style**
+>
+> For this assignment, you must use good style to receive full credit. Follow the best practices described in [this style guide](http://adv-r.had.co.nz/Style.html).
+
+### 2) Inspect package data [SOLO, 15%]
+
+Write R code to install the **dslabs** package from CRAN, then write code to load the package. Write some code to preview and inspect the `movielens` data frame that gets loaded when you load the package using some of the techniques we saw in class. For each of the following questions, write code to find your answer and leave a detailed response in a comment:
+
+- What is this dataset about?
+- How many observations are in the data frame?
+- What is the original source of the data?
+- What type of data is each variable?
+- What are the years of the earliest and most recent observations in the data set?
+
+### 3) Answer questions about the data [COLLABORATIVE, 25%]
+
+For each of the following questions, write code to find your answer and leave a detailed response in a comment:
+
+- What is the min, mean, and max rating in the data set?
+- How many observations received the maximum rating?
+- What percentage of total observations received the maximum rating?
+- What is the title of the observation with the longest `title` (in terms of numbers of letters in the title)?
+
+### 4) Loading and inspecting external data [SOLO, 20%]
+
+Write R code to read in the `prisoners2019.csv` file located in the `data` folder. Store the object as `df`. Write some code to preview and inspect the `df` data frame using some of the techniques we saw in class. For each of the following questions, write code to find your answer and leave a detailed response in a comment:
+
+- What do you think this dataset is about?
+- How many observations are in the data frame?
+- What type of data is each variable?
+
+### 5) Answer questions about the data [COLLABORATIVE, 25%]
+
+For each of the following questions, write code to find your answer and leave a detailed response in a comment:
+
+- Which states have the highest and lowest total prison population?
+- Which states have the highest and lowest total prison population _as a percentage of the total state population_?
+- According to the 2020 U.S. Census, only [12.4%](https://www.census.gov/library/stories/2021/08/improved-race-ethnicity-measures-reveal-united-states-population-much-more-multiracial.html) of the U.S. population is black, but some states have imprisoned more black people than any other race. Which states fit this description?
+
+### 6) Read and reflect [SOLO, 10%]
+
+```{r child = here::here("fragments", "reflection.qmd")}
+```
+
+### Submit
+
+Instructions for how to submit your assignment are at the [top of this page]().
