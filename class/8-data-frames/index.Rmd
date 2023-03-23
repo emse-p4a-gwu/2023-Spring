@@ -39,15 +39,6 @@ wildlife_impacts <- read_csv(pathToData)
 
 ---
 
-background-color: #fff
-class: center, middle
-
-<center>
-<img src="images/midterm_bars.png" width=80%>
-</center>
-
----
-
 # Before we start
 
 Make sure you have these packages installed and loaded:
