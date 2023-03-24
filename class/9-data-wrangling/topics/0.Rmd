@@ -1,0 +1,12 @@
+
+class: inverse, middle
+
+# Week `r rmarkdown::metadata$week`: .fancy[`r rmarkdown::metadata$title`]
+
+### 1. Selecting & filtering
+### 2. Sequences with pipes
+
+### BREAK
+
+### 3. Creating new variables
+### 4. Grouped operations
