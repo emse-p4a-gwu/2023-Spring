@@ -20,6 +20,69 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1.6em;
   vertical-align: middle;
 }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
 
@@ -64,11 +127,11 @@ ul.task-list li input[type="checkbox"] {
 
 <link rel="stylesheet" href="../styles.css">
 <meta property="og:title" content="EMSE 4571 / 6571 - Homework 9 - Data Wrangling">
-<meta property="og:description" content="Coming soon!">
+<meta property="og:description" content="The readings from the last week will serve as a helpful reference as you complete this assignment. You can review them here:">
 <meta property="og:site-name" content="https://p4a.seas.gwu.edu/">
 <meta property="og:locale" content="es_ES">
 <meta name="twitter:title" content="EMSE 4571 / 6571 - Homework 9 - Data Wrangling">
-<meta name="twitter:description" content="Coming soon!">
+<meta name="twitter:description" content="The readings from the last week will serve as a helpful reference as you complete this assignment. You can review them here:">
 <meta name="twitter:image" content="https://p4a.seas.gwu.edu/2023-Spring/images/logo-square.png">
 <meta name="twitter:creator" content="@johnhelveston">
 <meta name="twitter:site" content="@johnhelveston">
@@ -206,9 +269,186 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<p>Coming soon!</p>
+<div class="cell">
+
+</div>
+<blockquote class="blockquote">
+<p><strong>Due</strong>: Apr 05 by 11:59pm</p>
+<p><strong>Submission Instructions</strong>: Create a zip file of all the files in your R project folder for this assignment, then submit your zip file on the corresponding assignment submission on Blackboard.</p>
+<p><strong>Weight</strong>: This assignment is worth 4% of your final grade.</p>
+<p><strong>Purpose</strong>: The purposes of this assignment are:</p>
+<ul>
+<li>To practice exploring and wrangling data frames in R using the <strong>dplyr</strong> package</li>
+</ul>
+<p><strong>Assessment</strong>: Each question indicates the % of the assignment grade, summing to 100%. The credit for each question will be assigned as follows:</p>
+<ul>
+<li>0% for not attempting a response.</li>
+<li>50% for attempting the question but with <em>major</em> errors.</li>
+<li>75% for attempting the question but with <em>minor</em> errors.</li>
+<li>100% for correctly answering the question.</li>
+</ul>
+<p>The reflection portion is always worth 10% and graded for completion.</p>
+<p><strong>Rules</strong>:</p>
+<ul>
+<li>Problems marked <strong>SOLO</strong> may not be worked on with other classmates, though you may consult instructors for help.</li>
+<li>For problems marked <strong>COLLABORATIVE</strong>, you may work in groups of up to 3 students who are in this course this semester. You may not split up the work – everyone must work on every problem. And you may not simply copy any code but rather truly work together and submit your own solutions.</li>
+</ul>
+</blockquote>
+<section id="readings" class="level3">
+<h3 class="anchored" data-anchor-id="readings">Readings</h3>
+<p>The readings from the last week will serve as a helpful reference as you complete this assignment. You can review them here:</p>
+<blockquote class="blockquote">
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<a href="https://p4a.jhelvy.com/data-wrangling.html" target="_blank"><i class="bi-book-fill"></i></a> Data Wrangling
+</div>
+</div>
+</blockquote>
+<div class="cell" data-layout-align="center">
+
+</div>
+</section>
+<section id="staying-organized-solo-5" class="level3">
+<h3 class="anchored" data-anchor-id="staying-organized-solo-5">1) Staying organized [SOLO, 5%]</h3>
+<p>Download and use <a href="templates/hw9.zip">this template</a> for your assignment. Inside the “hw9” folder, open and edit the R script called <code>hw9.R</code> and fill out your name, GW netID, and the names of anyone you worked with on this assignment.</p>
+<blockquote class="blockquote">
+<h3 id="using-good-style" class="anchored"><strong>Using good style</strong></h3>
+<p>For this assignment, you must use good style to receive full credit. Follow the best practices described in <a href="http://adv-r.had.co.nz/Style.html">this style guide</a>.</p>
+</blockquote>
+</section>
+<section id="load-the-data-solo-5" class="level3">
+<h3 class="anchored" data-anchor-id="load-the-data-solo-5">2) Load the data [SOLO, 5%]</h3>
+<p>For this assignment, we will work with data on flights from New York City airports during 2013. The data are accessible from the <strong>nycflights13</strong> package. Write R code to install and then load the package.</p>
+</section>
+<section id="inspect-the-data-solo-5" class="level3">
+<h3 class="anchored" data-anchor-id="inspect-the-data-solo-5">3) Inspect the data [SOLO, 5%]</h3>
+<p>Look at the datasets that are included in this package:</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(<span class="at">package =</span> <span class="st">"nycflights13"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<pre><code>Data sets in package 'nycflights13':
+
+airlines                Airline names.
+airports                Airport metadata
+flights                 Flights data
+planes                  Plane metadata.
+weather                 Hourly weather data</code></pre>
+<p>Write some code to preview and summarize each of these data frames using some of the methods we’ve used in class. You should be able to quickly get an understanding of what variables are included in each data frame and their nature. For each dataset, consider the following questions in your exploration (you don’t have to write out answers to these questions - just write code to help you answer them by previewing the data in different ways):</p>
+<ul>
+<li>What is the total size of each data frame?</li>
+<li>What type of data is each variable (numeric, character, logical, date)?</li>
+<li>Do any variables have missing values? Why might that be?</li>
+<li>What are the “boundaries” of each period of observation:
+<ul>
+<li>For numeric variables, what are the min and max values?</li>
+<li>For character variables, what are the unique values in the variable?</li>
+<li>For date variables, what time period do the observations in these data frames span?</li>
+</ul></li>
+</ul>
+</section>
+<section id="answer-questions-about-the-data" class="level2">
+<h2 class="anchored" data-anchor-id="answer-questions-about-the-data">Answer questions about the data</h2>
+<p>Use the data frames in the <strong>nycflights13</strong> package to answer the following questions. For each question, write R code to find the solution. Leave comments where appropriate to explain what you are doing, and then write your final answer as a comment at the end.</p>
+<p>For example, if the question was “how many observations are in the <code>flights</code> data frame?”, here is an acceptable answer:</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Find the number of rows in the flights data frame</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">nrow</span>(flights)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>#&gt; [1] 336776</code></pre>
+</div>
+</div>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Answer: There are 336,776 observations in the flights data frame</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>You do not have to use the <strong>dplyr</strong> package functions (i.e.&nbsp;<code>filter()</code>, <code>arrange()</code>, <code>mutate()</code>, etc.) to answer these questions, but they generally make it easier.</p>
+<section id="solo-5" class="level3">
+<h3 class="anchored" data-anchor-id="solo-5">4) [SOLO, 5%]</h3>
+<p>How many flights out of NYC airports in 2013 had an arrival delay of two or more hours? Hint: use <code>filter()</code></p>
+</section>
+<section id="solo-5-1" class="level3">
+<h3 class="anchored" data-anchor-id="solo-5-1">5) [SOLO, 5%]</h3>
+<p>How many flights out of NYC airports in 2013 departed in fall semester (i.e.&nbsp;the months August - December, inclusive)? Hint: use <code>filter()</code></p>
+</section>
+<section id="solo-5-2" class="level3">
+<h3 class="anchored" data-anchor-id="solo-5-2">6) [SOLO, 5%]</h3>
+<p>How many flights out of NYC airports in 2013 were operated by United, American, or Delta airlines? Hint: use <code>filter()</code></p>
+</section>
+<section id="solo-5-3" class="level3">
+<h3 class="anchored" data-anchor-id="solo-5-3">7) [SOLO, 5%]</h3>
+<p>List the top 3 airlines (by name, not carrier code) that had the highest delay time of any one flight leaving a NYC airport in 2013. Hint: use <code>arrange()</code></p>
+</section>
+<section id="solo-5-4" class="level3">
+<h3 class="anchored" data-anchor-id="solo-5-4">8) [SOLO, 5%]</h3>
+<p>How many flights out of NYC airports in 2013 flew to the 3 major DC-area airports: Reagan National, Dulles, or BWI? Hint: use <code>filter()</code></p>
+</section>
+<section id="collaborative-10" class="level3">
+<h3 class="anchored" data-anchor-id="collaborative-10">9) [COLLABORATIVE, 10%]</h3>
+<p>What is the year manufactured and tail number of the oldest airplane that any one airline used in 2013 to fly out of NYC airports, and which airline operated that plane? Hint: use <code>arrange()</code> and <code>filter()</code></p>
+</section>
+<section id="collaborative-10-1" class="level3">
+<h3 class="anchored" data-anchor-id="collaborative-10-1">10) [COLLABORATIVE, 10%]</h3>
+<p>Using the <code>flights</code> data frame, compute a new variable <code>speed</code> (in miles per hour) using the <code>air_time</code> and <code>distance</code> variables. For the fastest flight in the dataset, what was its speed and what were the origin and destination airport codes? Hint: use <code>mutate()</code> and <code>arrange()</code></p>
+</section>
+<section id="collaborative-10-2" class="level3">
+<h3 class="anchored" data-anchor-id="collaborative-10-2">11) [COLLABORATIVE, 10%]</h3>
+<p>Of all the flights in 2013 departing from NYC airports, list the top 3 destinations (airport names, not airport codes) with the highest mean arrival delay. Hint: Use a “pipeline” of <code>group_by()</code>, <code>summarise()</code>, and <code>arrange()</code>. Don’t forget to filter out any <code>NA</code> values before summarizing!</p>
+</section>
+<section id="collaborative-10-3" class="level3">
+<h3 class="anchored" data-anchor-id="collaborative-10-3">12) [COLLABORATIVE, 10%]</h3>
+<p>Use the <code>flights</code> data frame to create a new summary data frame called <code>dailyDelaySummary</code> that contains the following variables for each day in 2013:</p>
+<ul>
+<li><code>meanDepDelay</code>: the mean departure delay (in minutes)</li>
+<li><code>numDelayedFlights</code>: the total number of delayed flights</li>
+</ul>
+<p>Save this file in your “data” folder as “dailyDelaySummary.csv” Hint: Use a “pipeline” of <code>group_by()</code> and <code>summarise()</code>, and don’t forget to filter out any <code>NA</code> values before summarizing!</p>
+</section>
+<section id="collaborative-10-4" class="level3">
+<h3 class="anchored" data-anchor-id="collaborative-10-4">13) [COLLABORATIVE, 10%]</h3>
+<p>Using the <code>dailyDelaySummary</code> data frame that you created in part i), answer the following two questions:</p>
+<ul>
+<li>Find the day in 2013 with the highest number of delayed flights. On that day, how many flights were delayed, and what was the mean delay time (in minutes)?</li>
+<li>Find the day in 2013 with the highest mean departure delay (in minutes). On that day, how many flights were delayed and what was the mean delay time (in minutes)?</li>
+</ul>
+</section>
+<section id="read-and-reflect-solo-10" class="level3">
+<h3 class="anchored" data-anchor-id="read-and-reflect-solo-10">14) Read and reflect [SOLO, 10%]</h3>
+<p>Read and reflect on the following readings to preview what we will be covering next:</p>
+<blockquote class="blockquote">
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<a href="https://p4a.jhelvy.com/data-visualization.html" target="_blank"><i class="bi-book-fill"></i></a> Data Visualization
+</div>
+</div>
+</blockquote>
+<p>Afterwards, in a comment (<code>#</code>) in your .R file, write a short reflection on what you’ve learned and any questions or points of confusion you have about what we’ve covered thus far. This can just few a few sentences related to this assignment, next week’s readings, things going on in the world that remind you something from class, etc. If there’s anything that jumped out at you, write it down.</p>
+</section>
+<section id="submit" class="level3">
+<h3 class="anchored" data-anchor-id="submit">Submit</h3>
+<p>Instructions for how to submit your assignment are at the <a href="">top of this page</a>.</p>
+<hr>
+</section>
+<section id="bonus-1-solo-1" class="level3">
+<h3 class="anchored" data-anchor-id="bonus-1-solo-1">Bonus 1) [SOLO, 1%]</h3>
+<p>How many flights have a missing departure time? What might these rows represent?</p>
+</section>
+<section id="bonus-2-solo-1" class="level3">
+<h3 class="anchored" data-anchor-id="bonus-2-solo-1">Bonus 2) [SOLO, 1%]</h3>
+<p>Which flights (i.e.&nbsp;carrier + flight) departed every day of the year, and which airports did they fly to?</p>
+</section>
+<section id="bonus-3-solo-2" class="level3">
+<h3 class="anchored" data-anchor-id="bonus-3-solo-2">Bonus 3) [SOLO, 2%]</h3>
+<p>Use the <code>flights</code> data frame to create a <code>season</code> variable. The seasons are defined as the following:</p>
+<ul>
+<li>Spring: March, April, May</li>
+<li>Summer: June, July, August</li>
+<li>Fall: September, October, November</li>
+<li>Winter: December, January, February</li>
+</ul>
+<p>What season experiences the largest mean delay, and why might that be? Hint: Use a “pipeline” of <code>mutate</code>, <code>group_by()</code> and <code>summarise()</code>. Don’t forget to filter out any <code>NA</code> values before summarizing!</p>
 
 
+</section>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
