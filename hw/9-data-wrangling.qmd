@@ -2,6 +2,148 @@
 title: "Homework 9 - Data Wrangling"
 params:
   number: 9
+  purpose: |
+    The purposes of this assignment are:
+    >
+    > - To practice exploring and wrangling data frames in R using the **dplyr** package
 ---
 
-Coming soon!
+```{r child = here::here("fragments", "hw.qmd")}
+```
+
+```{r, echo=FALSE}
+library(nycflights13)
+```
+
+### 1) Staying organized [SOLO, 5%]
+
+Download and use [this template](templates/hw9.zip) for your assignment. Inside the "hw9" folder, open and edit the R script called `hw9.R` and fill out your name, GW netID, and the names of anyone you worked with on this assignment.
+
+> ### **Using good style**
+>
+> For this assignment, you must use good style to receive full credit. Follow the best practices described in [this style guide](http://adv-r.had.co.nz/Style.html).
+
+### 2) Load the data [SOLO, 5%]
+
+For this assignment, we will work with data on flights from New York City airports during 2013. The data are accessible from the **nycflights13** package. Write R code to install and then load the package.
+
+### 3) Inspect the data [SOLO, 5%]
+
+Look at the datasets that are included in this package:
+```{r, eval=FALSE}
+data(package = "nycflights13")
+```
+```
+Data sets in package 'nycflights13':
+
+airlines                Airline names.
+airports                Airport metadata
+flights                 Flights data
+planes                  Plane metadata.
+weather                 Hourly weather data
+```
+
+Write some code to preview and summarize each of these data frames using some of the methods we've used in class. You should be able to quickly get an understanding of what variables are included in each data frame and their nature. For each dataset, consider the following questions in your exploration (you don't have to write out answers to these questions - just write code to help you answer them by previewing the data in different ways):
+
+- What is the total size of each data frame?
+- What type of data is each variable (numeric, character, logical, date)?
+- Do any variables have missing values? Why might that be?
+- What are the "boundaries" of each period of observation:
+    - For numeric variables, what are the min and max values?
+    - For character variables, what are the unique values in the variable?
+    - For date variables, what time period do the observations in these data frames span?
+
+## Answer questions about the data
+
+Use the data frames in the **nycflights13** package to answer the following questions. For each question, write R code to find the solution. Leave comments where appropriate to explain what you are doing, and then write your final answer as a comment at the end.
+
+For example, if the question was "how many observations are in the `flights` data frame?", here is an acceptable answer:
+
+```{r}
+# Find the number of rows in the flights data frame
+nrow(flights)
+```
+```{r}
+# Answer: There are 336,776 observations in the flights data frame
+```
+
+You do not have to use the **dplyr** package functions (i.e. `filter()`, `arrange()`, `mutate()`, etc.) to answer these questions, but they generally make it easier.
+
+### 4) [SOLO, 5%]
+
+How many flights out of NYC airports in 2013 had an arrival delay of two or more hours? Hint: use `filter()`
+
+### 5) [SOLO, 5%]
+
+How many flights out of NYC airports in 2013 departed in fall semester (i.e. the months August - December, inclusive)? Hint: use `filter()`
+
+### 6) [SOLO, 5%]
+
+How many flights out of NYC airports in 2013 were operated by United, American, or Delta airlines? Hint: use `filter()`
+
+### 7) [SOLO, 5%]
+
+List the top 3 airlines (by name, not carrier code) that had the highest delay time of any one flight leaving a NYC airport in 2013. Hint: use `arrange()`
+
+### 8) [SOLO, 5%]
+
+How many flights out of NYC airports in 2013 flew to the 3 major DC-area airports: Reagan National, Dulles, or BWI? Hint: use `filter()`
+
+### 9) [COLLABORATIVE, 10%]
+
+What is the year manufactured and tail number of the oldest airplane that any one airline used in 2013 to fly out of NYC airports, and which airline operated that plane? Hint: use `arrange()` and `filter()`
+
+### 10) [COLLABORATIVE, 10%]
+
+Using the `flights` data frame, compute a new variable `speed` (in miles per hour) using the `air_time` and `distance` variables. For the fastest flight in the dataset, what was its speed and what were the origin and destination airport codes? Hint: use `mutate()` and `arrange()`
+
+### 11) [COLLABORATIVE, 10%]
+
+Of all the flights in 2013 departing from NYC airports, list the top 3 destinations (airport names, not airport codes) with the highest mean arrival delay. Hint: Use a "pipeline" of `group_by()`, `summarise()`, and `arrange()`. Don't forget to filter out any `NA` values before summarizing!
+
+### 12) [COLLABORATIVE, 10%]
+
+Use the `flights` data frame to create a new summary data frame called `dailyDelaySummary` that contains the following variables for each day in 2013:
+
+- `meanDepDelay`: the mean departure delay (in minutes)
+- `numDelayedFlights`: the total number of delayed flights
+
+Save this file in your "data" folder as "dailyDelaySummary.csv"
+Hint: Use a "pipeline" of `group_by()` and `summarise()`, and don't forget to filter out any `NA` values before summarizing!
+
+### 13) [COLLABORATIVE, 10%]
+
+Using the `dailyDelaySummary` data frame that you created in part i), answer the following two questions:
+
+- Find the day in 2013 with the highest number of delayed flights. On that day, how many flights were delayed, and what was the mean delay time (in minutes)?
+- Find the day in 2013 with the highest mean departure delay (in minutes). On that day, how many flights were delayed and what was the mean delay time (in minutes)?
+
+### 14) Read and reflect [SOLO, 10%]
+
+```{r child = here::here("fragments", "reflection.qmd")}
+```
+
+### Submit
+
+Instructions for how to submit your assignment are at the [top of this page]().
+
+---
+
+### Bonus 1) [SOLO, 1%]
+
+How many flights have a missing departure time? What might these rows represent?
+
+### Bonus 2) [SOLO, 1%]
+
+Which flights (i.e. carrier + flight) departed every day of the year, and which airports did they fly to?
+
+### Bonus 3) [SOLO, 2%]
+
+Use the `flights` data frame to create a `season` variable. The seasons are defined as the following:
+
+- Spring: March, April, May
+- Summer: June, July, August
+- Fall: September, October, November
+- Winter: December, January, February
+
+What season experiences the largest mean delay, and why might that be? Hint: Use a "pipeline" of `mutate`, `group_by()` and `summarise()`. Don't forget to filter out any `NA` values before summarizing!
