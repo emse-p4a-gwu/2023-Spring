@@ -2,6 +2,11 @@
 title: "Homework 10 - Data Visualization"
 params:
   number: 10
+  purpose: |
+    The purposes of this assignment are:
+    >
+    > - To practice exploring and data frames in R using the **dplyr** package
+    > - To practice generating charts using the **ggplot2** package
 ---
 
 Coming soon!

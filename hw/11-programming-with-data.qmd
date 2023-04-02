@@ -1,0 +1,12 @@
+---
+title: "Homework 11 - Programming with Data"
+params:
+  number: 11
+  purpose: |
+    The purposes of this assignment are:
+    >
+    > - Be able to compose functions using the 'tidy evaluation' syntax to work with data.
+    > - Be able to parse through lists using `purrr::map()` functions.
+---
+
+Coming soon!

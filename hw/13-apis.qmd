@@ -1,7 +1,0 @@
----
-title: "Homework 13 - APIs"
-params:
-  number: 13
----
-
-Coming soon!
