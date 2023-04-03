@@ -15,13 +15,13 @@ params:
 library(nycflights13)
 ```
 
+### **Using AI tools**
+
+> On this assignment, you are encouraged to use ChatGPT and other AI tools (e.g. Github Copilot). But don't just blindly copy-paste code. The code provided by these tools is not perfect, and you will likely need to modify it to get the correct solution. If you do use an AI tools, you must include the prompt(s) you used (using a comment with `#`) to recieve full credit. If you had to change anything to your prompt to get better results, write that down too in your code with a comment. Learn to use tools like ChatGPT as a learning assistant - a tool to help you accomplish the task - rather than just a solutions manual. One version of using it makes you a better and more efficient coder, the other robs you of that.
+
 ### 1) Staying organized [SOLO, 5%]
 
 Download and use [this template](templates/hw9.zip) for your assignment. Inside the "hw9" folder, open and edit the R script called `hw9.R` and fill out your name, GW netID, and the names of anyone you worked with on this assignment.
-
-> ### **Using good style**
->
-> For this assignment, you must use good style to receive full credit. Follow the best practices described in [this style guide](http://adv-r.had.co.nz/Style.html).
 
 ### 2) Load the data [SOLO, 5%]
 
