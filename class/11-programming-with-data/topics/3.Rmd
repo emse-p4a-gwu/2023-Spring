@@ -1,0 +1,13 @@
+
+class: inverse, middle
+
+# Week `r rmarkdown::metadata$week`: .fancy[`r rmarkdown::metadata$title`]
+
+### 1. Writing functions for data frames
+### 2. Writing custom plot functions
+
+### BREAK
+
+### 3. .orange[Iteration with purrr]
+
+#### .center[Much of this content is adapted from Shannon Pileggi's workshop at https://github.com/shannonpileggi/iterating-well-with-purrr]

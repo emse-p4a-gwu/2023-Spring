@@ -1,0 +1,12 @@
+
+class: inverse, middle
+
+# Week `r rmarkdown::metadata$week`: .fancy[`r rmarkdown::metadata$title`]
+
+### 1. .orange[Plotting with Base R]
+### 2. Plotting with ggplot2: Part 1
+
+### BREAK
+
+### 3. Plotting with ggplot2: Part 2
+### 4. Tweaking your ggplot

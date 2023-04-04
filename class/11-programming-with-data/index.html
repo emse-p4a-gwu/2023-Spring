@@ -1,0 +1,7738 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Programming with Data</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="John Paul Helveston" />
+    <meta name="date" content="2023-04-13" />
+    <script src="libs/header-attrs/header-attrs.js"></script>
+    <link href="libs/remark-css/default.css" rel="stylesheet" />
+    <link href="libs/tile-view/tile-view.css" rel="stylesheet" />
+    <script src="libs/tile-view/tile-view.js"></script>
+    <link href="libs/panelset/panelset.css" rel="stylesheet" />
+    <script src="libs/panelset/panelset.js"></script>
+    <script src="libs/clipboard/clipboard.min.js"></script>
+    <link href="libs/shareon/shareon.min.css" rel="stylesheet" />
+    <script src="libs/shareon/shareon.min.js"></script>
+    <link href="libs/xaringanExtra-shareagain/shareagain.css" rel="stylesheet" />
+    <script src="libs/xaringanExtra-shareagain/shareagain.js"></script>
+    <link href="libs/xaringanExtra-extra-styles/xaringanExtra-extra-styles.css" rel="stylesheet" />
+    <meta name="description" content="EMSE 4571: Intro to Programming for Analytics"/>
+    <meta name="generator" content="xaringan and remark.js"/>
+    <meta name="github-repo" content="emse-p4a-gwu/2022-Spring"/>
+    <meta name="twitter:title" content="Programming with Data"/>
+    <meta name="twitter:description" content="EMSE 4571: Intro to Programming for Analytics"/>
+    <meta name="twitter:url" content="https://p4a.seas.gwu.edu/2022-Spring/"/>
+    <meta name="twitter:card" content="summary_large_image"/>
+    <meta name="twitter:creator" content="@johnhelveston"/>
+    <meta name="twitter:site" content="@johnhelveston"/>
+    <meta property="og:title" content="Programming with Data"/>
+    <meta property="og:description" content="EMSE 4571: Intro to Programming for Analytics"/>
+    <meta property="og:url" content="https://p4a.seas.gwu.edu/2022-Spring/"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:locale" content="en_US"/>
+    <meta property="article:author" content="John Paul Helveston"/>
+    <link href="libs/countdown/countdown.css" rel="stylesheet" />
+    <script src="libs/countdown/countdown.js"></script>
+    <link rel="stylesheet" href="css/lexis.css" type="text/css" />
+    <link rel="stylesheet" href="css/lexis-fonts.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+
+
+
+
+
+class: middle, inverse
+
+.leftcol30[
+&lt;center&gt;
+&lt;img src="https://github.com/emse-p4a-gwu/emse-p4a-gwu.github.io/raw/master/images/p4a_hex_sticker.png" width=250&gt;
+&lt;/center&gt;
+]
+
+.rightcol70[
+# Week 11: .fancy[Programming with Data]
+
+### <svg aria-hidden="true" role="img" viewBox="0 0 512 512" style="height:1em;width:1em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:white;overflow:visible;position:relative;"><path d="M243.4 2.6l-224 96c-14 6-21.8 21-18.7 35.8S16.8 160 32 160v8c0 13.3 10.7 24 24 24H456c13.3 0 24-10.7 24-24v-8c15.2 0 28.3-10.7 31.3-25.6s-4.8-29.9-18.7-35.8l-224-96c-8.1-3.4-17.2-3.4-25.2 0zM128 224H64V420.3c-.6 .3-1.2 .7-1.8 1.1l-48 32c-11.7 7.8-17 22.4-12.9 35.9S17.9 512 32 512H480c14.1 0 26.5-9.2 30.6-22.7s-1.1-28.1-12.9-35.9l-48-32c-.6-.4-1.2-.7-1.8-1.1V224H384V416H344V224H280V416H232V224H168V416H128V224zm128-96c-17.7 0-32-14.3-32-32s14.3-32 32-32s32 14.3 32 32s-14.3 32-32 32z"/></svg> EMSE 4571: Intro to Programming for Analytics
+### <svg aria-hidden="true" role="img" viewBox="0 0 448 512" style="height:1em;width:0.88em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:white;overflow:visible;position:relative;"><path d="M272 304h-96C78.8 304 0 382.8 0 480c0 17.67 14.33 32 32 32h384c17.67 0 32-14.33 32-32C448 382.8 369.2 304 272 304zM48.99 464C56.89 400.9 110.8 352 176 352h96c65.16 0 119.1 48.95 127 112H48.99zM224 256c70.69 0 128-57.31 128-128c0-70.69-57.31-128-128-128S96 57.31 96 128C96 198.7 153.3 256 224 256zM224 48c44.11 0 80 35.89 80 80c0 44.11-35.89 80-80 80S144 172.1 144 128C144 83.89 179.9 48 224 48z"/></svg> John Paul Helveston
+### <svg aria-hidden="true" role="img" viewBox="0 0 448 512" style="height:1em;width:0.88em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:white;overflow:visible;position:relative;"><path d="M152 64H296V24C296 10.75 306.7 0 320 0C333.3 0 344 10.75 344 24V64H384C419.3 64 448 92.65 448 128V448C448 483.3 419.3 512 384 512H64C28.65 512 0 483.3 0 448V128C0 92.65 28.65 64 64 64H104V24C104 10.75 114.7 0 128 0C141.3 0 152 10.75 152 24V64zM48 248H128V192H48V248zM48 296V360H128V296H48zM176 296V360H272V296H176zM320 296V360H400V296H320zM400 192H320V248H400V192zM400 408H320V464H384C392.8 464 400 456.8 400 448V408zM272 408H176V464H272V408zM128 408H48V448C48 456.8 55.16 464 64 464H128V408zM272 192H176V248H272V192z"/></svg> April 13, 2023
+]
+
+
+
+---
+
+class: inverse
+
+# Quiz 6
+
+<div class="countdown" id="timer_2435cba4" data-warn-when="30" data-update-every="1" tabindex="0" style="top:0;right:0;font-size:3em;">
+<div class="countdown-controls"><button class="countdown-bump-down">&minus;</button><button class="countdown-bump-up">&plus;</button></div>
+<code class="countdown-time"><span class="countdown-digits minutes">10</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
+</div>
+
+.leftcol[
+
+## Write your name on the quiz!
+
+## Rules:
+
+- Work alone; no outside help of any kind is allowed.
+- No calculators, no notes, no books, no computers, no phones.
+
+]
+
+.rightcol[
+
+&lt;br&gt;
+&lt;center&gt;
+&lt;img src="https://github.com/emse-p4a-gwu/2022-Spring/raw/main/images/quiz_doge.png" width="400"&gt;
+&lt;/center&gt;
+
+]
+
+---
+
+
+
+class: inverse, middle
+
+# Week 11: .fancy[Programming with Data]
+
+### 1. Writing functions for data frames
+### 2. Writing custom plot functions
+
+### BREAK
+
+### 3. Iteration with purrr
+
+---
+
+
+
+class: inverse, middle
+
+# Week 11: .fancy[Programming with Data]
+
+### 1. .orange[Writing functions for data frames]
+### 2. Writing custom plot functions
+
+### BREAK
+
+### 3. Iteration with purrr
+
+---
+
+# Motivation
+
+I want a summary of a variable in a data frame:
+
+
+```r
+head(diamonds)
+```
+
+```
+#&gt; # A tibble: 6 × 10
+#&gt;   carat cut       color clarity depth table price     x     y     z
+#&gt;   &lt;dbl&gt; &lt;ord&gt;     &lt;ord&gt; &lt;ord&gt;   &lt;dbl&gt; &lt;dbl&gt; &lt;int&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
+#&gt; 1  0.23 Ideal     E     SI2      61.5    55   326  3.95  3.98  2.43
+#&gt; 2  0.21 Premium   E     SI1      59.8    61   326  3.89  3.84  2.31
+#&gt; 3  0.23 Good      E     VS1      56.9    65   327  4.05  4.07  2.31
+#&gt; 4  0.29 Premium   I     VS2      62.4    58   334  4.2   4.23  2.63
+#&gt; 5  0.31 Good      J     SI2      63.3    58   335  4.34  4.35  2.75
+#&gt; 6  0.24 Very Good J     VVS2     62.8    57   336  3.94  3.96  2.48
+```
+
+---
+
+# Motivation
+
+I want a summary of a variable in a data frame:
+
+
+```r
+length(diamonds$price)
+```
+
+```
+#&gt; [1] 53940
+```
+
+```r
+mean(diamonds$price)
+```
+
+```
+#&gt; [1] 3932.8
+```
+
+```r
+sd(diamonds$price)
+```
+
+```
+#&gt; [1] 3989.44
+```
+
+---
+
+# Motivation
+
+I want a summary of a variable in a data frame:
+
+
+```r
+diamonds %&gt;%
+  summarise(
+    n = n(),
+    mean = mean(price),
+    sd = sd(price)
+  )
+```
+
+```
+#&gt; # A tibble: 1 × 3
+#&gt;       n  mean    sd
+#&gt;   &lt;int&gt; &lt;dbl&gt; &lt;dbl&gt;
+#&gt; 1 53940 3933. 3989.
+```
+
+---
+
+# Motivation
+
+I can get **grouped** summaries really fast now:
+
+.leftcol[
+
+
+```r
+diamonds %&gt;%
+* group_by(cut) %&gt;%
+  summarise(
+    n = n(),
+    mean = mean(price),
+    sd = sd(price)
+  )
+```
+
+```
+#&gt; # A tibble: 5 × 4
+#&gt;   cut           n  mean    sd
+#&gt;   &lt;ord&gt;     &lt;int&gt; &lt;dbl&gt; &lt;dbl&gt;
+#&gt; 1 Fair       1610 4359. 3560.
+#&gt; 2 Good       4906 3929. 3682.
+#&gt; 3 Very Good 12082 3982. 3936.
+#&gt; 4 Premium   13791 4584. 4349.
+#&gt; 5 Ideal     21551 3458. 3808.
+```
+
+]
+
+.rightcol[
+
+
+```r
+diamonds %&gt;%
+* group_by(color) %&gt;%
+  summarise(
+    n = n(),
+    mean = mean(price),
+    sd = sd(price)
+  )
+```
+
+```
+#&gt; # A tibble: 7 × 4
+#&gt;   color     n  mean    sd
+#&gt;   &lt;ord&gt; &lt;int&gt; &lt;dbl&gt; &lt;dbl&gt;
+#&gt; 1 D      6775 3170. 3357.
+#&gt; 2 E      9797 3077. 3344.
+#&gt; 3 F      9542 3725. 3785.
+#&gt; 4 G     11292 3999. 4051.
+#&gt; 5 H      8304 4487. 4216.
+#&gt; 6 I      5422 5092. 4722.
+#&gt; 7 J      2808 5324. 4438.
+```
+
+]
+
+---
+
+# Convert this to a function
+
+.leftcol[
+
+
+```r
+diamonds %&gt;%
+  group_by(color) %&gt;%
+  summarise(
+    n = n(),
+    mean = mean(price),
+    sd = sd(price)
+  )
+```
+
+```
+#&gt; # A tibble: 7 × 4
+#&gt;   color     n  mean    sd
+#&gt;   &lt;ord&gt; &lt;int&gt; &lt;dbl&gt; &lt;dbl&gt;
+#&gt; 1 D      6775 3170. 3357.
+#&gt; 2 E      9797 3077. 3344.
+#&gt; 3 F      9542 3725. 3785.
+#&gt; 4 G     11292 3999. 4051.
+#&gt; 5 H      8304 4487. 4216.
+#&gt; 6 I      5422 5092. 4722.
+#&gt; 7 J      2808 5324. 4438.
+```
+
+]
+
+.rightcol[
+
+
+```r
+my_summary &lt;- function(df, var) {
+  df %&gt;%
+*   group_by(var) %&gt;%
+    summarise(
+      n = n(),
+      mean = mean(price),
+      sd = sd(price)
+    )
+}
+```
+
+]
+
+---
+
+# ...but this doesn't work
+
+
+```r
+my_summary &lt;- function(df, var) {
+  df %&gt;%
+*   group_by(var) %&gt;%
+    summarise(
+      n = n(),
+      mean = mean(price),
+      sd = sd(price)
+    )
+}
+
+my_summary(diamonds, color)
+```
+
+```
+#&gt; Error in `group_by()`:
+#&gt; ! Must group by variables found in `.data`.
+#&gt; ✖ Column `var` is not found.
+```
+
+---
+
+# **Solution**: "embrace" your variables 🤗
+
+.leftcol[
+
+
+```r
+my_summary &lt;- function(df, var) {
+  df %&gt;%
+*   group_by({{ var }}) %&gt;%
+    summarise(
+      n = n(),
+      mean = mean(price),
+      sd = sd(price)
+    )
+}
+```
+
+]
+
+.rightcol[
+
+
+```r
+my_summary(diamonds, cut)
+```
+
+```
+#&gt; # A tibble: 5 × 4
+#&gt;   cut           n  mean    sd
+#&gt;   &lt;ord&gt;     &lt;int&gt; &lt;dbl&gt; &lt;dbl&gt;
+#&gt; 1 Fair       1610 4359. 3560.
+#&gt; 2 Good       4906 3929. 3682.
+#&gt; 3 Very Good 12082 3982. 3936.
+#&gt; 4 Premium   13791 4584. 4349.
+#&gt; 5 Ideal     21551 3458. 3808.
+```
+
+```r
+my_summary(diamonds, color)
+```
+
+```
+#&gt; # A tibble: 7 × 4
+#&gt;   color     n  mean    sd
+#&gt;   &lt;ord&gt; &lt;int&gt; &lt;dbl&gt; &lt;dbl&gt;
+#&gt; 1 D      6775 3170. 3357.
+#&gt; 2 E      9797 3077. 3344.
+#&gt; 3 F      9542 3725. 3785.
+#&gt; 4 G     11292 3999. 4051.
+#&gt; 5 H      8304 4487. 4216.
+#&gt; 6 I      5422 5092. 4722.
+#&gt; 7 J      2808 5324. 4438.
+```
+
+]
+
+---
+
+### Make it even more general!
+
+
+```r
+my_summary &lt;- function(df, group, var) {
+  df %&gt;%
+    group_by({{ group }}) %&gt;%
+    summarise(
+      n = n(),
+      mean = mean({{ var }}),
+      sd = sd({{ var }})
+    )
+}
+```
+
+
+```r
+my_summary(diamonds, cut, price)
+```
+
+```
+#&gt; # A tibble: 5 × 4
+#&gt;   cut           n  mean    sd
+#&gt;   &lt;ord&gt;     &lt;int&gt; &lt;dbl&gt; &lt;dbl&gt;
+#&gt; 1 Fair       1610 4359. 3560.
+#&gt; 2 Good       4906 3929. 3682.
+#&gt; 3 Very Good 12082 3982. 3936.
+#&gt; 4 Premium   13791 4584. 4349.
+#&gt; 5 Ideal     21551 3458. 3808.
+```
+
+---
+
+### Make it even more general!
+
+
+```r
+my_summary &lt;- function(df, group, var) {
+  df %&gt;%
+    group_by({{ group }}) %&gt;%
+    summarise(
+      n = n(),
+      mean = mean({{ var }}),
+      sd = sd({{ var }})
+    )
+}
+```
+
+
+```r
+my_summary(diamonds, color, carat)
+```
+
+```
+#&gt; # A tibble: 7 × 4
+#&gt;   color     n  mean    sd
+#&gt;   &lt;ord&gt; &lt;int&gt; &lt;dbl&gt; &lt;dbl&gt;
+#&gt; 1 D      6775 0.658 0.360
+#&gt; 2 E      9797 0.658 0.369
+#&gt; 3 F      9542 0.737 0.398
+#&gt; 4 G     11292 0.771 0.441
+#&gt; 5 H      8304 0.912 0.521
+#&gt; 6 I      5422 1.03  0.579
+#&gt; 7 J      2808 1.16  0.596
+```
+
+---
+
+### Use it on a different data frame!
+
+.leftcol[
+
+
+```r
+library(palmerpenguins)
+
+glimpse(penguins)
+```
+
+```
+#&gt; Rows: 344
+#&gt; Columns: 8
+#&gt; $ species           &lt;fct&gt; Adelie, Adelie, Adelie, Adelie, Adelie, Adelie, Adel…
+#&gt; $ island            &lt;fct&gt; Torgersen, Torgersen, Torgersen, Torgersen, Torgerse…
+#&gt; $ bill_length_mm    &lt;dbl&gt; 39.1, 39.5, 40.3, NA, 36.7, 39.3, 38.9, 39.2, 34.1, …
+#&gt; $ bill_depth_mm     &lt;dbl&gt; 18.7, 17.4, 18.0, NA, 19.3, 20.6, 17.8, 19.6, 18.1, …
+#&gt; $ flipper_length_mm &lt;int&gt; 181, 186, 195, NA, 193, 190, 181, 195, 193, 190, 186…
+#&gt; $ body_mass_g       &lt;int&gt; 3750, 3800, 3250, NA, 3450, 3650, 3625, 4675, 3475, …
+#&gt; $ sex               &lt;fct&gt; male, female, female, NA, female, male, female, male…
+#&gt; $ year              &lt;int&gt; 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007…
+```
+
+]
+
+--
+
+.rightcol[
+
+
+```r
+my_summary(penguins, sex, body_mass_g)
+```
+
+```
+#&gt; # A tibble: 3 × 4
+#&gt;   sex        n  mean    sd
+#&gt;   &lt;fct&gt;  &lt;int&gt; &lt;dbl&gt; &lt;dbl&gt;
+#&gt; 1 female   165 3862.  666.
+#&gt; 2 male     168 4546.  788.
+#&gt; 3 &lt;NA&gt;      11   NA    NA
+```
+
+```r
+my_summary(penguins, species, bill_length_mm)
+```
+
+```
+#&gt; # A tibble: 3 × 4
+#&gt;   species       n  mean    sd
+#&gt;   &lt;fct&gt;     &lt;int&gt; &lt;dbl&gt; &lt;dbl&gt;
+#&gt; 1 Adelie      152  NA   NA   
+#&gt; 2 Chinstrap    68  48.8  3.34
+#&gt; 3 Gentoo      124  NA   NA
+```
+
+]
+
+---
+
+### Defining a filter condition
+
+
+```r
+filter_summary &lt;- function(df, condition, var) {
+  df %&gt;%
+*   filter({{ condition }}) %&gt;%
+    summarise(
+      n = n(),
+      mean = mean({{ var }}, na.rm = TRUE),
+      sd = sd({{ var }}, na.rm = TRUE)
+    )
+}
+```
+
+
+```r
+filter_summary(penguins, species == 'Adelie', bill_length_mm)
+```
+
+```
+#&gt; # A tibble: 1 × 3
+#&gt;       n  mean    sd
+#&gt;   &lt;int&gt; &lt;dbl&gt; &lt;dbl&gt;
+#&gt; 1   152  38.8  2.66
+```
+
+---
+
+class: inverse
+
+<div class="countdown" id="timer_e5799ac3" data-warn-when="30" data-update-every="1" tabindex="0" style="top:0;right:0;font-size:2em;">
+<div class="countdown-controls"><button class="countdown-bump-down">&minus;</button><button class="countdown-bump-up">&plus;</button></div>
+<code class="countdown-time"><span class="countdown-digits minutes">15</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
+</div>
+
+## Your turn - write the following functions
+
+.leftcol[
+
+
+```r
+my_subset &lt;- function(df, condition, cols)
+```
+
+Returns a subset of `df` by filtering the rows based on `condition` and only includes the select `cols`. Example:
+
+
+
+
+```r
+nycflights13::flights %&gt;% 
+  my_subset(month == 12, c("carrier", "flight"))
+```
+
+
+```
+#&gt; # A tibble: 5 × 2
+#&gt;   carrier flight
+#&gt;   &lt;chr&gt;    &lt;int&gt;
+#&gt; 1 B6         745
+#&gt; 2 B6         839
+#&gt; 3 US        1895
+#&gt; 4 UA        1487
+#&gt; 5 AA        2243
+```
+
+]
+
+.rightcol[
+
+
+```r
+count_p &lt;- function(df, group)
+```
+
+Returns a summary data frame of the count of rows in `df` by `group` as well as the percentage of those counts.
+
+
+
+
+```r
+nycflights13::flights %&gt;%
+  count_p(carrier)
+```
+
+
+```
+#&gt; # A tibble: 6 × 3
+#&gt;   carrier     n      p
+#&gt;   &lt;chr&gt;   &lt;int&gt;  &lt;dbl&gt;
+#&gt; 1 UA      58665 0.174 
+#&gt; 2 B6      54635 0.162 
+#&gt; 3 EV      54173 0.161 
+#&gt; 4 DL      48110 0.143 
+#&gt; 5 AA      32729 0.0972
+#&gt; 6 MQ      26397 0.0784
+```
+
+]
+
+---
+
+.leftcol[
+
+### Testing data frame functions 
+
+Function: 
+
+
+```r
+my_summary &lt;- function(df, group, var) {
+  df %&gt;%
+    group_by({{ group }}) %&gt;%
+    summarise(
+      n = n(),
+      mean = mean({{ var }}),
+      sd = sd({{ var }})
+    )
+}
+```
+
+]
+
+.rightcol[
+
+Make two data frames and compare them
+
+
+```r
+test_my_summary &lt;- function() {
+  
+  cat("Testing my_summary()...")
+
+  df1 &lt;- diamonds %&gt;% 
+    my_summary(cut, price)  
+  
+  df2 &lt;- diamonds %&gt;% 
+    group_by(cut) %&gt;% 
+    summarise(
+      n = n(),
+      mean = mean(price),
+      sd = sd(price)
+    )
+  
+* stopifnot(identical(df1, df2))
+  
+  cat("passed!")
+}
+
+test_my_summary()
+```
+
+```
+#&gt; Testing my_summary()...passed!
+```
+
+]
+
+---
+
+
+
+class: inverse, middle
+
+# Week 11: .fancy[Programming with Data]
+
+### 1. Writing functions for data frames
+### 2. .orange[Writing custom plot functions]
+
+### BREAK
+
+### 3. Iteration with purrr
+
+---
+
+# Motivation
+
+I want to see a histogram of multiple variables
+
+.leftcol[
+
+
+```r
+diamonds %&gt;%
+  ggplot() +
+  geom_histogram((aes(x = price)))
+```
+
+&lt;img src="figs/unnamed-chunk-36-1.png" width="522.144" /&gt;
+
+]
+
+.rightcol[
+
+
+```r
+diamonds %&gt;%
+  ggplot() +
+  geom_histogram((aes(x = carat)))
+```
+
+&lt;img src="figs/unnamed-chunk-37-1.png" width="522.144" /&gt;
+
+]
+
+---
+
+# Convert this to a function
+
+
+```r
+my_hist &lt;- function(df, var) {
+  df %&gt;%
+    ggplot() +
+    geom_histogram((aes(x = {{ var }}))) # &lt;&lt;
+}
+```
+
+.leftcol[
+
+
+```r
+my_hist(diamonds, price)
+```
+
+&lt;img src="figs/unnamed-chunk-39-1.png" width="522.144" /&gt;
+
+]
+
+.rightcol[
+
+
+```r
+my_hist(diamonds, carat)
+```
+
+&lt;img src="figs/unnamed-chunk-40-1.png" width="522.144" /&gt;
+
+]
+
+---
+
+## Combine with other functions
+
+
+```r
+filtered_hist &lt;- function(df, condition, var) {
+  df %&gt;%
+*   filter({{ condition }}) %&gt;%
+    ggplot() +
+    geom_histogram((aes(x = {{ var }}))) 
+}
+```
+
+.leftcol[
+
+
+```r
+filtered_hist(diamonds, color == "E", price)
+```
+
+&lt;img src="figs/unnamed-chunk-42-1.png" width="522.144" /&gt;
+
+]
+
+.rightcol[
+
+
+```r
+filtered_hist(diamonds, color == "J", price)
+```
+
+&lt;img src="figs/unnamed-chunk-43-1.png" width="522.144" /&gt;
+
+]
+
+---
+
+class: inverse
+
+<div class="countdown" id="timer_54cd85f8" data-warn-when="30" data-update-every="1" tabindex="0" style="top:0;right:0;font-size:2em;">
+<div class="countdown-controls"><button class="countdown-bump-down">&minus;</button><button class="countdown-bump-up">&plus;</button></div>
+<code class="countdown-time"><span class="countdown-digits minutes">10</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
+</div>
+
+## Your turn
+
+Write the function `filtered_cols` which plots a bar chart based on a condition, then use it for the two examples below. 
+
+
+```r
+filtered_cols &lt;- function(df, condition, x, y)
+```
+
+
+
+.leftcol[
+
+
+```r
+filtered_scatter(
+  penguins, sex == "male", 
+  x = body_mass_g, y = bill_length_mm)
+```
+
+&lt;img src="figs/unnamed-chunk-47-1.png" width="360" /&gt;
+
+]
+
+.rightcol[
+
+
+```r
+filtered_scatter(
+  penguins, species == "Gentoo", 
+  x = body_mass_g, y = flipper_length_mm)
+```
+
+&lt;img src="figs/unnamed-chunk-48-1.png" width="360" /&gt;
+
+]
+
+---
+
+## You can add layers to your custom plot functions
+
+
+```r
+filtered_scatter(
+  penguins, species == "Gentoo", 
+  x = body_mass_g, y = flipper_length_mm) + 
+* theme_bw()
+```
+
+&lt;img src="figs/unnamed-chunk-49-1.png" width="360" /&gt;
+
+---
+
+class: inverse, center
+
+# .fancy[Break]
+
+<div class="countdown" id="timer_c7343c90" data-warn-when="30" data-update-every="1" tabindex="0" style="top:1;right:0;bottom:0;left:0;margin:5%;font-size:8em;">
+<div class="countdown-controls"><button class="countdown-bump-down">&minus;</button><button class="countdown-bump-up">&plus;</button></div>
+<code class="countdown-time"><span class="countdown-digits minutes">05</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
+</div>
+
+---
+
+
+
+class: inverse, middle
+
+# Week 11: .fancy[Programming with Data]
+
+### 1. Writing functions for data frames
+### 2. Writing custom plot functions
+
+### BREAK
+
+### 3. .orange[Iteration with purrr]
+
+#### .center[Much of this content is adapted from Shannon Pileggi's workshop at https://github.com/shannonpileggi/iterating-well-with-purrr]
+
+---
+
+class: center, middle 
+
+# Iterating _without_ purrr
+
+---
+
+## Gapminder example
+
+
+```r
+library(gapminder)
+library(tidyverse)
+
+head(gapminder)
+```
+
+```
+#&gt; # A tibble: 6 × 6
+#&gt;   country     continent  year lifeExp      pop gdpPercap
+#&gt;   &lt;fct&gt;       &lt;fct&gt;     &lt;int&gt;   &lt;dbl&gt;    &lt;int&gt;     &lt;dbl&gt;
+#&gt; 1 Afghanistan Asia       1952    28.8  8425333      779.
+#&gt; 2 Afghanistan Asia       1957    30.3  9240934      821.
+#&gt; 3 Afghanistan Asia       1962    32.0 10267083      853.
+#&gt; 4 Afghanistan Asia       1967    34.0 11537966      836.
+#&gt; 5 Afghanistan Asia       1972    36.1 13079460      740.
+#&gt; 6 Afghanistan Asia       1977    38.4 14880372      786.
+```
+
+Hans Rosling discusses Gapminder data https://youtu.be/hVimVzgtD6w
+
+---
+
+## Gapminder life expectancy
+
+&lt;img src="figs/unnamed-chunk-53-1.png" width="1080" /&gt;
+
+---
+
+#### .center[What am I doing here? Are there mistakes?]
+
+
+```r
+africa &lt;- gapminder[gapminder$continent == "Africa", ]
+africa_mm &lt;- max(africa$lifeExp) - min(africa$lifeExp)
+
+americas &lt;- gapminder[gapminder$continent == "Americas", ]
+americas_mm &lt;- max(americas$lifeExp) - min(americas$lifeExp)
+
+asia &lt;- gapminder[gapminder$continent == "Asia", ]
+asia_mm &lt;- max(asia$lifeExp) - min(africa$lifeExp)
+
+europe &lt;- gapminder[gapminder$continent == "Europe", ]
+europe_mm &lt;- max(europe$lifeExp) - min(europe$lifeExp)
+
+oceania &lt;- gapminder[gapminder$continent == "Oceania", ]
+oceania_mm &lt;- max(europe$lifeExp) - min(oceania$lifeExp)
+
+cbind(
+  continent = c("Africa", "Asias", "Europe", "Oceania"),
+  max_minus_min = c(africa_mm, americas_mm, asia_mm, europe_mm, oceania_mm)
+)
+```
+
+<div class="countdown" id="timer_f8009687" data-update-every="1" tabindex="0" style="top:0;right:0;font-size:2em;">
+<div class="countdown-controls"><button class="countdown-bump-down">&minus;</button><button class="countdown-bump-up">&plus;</button></div>
+<code class="countdown-time"><span class="countdown-digits minutes">01</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
+</div>
+
+---
+
+### 1.  What are the drawbacks of this code?
+
+### 2.  How would you do it instead?
+
+
+```r
+africa &lt;- gapminder[gapminder$continent == "Africa", ]
+africa_mm &lt;- max(africa$lifeExp) - min(africa$lifeExp)
+
+americas &lt;- gapminder[gapminder$continent == "Americas", ]
+americas_mm &lt;- max(americas$lifeExp) - min(americas$lifeExp)
+
+asia &lt;- gapminder[gapminder$continent == "Asia", ]
+asia_mm &lt;- max(asia$lifeExp) - min(africa$lifeExp)
+
+europe &lt;- gapminder[gapminder$continent == "Europe", ]
+europe_mm &lt;- max(europe$lifeExp) - min(europe$lifeExp)
+
+oceania &lt;- gapminder[gapminder$continent == "Oceania", ]
+oceania_mm &lt;- max(europe$lifeExp) - min(oceania$lifeExp)
+
+cbind(
+  continent = c("Africa", "Asias", "Europe", "Oceania"),
+  max_minus_min = c(africa_mm, americas_mm, asia_mm, europe_mm, oceania_mm)
+)
+```
+
+---
+
+## An alternative solution
+
+
+```r
+gapminder %&gt;% 
+ group_by(continent) %&gt;% 
+ summarize(max_minus_min = max(lifeExp) - min(lifeExp))
+```
+
+--
+
+.leftcol[
+
+`group_by` approach
+
+
+```
+#&gt; # A tibble: 5 × 2
+#&gt;   continent max_minus_min
+#&gt;   &lt;fct&gt;             &lt;dbl&gt;
+#&gt; 1 Africa             52.8
+#&gt; 2 Americas           43.1
+#&gt; 3 Asia               53.8
+#&gt; 4 Europe             38.2
+#&gt; 5 Oceania            12.1
+```
+
+]
+
+.rightcol[
+
+previous approach
+
+
+```
+#&gt;      continent max_minus_min
+#&gt; [1,] "Africa"  "52.843"     
+#&gt; [2,] "Asias"   "43.074"     
+#&gt; [3,] "Europe"  "59.004"     
+#&gt; [4,] "Oceania" "38.172"     
+#&gt; [5,] "Africa"  "12.637"
+```
+
+]
+
+---
+
+## More iteration
+
+
+```r
+year &lt;- 2017:2021
+location &lt;- c("Orlando", "San Diego", "Austin", "San Francisco", "remote")
+
+conf &lt;- rep("", length(year))
+for (i in 1:length(conf)) {
+ conf[i] &lt;- paste0("The ", year[i], " RStudio Conference was in ", location[i], ".")
+}
+conf
+```
+
+```
+#&gt; [1] "The 2017 RStudio Conference was in Orlando."      
+#&gt; [2] "The 2018 RStudio Conference was in San Diego."    
+#&gt; [3] "The 2019 RStudio Conference was in Austin."       
+#&gt; [4] "The 2020 RStudio Conference was in San Francisco."
+#&gt; [5] "The 2021 RStudio Conference was in remote."
+```
+
+--
+
+#### Can you think of other ways to do this?
+
+---
+
+## More iteration, cont.
+
+
+```r
+year &lt;- 2017:2021
+location &lt;- c("Orlando", "San Diego", "Austin", "San Francisco", "remote")
+```
+
+--
+
+
+```r
+paste0("The ", year, " RStudio Conference was in ", location, ".")
+```
+
+```
+#&gt; [1] "The 2017 RStudio Conference was in Orlando."      
+#&gt; [2] "The 2018 RStudio Conference was in San Diego."    
+#&gt; [3] "The 2019 RStudio Conference was in Austin."       
+#&gt; [4] "The 2020 RStudio Conference was in San Francisco."
+#&gt; [5] "The 2021 RStudio Conference was in remote."
+```
+
+--
+
+
+```r
+glue::glue("The {year} RStudio Conference was in {location}.")
+```
+
+```
+#&gt; The 2017 RStudio Conference was in Orlando.
+#&gt; The 2018 RStudio Conference was in San Diego.
+#&gt; The 2019 RStudio Conference was in Austin.
+#&gt; The 2020 RStudio Conference was in San Francisco.
+#&gt; The 2021 RStudio Conference was in remote.
+```
+
+---
+
+class: center, middle 
+
+# Introducing `purrr`
+
+&lt;center&gt;
+&lt;img src="https://purrr.tidyverse.org/logo.png" width=200&gt;
+&lt;/center&gt;
+
+Loaded automatically with `library(tidyverse)`
+
+---
+
+class: center, middle
+
+## `purrr::map(x, f, ...)`
+
+&lt;br&gt;
+
+--
+
+## for every element of `x` do `f`
+
+---
+
+background-image: url("images/lego1.jpeg")
+background-size: contain
+class: center
+
+&lt;br&gt;
+
+## `x = minis`
+
+## `f = add_antenna`
+
+---
+
+background-image: url("images/lego2.jpeg")
+background-size: contain
+class: center
+
+&lt;br&gt;
+
+## `map(minis, add_antenna)`
+
+---
+
+class: center 
+
+## for every element of `x` do `f`
+
+&lt;center&gt;
+&lt;img src="images/map.png" width=650&gt;
+&lt;/center&gt;
+
+---
+
+## `map()` returns a list 
+
+Vector example 
+
+
+```r
+addTen &lt;- function(x) {
+  return(x + 10)
+}
+```
+
+--
+
+
+```r
+map(c(1, 7, 13), addTen)
+```
+
+--
+
+
+```
+#&gt; [[1]]
+#&gt; [1] 11
+#&gt; 
+#&gt; [[2]]
+#&gt; [1] 17
+#&gt; 
+#&gt; [[3]]
+#&gt; [1] 23
+```
+
+---
+
+## .center[Working with lists feels like...]
+
+&lt;center&gt;
+&lt;img src="images/drink-water.gif" width=800&gt;
+&lt;/center&gt;
+
+.center[https://media.giphy.com/media/Bqn8Z7xdPCFy0/giphy.gif]
+
+---
+
+## .center[Subsetting lists]
+
+&lt;center&gt;
+&lt;img src="images/list-train.png" width=900&gt;
+&lt;/center&gt;
+
+.font87[source: https://shannonpileggi.github.io/iterating-well-with-purrr/#/subsetting-lists]
+
+---
+
+&lt;center&gt;
+&lt;img src="images/list-train.png" width=700&gt;
+&lt;/center&gt;
+
+.leftcol[
+
+
+```r
+x &lt;- list(c(1, 2, 3), "a", c(4, 5, 6))
+```
+
+]
+
+.rightcol[
+
+
+```r
+x[1]
+```
+
+```
+#&gt; [[1]]
+#&gt; [1] 1 2 3
+```
+
+```r
+x[[1]]
+```
+
+```
+#&gt; [1] 1 2 3
+```
+
+]
+
+---
+
+# Example data: `sw_people`
+
+
+```r
+library(repurrrsive)
+```
+
+.leftcol[
+
+
+```r
+sw_people
+```
+
+```
+#&gt; [[1]]
+#&gt; [[1]]$name
+#&gt; [1] "Luke Skywalker"
+#&gt; 
+#&gt; [[1]]$height
+#&gt; [1] "172"
+#&gt; 
+#&gt; [[1]]$mass
+#&gt; [1] "77"
+#&gt; 
+#&gt; [[1]]$hair_color
+#&gt; [1] "blond"
+#&gt; 
+#&gt; [[1]]$skin_color
+#&gt; [1] "fair"
+#&gt; 
+#&gt; [[1]]$eye_color
+#&gt; [1] "blue"
+#&gt; 
+#&gt; [[1]]$birth_year
+#&gt; [1] "19BBY"
+#&gt; 
+#&gt; [[1]]$gender
+#&gt; [1] "male"
+#&gt; 
+#&gt; [[1]]$homeworld
+#&gt; [1] "http://swapi.co/api/planets/1/"
+#&gt; 
+#&gt; [[1]]$films
+#&gt; [1] "http://swapi.co/api/films/6/" "http://swapi.co/api/films/3/"
+#&gt; [3] "http://swapi.co/api/films/2/" "http://swapi.co/api/films/1/"
+#&gt; [5] "http://swapi.co/api/films/7/"
+#&gt; 
+#&gt; [[1]]$species
+#&gt; [1] "http://swapi.co/api/species/1/"
+#&gt; 
+#&gt; [[1]]$vehicles
+#&gt; [1] "http://swapi.co/api/vehicles/14/" "http://swapi.co/api/vehicles/30/"
+#&gt; 
+#&gt; [[1]]$starships
+#&gt; [1] "http://swapi.co/api/starships/12/" "http://swapi.co/api/starships/22/"
+#&gt; 
+#&gt; [[1]]$created
+#&gt; [1] "2014-12-09T13:50:51.644000Z"
+#&gt; 
+#&gt; [[1]]$edited
+#&gt; [1] "2014-12-20T21:17:56.891000Z"
+#&gt; 
+#&gt; [[1]]$url
+#&gt; [1] "http://swapi.co/api/people/1/"
+#&gt; 
+#&gt; 
+#&gt; [[2]]
+#&gt; [[2]]$name
+#&gt; [1] "C-3PO"
+#&gt; 
+#&gt; [[2]]$height
+#&gt; [1] "167"
+#&gt; 
+#&gt; [[2]]$mass
+#&gt; [1] "75"
+#&gt; 
+#&gt; [[2]]$hair_color
+#&gt; [1] "n/a"
+#&gt; 
+#&gt; [[2]]$skin_color
+#&gt; [1] "gold"
+#&gt; 
+#&gt; [[2]]$eye_color
+#&gt; [1] "yellow"
+#&gt; 
+#&gt; [[2]]$birth_year
+#&gt; [1] "112BBY"
+#&gt; 
+#&gt; [[2]]$gender
+#&gt; [1] "n/a"
+#&gt; 
+#&gt; [[2]]$homeworld
+#&gt; [1] "http://swapi.co/api/planets/1/"
+#&gt; 
+#&gt; [[2]]$films
+#&gt; [1] "http://swapi.co/api/films/5/" "http://swapi.co/api/films/4/"
+#&gt; [3] "http://swapi.co/api/films/6/" "http://swapi.co/api/films/3/"
+#&gt; [5] "http://swapi.co/api/films/2/" "http://swapi.co/api/films/1/"
+#&gt; 
+#&gt; [[2]]$species
+#&gt; [1] "http://swapi.co/api/species/2/"
+#&gt; 
+#&gt; [[2]]$created
+#&gt; [1] "2014-12-10T15:10:51.357000Z"
+#&gt; 
+#&gt; [[2]]$edited
+#&gt; [1] "2014-12-20T21:17:50.309000Z"
+#&gt; 
+#&gt; [[2]]$url
+#&gt; [1] "http://swapi.co/api/people/2/"
+#&gt; 
+#&gt; 
+#&gt; [[3]]
+#&gt; [[3]]$name
+#&gt; [1] "R2-D2"
+#&gt; 
+#&gt; [[3]]$height
+#&gt; [1] "96"
+#&gt; 
+#&gt; [[3]]$mass
+#&gt; [1] "32"
+#&gt; 
+#&gt; [[3]]$hair_color
+#&gt; [1] "n/a"
+#&gt; 
+#&gt; [[3]]$skin_color
+#&gt; [1] "white, blue"
+#&gt; 
+#&gt; [[3]]$eye_color
+#&gt; [1] "red"
+#&gt; 
+#&gt; [[3]]$birth_year
+#&gt; [1] "33BBY"
+#&gt; 
+#&gt; [[3]]$gender
+#&gt; [1] "n/a"
+#&gt; 
+#&gt; [[3]]$homeworld
+#&gt; [1] "http://swapi.co/api/planets/8/"
+#&gt; 
+#&gt; [[3]]$films
+#&gt; [1] "http://swapi.co/api/films/5/" "http://swapi.co/api/films/4/"
+#&gt; [3] "http://swapi.co/api/films/6/" "http://swapi.co/api/films/3/"
+#&gt; [5] "http://swapi.co/api/films/2/" "http://swapi.co/api/films/1/"
+#&gt; [7] "http://swapi.co/api/films/7/"
+#&gt; 
+#&gt; [[3]]$species
+#&gt; [1] "http://swapi.co/api/species/2/"
+#&gt; 
+#&gt; [[3]]$created
+#&gt; [1] "2014-12-10T15:11:50.376000Z"
+#&gt; 
+#&gt; [[3]]$edited
+#&gt; [1] "2014-12-20T21:17:50.311000Z"
+#&gt; 
+#&gt; [[3]]$url
+#&gt; [1] "http://swapi.co/api/people/3/"
+#&gt; 
+#&gt; 
+#&gt; [[4]]
+#&gt; [[4]]$name
+#&gt; [1] "Darth Vader"
+#&gt; 
+#&gt; [[4]]$height
+#&gt; [1] "202"
+#&gt; 
+#&gt; [[4]]$mass
+#&gt; [1] "136"
+#&gt; 
+#&gt; [[4]]$hair_color
+#&gt; [1] "none"
+#&gt; 
+#&gt; [[4]]$skin_color
+#&gt; [1] "white"
+#&gt; 
+#&gt; [[4]]$eye_color
+#&gt; [1] "yellow"
+#&gt; 
+#&gt; [[4]]$birth_year
+#&gt; [1] "41.9BBY"
+#&gt; 
+#&gt; [[4]]$gender
+#&gt; [1] "male"
+#&gt; 
+#&gt; [[4]]$homeworld
+#&gt; [1] "http://swapi.co/api/planets/1/"
+#&gt; 
+#&gt; [[4]]$films
+#&gt; [1] "http://swapi.co/api/films/6/" "http://swapi.co/api/films/3/"
+#&gt; [3] "http://swapi.co/api/films/2/" "http://swapi.co/api/films/1/"
+#&gt; 
+#&gt; [[4]]$species
+#&gt; [1] "http://swapi.co/api/species/1/"
+#&gt; 
+#&gt; [[4]]$starships
+#&gt; [1] "http://swapi.co/api/starships/13/"
+#&gt; 
+#&gt; [[4]]$created
+#&gt; [1] "2014-12-10T15:18:20.704000Z"
+#&gt; 
+#&gt; [[4]]$edited
+#&gt; [1] "2014-12-20T21:17:50.313000Z"
+#&gt; 
+#&gt; [[4]]$url
+#&gt; [1] "http://swapi.co/api/people/4/"
+#&gt; 
+#&gt; 
+#&gt; [[5]]
+#&gt; [[5]]$name
+#&gt; [1] "Leia Organa"
+#&gt; 
+#&gt; [[5]]$height
+#&gt; [1] "150"
+#&gt; 
+#&gt; [[5]]$mass
+#&gt; [1] "49"
+#&gt; 
+#&gt; [[5]]$hair_color
+#&gt; [1] "brown"
+#&gt; 
+#&gt; [[5]]$skin_color
+#&gt; [1] "light"
+#&gt; 
+#&gt; [[5]]$eye_color
+#&gt; [1] "brown"
+#&gt; 
+#&gt; [[5]]$birth_year
+#&gt; [1] "19BBY"
+#&gt; 
+#&gt; [[5]]$gender
+#&gt; [1] "female"
+#&gt; 
+#&gt; [[5]]$homeworld
+#&gt; [1] "http://swapi.co/api/planets/2/"
+#&gt; 
+#&gt; [[5]]$films
+#&gt; [1] "http://swapi.co/api/films/6/" "http://swapi.co/api/films/3/"
+#&gt; [3] "http://swapi.co/api/films/2/" "http://swapi.co/api/films/1/"
+#&gt; [5] "http://swapi.co/api/films/7/"
+#&gt; 
+#&gt; [[5]]$species
+#&gt; [1] "http://swapi.co/api/species/1/"
+#&gt; 
+#&gt; [[5]]$vehicles
+#&gt; [1] "http://swapi.co/api/vehicles/30/"
+#&gt; 
+#&gt; [[5]]$created
+#&gt; [1] "2014-12-10T15:20:09.791000Z"
+#&gt; 
+#&gt; [[5]]$edited
+#&gt; [1] "2014-12-20T21:17:50.315000Z"
+#&gt; 
+#&gt; [[5]]$url
+#&gt; [1] "http://swapi.co/api/people/5/"
+#&gt; 
+#&gt; 
+#&gt; [[6]]
+#&gt; [[6]]$name
+#&gt; [1] "Owen Lars"
+#&gt; 
+#&gt; [[6]]$height
+#&gt; [1] "178"
+#&gt; 
+#&gt; [[6]]$mass
+#&gt; [1] "120"
+#&gt; 
+#&gt; [[6]]$hair_color
+#&gt; [1] "brown, grey"
+#&gt; 
+#&gt; [[6]]$skin_color
+#&gt; [1] "light"
+#&gt; 
+#&gt; [[6]]$eye_color
+#&gt; [1] "blue"
+#&gt; 
+#&gt; [[6]]$birth_year
+#&gt; [1] "52BBY"
+#&gt; 
+#&gt; [[6]]$gender
+#&gt; [1] "male"
+#&gt; 
+#&gt; [[6]]$homeworld
+#&gt; [1] "http://swapi.co/api/planets/1/"
+#&gt; 
+#&gt; [[6]]$films
+#&gt; [1] "http://swapi.co/api/films/5/" "http://swapi.co/api/films/6/"
+#&gt; [3] "http://swapi.co/api/films/1/"
+#&gt; 
+#&gt; [[6]]$species
+#&gt; [1] "http://swapi.co/api/species/1/"
+#&gt; 
+#&gt; [[6]]$created
+#&gt; [1] "2014-12-10T15:52:14.024000Z"
+#&gt; 
+#&gt; [[6]]$edited
+#&gt; [1] "2014-12-20T21:17:50.317000Z"
+#&gt; 
+#&gt; [[6]]$url
+#&gt; [1] "http://swapi.co/api/people/6/"
+#&gt; 
+#&gt; 
+#&gt; [[7]]
+#&gt; [[7]]$name
+#&gt; [1] "Beru Whitesun lars"
+#&gt; 
+#&gt; [[7]]$height
+#&gt; [1] "165"
+#&gt; 
+#&gt; [[7]]$mass
+#&gt; [1] "75"
+#&gt; 
+#&gt; [[7]]$hair_color
+#&gt; [1] "brown"
+#&gt; 
+#&gt; [[7]]$skin_color
+#&gt; [1] "light"
+#&gt; 
+#&gt; [[7]]$eye_color
+#&gt; [1] "blue"
+#&gt; 
+#&gt; [[7]]$birth_year
+#&gt; [1] "47BBY"
+#&gt; 
+#&gt; [[7]]$gender
+#&gt; [1] "female"
+#&gt; 
+#&gt; [[7]]$homeworld
+#&gt; [1] "http://swapi.co/api/planets/1/"
+#&gt; 
+#&gt; [[7]]$films
+#&gt; [1] "http://swapi.co/api/films/5/" "http://swapi.co/api/films/6/"
+#&gt; [3] "http://swapi.co/api/films/1/"
+#&gt; 
+#&gt; [[7]]$species
+#&gt; [1] "http://swapi.co/api/species/1/"
+#&gt; 
+#&gt; [[7]]$created
+#&gt; [1] "2014-12-10T15:53:41.121000Z"
+#&gt; 
+#&gt; [[7]]$edited
+#&gt; [1] "2014-12-20T21:17:50.319000Z"
+#&gt; 
+#&gt; [[7]]$url
+#&gt; [1] "http://swapi.co/api/people/7/"
+#&gt; 
+#&gt; 
+#&gt; [[8]]
+#&gt; [[8]]$name
+#&gt; [1] "R5-D4"
+#&gt; 
+#&gt; [[8]]$height
+#&gt; [1] "97"
+#&gt; 
+#&gt; [[8]]$mass
+#&gt; [1] "32"
+#&gt; 
+#&gt; [[8]]$hair_color
+#&gt; [1] "n/a"
+#&gt; 
+#&gt; [[8]]$skin_color
+#&gt; [1] "white, red"
+#&gt; 
+#&gt; [[8]]$eye_color
+#&gt; [1] "red"
+#&gt; 
+#&gt; [[8]]$birth_year
+#&gt; [1] "unknown"
+#&gt; 
+#&gt; [[8]]$gender
+#&gt; [1] "n/a"
+#&gt; 
+#&gt; [[8]]$homeworld
+#&gt; [1] "http://swapi.co/api/planets/1/"
+#&gt; 
+#&gt; [[8]]$films
+#&gt; [1] "http://swapi.co/api/films/1/"
+#&gt; 
+#&gt; [[8]]$species
+#&gt; [1] "http://swapi.co/api/species/2/"
+#&gt; 
+#&gt; [[8]]$created
+#&gt; [1] "2014-12-10T15:57:50.959000Z"
+#&gt; 
+#&gt; [[8]]$edited
+#&gt; [1] "2014-12-20T21:17:50.321000Z"
+#&gt; 
+#&gt; [[8]]$url
+#&gt; [1] "http://swapi.co/api/people/8/"
+#&gt; 
+#&gt; 
+#&gt; [[9]]
+#&gt; [[9]]$name
+#&gt; [1] "Biggs Darklighter"
+#&gt; 
+#&gt; [[9]]$height
+#&gt; [1] "183"
+#&gt; 
+#&gt; [[9]]$mass
+#&gt; [1] "84"
+#&gt; 
+#&gt; [[9]]$hair_color
+#&gt; [1] "black"
+#&gt; 
+#&gt; [[9]]$skin_color
+#&gt; [1] "light"
+#&gt; 
+#&gt; [[9]]$eye_color
+#&gt; [1] "brown"
+#&gt; 
+#&gt; [[9]]$birth_year
+#&gt; [1] "24BBY"
+#&gt; 
+#&gt; [[9]]$gender
+#&gt; [1] "male"
+#&gt; 
+#&gt; [[9]]$homeworld
+#&gt; [1] "http://swapi.co/api/planets/1/"
+#&gt; 
+#&gt; [[9]]$films
+#&gt; [1] "http://swapi.co/api/films/1/"
+#&gt; 
+#&gt; [[9]]$species
+#&gt; [1] "http://swapi.co/api/species/1/"
+#&gt; 
+#&gt; [[9]]$starships
+#&gt; [1] "http://swapi.co/api/starships/12/"
+#&gt; 
+#&gt; [[9]]$created
+#&gt; [1] "2014-12-10T15:59:50.509000Z"
+#&gt; 
+#&gt; [[9]]$edited
+#&gt; [1] "2014-12-20T21:17:50.323000Z"
+#&gt; 
+#&gt; [[9]]$url
+#&gt; [1] "http://swapi.co/api/people/9/"
+#&gt; 
+#&gt; 
+#&gt; [[10]]
+#&gt; [[10]]$name
+#&gt; [1] "Obi-Wan Kenobi"
+#&gt; 
+#&gt; [[10]]$height
+#&gt; [1] "182"
+#&gt; 
+#&gt; [[10]]$mass
+#&gt; [1] "77"
+#&gt; 
+#&gt; [[10]]$hair_color
+#&gt; [1] "auburn, white"
+#&gt; 
+#&gt; [[10]]$skin_color
+#&gt; [1] "fair"
+#&gt; 
+#&gt; [[10]]$eye_color
+#&gt; [1] "blue-gray"
+#&gt; 
+#&gt; [[10]]$birth_year
+#&gt; [1] "57BBY"
+#&gt; 
+#&gt; [[10]]$gender
+#&gt; [1] "male"
+#&gt; 
+#&gt; [[10]]$homeworld
+#&gt; [1] "http://swapi.co/api/planets/20/"
+#&gt; 
+#&gt; [[10]]$films
+#&gt; [1] "http://swapi.co/api/films/5/" "http://swapi.co/api/films/4/"
+#&gt; [3] "http://swapi.co/api/films/6/" "http://swapi.co/api/films/3/"
+#&gt; [5] "http://swapi.co/api/films/2/" "http://swapi.co/api/films/1/"
+#&gt; 
+#&gt; [[10]]$species
+#&gt; [1] "http://swapi.co/api/species/1/"
+#&gt; 
+#&gt; [[10]]$vehicles
+#&gt; [1] "http://swapi.co/api/vehicles/38/"
+#&gt; 
+#&gt; [[10]]$starships
+#&gt; [1] "http://swapi.co/api/starships/48/" "http://swapi.co/api/starships/59/"
+#&gt; [3] "http://swapi.co/api/starships/64/" "http://swapi.co/api/starships/65/"
+#&gt; [5] "http://swapi.co/api/starships/74/"
+#&gt; 
+#&gt; [[10]]$created
+#&gt; [1] "2014-12-10T16:16:29.192000Z"
+#&gt; 
+#&gt; [[10]]$edited
+#&gt; [1] "2014-12-20T21:17:50.325000Z"
+#&gt; 
+#&gt; [[10]]$url
+#&gt; [1] "http://swapi.co/api/people/10/"
+#&gt; 
+#&gt; 
+#&gt; [[11]]
+#&gt; [[11]]$name
+#&gt; [1] "Anakin Skywalker"
+#&gt; 
+#&gt; [[11]]$height
+#&gt; [1] "188"
+#&gt; 
+#&gt; [[11]]$mass
+#&gt; [1] "84"
+#&gt; 
+#&gt; [[11]]$hair_color
+#&gt; [1] "blond"
+#&gt; 
+#&gt; [[11]]$skin_color
+#&gt; [1] "fair"
+#&gt; 
+#&gt; [[11]]$eye_color
+#&gt; [1] "blue"
+#&gt; 
+#&gt; [[11]]$birth_year
+#&gt; [1] "41.9BBY"
+#&gt; 
+#&gt; [[11]]$gender
+#&gt; [1] "male"
+#&gt; 
+#&gt; [[11]]$homeworld
+#&gt; [1] "http://swapi.co/api/planets/1/"
+#&gt; 
+#&gt; [[11]]$films
+#&gt; [1] "http://swapi.co/api/films/5/" "http://swapi.co/api/films/4/"
+#&gt; [3] "http://swapi.co/api/films/6/"
+#&gt; 
+#&gt; [[11]]$species
+#&gt; [1] "http://swapi.co/api/species/1/"
+#&gt; 
+#&gt; [[11]]$vehicles
+#&gt; [1] "http://swapi.co/api/vehicles/44/" "http://swapi.co/api/vehicles/46/"
+#&gt; 
+#&gt; [[11]]$starships
+#&gt; [1] "http://swapi.co/api/starships/59/" "http://swapi.co/api/starships/65/"
+#&gt; [3] "http://swapi.co/api/starships/39/"
+#&gt; 
+#&gt; [[11]]$created
+#&gt; [1] "2014-12-10T16:20:44.310000Z"
+#&gt; 
+#&gt; [[11]]$edited
+#&gt; [1] "2014-12-20T21:17:50.327000Z"
+#&gt; 
+#&gt; [[11]]$url
+#&gt; [1] "http://swapi.co/api/people/11/"
+#&gt; 
+#&gt; 
+#&gt; [[12]]
+#&gt; [[12]]$name
+#&gt; [1] "Wilhuff Tarkin"
+#&gt; 
+#&gt; [[12]]$height
+#&gt; [1] "180"
+#&gt; 
+#&gt; [[12]]$mass
+#&gt; [1] "unknown"
+#&gt; 
+#&gt; [[12]]$hair_color
+#&gt; [1] "auburn, grey"
+#&gt; 
+#&gt; [[12]]$skin_color
+#&gt; [1] "fair"
+#&gt; 
+#&gt; [[12]]$eye_color
+#&gt; [1] "blue"
+#&gt; 
+#&gt; [[12]]$birth_year
+#&gt; [1] "64BBY"
+#&gt; 
+#&gt; [[12]]$gender
+#&gt; [1] "male"
+#&gt; 
+#&gt; [[12]]$homeworld
+#&gt; [1] "http://swapi.co/api/planets/21/"
+#&gt; 
+#&gt; [[12]]$films
+#&gt; [1] "http://swapi.co/api/films/6/" "http://swapi.co/api/films/1/"
+#&gt; 
+#&gt; [[12]]$species
+#&gt; [1] "http://swapi.co/api/species/1/"
+#&gt; 
+#&gt; [[12]]$created
+#&gt; [1] "2014-12-10T16:26:56.138000Z"
+#&gt; 
+#&gt; [[12]]$edited
+#&gt; [1] "2014-12-20T21:17:50.330000Z"
+#&gt; 
+#&gt; [[12]]$url
+#&gt; [1] "http://swapi.co/api/people/12/"
+#&gt; 
+#&gt; 
+#&gt; [[13]]
+#&gt; [[13]]$name
+#&gt; [1] "Chewbacca"
+#&gt; 
+#&gt; [[13]]$height
+#&gt; [1] "228"
+#&gt; 
+#&gt; [[13]]$mass
+#&gt; [1] "112"
+#&gt; 
+#&gt; [[13]]$hair_color
+#&gt; [1] "brown"
+#&gt; 
+#&gt; [[13]]$skin_color
+#&gt; [1] "unknown"
+#&gt; 
+#&gt; [[13]]$eye_color
+#&gt; [1] "blue"
+#&gt; 
+#&gt; [[13]]$birth_year
+#&gt; [1] "200BBY"
+#&gt; 
+#&gt; [[13]]$gender
+#&gt; [1] "male"
+#&gt; 
+#&gt; [[13]]$homeworld
+#&gt; [1] "http://swapi.co/api/planets/14/"
+#&gt; 
+#&gt; [[13]]$films
+#&gt; [1] "http://swapi.co/api/films/6/" "http://swapi.co/api/films/3/"
+#&gt; [3] "http://swapi.co/api/films/2/" "http://swapi.co/api/films/1/"
+#&gt; [5] "http://swapi.co/api/films/7/"
+#&gt; 
+#&gt; [[13]]$species
+#&gt; [1] "http://swapi.co/api/species/3/"
+#&gt; 
+#&gt; [[13]]$vehicles
+#&gt; [1] "http://swapi.co/api/vehicles/19/"
+#&gt; 
+#&gt; [[13]]$starships
+#&gt; [1] "http://swapi.co/api/starships/10/" "http://swapi.co/api/starships/22/"
+#&gt; 
+#&gt; [[13]]$created
+#&gt; [1] "2014-12-10T16:42:45.066000Z"
+#&gt; 
+#&gt; [[13]]$edited
+#&gt; [1] "2014-12-20T21:17:50.332000Z"
+#&gt; 
+#&gt; [[13]]$url
+#&gt; [1] "http://swapi.co/api/people/13/"
+#&gt; 
+#&gt; 
+#&gt; [[14]]
+#&gt; [[14]]$name
+#&gt; [1] "Han Solo"
+#&gt; 
+#&gt; [[14]]$height
+#&gt; [1] "180"
+#&gt; 
+#&gt; [[14]]$mass
+#&gt; [1] "80"
+#&gt; 
+#&gt; [[14]]$hair_color
+#&gt; [1] "brown"
+#&gt; 
+#&gt; [[14]]$skin_color
+#&gt; [1] "fair"
+#&gt; 
+#&gt; [[14]]$eye_color
+#&gt; [1] "brown"
+#&gt; 
+#&gt; [[14]]$birth_year
+#&gt; [1] "29BBY"
+#&gt; 
+#&gt; [[14]]$gender
+#&gt; [1] "male"
+#&gt; 
+#&gt; [[14]]$homeworld
+#&gt; [1] "http://swapi.co/api/planets/22/"
+#&gt; 
+#&gt; [[14]]$films
+#&gt; [1] "http://swapi.co/api/films/3/" "http://swapi.co/api/films/2/"
+#&gt; [3] "http://swapi.co/api/films/1/" "http://swapi.co/api/films/7/"
+#&gt; 
+#&gt; [[14]]$species
+#&gt; [1] "http://swapi.co/api/species/1/"
+#&gt; 
+#&gt; [[14]]$starships
+#&gt; [1] "http://swapi.co/api/starships/10/" "http://swapi.co/api/starships/22/"
+#&gt; 
+#&gt; [[14]]$created
+#&gt; [1] "2014-12-10T16:49:14.582000Z"
+#&gt; 
+#&gt; [[14]]$edited
+#&gt; [1] "2014-12-20T21:17:50.334000Z"
+#&gt; 
+#&gt; [[14]]$url
+#&gt; [1] "http://swapi.co/api/people/14/"
+#&gt; 
+#&gt; 
+#&gt; [[15]]
+#&gt; [[15]]$name
+#&gt; [1] "Greedo"
+#&gt; 
+#&gt; [[15]]$height
+#&gt; [1] "173"
+#&gt; 
+#&gt; [[15]]$mass
+#&gt; [1] "74"
+#&gt; 
+#&gt; [[15]]$hair_color
+#&gt; [1] "n/a"
+#&gt; 
+#&gt; [[15]]$skin_color
+#&gt; [1] "green"
+#&gt; 
+#&gt; [[15]]$eye_color
+#&gt; [1] "black"
+#&gt; 
+#&gt; [[15]]$birth_year
+#&gt; [1] "44BBY"
+#&gt; 
+#&gt; [[15]]$gender
+#&gt; [1] "male"
+#&gt; 
+#&gt; [[15]]$homeworld
+#&gt; [1] "http://swapi.co/api/planets/23/"
+#&gt; 
+#&gt; [[15]]$films
+#&gt; [1] "http://swapi.co/api/films/1/"
+#&gt; 
+#&gt; [[15]]$species
+#&gt; [1] "http://swapi.co/api/species/4/"
+#&gt; 
+#&gt; [[15]]$created
+#&gt; [1] "2014-12-10T17:03:30.334000Z"
+#&gt; 
+#&gt; [[15]]$edited
+#&gt; [1] "2014-12-20T21:17:50.336000Z"
+#&gt; 
+#&gt; [[15]]$url
+#&gt; [1] "http://swapi.co/api/people/15/"
+#&gt; 
+#&gt; 
+#&gt; [[16]]
+#&gt; [[16]]$name
+#&gt; [1] "Jabba Desilijic Tiure"
+#&gt; 
+#&gt; [[16]]$height
+#&gt; [1] "175"
+#&gt; 
+#&gt; [[16]]$mass
+#&gt; [1] "1,358"
+#&gt; 
+#&gt; [[16]]$hair_color
+#&gt; [1] "n/a"
+#&gt; 
+#&gt; [[16]]$skin_color
+#&gt; [1] "green-tan, brown"
+#&gt; 
+#&gt; [[16]]$eye_color
+#&gt; [1] "orange"
+#&gt; 
+#&gt; [[16]]$birth_year
+#&gt; [1] "600BBY"
+#&gt; 
+#&gt; [[16]]$gender
+#&gt; [1] "hermaphrodite"
+#&gt; 
+#&gt; [[16]]$homeworld
+#&gt; [1] "http://swapi.co/api/planets/24/"
+#&gt; 
+#&gt; [[16]]$films
+#&gt; [1] "http://swapi.co/api/films/4/" "http://swapi.co/api/films/3/"
+#&gt; [3] "http://swapi.co/api/films/1/"
+#&gt; 
+#&gt; [[16]]$species
+#&gt; [1] "http://swapi.co/api/species/5/"
+#&gt; 
+#&gt; [[16]]$created
+#&gt; [1] "2014-12-10T17:11:31.638000Z"
+#&gt; 
+#&gt; [[16]]$edited
+#&gt; [1] "2014-12-20T21:17:50.338000Z"
+#&gt; 
+#&gt; [[16]]$url
+#&gt; [1] "http://swapi.co/api/people/16/"
+#&gt; 
+#&gt; 
+#&gt; [[17]]
+#&gt; [[17]]$name
+#&gt; [1] "Wedge Antilles"
+#&gt; 
+#&gt; [[17]]$height
+#&gt; [1] "170"
+#&gt; 
+#&gt; [[17]]$mass
+#&gt; [1] "77"
+#&gt; 
+#&gt; [[17]]$hair_color
+#&gt; [1] "brown"
+#&gt; 
+#&gt; [[17]]$skin_color
+#&gt; [1] "fair"
+#&gt; 
+#&gt; [[17]]$eye_color
+#&gt; [1] "hazel"
+#&gt; 
+#&gt; [[17]]$birth_year
+#&gt; [1] "21BBY"
+#&gt; 
+#&gt; [[17]]$gender
+#&gt; [1] "male"
+#&gt; 
+#&gt; [[17]]$homeworld
+#&gt; [1] "http://swapi.co/api/planets/22/"
+#&gt; 
+#&gt; [[17]]$films
+#&gt; [1] "http://swapi.co/api/films/3/" "http://swapi.co/api/films/2/"
+#&gt; [3] "http://swapi.co/api/films/1/"
+#&gt; 
+#&gt; [[17]]$species
+#&gt; [1] "http://swapi.co/api/species/1/"
+#&gt; 
+#&gt; [[17]]$vehicles
+#&gt; [1] "http://swapi.co/api/vehicles/14/"
+#&gt; 
+#&gt; [[17]]$starships
+#&gt; [1] "http://swapi.co/api/starships/12/"
+#&gt; 
+#&gt; [[17]]$created
+#&gt; [1] "2014-12-12T11:08:06.469000Z"
+#&gt; 
+#&gt; [[17]]$edited
+#&gt; [1] "2014-12-20T21:17:50.341000Z"
+#&gt; 
+#&gt; [[17]]$url
+#&gt; [1] "http://swapi.co/api/people/18/"
+#&gt; 
+#&gt; 
+#&gt; [[18]]
+#&gt; [[18]]$name
+#&gt; [1] "Jek Tono Porkins"
+#&gt; 
+#&gt; [[18]]$height
+#&gt; [1] "180"
+#&gt; 
+#&gt; [[18]]$mass
+#&gt; [1] "110"
+#&gt; 
+#&gt; [[18]]$hair_color
+#&gt; [1] "brown"
+#&gt; 
+#&gt; [[18]]$skin_color
+#&gt; [1] "fair"
+#&gt; 
+#&gt; [[18]]$eye_color
+#&gt; [1] "blue"
+#&gt; 
+#&gt; [[18]]$birth_year
+#&gt; [1] "unknown"
+#&gt; 
+#&gt; [[18]]$gender
+#&gt; [1] "male"
+#&gt; 
+#&gt; [[18]]$homeworld
+#&gt; [1] "http://swapi.co/api/planets/26/"
+#&gt; 
+#&gt; [[18]]$films
+#&gt; [1] "http://swapi.co/api/films/1/"
+#&gt; 
+#&gt; [[18]]$species
+#&gt; [1] "http://swapi.co/api/species/1/"
+#&gt; 
+#&gt; [[18]]$starships
+#&gt; [1] "http://swapi.co/api/starships/12/"
+#&gt; 
+#&gt; [[18]]$created
+#&gt; [1] "2014-12-12T11:16:56.569000Z"
+#&gt; 
+#&gt; [[18]]$edited
+#&gt; [1] "2014-12-20T21:17:50.343000Z"
+#&gt; 
+#&gt; [[18]]$url
+#&gt; [1] "http://swapi.co/api/people/19/"
+#&gt; 
+#&gt; 
+#&gt; [[19]]
+#&gt; [[19]]$name
+#&gt; [1] "Yoda"
+#&gt; 
+#&gt; [[19]]$height
+#&gt; [1] "66"
+#&gt; 
+#&gt; [[19]]$mass
+#&gt; [1] "17"
+#&gt; 
+#&gt; [[19]]$hair_color
+#&gt; [1] "white"
+#&gt; 
+#&gt; [[19]]$skin_color
+#&gt; [1] "green"
+#&gt; 
+#&gt; [[19]]$eye_color
+#&gt; [1] "brown"
+#&gt; 
+#&gt; [[19]]$birth_year
+#&gt; [1] "896BBY"
+#&gt; 
+#&gt; [[19]]$gender
+#&gt; [1] "male"
+#&gt; 
+#&gt; [[19]]$homeworld
+#&gt; [1] "http://swapi.co/api/planets/28/"
+#&gt; 
+#&gt; [[19]]$films
+#&gt; [1] "http://swapi.co/api/films/5/" "http://swapi.co/api/films/4/"
+#&gt; [3] "http://swapi.co/api/films/6/" "http://swapi.co/api/films/3/"
+#&gt; [5] "http://swapi.co/api/films/2/"
+#&gt; 
+#&gt; [[19]]$species
+#&gt; [1] "http://swapi.co/api/species/6/"
+#&gt; 
+#&gt; [[19]]$created
+#&gt; [1] "2014-12-15T12:26:01.042000Z"
+#&gt; 
+#&gt; [[19]]$edited
+#&gt; [1] "2014-12-20T21:17:50.345000Z"
+#&gt; 
+#&gt; [[19]]$url
+#&gt; [1] "http://swapi.co/api/people/20/"
+#&gt; 
+#&gt; 
+#&gt; [[20]]
+#&gt; [[20]]$name
+#&gt; [1] "Palpatine"
+#&gt; 
+#&gt; [[20]]$height
+#&gt; [1] "170"
+#&gt; 
+#&gt; [[20]]$mass
+#&gt; [1] "75"
+#&gt; 
+#&gt; [[20]]$hair_color
+#&gt; [1] "grey"
+#&gt; 
+#&gt; [[20]]$skin_color
+#&gt; [1] "pale"
+#&gt; 
+#&gt; [[20]]$eye_color
+#&gt; [1] "yellow"
+#&gt; 
+#&gt; [[20]]$birth_year
+#&gt; [1] "82BBY"
+#&gt; 
+#&gt; [[20]]$gender
+#&gt; [1] "male"
+#&gt; 
+#&gt; [[20]]$homeworld
+#&gt; [1] "http://swapi.co/api/planets/8/"
+#&gt; 
+#&gt; [[20]]$films
+#&gt; [1] "http://swapi.co/api/films/5/" "http://swapi.co/api/films/4/"
+#&gt; [3] "http://swapi.co/api/films/6/" "http://swapi.co/api/films/3/"
+#&gt; [5] "http://swapi.co/api/films/2/"
+#&gt; 
+#&gt; [[20]]$species
+#&gt; [1] "http://swapi.co/api/species/1/"
+#&gt; 
+#&gt; [[20]]$created
+#&gt; [1] "2014-12-15T12:48:05.971000Z"
+#&gt; 
+#&gt; [[20]]$edited
+#&gt; [1] "2014-12-20T21:17:50.347000Z"
+#&gt; 
+#&gt; [[20]]$url
+#&gt; [1] "http://swapi.co/api/people/21/"
+#&gt; 
+#&gt; 
+#&gt; [[21]]
+#&gt; [[21]]$name
+#&gt; [1] "Boba Fett"
+#&gt; 
+#&gt; [[21]]$height
+#&gt; [1] "183"
+#&gt; 
+#&gt; [[21]]$mass
+#&gt; [1] "78.2"
+#&gt; 
+#&gt; [[21]]$hair_color
+#&gt; [1] "black"
+#&gt; 
+#&gt; [[21]]$skin_color
+#&gt; [1] "fair"
+#&gt; 
+#&gt; [[21]]$eye_color
+#&gt; [1] "brown"
+#&gt; 
+#&gt; [[21]]$birth_year
+#&gt; [1] "31.5BBY"
+#&gt; 
+#&gt; [[21]]$gender
+#&gt; [1] "male"
+#&gt; 
+#&gt; [[21]]$homeworld
+#&gt; [1] "http://swapi.co/api/planets/10/"
+#&gt; 
+#&gt; [[21]]$films
+#&gt; [1] "http://swapi.co/api/films/5/" "http://swapi.co/api/films/3/"
+#&gt; [3] "http://swapi.co/api/films/2/"
+#&gt; 
+#&gt; [[21]]$species
+#&gt; [1] "http://swapi.co/api/species/1/"
+#&gt; 
+#&gt; [[21]]$starships
+#&gt; [1] "http://swapi.co/api/starships/21/"
+#&gt; 
+#&gt; [[21]]$created
+#&gt; [1] "2014-12-15T12:49:32.457000Z"
+#&gt; 
+#&gt; [[21]]$edited
+#&gt; [1] "2014-12-20T21:17:50.349000Z"
+#&gt; 
+#&gt; [[21]]$url
+#&gt; [1] "http://swapi.co/api/people/22/"
+#&gt; 
+#&gt; 
+#&gt; [[22]]
+#&gt; [[22]]$name
+#&gt; [1] "IG-88"
+#&gt; 
+#&gt; [[22]]$height
+#&gt; [1] "200"
+#&gt; 
+#&gt; [[22]]$mass
+#&gt; [1] "140"
+#&gt; 
+#&gt; [[22]]$hair_color
+#&gt; [1] "none"
+#&gt; 
+#&gt; [[22]]$skin_color
+#&gt; [1] "metal"
+#&gt; 
+#&gt; [[22]]$eye_color
+#&gt; [1] "red"
+#&gt; 
+#&gt; [[22]]$birth_year
+#&gt; [1] "15BBY"
+#&gt; 
+#&gt; [[22]]$gender
+#&gt; [1] "none"
+#&gt; 
+#&gt; [[22]]$homeworld
+#&gt; [1] "http://swapi.co/api/planets/28/"
+#&gt; 
+#&gt; [[22]]$films
+#&gt; [1] "http://swapi.co/api/films/2/"
+#&gt; 
+#&gt; [[22]]$species
+#&gt; [1] "http://swapi.co/api/species/2/"
+#&gt; 
+#&gt; [[22]]$created
+#&gt; [1] "2014-12-15T12:51:10.076000Z"
+#&gt; 
+#&gt; [[22]]$edited
+#&gt; [1] "2014-12-20T21:17:50.351000Z"
+#&gt; 
+#&gt; [[22]]$url
+#&gt; [1] "http://swapi.co/api/people/23/"
+#&gt; 
+#&gt; 
+#&gt; [[23]]
+#&gt; [[23]]$name
+#&gt; [1] "Bossk"
+#&gt; 
+#&gt; [[23]]$height
+#&gt; [1] "190"
+#&gt; 
+#&gt; [[23]]$mass
+#&gt; [1] "113"
+#&gt; 
+#&gt; [[23]]$hair_color
+#&gt; [1] "none"
+#&gt; 
+#&gt; [[23]]$skin_color
+#&gt; [1] "green"
+#&gt; 
+#&gt; [[23]]$eye_color
+#&gt; [1] "red"
+#&gt; 
+#&gt; [[23]]$birth_year
+#&gt; [1] "53BBY"
+#&gt; 
+#&gt; [[23]]$gender
+#&gt; [1] "male"
+#&gt; 
+#&gt; [[23]]$homeworld
+#&gt; [1] "http://swapi.co/api/planets/29/"
+#&gt; 
+#&gt; [[23]]$films
+#&gt; [1] "http://swapi.co/api/films/2/"
+#&gt; 
+#&gt; [[23]]$species
+#&gt; [1] "http://swapi.co/api/species/7/"
+#&gt; 
+#&gt; [[23]]$created
+#&gt; [1] "2014-12-15T12:53:49.297000Z"
+#&gt; 
+#&gt; [[23]]$edited
+#&gt; [1] "2014-12-20T21:17:50.355000Z"
+#&gt; 
+#&gt; [[23]]$url
+#&gt; [1] "http://swapi.co/api/people/24/"
+#&gt; 
+#&gt; 
+#&gt; [[24]]
+#&gt; [[24]]$name
+#&gt; [1] "Lando Calrissian"
+#&gt; 
+#&gt; [[24]]$height
+#&gt; [1] "177"
+#&gt; 
+#&gt; [[24]]$mass
+#&gt; [1] "79"
+#&gt; 
+#&gt; [[24]]$hair_color
+#&gt; [1] "black"
+#&gt; 
+#&gt; [[24]]$skin_color
+#&gt; [1] "dark"
+#&gt; 
+#&gt; [[24]]$eye_color
+#&gt; [1] "brown"
+#&gt; 
+#&gt; [[24]]$birth_year
+#&gt; [1] "31BBY"
+#&gt; 
+#&gt; [[24]]$gender
+#&gt; [1] "male"
+#&gt; 
+#&gt; [[24]]$homeworld
+#&gt; [1] "http://swapi.co/api/planets/30/"
+#&gt; 
+#&gt; [[24]]$films
+#&gt; [1] "http://swapi.co/api/films/3/" "http://swapi.co/api/films/2/"
+#&gt; 
+#&gt; [[24]]$species
+#&gt; [1] "http://swapi.co/api/species/1/"
+#&gt; 
+#&gt; [[24]]$starships
+#&gt; [1] "http://swapi.co/api/starships/10/"
+#&gt; 
+#&gt; [[24]]$created
+#&gt; [1] "2014-12-15T12:56:32.683000Z"
+#&gt; 
+#&gt; [[24]]$edited
+#&gt; [1] "2014-12-20T21:17:50.357000Z"
+#&gt; 
+#&gt; [[24]]$url
+#&gt; [1] "http://swapi.co/api/people/25/"
+#&gt; 
+#&gt; 
+#&gt; [[25]]
+#&gt; [[25]]$name
+#&gt; [1] "Lobot"
+#&gt; 
+#&gt; [[25]]$height
+#&gt; [1] "175"
+#&gt; 
+#&gt; [[25]]$mass
+#&gt; [1] "79"
+#&gt; 
+#&gt; [[25]]$hair_color
+#&gt; [1] "none"
+#&gt; 
+#&gt; [[25]]$skin_color
+#&gt; [1] "light"
+#&gt; 
+#&gt; [[25]]$eye_color
+#&gt; [1] "blue"
+#&gt; 
+#&gt; [[25]]$birth_year
+#&gt; [1] "37BBY"
+#&gt; 
+#&gt; [[25]]$gender
+#&gt; [1] "male"
+#&gt; 
+#&gt; [[25]]$homeworld
+#&gt; [1] "http://swapi.co/api/planets/6/"
+#&gt; 
+#&gt; [[25]]$films
+#&gt; [1] "http://swapi.co/api/films/2/"
+#&gt; 
+#&gt; [[25]]$species
+#&gt; [1] "http://swapi.co/api/species/1/"
+#&gt; 
+#&gt; [[25]]$created
+#&gt; [1] "2014-12-15T13:01:57.178000Z"
+#&gt; 
+#&gt; [[25]]$edited
+#&gt; [1] "2014-12-20T21:17:50.359000Z"
+#&gt; 
+#&gt; [[25]]$url
+#&gt; [1] "http://swapi.co/api/people/26/"
+#&gt; 
+#&gt; 
+#&gt; [[26]]
+#&gt; [[26]]$name
+#&gt; [1] "Ackbar"
+#&gt; 
+#&gt; [[26]]$height
+#&gt; [1] "180"
+#&gt; 
+#&gt; [[26]]$mass
+#&gt; [1] "83"
+#&gt; 
+#&gt; [[26]]$hair_color
+#&gt; [1] "none"
+#&gt; 
+#&gt; [[26]]$skin_color
+#&gt; [1] "brown mottle"
+#&gt; 
+#&gt; [[26]]$eye_color
+#&gt; [1] "orange"
+#&gt; 
+#&gt; [[26]]$birth_year
+#&gt; [1] "41BBY"
+#&gt; 
+#&gt; [[26]]$gender
+#&gt; [1] "male"
+#&gt; 
+#&gt; [[26]]$homeworld
+#&gt; [1] "http://swapi.co/api/planets/31/"
+#&gt; 
+#&gt; [[26]]$films
+#&gt; [1] "http://swapi.co/api/films/3/" "http://swapi.co/api/films/7/"
+#&gt; 
+#&gt; [[26]]$species
+#&gt; [1] "http://swapi.co/api/species/8/"
+#&gt; 
+#&gt; [[26]]$created
+#&gt; [1] "2014-12-18T11:07:50.584000Z"
+#&gt; 
+#&gt; [[26]]$edited
+#&gt; [1] "2014-12-20T21:17:50.362000Z"
+#&gt; 
+#&gt; [[26]]$url
+#&gt; [1] "http://swapi.co/api/people/27/"
+#&gt; 
+#&gt; 
+#&gt; [[27]]
+#&gt; [[27]]$name
+#&gt; [1] "Mon Mothma"
+#&gt; 
+#&gt; [[27]]$height
+#&gt; [1] "150"
+#&gt; 
+#&gt; [[27]]$mass
+#&gt; [1] "unknown"
+#&gt; 
+#&gt; [[27]]$hair_color
+#&gt; [1] "auburn"
+#&gt; 
+#&gt; [[27]]$skin_color
+#&gt; [1] "fair"
+#&gt; 
+#&gt; [[27]]$eye_color
+#&gt; [1] "blue"
+#&gt; 
+#&gt; [[27]]$birth_year
+#&gt; [1] "48BBY"
+#&gt; 
+#&gt; [[27]]$gender
+#&gt; [1] "female"
+#&gt; 
+#&gt; [[27]]$homeworld
+#&gt; [1] "http://swapi.co/api/planets/32/"
+#&gt; 
+#&gt; [[27]]$films
+#&gt; [1] "http://swapi.co/api/films/3/"
+#&gt; 
+#&gt; [[27]]$species
+#&gt; [1] "http://swapi.co/api/species/1/"
+#&gt; 
+#&gt; [[27]]$created
+#&gt; [1] "2014-12-18T11:12:38.895000Z"
+#&gt; 
+#&gt; [[27]]$edited
+#&gt; [1] "2014-12-20T21:17:50.364000Z"
+#&gt; 
+#&gt; [[27]]$url
+#&gt; [1] "http://swapi.co/api/people/28/"
+#&gt; 
+#&gt; 
+#&gt; [[28]]
+#&gt; [[28]]$name
+#&gt; [1] "Arvel Crynyd"
+#&gt; 
+#&gt; [[28]]$height
+#&gt; [1] "unknown"
+#&gt; 
+#&gt; [[28]]$mass
+#&gt; [1] "unknown"
+#&gt; 
+#&gt; [[28]]$hair_color
+#&gt; [1] "brown"
+#&gt; 
+#&gt; [[28]]$skin_color
+#&gt; [1] "fair"
+#&gt; 
+#&gt; [[28]]$eye_color
+#&gt; [1] "brown"
+#&gt; 
+#&gt; [[28]]$birth_year
+#&gt; [1] "unknown"
+#&gt; 
+#&gt; [[28]]$gender
+#&gt; [1] "male"
+#&gt; 
+#&gt; [[28]]$homeworld
+#&gt; [1] "http://swapi.co/api/planets/28/"
+#&gt; 
+#&gt; [[28]]$films
+#&gt; [1] "http://swapi.co/api/films/3/"
+#&gt; 
+#&gt; [[28]]$species
+#&gt; [1] "http://swapi.co/api/species/1/"
+#&gt; 
+#&gt; [[28]]$starships
+#&gt; [1] "http://swapi.co/api/starships/28/"
+#&gt; 
+#&gt; [[28]]$created
+#&gt; [1] "2014-12-18T11:16:33.020000Z"
+#&gt; 
+#&gt; [[28]]$edited
+#&gt; [1] "2014-12-20T21:17:50.367000Z"
+#&gt; 
+#&gt; [[28]]$url
+#&gt; [1] "http://swapi.co/api/people/29/"
+#&gt; 
+#&gt; 
+#&gt; [[29]]
+#&gt; [[29]]$name
+#&gt; [1] "Wicket Systri Warrick"
+#&gt; 
+#&gt; [[29]]$height
+#&gt; [1] "88"
+#&gt; 
+#&gt; [[29]]$mass
+#&gt; [1] "20"
+#&gt; 
+#&gt; [[29]]$hair_color
+#&gt; [1] "brown"
+#&gt; 
+#&gt; [[29]]$skin_color
+#&gt; [1] "brown"
+#&gt; 
+#&gt; [[29]]$eye_color
+#&gt; [1] "brown"
+#&gt; 
+#&gt; [[29]]$birth_year
+#&gt; [1] "8BBY"
+#&gt; 
+#&gt; [[29]]$gender
+#&gt; [1] "male"
+#&gt; 
+#&gt; [[29]]$homeworld
+#&gt; [1] "http://swapi.co/api/planets/7/"
+#&gt; 
+#&gt; [[29]]$films
+#&gt; [1] "http://swapi.co/api/films/3/"
+#&gt; 
+#&gt; [[29]]$species
+#&gt; [1] "http://swapi.co/api/species/9/"
+#&gt; 
+#&gt; [[29]]$created
+#&gt; [1] "2014-12-18T11:21:58.954000Z"
+#&gt; 
+#&gt; [[29]]$edited
+#&gt; [1] "2014-12-20T21:17:50.369000Z"
+#&gt; 
+#&gt; [[29]]$url
+#&gt; [1] "http://swapi.co/api/people/30/"
+#&gt; 
+#&gt; 
+#&gt; [[30]]
+#&gt; [[30]]$name
+#&gt; [1] "Nien Nunb"
+#&gt; 
+#&gt; [[30]]$height
+#&gt; [1] "160"
+#&gt; 
+#&gt; [[30]]$mass
+#&gt; [1] "68"
+#&gt; 
+#&gt; [[30]]$hair_color
+#&gt; [1] "none"
+#&gt; 
+#&gt; [[30]]$skin_color
+#&gt; [1] "grey"
+#&gt; 
+#&gt; [[30]]$eye_color
+#&gt; [1] "black"
+#&gt; 
+#&gt; [[30]]$birth_year
+#&gt; [1] "unknown"
+#&gt; 
+#&gt; [[30]]$gender
+#&gt; [1] "male"
+#&gt; 
+#&gt; [[30]]$homeworld
+#&gt; [1] "http://swapi.co/api/planets/33/"
+#&gt; 
+#&gt; [[30]]$films
+#&gt; [1] "http://swapi.co/api/films/3/"
+#&gt; 
+#&gt; [[30]]$species
+#&gt; [1] "http://swapi.co/api/species/10/"
+#&gt; 
+#&gt; [[30]]$starships
+#&gt; [1] "http://swapi.co/api/starships/10/"
+#&gt; 
+#&gt; [[30]]$created
+#&gt; [1] "2014-12-18T11:26:18.541000Z"
+#&gt; 
+#&gt; [[30]]$edited
+#&gt; [1] "2014-12-20T21:17:50.371000Z"
+#&gt; 
+#&gt; [[30]]$url
+#&gt; [1] "http://swapi.co/api/people/31/"
+#&gt; 
+#&gt; 
+#&gt; [[31]]
+#&gt; [[31]]$name
+#&gt; [1] "Qui-Gon Jinn"
+#&gt; 
+#&gt; [[31]]$height
+#&gt; [1] "193"
+#&gt; 
+#&gt; [[31]]$mass
+#&gt; [1] "89"
+#&gt; 
+#&gt; [[31]]$hair_color
+#&gt; [1] "brown"
+#&gt; 
+#&gt; [[31]]$skin_color
+#&gt; [1] "fair"
+#&gt; 
+#&gt; [[31]]$eye_color
+#&gt; [1] "blue"
+#&gt; 
+#&gt; [[31]]$birth_year
+#&gt; [1] "92BBY"
+#&gt; 
+#&gt; [[31]]$gender
+#&gt; [1] "male"
+#&gt; 
+#&gt; [[31]]$homeworld
+#&gt; [1] "http://swapi.co/api/planets/28/"
+#&gt; 
+#&gt; [[31]]$films
+#&gt; [1] "http://swapi.co/api/films/4/"
+#&gt; 
+#&gt; [[31]]$species
+#&gt; [1] "http://swapi.co/api/species/1/"
+#&gt; 
+#&gt; [[31]]$vehicles
+#&gt; [1] "http://swapi.co/api/vehicles/38/"
+#&gt; 
+#&gt; [[31]]$created
+#&gt; [1] "2014-12-19T16:54:53.618000Z"
+#&gt; 
+#&gt; [[31]]$edited
+#&gt; [1] "2014-12-20T21:17:50.375000Z"
+#&gt; 
+#&gt; [[31]]$url
+#&gt; [1] "http://swapi.co/api/people/32/"
+#&gt; 
+#&gt; 
+#&gt; [[32]]
+#&gt; [[32]]$name
+#&gt; [1] "Nute Gunray"
+#&gt; 
+#&gt; [[32]]$height
+#&gt; [1] "191"
+#&gt; 
+#&gt; [[32]]$mass
+#&gt; [1] "90"
+#&gt; 
+#&gt; [[32]]$hair_color
+#&gt; [1] "none"
+#&gt; 
+#&gt; [[32]]$skin_color
+#&gt; [1] "mottled green"
+#&gt; 
+#&gt; [[32]]$eye_color
+#&gt; [1] "red"
+#&gt; 
+#&gt; [[32]]$birth_year
+#&gt; [1] "unknown"
+#&gt; 
+#&gt; [[32]]$gender
+#&gt; [1] "male"
+#&gt; 
+#&gt; [[32]]$homeworld
+#&gt; [1] "http://swapi.co/api/planets/18/"
+#&gt; 
+#&gt; [[32]]$films
+#&gt; [1] "http://swapi.co/api/films/5/" "http://swapi.co/api/films/4/"
+#&gt; [3] "http://swapi.co/api/films/6/"
+#&gt; 
+#&gt; [[32]]$species
+#&gt; [1] "http://swapi.co/api/species/11/"
+#&gt; 
+#&gt; [[32]]$created
+#&gt; [1] "2014-12-19T17:05:57.357000Z"
+#&gt; 
+#&gt; [[32]]$edited
+#&gt; [1] "2014-12-20T21:17:50.377000Z"
+#&gt; 
+#&gt; [[32]]$url
+#&gt; [1] "http://swapi.co/api/people/33/"
+#&gt; 
+#&gt; 
+#&gt; [[33]]
+#&gt; [[33]]$name
+#&gt; [1] "Finis Valorum"
+#&gt; 
+#&gt; [[33]]$height
+#&gt; [1] "170"
+#&gt; 
+#&gt; [[33]]$mass
+#&gt; [1] "unknown"
+#&gt; 
+#&gt; [[33]]$hair_color
+#&gt; [1] "blond"
+#&gt; 
+#&gt; [[33]]$skin_color
+#&gt; [1] "fair"
+#&gt; 
+#&gt; [[33]]$eye_color
+#&gt; [1] "blue"
+#&gt; 
+#&gt; [[33]]$birth_year
+#&gt; [1] "91BBY"
+#&gt; 
+#&gt; [[33]]$gender
+#&gt; [1] "male"
+#&gt; 
+#&gt; [[33]]$homeworld
+#&gt; [1] "http://swapi.co/api/planets/9/"
+#&gt; 
+#&gt; [[33]]$films
+#&gt; [1] "http://swapi.co/api/films/4/"
+#&gt; 
+#&gt; [[33]]$species
+#&gt; [1] "http://swapi.co/api/species/1/"
+#&gt; 
+#&gt; [[33]]$created
+#&gt; [1] "2014-12-19T17:21:45.915000Z"
+#&gt; 
+#&gt; [[33]]$edited
+#&gt; [1] "2014-12-20T21:17:50.379000Z"
+#&gt; 
+#&gt; [[33]]$url
+#&gt; [1] "http://swapi.co/api/people/34/"
+#&gt; 
+#&gt; 
+#&gt; [[34]]
+#&gt; [[34]]$name
+#&gt; [1] "Jar Jar Binks"
+#&gt; 
+#&gt; [[34]]$height
+#&gt; [1] "196"
+#&gt; 
+#&gt; [[34]]$mass
+#&gt; [1] "66"
+#&gt; 
+#&gt; [[34]]$hair_color
+#&gt; [1] "none"
+#&gt; 
+#&gt; [[34]]$skin_color
+#&gt; [1] "orange"
+#&gt; 
+#&gt; [[34]]$eye_color
+#&gt; [1] "orange"
+#&gt; 
+#&gt; [[34]]$birth_year
+#&gt; [1] "52BBY"
+#&gt; 
+#&gt; [[34]]$gender
+#&gt; [1] "male"
+#&gt; 
+#&gt; [[34]]$homeworld
+#&gt; [1] "http://swapi.co/api/planets/8/"
+#&gt; 
+#&gt; [[34]]$films
+#&gt; [1] "http://swapi.co/api/films/5/" "http://swapi.co/api/films/4/"
+#&gt; 
+#&gt; [[34]]$species
+#&gt; [1] "http://swapi.co/api/species/12/"
+#&gt; 
+#&gt; [[34]]$created
+#&gt; [1] "2014-12-19T17:29:32.489000Z"
+#&gt; 
+#&gt; [[34]]$edited
+#&gt; [1] "2014-12-20T21:17:50.383000Z"
+#&gt; 
+#&gt; [[34]]$url
+#&gt; [1] "http://swapi.co/api/people/36/"
+#&gt; 
+#&gt; 
+#&gt; [[35]]
+#&gt; [[35]]$name
+#&gt; [1] "Roos Tarpals"
+#&gt; 
+#&gt; [[35]]$height
+#&gt; [1] "224"
+#&gt; 
+#&gt; [[35]]$mass
+#&gt; [1] "82"
+#&gt; 
+#&gt; [[35]]$hair_color
+#&gt; [1] "none"
+#&gt; 
+#&gt; [[35]]$skin_color
+#&gt; [1] "grey"
+#&gt; 
+#&gt; [[35]]$eye_color
+#&gt; [1] "orange"
+#&gt; 
+#&gt; [[35]]$birth_year
+#&gt; [1] "unknown"
+#&gt; 
+#&gt; [[35]]$gender
+#&gt; [1] "male"
+#&gt; 
+#&gt; [[35]]$homeworld
+#&gt; [1] "http://swapi.co/api/planets/8/"
+#&gt; 
+#&gt; [[35]]$films
+#&gt; [1] "http://swapi.co/api/films/4/"
+#&gt; 
+#&gt; [[35]]$species
+#&gt; [1] "http://swapi.co/api/species/12/"
+#&gt; 
+#&gt; [[35]]$created
+#&gt; [1] "2014-12-19T17:32:56.741000Z"
+#&gt; 
+#&gt; [[35]]$edited
+#&gt; [1] "2014-12-20T21:17:50.385000Z"
+#&gt; 
+#&gt; [[35]]$url
+#&gt; [1] "http://swapi.co/api/people/37/"
+#&gt; 
+#&gt; 
+#&gt; [[36]]
+#&gt; [[36]]$name
+#&gt; [1] "Rugor Nass"
+#&gt; 
+#&gt; [[36]]$height
+#&gt; [1] "206"
+#&gt; 
+#&gt; [[36]]$mass
+#&gt; [1] "unknown"
+#&gt; 
+#&gt; [[36]]$hair_color
+#&gt; [1] "none"
+#&gt; 
+#&gt; [[36]]$skin_color
+#&gt; [1] "green"
+#&gt; 
+#&gt; [[36]]$eye_color
+#&gt; [1] "orange"
+#&gt; 
+#&gt; [[36]]$birth_year
+#&gt; [1] "unknown"
+#&gt; 
+#&gt; [[36]]$gender
+#&gt; [1] "male"
+#&gt; 
+#&gt; [[36]]$homeworld
+#&gt; [1] "http://swapi.co/api/planets/8/"
+#&gt; 
+#&gt; [[36]]$films
+#&gt; [1] "http://swapi.co/api/films/4/"
+#&gt; 
+#&gt; [[36]]$species
+#&gt; [1] "http://swapi.co/api/species/12/"
+#&gt; 
+#&gt; [[36]]$created
+#&gt; [1] "2014-12-19T17:33:38.909000Z"
+#&gt; 
+#&gt; [[36]]$edited
+#&gt; [1] "2014-12-20T21:17:50.388000Z"
+#&gt; 
+#&gt; [[36]]$url
+#&gt; [1] "http://swapi.co/api/people/38/"
+#&gt; 
+#&gt; 
+#&gt; [[37]]
+#&gt; [[37]]$name
+#&gt; [1] "Ric Olié"
+#&gt; 
+#&gt; [[37]]$height
+#&gt; [1] "183"
+#&gt; 
+#&gt; [[37]]$mass
+#&gt; [1] "unknown"
+#&gt; 
+#&gt; [[37]]$hair_color
+#&gt; [1] "brown"
+#&gt; 
+#&gt; [[37]]$skin_color
+#&gt; [1] "fair"
+#&gt; 
+#&gt; [[37]]$eye_color
+#&gt; [1] "blue"
+#&gt; 
+#&gt; [[37]]$birth_year
+#&gt; [1] "unknown"
+#&gt; 
+#&gt; [[37]]$gender
+#&gt; [1] "male"
+#&gt; 
+#&gt; [[37]]$homeworld
+#&gt; [1] "http://swapi.co/api/planets/8/"
+#&gt; 
+#&gt; [[37]]$films
+#&gt; [1] "http://swapi.co/api/films/4/"
+#&gt; 
+#&gt; [[37]]$starships
+#&gt; [1] "http://swapi.co/api/starships/40/"
+#&gt; 
+#&gt; [[37]]$created
+#&gt; [1] "2014-12-19T17:45:01.522000Z"
+#&gt; 
+#&gt; [[37]]$edited
+#&gt; [1] "2014-12-20T21:17:50.392000Z"
+#&gt; 
+#&gt; [[37]]$url
+#&gt; [1] "http://swapi.co/api/people/39/"
+#&gt; 
+#&gt; 
+#&gt; [[38]]
+#&gt; [[38]]$name
+#&gt; [1] "Watto"
+#&gt; 
+#&gt; [[38]]$height
+#&gt; [1] "137"
+#&gt; 
+#&gt; [[38]]$mass
+#&gt; [1] "unknown"
+#&gt; 
+#&gt; [[38]]$hair_color
+#&gt; [1] "black"
+#&gt; 
+#&gt; [[38]]$skin_color
+#&gt; [1] "blue, grey"
+#&gt; 
+#&gt; [[38]]$eye_color
+#&gt; [1] "yellow"
+#&gt; 
+#&gt; [[38]]$birth_year
+#&gt; [1] "unknown"
+#&gt; 
+#&gt; [[38]]$gender
+#&gt; [1] "male"
+#&gt; 
+#&gt; [[38]]$homeworld
+#&gt; [1] "http://swapi.co/api/planets/34/"
+#&gt; 
+#&gt; [[38]]$films
+#&gt; [1] "http://swapi.co/api/films/5/" "http://swapi.co/api/films/4/"
+#&gt; 
+#&gt; [[38]]$species
+#&gt; [1] "http://swapi.co/api/species/13/"
+#&gt; 
+#&gt; [[38]]$created
+#&gt; [1] "2014-12-19T17:48:54.647000Z"
+#&gt; 
+#&gt; [[38]]$edited
+#&gt; [1] "2014-12-20T21:17:50.395000Z"
+#&gt; 
+#&gt; [[38]]$url
+#&gt; [1] "http://swapi.co/api/people/40/"
+#&gt; 
+#&gt; 
+#&gt; [[39]]
+#&gt; [[39]]$name
+#&gt; [1] "Sebulba"
+#&gt; 
+#&gt; [[39]]$height
+#&gt; [1] "112"
+#&gt; 
+#&gt; [[39]]$mass
+#&gt; [1] "40"
+#&gt; 
+#&gt; [[39]]$hair_color
+#&gt; [1] "none"
+#&gt; 
+#&gt; [[39]]$skin_color
+#&gt; [1] "grey, red"
+#&gt; 
+#&gt; [[39]]$eye_color
+#&gt; [1] "orange"
+#&gt; 
+#&gt; [[39]]$birth_year
+#&gt; [1] "unknown"
+#&gt; 
+#&gt; [[39]]$gender
+#&gt; [1] "male"
+#&gt; 
+#&gt; [[39]]$homeworld
+#&gt; [1] "http://swapi.co/api/planets/35/"
+#&gt; 
+#&gt; [[39]]$films
+#&gt; [1] "http://swapi.co/api/films/4/"
+#&gt; 
+#&gt; [[39]]$species
+#&gt; [1] "http://swapi.co/api/species/14/"
+#&gt; 
+#&gt; [[39]]$created
+#&gt; [1] "2014-12-19T17:53:02.586000Z"
+#&gt; 
+#&gt; [[39]]$edited
+#&gt; [1] "2014-12-20T21:17:50.397000Z"
+#&gt; 
+#&gt; [[39]]$url
+#&gt; [1] "http://swapi.co/api/people/41/"
+#&gt; 
+#&gt; 
+#&gt; [[40]]
+#&gt; [[40]]$name
+#&gt; [1] "Quarsh Panaka"
+#&gt; 
+#&gt; [[40]]$height
+#&gt; [1] "183"
+#&gt; 
+#&gt; [[40]]$mass
+#&gt; [1] "unknown"
+#&gt; 
+#&gt; [[40]]$hair_color
+#&gt; [1] "black"
+#&gt; 
+#&gt; [[40]]$skin_color
+#&gt; [1] "dark"
+#&gt; 
+#&gt; [[40]]$eye_color
+#&gt; [1] "brown"
+#&gt; 
+#&gt; [[40]]$birth_year
+#&gt; [1] "62BBY"
+#&gt; 
+#&gt; [[40]]$gender
+#&gt; [1] "male"
+#&gt; 
+#&gt; [[40]]$homeworld
+#&gt; [1] "http://swapi.co/api/planets/8/"
+#&gt; 
+#&gt; [[40]]$films
+#&gt; [1] "http://swapi.co/api/films/4/"
+#&gt; 
+#&gt; [[40]]$created
+#&gt; [1] "2014-12-19T17:55:43.348000Z"
+#&gt; 
+#&gt; [[40]]$edited
+#&gt; [1] "2014-12-20T21:17:50.399000Z"
+#&gt; 
+#&gt; [[40]]$url
+#&gt; [1] "http://swapi.co/api/people/42/"
+#&gt; 
+#&gt; 
+#&gt; [[41]]
+#&gt; [[41]]$name
+#&gt; [1] "Shmi Skywalker"
+#&gt; 
+#&gt; [[41]]$height
+#&gt; [1] "163"
+#&gt; 
+#&gt; [[41]]$mass
+#&gt; [1] "unknown"
+#&gt; 
+#&gt; [[41]]$hair_color
+#&gt; [1] "black"
+#&gt; 
+#&gt; [[41]]$skin_color
+#&gt; [1] "fair"
+#&gt; 
+#&gt; [[41]]$eye_color
+#&gt; [1] "brown"
+#&gt; 
+#&gt; [[41]]$birth_year
+#&gt; [1] "72BBY"
+#&gt; 
+#&gt; [[41]]$gender
+#&gt; [1] "female"
+#&gt; 
+#&gt; [[41]]$homeworld
+#&gt; [1] "http://swapi.co/api/planets/1/"
+#&gt; 
+#&gt; [[41]]$films
+#&gt; [1] "http://swapi.co/api/films/5/" "http://swapi.co/api/films/4/"
+#&gt; 
+#&gt; [[41]]$species
+#&gt; [1] "http://swapi.co/api/species/1/"
+#&gt; 
+#&gt; [[41]]$created
+#&gt; [1] "2014-12-19T17:57:41.191000Z"
+#&gt; 
+#&gt; [[41]]$edited
+#&gt; [1] "2014-12-20T21:17:50.401000Z"
+#&gt; 
+#&gt; [[41]]$url
+#&gt; [1] "http://swapi.co/api/people/43/"
+#&gt; 
+#&gt; 
+#&gt; [[42]]
+#&gt; [[42]]$name
+#&gt; [1] "Darth Maul"
+#&gt; 
+#&gt; [[42]]$height
+#&gt; [1] "175"
+#&gt; 
+#&gt; [[42]]$mass
+#&gt; [1] "80"
+#&gt; 
+#&gt; [[42]]$hair_color
+#&gt; [1] "none"
+#&gt; 
+#&gt; [[42]]$skin_color
+#&gt; [1] "red"
+#&gt; 
+#&gt; [[42]]$eye_color
+#&gt; [1] "yellow"
+#&gt; 
+#&gt; [[42]]$birth_year
+#&gt; [1] "54BBY"
+#&gt; 
+#&gt; [[42]]$gender
+#&gt; [1] "male"
+#&gt; 
+#&gt; [[42]]$homeworld
+#&gt; [1] "http://swapi.co/api/planets/36/"
+#&gt; 
+#&gt; [[42]]$films
+#&gt; [1] "http://swapi.co/api/films/4/"
+#&gt; 
+#&gt; [[42]]$species
+#&gt; [1] "http://swapi.co/api/species/22/"
+#&gt; 
+#&gt; [[42]]$vehicles
+#&gt; [1] "http://swapi.co/api/vehicles/42/"
+#&gt; 
+#&gt; [[42]]$starships
+#&gt; [1] "http://swapi.co/api/starships/41/"
+#&gt; 
+#&gt; [[42]]$created
+#&gt; [1] "2014-12-19T18:00:41.929000Z"
+#&gt; 
+#&gt; [[42]]$edited
+#&gt; [1] "2014-12-20T21:17:50.403000Z"
+#&gt; 
+#&gt; [[42]]$url
+#&gt; [1] "http://swapi.co/api/people/44/"
+#&gt; 
+#&gt; 
+#&gt; [[43]]
+#&gt; [[43]]$name
+#&gt; [1] "Bib Fortuna"
+#&gt; 
+#&gt; [[43]]$height
+#&gt; [1] "180"
+#&gt; 
+#&gt; [[43]]$mass
+#&gt; [1] "unknown"
+#&gt; 
+#&gt; [[43]]$hair_color
+#&gt; [1] "none"
+#&gt; 
+#&gt; [[43]]$skin_color
+#&gt; [1] "pale"
+#&gt; 
+#&gt; [[43]]$eye_color
+#&gt; [1] "pink"
+#&gt; 
+#&gt; [[43]]$birth_year
+#&gt; [1] "unknown"
+#&gt; 
+#&gt; [[43]]$gender
+#&gt; [1] "male"
+#&gt; 
+#&gt; [[43]]$homeworld
+#&gt; [1] "http://swapi.co/api/planets/37/"
+#&gt; 
+#&gt; [[43]]$films
+#&gt; [1] "http://swapi.co/api/films/3/"
+#&gt; 
+#&gt; [[43]]$species
+#&gt; [1] "http://swapi.co/api/species/15/"
+#&gt; 
+#&gt; [[43]]$created
+#&gt; [1] "2014-12-20T09:47:02.512000Z"
+#&gt; 
+#&gt; [[43]]$edited
+#&gt; [1] "2014-12-20T21:17:50.407000Z"
+#&gt; 
+#&gt; [[43]]$url
+#&gt; [1] "http://swapi.co/api/people/45/"
+#&gt; 
+#&gt; 
+#&gt; [[44]]
+#&gt; [[44]]$name
+#&gt; [1] "Ayla Secura"
+#&gt; 
+#&gt; [[44]]$height
+#&gt; [1] "178"
+#&gt; 
+#&gt; [[44]]$mass
+#&gt; [1] "55"
+#&gt; 
+#&gt; [[44]]$hair_color
+#&gt; [1] "none"
+#&gt; 
+#&gt; [[44]]$skin_color
+#&gt; [1] "blue"
+#&gt; 
+#&gt; [[44]]$eye_color
+#&gt; [1] "hazel"
+#&gt; 
+#&gt; [[44]]$birth_year
+#&gt; [1] "48BBY"
+#&gt; 
+#&gt; [[44]]$gender
+#&gt; [1] "female"
+#&gt; 
+#&gt; [[44]]$homeworld
+#&gt; [1] "http://swapi.co/api/planets/37/"
+#&gt; 
+#&gt; [[44]]$films
+#&gt; [1] "http://swapi.co/api/films/5/" "http://swapi.co/api/films/4/"
+#&gt; [3] "http://swapi.co/api/films/6/"
+#&gt; 
+#&gt; [[44]]$species
+#&gt; [1] "http://swapi.co/api/species/15/"
+#&gt; 
+#&gt; [[44]]$created
+#&gt; [1] "2014-12-20T09:48:01.172000Z"
+#&gt; 
+#&gt; [[44]]$edited
+#&gt; [1] "2014-12-20T21:17:50.409000Z"
+#&gt; 
+#&gt; [[44]]$url
+#&gt; [1] "http://swapi.co/api/people/46/"
+#&gt; 
+#&gt; 
+#&gt; [[45]]
+#&gt; [[45]]$name
+#&gt; [1] "Dud Bolt"
+#&gt; 
+#&gt; [[45]]$height
+#&gt; [1] "94"
+#&gt; 
+#&gt; [[45]]$mass
+#&gt; [1] "45"
+#&gt; 
+#&gt; [[45]]$hair_color
+#&gt; [1] "none"
+#&gt; 
+#&gt; [[45]]$skin_color
+#&gt; [1] "blue, grey"
+#&gt; 
+#&gt; [[45]]$eye_color
+#&gt; [1] "yellow"
+#&gt; 
+#&gt; [[45]]$birth_year
+#&gt; [1] "unknown"
+#&gt; 
+#&gt; [[45]]$gender
+#&gt; [1] "male"
+#&gt; 
+#&gt; [[45]]$homeworld
+#&gt; [1] "http://swapi.co/api/planets/39/"
+#&gt; 
+#&gt; [[45]]$films
+#&gt; [1] "http://swapi.co/api/films/4/"
+#&gt; 
+#&gt; [[45]]$species
+#&gt; [1] "http://swapi.co/api/species/17/"
+#&gt; 
+#&gt; [[45]]$created
+#&gt; [1] "2014-12-20T09:57:31.858000Z"
+#&gt; 
+#&gt; [[45]]$edited
+#&gt; [1] "2014-12-20T21:17:50.414000Z"
+#&gt; 
+#&gt; [[45]]$url
+#&gt; [1] "http://swapi.co/api/people/48/"
+#&gt; 
+#&gt; 
+#&gt; [[46]]
+#&gt; [[46]]$name
+#&gt; [1] "Gasgano"
+#&gt; 
+#&gt; [[46]]$height
+#&gt; [1] "122"
+#&gt; 
+#&gt; [[46]]$mass
+#&gt; [1] "unknown"
+#&gt; 
+#&gt; [[46]]$hair_color
+#&gt; [1] "none"
+#&gt; 
+#&gt; [[46]]$skin_color
+#&gt; [1] "white, blue"
+#&gt; 
+#&gt; [[46]]$eye_color
+#&gt; [1] "black"
+#&gt; 
+#&gt; [[46]]$birth_year
+#&gt; [1] "unknown"
+#&gt; 
+#&gt; [[46]]$gender
+#&gt; [1] "male"
+#&gt; 
+#&gt; [[46]]$homeworld
+#&gt; [1] "http://swapi.co/api/planets/40/"
+#&gt; 
+#&gt; [[46]]$films
+#&gt; [1] "http://swapi.co/api/films/4/"
+#&gt; 
+#&gt; [[46]]$species
+#&gt; [1] "http://swapi.co/api/species/18/"
+#&gt; 
+#&gt; [[46]]$created
+#&gt; [1] "2014-12-20T10:02:12.223000Z"
+#&gt; 
+#&gt; [[46]]$edited
+#&gt; [1] "2014-12-20T21:17:50.416000Z"
+#&gt; 
+#&gt; [[46]]$url
+#&gt; [1] "http://swapi.co/api/people/49/"
+#&gt; 
+#&gt; 
+#&gt; [[47]]
+#&gt; [[47]]$name
+#&gt; [1] "Ben Quadinaros"
+#&gt; 
+#&gt; [[47]]$height
+#&gt; [1] "163"
+#&gt; 
+#&gt; [[47]]$mass
+#&gt; [1] "65"
+#&gt; 
+#&gt; [[47]]$hair_color
+#&gt; [1] "none"
+#&gt; 
+#&gt; [[47]]$skin_color
+#&gt; [1] "grey, green, yellow"
+#&gt; 
+#&gt; [[47]]$eye_color
+#&gt; [1] "orange"
+#&gt; 
+#&gt; [[47]]$birth_year
+#&gt; [1] "unknown"
+#&gt; 
+#&gt; [[47]]$gender
+#&gt; [1] "male"
+#&gt; 
+#&gt; [[47]]$homeworld
+#&gt; [1] "http://swapi.co/api/planets/41/"
+#&gt; 
+#&gt; [[47]]$films
+#&gt; [1] "http://swapi.co/api/films/4/"
+#&gt; 
+#&gt; [[47]]$species
+#&gt; [1] "http://swapi.co/api/species/19/"
+#&gt; 
+#&gt; [[47]]$created
+#&gt; [1] "2014-12-20T10:08:33.777000Z"
+#&gt; 
+#&gt; [[47]]$edited
+#&gt; [1] "2014-12-20T21:17:50.417000Z"
+#&gt; 
+#&gt; [[47]]$url
+#&gt; [1] "http://swapi.co/api/people/50/"
+#&gt; 
+#&gt; 
+#&gt; [[48]]
+#&gt; [[48]]$name
+#&gt; [1] "Mace Windu"
+#&gt; 
+#&gt; [[48]]$height
+#&gt; [1] "188"
+#&gt; 
+#&gt; [[48]]$mass
+#&gt; [1] "84"
+#&gt; 
+#&gt; [[48]]$hair_color
+#&gt; [1] "none"
+#&gt; 
+#&gt; [[48]]$skin_color
+#&gt; [1] "dark"
+#&gt; 
+#&gt; [[48]]$eye_color
+#&gt; [1] "brown"
+#&gt; 
+#&gt; [[48]]$birth_year
+#&gt; [1] "72BBY"
+#&gt; 
+#&gt; [[48]]$gender
+#&gt; [1] "male"
+#&gt; 
+#&gt; [[48]]$homeworld
+#&gt; [1] "http://swapi.co/api/planets/42/"
+#&gt; 
+#&gt; [[48]]$films
+#&gt; [1] "http://swapi.co/api/films/5/" "http://swapi.co/api/films/4/"
+#&gt; [3] "http://swapi.co/api/films/6/"
+#&gt; 
+#&gt; [[48]]$species
+#&gt; [1] "http://swapi.co/api/species/1/"
+#&gt; 
+#&gt; [[48]]$created
+#&gt; [1] "2014-12-20T10:12:30.846000Z"
+#&gt; 
+#&gt; [[48]]$edited
+#&gt; [1] "2014-12-20T21:17:50.420000Z"
+#&gt; 
+#&gt; [[48]]$url
+#&gt; [1] "http://swapi.co/api/people/51/"
+#&gt; 
+#&gt; 
+#&gt; [[49]]
+#&gt; [[49]]$name
+#&gt; [1] "Ki-Adi-Mundi"
+#&gt; 
+#&gt; [[49]]$height
+#&gt; [1] "198"
+#&gt; 
+#&gt; [[49]]$mass
+#&gt; [1] "82"
+#&gt; 
+#&gt; [[49]]$hair_color
+#&gt; [1] "white"
+#&gt; 
+#&gt; [[49]]$skin_color
+#&gt; [1] "pale"
+#&gt; 
+#&gt; [[49]]$eye_color
+#&gt; [1] "yellow"
+#&gt; 
+#&gt; [[49]]$birth_year
+#&gt; [1] "92BBY"
+#&gt; 
+#&gt; [[49]]$gender
+#&gt; [1] "male"
+#&gt; 
+#&gt; [[49]]$homeworld
+#&gt; [1] "http://swapi.co/api/planets/43/"
+#&gt; 
+#&gt; [[49]]$films
+#&gt; [1] "http://swapi.co/api/films/5/" "http://swapi.co/api/films/4/"
+#&gt; [3] "http://swapi.co/api/films/6/"
+#&gt; 
+#&gt; [[49]]$species
+#&gt; [1] "http://swapi.co/api/species/20/"
+#&gt; 
+#&gt; [[49]]$created
+#&gt; [1] "2014-12-20T10:15:32.293000Z"
+#&gt; 
+#&gt; [[49]]$edited
+#&gt; [1] "2014-12-20T21:17:50.422000Z"
+#&gt; 
+#&gt; [[49]]$url
+#&gt; [1] "http://swapi.co/api/people/52/"
+#&gt; 
+#&gt; 
+#&gt; [[50]]
+#&gt; [[50]]$name
+#&gt; [1] "Kit Fisto"
+#&gt; 
+#&gt; [[50]]$height
+#&gt; [1] "196"
+#&gt; 
+#&gt; [[50]]$mass
+#&gt; [1] "87"
+#&gt; 
+#&gt; [[50]]$hair_color
+#&gt; [1] "none"
+#&gt; 
+#&gt; [[50]]$skin_color
+#&gt; [1] "green"
+#&gt; 
+#&gt; [[50]]$eye_color
+#&gt; [1] "black"
+#&gt; 
+#&gt; [[50]]$birth_year
+#&gt; [1] "unknown"
+#&gt; 
+#&gt; [[50]]$gender
+#&gt; [1] "male"
+#&gt; 
+#&gt; [[50]]$homeworld
+#&gt; [1] "http://swapi.co/api/planets/44/"
+#&gt; 
+#&gt; [[50]]$films
+#&gt; [1] "http://swapi.co/api/films/5/" "http://swapi.co/api/films/4/"
+#&gt; [3] "http://swapi.co/api/films/6/"
+#&gt; 
+#&gt; [[50]]$species
+#&gt; [1] "http://swapi.co/api/species/21/"
+#&gt; 
+#&gt; [[50]]$created
+#&gt; [1] "2014-12-20T10:18:57.202000Z"
+#&gt; 
+#&gt; [[50]]$edited
+#&gt; [1] "2014-12-20T21:17:50.424000Z"
+#&gt; 
+#&gt; [[50]]$url
+#&gt; [1] "http://swapi.co/api/people/53/"
+#&gt; 
+#&gt; 
+#&gt; [[51]]
+#&gt; [[51]]$name
+#&gt; [1] "Eeth Koth"
+#&gt; 
+#&gt; [[51]]$height
+#&gt; [1] "171"
+#&gt; 
+#&gt; [[51]]$mass
+#&gt; [1] "unknown"
+#&gt; 
+#&gt; [[51]]$hair_color
+#&gt; [1] "black"
+#&gt; 
+#&gt; [[51]]$skin_color
+#&gt; [1] "brown"
+#&gt; 
+#&gt; [[51]]$eye_color
+#&gt; [1] "brown"
+#&gt; 
+#&gt; [[51]]$birth_year
+#&gt; [1] "unknown"
+#&gt; 
+#&gt; [[51]]$gender
+#&gt; [1] "male"
+#&gt; 
+#&gt; [[51]]$homeworld
+#&gt; [1] "http://swapi.co/api/planets/45/"
+#&gt; 
+#&gt; [[51]]$films
+#&gt; [1] "http://swapi.co/api/films/4/" "http://swapi.co/api/films/6/"
+#&gt; 
+#&gt; [[51]]$species
+#&gt; [1] "http://swapi.co/api/species/22/"
+#&gt; 
+#&gt; [[51]]$created
+#&gt; [1] "2014-12-20T10:26:47.902000Z"
+#&gt; 
+#&gt; [[51]]$edited
+#&gt; [1] "2014-12-20T21:17:50.427000Z"
+#&gt; 
+#&gt; [[51]]$url
+#&gt; [1] "http://swapi.co/api/people/54/"
+#&gt; 
+#&gt; 
+#&gt; [[52]]
+#&gt; [[52]]$name
+#&gt; [1] "Adi Gallia"
+#&gt; 
+#&gt; [[52]]$height
+#&gt; [1] "184"
+#&gt; 
+#&gt; [[52]]$mass
+#&gt; [1] "50"
+#&gt; 
+#&gt; [[52]]$hair_color
+#&gt; [1] "none"
+#&gt; 
+#&gt; [[52]]$skin_color
+#&gt; [1] "dark"
+#&gt; 
+#&gt; [[52]]$eye_color
+#&gt; [1] "blue"
+#&gt; 
+#&gt; [[52]]$birth_year
+#&gt; [1] "unknown"
+#&gt; 
+#&gt; [[52]]$gender
+#&gt; [1] "female"
+#&gt; 
+#&gt; [[52]]$homeworld
+#&gt; [1] "http://swapi.co/api/planets/9/"
+#&gt; 
+#&gt; [[52]]$films
+#&gt; [1] "http://swapi.co/api/films/4/" "http://swapi.co/api/films/6/"
+#&gt; 
+#&gt; [[52]]$species
+#&gt; [1] "http://swapi.co/api/species/23/"
+#&gt; 
+#&gt; [[52]]$created
+#&gt; [1] "2014-12-20T10:29:11.661000Z"
+#&gt; 
+#&gt; [[52]]$edited
+#&gt; [1] "2014-12-20T21:17:50.432000Z"
+#&gt; 
+#&gt; [[52]]$url
+#&gt; [1] "http://swapi.co/api/people/55/"
+#&gt; 
+#&gt; 
+#&gt; [[53]]
+#&gt; [[53]]$name
+#&gt; [1] "Saesee Tiin"
+#&gt; 
+#&gt; [[53]]$height
+#&gt; [1] "188"
+#&gt; 
+#&gt; [[53]]$mass
+#&gt; [1] "unknown"
+#&gt; 
+#&gt; [[53]]$hair_color
+#&gt; [1] "none"
+#&gt; 
+#&gt; [[53]]$skin_color
+#&gt; [1] "pale"
+#&gt; 
+#&gt; [[53]]$eye_color
+#&gt; [1] "orange"
+#&gt; 
+#&gt; [[53]]$birth_year
+#&gt; [1] "unknown"
+#&gt; 
+#&gt; [[53]]$gender
+#&gt; [1] "male"
+#&gt; 
+#&gt; [[53]]$homeworld
+#&gt; [1] "http://swapi.co/api/planets/47/"
+#&gt; 
+#&gt; [[53]]$films
+#&gt; [1] "http://swapi.co/api/films/4/" "http://swapi.co/api/films/6/"
+#&gt; 
+#&gt; [[53]]$species
+#&gt; [1] "http://swapi.co/api/species/24/"
+#&gt; 
+#&gt; [[53]]$created
+#&gt; [1] "2014-12-20T10:32:11.669000Z"
+#&gt; 
+#&gt; [[53]]$edited
+#&gt; [1] "2014-12-20T21:17:50.434000Z"
+#&gt; 
+#&gt; [[53]]$url
+#&gt; [1] "http://swapi.co/api/people/56/"
+#&gt; 
+#&gt; 
+#&gt; [[54]]
+#&gt; [[54]]$name
+#&gt; [1] "Yarael Poof"
+#&gt; 
+#&gt; [[54]]$height
+#&gt; [1] "264"
+#&gt; 
+#&gt; [[54]]$mass
+#&gt; [1] "unknown"
+#&gt; 
+#&gt; [[54]]$hair_color
+#&gt; [1] "none"
+#&gt; 
+#&gt; [[54]]$skin_color
+#&gt; [1] "white"
+#&gt; 
+#&gt; [[54]]$eye_color
+#&gt; [1] "yellow"
+#&gt; 
+#&gt; [[54]]$birth_year
+#&gt; [1] "unknown"
+#&gt; 
+#&gt; [[54]]$gender
+#&gt; [1] "male"
+#&gt; 
+#&gt; [[54]]$homeworld
+#&gt; [1] "http://swapi.co/api/planets/48/"
+#&gt; 
+#&gt; [[54]]$films
+#&gt; [1] "http://swapi.co/api/films/4/"
+#&gt; 
+#&gt; [[54]]$species
+#&gt; [1] "http://swapi.co/api/species/25/"
+#&gt; 
+#&gt; [[54]]$created
+#&gt; [1] "2014-12-20T10:34:48.725000Z"
+#&gt; 
+#&gt; [[54]]$edited
+#&gt; [1] "2014-12-20T21:17:50.437000Z"
+#&gt; 
+#&gt; [[54]]$url
+#&gt; [1] "http://swapi.co/api/people/57/"
+#&gt; 
+#&gt; 
+#&gt; [[55]]
+#&gt; [[55]]$name
+#&gt; [1] "Plo Koon"
+#&gt; 
+#&gt; [[55]]$height
+#&gt; [1] "188"
+#&gt; 
+#&gt; [[55]]$mass
+#&gt; [1] "80"
+#&gt; 
+#&gt; [[55]]$hair_color
+#&gt; [1] "none"
+#&gt; 
+#&gt; [[55]]$skin_color
+#&gt; [1] "orange"
+#&gt; 
+#&gt; [[55]]$eye_color
+#&gt; [1] "black"
+#&gt; 
+#&gt; [[55]]$birth_year
+#&gt; [1] "22BBY"
+#&gt; 
+#&gt; [[55]]$gender
+#&gt; [1] "male"
+#&gt; 
+#&gt; [[55]]$homeworld
+#&gt; [1] "http://swapi.co/api/planets/49/"
+#&gt; 
+#&gt; [[55]]$films
+#&gt; [1] "http://swapi.co/api/films/5/" "http://swapi.co/api/films/4/"
+#&gt; [3] "http://swapi.co/api/films/6/"
+#&gt; 
+#&gt; [[55]]$species
+#&gt; [1] "http://swapi.co/api/species/26/"
+#&gt; 
+#&gt; [[55]]$starships
+#&gt; [1] "http://swapi.co/api/starships/48/"
+#&gt; 
+#&gt; [[55]]$created
+#&gt; [1] "2014-12-20T10:49:19.859000Z"
+#&gt; 
+#&gt; [[55]]$edited
+#&gt; [1] "2014-12-20T21:17:50.439000Z"
+#&gt; 
+#&gt; [[55]]$url
+#&gt; [1] "http://swapi.co/api/people/58/"
+#&gt; 
+#&gt; 
+#&gt; [[56]]
+#&gt; [[56]]$name
+#&gt; [1] "Mas Amedda"
+#&gt; 
+#&gt; [[56]]$height
+#&gt; [1] "196"
+#&gt; 
+#&gt; [[56]]$mass
+#&gt; [1] "unknown"
+#&gt; 
+#&gt; [[56]]$hair_color
+#&gt; [1] "none"
+#&gt; 
+#&gt; [[56]]$skin_color
+#&gt; [1] "blue"
+#&gt; 
+#&gt; [[56]]$eye_color
+#&gt; [1] "blue"
+#&gt; 
+#&gt; [[56]]$birth_year
+#&gt; [1] "unknown"
+#&gt; 
+#&gt; [[56]]$gender
+#&gt; [1] "male"
+#&gt; 
+#&gt; [[56]]$homeworld
+#&gt; [1] "http://swapi.co/api/planets/50/"
+#&gt; 
+#&gt; [[56]]$films
+#&gt; [1] "http://swapi.co/api/films/5/" "http://swapi.co/api/films/4/"
+#&gt; 
+#&gt; [[56]]$species
+#&gt; [1] "http://swapi.co/api/species/27/"
+#&gt; 
+#&gt; [[56]]$created
+#&gt; [1] "2014-12-20T10:53:26.457000Z"
+#&gt; 
+#&gt; [[56]]$edited
+#&gt; [1] "2014-12-20T21:17:50.442000Z"
+#&gt; 
+#&gt; [[56]]$url
+#&gt; [1] "http://swapi.co/api/people/59/"
+#&gt; 
+#&gt; 
+#&gt; [[57]]
+#&gt; [[57]]$name
+#&gt; [1] "Gregar Typho"
+#&gt; 
+#&gt; [[57]]$height
+#&gt; [1] "185"
+#&gt; 
+#&gt; [[57]]$mass
+#&gt; [1] "85"
+#&gt; 
+#&gt; [[57]]$hair_color
+#&gt; [1] "black"
+#&gt; 
+#&gt; [[57]]$skin_color
+#&gt; [1] "dark"
+#&gt; 
+#&gt; [[57]]$eye_color
+#&gt; [1] "brown"
+#&gt; 
+#&gt; [[57]]$birth_year
+#&gt; [1] "unknown"
+#&gt; 
+#&gt; [[57]]$gender
+#&gt; [1] "male"
+#&gt; 
+#&gt; [[57]]$homeworld
+#&gt; [1] "http://swapi.co/api/planets/8/"
+#&gt; 
+#&gt; [[57]]$films
+#&gt; [1] "http://swapi.co/api/films/5/"
+#&gt; 
+#&gt; [[57]]$species
+#&gt; [1] "http://swapi.co/api/species/1/"
+#&gt; 
+#&gt; [[57]]$starships
+#&gt; [1] "http://swapi.co/api/starships/39/"
+#&gt; 
+#&gt; [[57]]$created
+#&gt; [1] "2014-12-20T11:10:10.381000Z"
+#&gt; 
+#&gt; [[57]]$edited
+#&gt; [1] "2014-12-20T21:17:50.445000Z"
+#&gt; 
+#&gt; [[57]]$url
+#&gt; [1] "http://swapi.co/api/people/60/"
+#&gt; 
+#&gt; 
+#&gt; [[58]]
+#&gt; [[58]]$name
+#&gt; [1] "Cordé"
+#&gt; 
+#&gt; [[58]]$height
+#&gt; [1] "157"
+#&gt; 
+#&gt; [[58]]$mass
+#&gt; [1] "unknown"
+#&gt; 
+#&gt; [[58]]$hair_color
+#&gt; [1] "brown"
+#&gt; 
+#&gt; [[58]]$skin_color
+#&gt; [1] "light"
+#&gt; 
+#&gt; [[58]]$eye_color
+#&gt; [1] "brown"
+#&gt; 
+#&gt; [[58]]$birth_year
+#&gt; [1] "unknown"
+#&gt; 
+#&gt; [[58]]$gender
+#&gt; [1] "female"
+#&gt; 
+#&gt; [[58]]$homeworld
+#&gt; [1] "http://swapi.co/api/planets/8/"
+#&gt; 
+#&gt; [[58]]$films
+#&gt; [1] "http://swapi.co/api/films/5/"
+#&gt; 
+#&gt; [[58]]$species
+#&gt; [1] "http://swapi.co/api/species/1/"
+#&gt; 
+#&gt; [[58]]$created
+#&gt; [1] "2014-12-20T11:11:39.630000Z"
+#&gt; 
+#&gt; [[58]]$edited
+#&gt; [1] "2014-12-20T21:17:50.449000Z"
+#&gt; 
+#&gt; [[58]]$url
+#&gt; [1] "http://swapi.co/api/people/61/"
+#&gt; 
+#&gt; 
+#&gt; [[59]]
+#&gt; [[59]]$name
+#&gt; [1] "Cliegg Lars"
+#&gt; 
+#&gt; [[59]]$height
+#&gt; [1] "183"
+#&gt; 
+#&gt; [[59]]$mass
+#&gt; [1] "unknown"
+#&gt; 
+#&gt; [[59]]$hair_color
+#&gt; [1] "brown"
+#&gt; 
+#&gt; [[59]]$skin_color
+#&gt; [1] "fair"
+#&gt; 
+#&gt; [[59]]$eye_color
+#&gt; [1] "blue"
+#&gt; 
+#&gt; [[59]]$birth_year
+#&gt; [1] "82BBY"
+#&gt; 
+#&gt; [[59]]$gender
+#&gt; [1] "male"
+#&gt; 
+#&gt; [[59]]$homeworld
+#&gt; [1] "http://swapi.co/api/planets/1/"
+#&gt; 
+#&gt; [[59]]$films
+#&gt; [1] "http://swapi.co/api/films/5/"
+#&gt; 
+#&gt; [[59]]$species
+#&gt; [1] "http://swapi.co/api/species/1/"
+#&gt; 
+#&gt; [[59]]$created
+#&gt; [1] "2014-12-20T15:59:03.958000Z"
+#&gt; 
+#&gt; [[59]]$edited
+#&gt; [1] "2014-12-20T21:17:50.451000Z"
+#&gt; 
+#&gt; [[59]]$url
+#&gt; [1] "http://swapi.co/api/people/62/"
+#&gt; 
+#&gt; 
+#&gt; [[60]]
+#&gt; [[60]]$name
+#&gt; [1] "Poggle the Lesser"
+#&gt; 
+#&gt; [[60]]$height
+#&gt; [1] "183"
+#&gt; 
+#&gt; [[60]]$mass
+#&gt; [1] "80"
+#&gt; 
+#&gt; [[60]]$hair_color
+#&gt; [1] "none"
+#&gt; 
+#&gt; [[60]]$skin_color
+#&gt; [1] "green"
+#&gt; 
+#&gt; [[60]]$eye_color
+#&gt; [1] "yellow"
+#&gt; 
+#&gt; [[60]]$birth_year
+#&gt; [1] "unknown"
+#&gt; 
+#&gt; [[60]]$gender
+#&gt; [1] "male"
+#&gt; 
+#&gt; [[60]]$homeworld
+#&gt; [1] "http://swapi.co/api/planets/11/"
+#&gt; 
+#&gt; [[60]]$films
+#&gt; [1] "http://swapi.co/api/films/5/" "http://swapi.co/api/films/6/"
+#&gt; 
+#&gt; [[60]]$species
+#&gt; [1] "http://swapi.co/api/species/28/"
+#&gt; 
+#&gt; [[60]]$created
+#&gt; [1] "2014-12-20T16:40:43.977000Z"
+#&gt; 
+#&gt; [[60]]$edited
+#&gt; [1] "2014-12-20T21:17:50.453000Z"
+#&gt; 
+#&gt; [[60]]$url
+#&gt; [1] "http://swapi.co/api/people/63/"
+#&gt; 
+#&gt; 
+#&gt; [[61]]
+#&gt; [[61]]$name
+#&gt; [1] "Luminara Unduli"
+#&gt; 
+#&gt; [[61]]$height
+#&gt; [1] "170"
+#&gt; 
+#&gt; [[61]]$mass
+#&gt; [1] "56.2"
+#&gt; 
+#&gt; [[61]]$hair_color
+#&gt; [1] "black"
+#&gt; 
+#&gt; [[61]]$skin_color
+#&gt; [1] "yellow"
+#&gt; 
+#&gt; [[61]]$eye_color
+#&gt; [1] "blue"
+#&gt; 
+#&gt; [[61]]$birth_year
+#&gt; [1] "58BBY"
+#&gt; 
+#&gt; [[61]]$gender
+#&gt; [1] "female"
+#&gt; 
+#&gt; [[61]]$homeworld
+#&gt; [1] "http://swapi.co/api/planets/51/"
+#&gt; 
+#&gt; [[61]]$films
+#&gt; [1] "http://swapi.co/api/films/5/" "http://swapi.co/api/films/6/"
+#&gt; 
+#&gt; [[61]]$species
+#&gt; [1] "http://swapi.co/api/species/29/"
+#&gt; 
+#&gt; [[61]]$created
+#&gt; [1] "2014-12-20T16:45:53.668000Z"
+#&gt; 
+#&gt; [[61]]$edited
+#&gt; [1] "2014-12-20T21:17:50.455000Z"
+#&gt; 
+#&gt; [[61]]$url
+#&gt; [1] "http://swapi.co/api/people/64/"
+#&gt; 
+#&gt; 
+#&gt; [[62]]
+#&gt; [[62]]$name
+#&gt; [1] "Barriss Offee"
+#&gt; 
+#&gt; [[62]]$height
+#&gt; [1] "166"
+#&gt; 
+#&gt; [[62]]$mass
+#&gt; [1] "50"
+#&gt; 
+#&gt; [[62]]$hair_color
+#&gt; [1] "black"
+#&gt; 
+#&gt; [[62]]$skin_color
+#&gt; [1] "yellow"
+#&gt; 
+#&gt; [[62]]$eye_color
+#&gt; [1] "blue"
+#&gt; 
+#&gt; [[62]]$birth_year
+#&gt; [1] "40BBY"
+#&gt; 
+#&gt; [[62]]$gender
+#&gt; [1] "female"
+#&gt; 
+#&gt; [[62]]$homeworld
+#&gt; [1] "http://swapi.co/api/planets/51/"
+#&gt; 
+#&gt; [[62]]$films
+#&gt; [1] "http://swapi.co/api/films/5/"
+#&gt; 
+#&gt; [[62]]$species
+#&gt; [1] "http://swapi.co/api/species/29/"
+#&gt; 
+#&gt; [[62]]$created
+#&gt; [1] "2014-12-20T16:46:40.440000Z"
+#&gt; 
+#&gt; [[62]]$edited
+#&gt; [1] "2014-12-20T21:17:50.457000Z"
+#&gt; 
+#&gt; [[62]]$url
+#&gt; [1] "http://swapi.co/api/people/65/"
+#&gt; 
+#&gt; 
+#&gt; [[63]]
+#&gt; [[63]]$name
+#&gt; [1] "Dormé"
+#&gt; 
+#&gt; [[63]]$height
+#&gt; [1] "165"
+#&gt; 
+#&gt; [[63]]$mass
+#&gt; [1] "unknown"
+#&gt; 
+#&gt; [[63]]$hair_color
+#&gt; [1] "brown"
+#&gt; 
+#&gt; [[63]]$skin_color
+#&gt; [1] "light"
+#&gt; 
+#&gt; [[63]]$eye_color
+#&gt; [1] "brown"
+#&gt; 
+#&gt; [[63]]$birth_year
+#&gt; [1] "unknown"
+#&gt; 
+#&gt; [[63]]$gender
+#&gt; [1] "female"
+#&gt; 
+#&gt; [[63]]$homeworld
+#&gt; [1] "http://swapi.co/api/planets/8/"
+#&gt; 
+#&gt; [[63]]$films
+#&gt; [1] "http://swapi.co/api/films/5/"
+#&gt; 
+#&gt; [[63]]$species
+#&gt; [1] "http://swapi.co/api/species/1/"
+#&gt; 
+#&gt; [[63]]$created
+#&gt; [1] "2014-12-20T16:49:14.640000Z"
+#&gt; 
+#&gt; [[63]]$edited
+#&gt; [1] "2014-12-20T21:17:50.460000Z"
+#&gt; 
+#&gt; [[63]]$url
+#&gt; [1] "http://swapi.co/api/people/66/"
+#&gt; 
+#&gt; 
+#&gt; [[64]]
+#&gt; [[64]]$name
+#&gt; [1] "Dooku"
+#&gt; 
+#&gt; [[64]]$height
+#&gt; [1] "193"
+#&gt; 
+#&gt; [[64]]$mass
+#&gt; [1] "80"
+#&gt; 
+#&gt; [[64]]$hair_color
+#&gt; [1] "white"
+#&gt; 
+#&gt; [[64]]$skin_color
+#&gt; [1] "fair"
+#&gt; 
+#&gt; [[64]]$eye_color
+#&gt; [1] "brown"
+#&gt; 
+#&gt; [[64]]$birth_year
+#&gt; [1] "102BBY"
+#&gt; 
+#&gt; [[64]]$gender
+#&gt; [1] "male"
+#&gt; 
+#&gt; [[64]]$homeworld
+#&gt; [1] "http://swapi.co/api/planets/52/"
+#&gt; 
+#&gt; [[64]]$films
+#&gt; [1] "http://swapi.co/api/films/5/" "http://swapi.co/api/films/6/"
+#&gt; 
+#&gt; [[64]]$species
+#&gt; [1] "http://swapi.co/api/species/1/"
+#&gt; 
+#&gt; [[64]]$vehicles
+#&gt; [1] "http://swapi.co/api/vehicles/55/"
+#&gt; 
+#&gt; [[64]]$created
+#&gt; [1] "2014-12-20T16:52:14.726000Z"
+#&gt; 
+#&gt; [[64]]$edited
+#&gt; [1] "2014-12-20T21:17:50.462000Z"
+#&gt; 
+#&gt; [[64]]$url
+#&gt; [1] "http://swapi.co/api/people/67/"
+#&gt; 
+#&gt; 
+#&gt; [[65]]
+#&gt; [[65]]$name
+#&gt; [1] "Bail Prestor Organa"
+#&gt; 
+#&gt; [[65]]$height
+#&gt; [1] "191"
+#&gt; 
+#&gt; [[65]]$mass
+#&gt; [1] "unknown"
+#&gt; 
+#&gt; [[65]]$hair_color
+#&gt; [1] "black"
+#&gt; 
+#&gt; [[65]]$skin_color
+#&gt; [1] "tan"
+#&gt; 
+#&gt; [[65]]$eye_color
+#&gt; [1] "brown"
+#&gt; 
+#&gt; [[65]]$birth_year
+#&gt; [1] "67BBY"
+#&gt; 
+#&gt; [[65]]$gender
+#&gt; [1] "male"
+#&gt; 
+#&gt; [[65]]$homeworld
+#&gt; [1] "http://swapi.co/api/planets/2/"
+#&gt; 
+#&gt; [[65]]$films
+#&gt; [1] "http://swapi.co/api/films/5/" "http://swapi.co/api/films/6/"
+#&gt; 
+#&gt; [[65]]$species
+#&gt; [1] "http://swapi.co/api/species/1/"
+#&gt; 
+#&gt; [[65]]$created
+#&gt; [1] "2014-12-20T16:53:08.575000Z"
+#&gt; 
+#&gt; [[65]]$edited
+#&gt; [1] "2014-12-20T21:17:50.463000Z"
+#&gt; 
+#&gt; [[65]]$url
+#&gt; [1] "http://swapi.co/api/people/68/"
+#&gt; 
+#&gt; 
+#&gt; [[66]]
+#&gt; [[66]]$name
+#&gt; [1] "Jango Fett"
+#&gt; 
+#&gt; [[66]]$height
+#&gt; [1] "183"
+#&gt; 
+#&gt; [[66]]$mass
+#&gt; [1] "79"
+#&gt; 
+#&gt; [[66]]$hair_color
+#&gt; [1] "black"
+#&gt; 
+#&gt; [[66]]$skin_color
+#&gt; [1] "tan"
+#&gt; 
+#&gt; [[66]]$eye_color
+#&gt; [1] "brown"
+#&gt; 
+#&gt; [[66]]$birth_year
+#&gt; [1] "66BBY"
+#&gt; 
+#&gt; [[66]]$gender
+#&gt; [1] "male"
+#&gt; 
+#&gt; [[66]]$homeworld
+#&gt; [1] "http://swapi.co/api/planets/53/"
+#&gt; 
+#&gt; [[66]]$films
+#&gt; [1] "http://swapi.co/api/films/5/"
+#&gt; 
+#&gt; [[66]]$species
+#&gt; [1] "http://swapi.co/api/species/1/"
+#&gt; 
+#&gt; [[66]]$created
+#&gt; [1] "2014-12-20T16:54:41.620000Z"
+#&gt; 
+#&gt; [[66]]$edited
+#&gt; [1] "2014-12-20T21:17:50.465000Z"
+#&gt; 
+#&gt; [[66]]$url
+#&gt; [1] "http://swapi.co/api/people/69/"
+#&gt; 
+#&gt; 
+#&gt; [[67]]
+#&gt; [[67]]$name
+#&gt; [1] "Zam Wesell"
+#&gt; 
+#&gt; [[67]]$height
+#&gt; [1] "168"
+#&gt; 
+#&gt; [[67]]$mass
+#&gt; [1] "55"
+#&gt; 
+#&gt; [[67]]$hair_color
+#&gt; [1] "blonde"
+#&gt; 
+#&gt; [[67]]$skin_color
+#&gt; [1] "fair, green, yellow"
+#&gt; 
+#&gt; [[67]]$eye_color
+#&gt; [1] "yellow"
+#&gt; 
+#&gt; [[67]]$birth_year
+#&gt; [1] "unknown"
+#&gt; 
+#&gt; [[67]]$gender
+#&gt; [1] "female"
+#&gt; 
+#&gt; [[67]]$homeworld
+#&gt; [1] "http://swapi.co/api/planets/54/"
+#&gt; 
+#&gt; [[67]]$films
+#&gt; [1] "http://swapi.co/api/films/5/"
+#&gt; 
+#&gt; [[67]]$species
+#&gt; [1] "http://swapi.co/api/species/30/"
+#&gt; 
+#&gt; [[67]]$vehicles
+#&gt; [1] "http://swapi.co/api/vehicles/45/"
+#&gt; 
+#&gt; [[67]]$created
+#&gt; [1] "2014-12-20T16:57:44.471000Z"
+#&gt; 
+#&gt; [[67]]$edited
+#&gt; [1] "2014-12-20T21:17:50.468000Z"
+#&gt; 
+#&gt; [[67]]$url
+#&gt; [1] "http://swapi.co/api/people/70/"
+#&gt; 
+#&gt; 
+#&gt; [[68]]
+#&gt; [[68]]$name
+#&gt; [1] "Dexter Jettster"
+#&gt; 
+#&gt; [[68]]$height
+#&gt; [1] "198"
+#&gt; 
+#&gt; [[68]]$mass
+#&gt; [1] "102"
+#&gt; 
+#&gt; [[68]]$hair_color
+#&gt; [1] "none"
+#&gt; 
+#&gt; [[68]]$skin_color
+#&gt; [1] "brown"
+#&gt; 
+#&gt; [[68]]$eye_color
+#&gt; [1] "yellow"
+#&gt; 
+#&gt; [[68]]$birth_year
+#&gt; [1] "unknown"
+#&gt; 
+#&gt; [[68]]$gender
+#&gt; [1] "male"
+#&gt; 
+#&gt; [[68]]$homeworld
+#&gt; [1] "http://swapi.co/api/planets/55/"
+#&gt; 
+#&gt; [[68]]$films
+#&gt; [1] "http://swapi.co/api/films/5/"
+#&gt; 
+#&gt; [[68]]$species
+#&gt; [1] "http://swapi.co/api/species/31/"
+#&gt; 
+#&gt; [[68]]$created
+#&gt; [1] "2014-12-20T17:28:27.248000Z"
+#&gt; 
+#&gt; [[68]]$edited
+#&gt; [1] "2014-12-20T21:17:50.470000Z"
+#&gt; 
+#&gt; [[68]]$url
+#&gt; [1] "http://swapi.co/api/people/71/"
+#&gt; 
+#&gt; 
+#&gt; [[69]]
+#&gt; [[69]]$name
+#&gt; [1] "Lama Su"
+#&gt; 
+#&gt; [[69]]$height
+#&gt; [1] "229"
+#&gt; 
+#&gt; [[69]]$mass
+#&gt; [1] "88"
+#&gt; 
+#&gt; [[69]]$hair_color
+#&gt; [1] "none"
+#&gt; 
+#&gt; [[69]]$skin_color
+#&gt; [1] "grey"
+#&gt; 
+#&gt; [[69]]$eye_color
+#&gt; [1] "black"
+#&gt; 
+#&gt; [[69]]$birth_year
+#&gt; [1] "unknown"
+#&gt; 
+#&gt; [[69]]$gender
+#&gt; [1] "male"
+#&gt; 
+#&gt; [[69]]$homeworld
+#&gt; [1] "http://swapi.co/api/planets/10/"
+#&gt; 
+#&gt; [[69]]$films
+#&gt; [1] "http://swapi.co/api/films/5/"
+#&gt; 
+#&gt; [[69]]$species
+#&gt; [1] "http://swapi.co/api/species/32/"
+#&gt; 
+#&gt; [[69]]$created
+#&gt; [1] "2014-12-20T17:30:50.416000Z"
+#&gt; 
+#&gt; [[69]]$edited
+#&gt; [1] "2014-12-20T21:17:50.473000Z"
+#&gt; 
+#&gt; [[69]]$url
+#&gt; [1] "http://swapi.co/api/people/72/"
+#&gt; 
+#&gt; 
+#&gt; [[70]]
+#&gt; [[70]]$name
+#&gt; [1] "Taun We"
+#&gt; 
+#&gt; [[70]]$height
+#&gt; [1] "213"
+#&gt; 
+#&gt; [[70]]$mass
+#&gt; [1] "unknown"
+#&gt; 
+#&gt; [[70]]$hair_color
+#&gt; [1] "none"
+#&gt; 
+#&gt; [[70]]$skin_color
+#&gt; [1] "grey"
+#&gt; 
+#&gt; [[70]]$eye_color
+#&gt; [1] "black"
+#&gt; 
+#&gt; [[70]]$birth_year
+#&gt; [1] "unknown"
+#&gt; 
+#&gt; [[70]]$gender
+#&gt; [1] "female"
+#&gt; 
+#&gt; [[70]]$homeworld
+#&gt; [1] "http://swapi.co/api/planets/10/"
+#&gt; 
+#&gt; [[70]]$films
+#&gt; [1] "http://swapi.co/api/films/5/"
+#&gt; 
+#&gt; [[70]]$species
+#&gt; [1] "http://swapi.co/api/species/32/"
+#&gt; 
+#&gt; [[70]]$created
+#&gt; [1] "2014-12-20T17:31:21.195000Z"
+#&gt; 
+#&gt; [[70]]$edited
+#&gt; [1] "2014-12-20T21:17:50.474000Z"
+#&gt; 
+#&gt; [[70]]$url
+#&gt; [1] "http://swapi.co/api/people/73/"
+#&gt; 
+#&gt; 
+#&gt; [[71]]
+#&gt; [[71]]$name
+#&gt; [1] "Jocasta Nu"
+#&gt; 
+#&gt; [[71]]$height
+#&gt; [1] "167"
+#&gt; 
+#&gt; [[71]]$mass
+#&gt; [1] "unknown"
+#&gt; 
+#&gt; [[71]]$hair_color
+#&gt; [1] "white"
+#&gt; 
+#&gt; [[71]]$skin_color
+#&gt; [1] "fair"
+#&gt; 
+#&gt; [[71]]$eye_color
+#&gt; [1] "blue"
+#&gt; 
+#&gt; [[71]]$birth_year
+#&gt; [1] "unknown"
+#&gt; 
+#&gt; [[71]]$gender
+#&gt; [1] "female"
+#&gt; 
+#&gt; [[71]]$homeworld
+#&gt; [1] "http://swapi.co/api/planets/9/"
+#&gt; 
+#&gt; [[71]]$films
+#&gt; [1] "http://swapi.co/api/films/5/"
+#&gt; 
+#&gt; [[71]]$species
+#&gt; [1] "http://swapi.co/api/species/1/"
+#&gt; 
+#&gt; [[71]]$created
+#&gt; [1] "2014-12-20T17:32:51.996000Z"
+#&gt; 
+#&gt; [[71]]$edited
+#&gt; [1] "2014-12-20T21:17:50.476000Z"
+#&gt; 
+#&gt; [[71]]$url
+#&gt; [1] "http://swapi.co/api/people/74/"
+#&gt; 
+#&gt; 
+#&gt; [[72]]
+#&gt; [[72]]$name
+#&gt; [1] "Ratts Tyerell"
+#&gt; 
+#&gt; [[72]]$height
+#&gt; [1] "79"
+#&gt; 
+#&gt; [[72]]$mass
+#&gt; [1] "15"
+#&gt; 
+#&gt; [[72]]$hair_color
+#&gt; [1] "none"
+#&gt; 
+#&gt; [[72]]$skin_color
+#&gt; [1] "grey, blue"
+#&gt; 
+#&gt; [[72]]$eye_color
+#&gt; [1] "unknown"
+#&gt; 
+#&gt; [[72]]$birth_year
+#&gt; [1] "unknown"
+#&gt; 
+#&gt; [[72]]$gender
+#&gt; [1] "male"
+#&gt; 
+#&gt; [[72]]$homeworld
+#&gt; [1] "http://swapi.co/api/planets/38/"
+#&gt; 
+#&gt; [[72]]$films
+#&gt; [1] "http://swapi.co/api/films/4/"
+#&gt; 
+#&gt; [[72]]$species
+#&gt; [1] "http://swapi.co/api/species/16/"
+#&gt; 
+#&gt; [[72]]$created
+#&gt; [1] "2014-12-20T09:53:15.086000Z"
+#&gt; 
+#&gt; [[72]]$edited
+#&gt; [1] "2016-06-30T12:52:19.604868Z"
+#&gt; 
+#&gt; [[72]]$url
+#&gt; [1] "http://swapi.co/api/people/47/"
+#&gt; 
+#&gt; 
+#&gt; [[73]]
+#&gt; [[73]]$name
+#&gt; [1] "R4-P17"
+#&gt; 
+#&gt; [[73]]$height
+#&gt; [1] "96"
+#&gt; 
+#&gt; [[73]]$mass
+#&gt; [1] "unknown"
+#&gt; 
+#&gt; [[73]]$hair_color
+#&gt; [1] "none"
+#&gt; 
+#&gt; [[73]]$skin_color
+#&gt; [1] "silver, red"
+#&gt; 
+#&gt; [[73]]$eye_color
+#&gt; [1] "red, blue"
+#&gt; 
+#&gt; [[73]]$birth_year
+#&gt; [1] "unknown"
+#&gt; 
+#&gt; [[73]]$gender
+#&gt; [1] "female"
+#&gt; 
+#&gt; [[73]]$homeworld
+#&gt; [1] "http://swapi.co/api/planets/28/"
+#&gt; 
+#&gt; [[73]]$films
+#&gt; [1] "http://swapi.co/api/films/5/" "http://swapi.co/api/films/6/"
+#&gt; 
+#&gt; [[73]]$created
+#&gt; [1] "2014-12-20T17:43:36.409000Z"
+#&gt; 
+#&gt; [[73]]$edited
+#&gt; [1] "2014-12-20T21:17:50.478000Z"
+#&gt; 
+#&gt; [[73]]$url
+#&gt; [1] "http://swapi.co/api/people/75/"
+#&gt; 
+#&gt; 
+#&gt; [[74]]
+#&gt; [[74]]$name
+#&gt; [1] "Wat Tambor"
+#&gt; 
+#&gt; [[74]]$height
+#&gt; [1] "193"
+#&gt; 
+#&gt; [[74]]$mass
+#&gt; [1] "48"
+#&gt; 
+#&gt; [[74]]$hair_color
+#&gt; [1] "none"
+#&gt; 
+#&gt; [[74]]$skin_color
+#&gt; [1] "green, grey"
+#&gt; 
+#&gt; [[74]]$eye_color
+#&gt; [1] "unknown"
+#&gt; 
+#&gt; [[74]]$birth_year
+#&gt; [1] "unknown"
+#&gt; 
+#&gt; [[74]]$gender
+#&gt; [1] "male"
+#&gt; 
+#&gt; [[74]]$homeworld
+#&gt; [1] "http://swapi.co/api/planets/56/"
+#&gt; 
+#&gt; [[74]]$films
+#&gt; [1] "http://swapi.co/api/films/5/"
+#&gt; 
+#&gt; [[74]]$species
+#&gt; [1] "http://swapi.co/api/species/33/"
+#&gt; 
+#&gt; [[74]]$created
+#&gt; [1] "2014-12-20T17:53:52.607000Z"
+#&gt; 
+#&gt; [[74]]$edited
+#&gt; [1] "2014-12-20T21:17:50.481000Z"
+#&gt; 
+#&gt; [[74]]$url
+#&gt; [1] "http://swapi.co/api/people/76/"
+#&gt; 
+#&gt; 
+#&gt; [[75]]
+#&gt; [[75]]$name
+#&gt; [1] "San Hill"
+#&gt; 
+#&gt; [[75]]$height
+#&gt; [1] "191"
+#&gt; 
+#&gt; [[75]]$mass
+#&gt; [1] "unknown"
+#&gt; 
+#&gt; [[75]]$hair_color
+#&gt; [1] "none"
+#&gt; 
+#&gt; [[75]]$skin_color
+#&gt; [1] "grey"
+#&gt; 
+#&gt; [[75]]$eye_color
+#&gt; [1] "gold"
+#&gt; 
+#&gt; [[75]]$birth_year
+#&gt; [1] "unknown"
+#&gt; 
+#&gt; [[75]]$gender
+#&gt; [1] "male"
+#&gt; 
+#&gt; [[75]]$homeworld
+#&gt; [1] "http://swapi.co/api/planets/57/"
+#&gt; 
+#&gt; [[75]]$films
+#&gt; [1] "http://swapi.co/api/films/5/"
+#&gt; 
+#&gt; [[75]]$species
+#&gt; [1] "http://swapi.co/api/species/34/"
+#&gt; 
+#&gt; [[75]]$created
+#&gt; [1] "2014-12-20T17:58:17.049000Z"
+#&gt; 
+#&gt; [[75]]$edited
+#&gt; [1] "2014-12-20T21:17:50.484000Z"
+#&gt; 
+#&gt; [[75]]$url
+#&gt; [1] "http://swapi.co/api/people/77/"
+#&gt; 
+#&gt; 
+#&gt; [[76]]
+#&gt; [[76]]$name
+#&gt; [1] "Shaak Ti"
+#&gt; 
+#&gt; [[76]]$height
+#&gt; [1] "178"
+#&gt; 
+#&gt; [[76]]$mass
+#&gt; [1] "57"
+#&gt; 
+#&gt; [[76]]$hair_color
+#&gt; [1] "none"
+#&gt; 
+#&gt; [[76]]$skin_color
+#&gt; [1] "red, blue, white"
+#&gt; 
+#&gt; [[76]]$eye_color
+#&gt; [1] "black"
+#&gt; 
+#&gt; [[76]]$birth_year
+#&gt; [1] "unknown"
+#&gt; 
+#&gt; [[76]]$gender
+#&gt; [1] "female"
+#&gt; 
+#&gt; [[76]]$homeworld
+#&gt; [1] "http://swapi.co/api/planets/58/"
+#&gt; 
+#&gt; [[76]]$films
+#&gt; [1] "http://swapi.co/api/films/5/" "http://swapi.co/api/films/6/"
+#&gt; 
+#&gt; [[76]]$species
+#&gt; [1] "http://swapi.co/api/species/35/"
+#&gt; 
+#&gt; [[76]]$created
+#&gt; [1] "2014-12-20T18:44:01.103000Z"
+#&gt; 
+#&gt; [[76]]$edited
+#&gt; [1] "2014-12-20T21:17:50.486000Z"
+#&gt; 
+#&gt; [[76]]$url
+#&gt; [1] "http://swapi.co/api/people/78/"
+#&gt; 
+#&gt; 
+#&gt; [[77]]
+#&gt; [[77]]$name
+#&gt; [1] "Grievous"
+#&gt; 
+#&gt; [[77]]$height
+#&gt; [1] "216"
+#&gt; 
+#&gt; [[77]]$mass
+#&gt; [1] "159"
+#&gt; 
+#&gt; [[77]]$hair_color
+#&gt; [1] "none"
+#&gt; 
+#&gt; [[77]]$skin_color
+#&gt; [1] "brown, white"
+#&gt; 
+#&gt; [[77]]$eye_color
+#&gt; [1] "green, yellow"
+#&gt; 
+#&gt; [[77]]$birth_year
+#&gt; [1] "unknown"
+#&gt; 
+#&gt; [[77]]$gender
+#&gt; [1] "male"
+#&gt; 
+#&gt; [[77]]$homeworld
+#&gt; [1] "http://swapi.co/api/planets/59/"
+#&gt; 
+#&gt; [[77]]$films
+#&gt; [1] "http://swapi.co/api/films/6/"
+#&gt; 
+#&gt; [[77]]$species
+#&gt; [1] "http://swapi.co/api/species/36/"
+#&gt; 
+#&gt; [[77]]$vehicles
+#&gt; [1] "http://swapi.co/api/vehicles/60/"
+#&gt; 
+#&gt; [[77]]$starships
+#&gt; [1] "http://swapi.co/api/starships/74/"
+#&gt; 
+#&gt; [[77]]$created
+#&gt; [1] "2014-12-20T19:43:53.348000Z"
+#&gt; 
+#&gt; [[77]]$edited
+#&gt; [1] "2014-12-20T21:17:50.488000Z"
+#&gt; 
+#&gt; [[77]]$url
+#&gt; [1] "http://swapi.co/api/people/79/"
+#&gt; 
+#&gt; 
+#&gt; [[78]]
+#&gt; [[78]]$name
+#&gt; [1] "Tarfful"
+#&gt; 
+#&gt; [[78]]$height
+#&gt; [1] "234"
+#&gt; 
+#&gt; [[78]]$mass
+#&gt; [1] "136"
+#&gt; 
+#&gt; [[78]]$hair_color
+#&gt; [1] "brown"
+#&gt; 
+#&gt; [[78]]$skin_color
+#&gt; [1] "brown"
+#&gt; 
+#&gt; [[78]]$eye_color
+#&gt; [1] "blue"
+#&gt; 
+#&gt; [[78]]$birth_year
+#&gt; [1] "unknown"
+#&gt; 
+#&gt; [[78]]$gender
+#&gt; [1] "male"
+#&gt; 
+#&gt; [[78]]$homeworld
+#&gt; [1] "http://swapi.co/api/planets/14/"
+#&gt; 
+#&gt; [[78]]$films
+#&gt; [1] "http://swapi.co/api/films/6/"
+#&gt; 
+#&gt; [[78]]$species
+#&gt; [1] "http://swapi.co/api/species/3/"
+#&gt; 
+#&gt; [[78]]$created
+#&gt; [1] "2014-12-20T19:46:34.209000Z"
+#&gt; 
+#&gt; [[78]]$edited
+#&gt; [1] "2014-12-20T21:17:50.491000Z"
+#&gt; 
+#&gt; [[78]]$url
+#&gt; [1] "http://swapi.co/api/people/80/"
+#&gt; 
+#&gt; 
+#&gt; [[79]]
+#&gt; [[79]]$name
+#&gt; [1] "Raymus Antilles"
+#&gt; 
+#&gt; [[79]]$height
+#&gt; [1] "188"
+#&gt; 
+#&gt; [[79]]$mass
+#&gt; [1] "79"
+#&gt; 
+#&gt; [[79]]$hair_color
+#&gt; [1] "brown"
+#&gt; 
+#&gt; [[79]]$skin_color
+#&gt; [1] "light"
+#&gt; 
+#&gt; [[79]]$eye_color
+#&gt; [1] "brown"
+#&gt; 
+#&gt; [[79]]$birth_year
+#&gt; [1] "unknown"
+#&gt; 
+#&gt; [[79]]$gender
+#&gt; [1] "male"
+#&gt; 
+#&gt; [[79]]$homeworld
+#&gt; [1] "http://swapi.co/api/planets/2/"
+#&gt; 
+#&gt; [[79]]$films
+#&gt; [1] "http://swapi.co/api/films/6/" "http://swapi.co/api/films/1/"
+#&gt; 
+#&gt; [[79]]$species
+#&gt; [1] "http://swapi.co/api/species/1/"
+#&gt; 
+#&gt; [[79]]$created
+#&gt; [1] "2014-12-20T19:49:35.583000Z"
+#&gt; 
+#&gt; [[79]]$edited
+#&gt; [1] "2014-12-20T21:17:50.493000Z"
+#&gt; 
+#&gt; [[79]]$url
+#&gt; [1] "http://swapi.co/api/people/81/"
+#&gt; 
+#&gt; 
+#&gt; [[80]]
+#&gt; [[80]]$name
+#&gt; [1] "Sly Moore"
+#&gt; 
+#&gt; [[80]]$height
+#&gt; [1] "178"
+#&gt; 
+#&gt; [[80]]$mass
+#&gt; [1] "48"
+#&gt; 
+#&gt; [[80]]$hair_color
+#&gt; [1] "none"
+#&gt; 
+#&gt; [[80]]$skin_color
+#&gt; [1] "pale"
+#&gt; 
+#&gt; [[80]]$eye_color
+#&gt; [1] "white"
+#&gt; 
+#&gt; [[80]]$birth_year
+#&gt; [1] "unknown"
+#&gt; 
+#&gt; [[80]]$gender
+#&gt; [1] "female"
+#&gt; 
+#&gt; [[80]]$homeworld
+#&gt; [1] "http://swapi.co/api/planets/60/"
+#&gt; 
+#&gt; [[80]]$films
+#&gt; [1] "http://swapi.co/api/films/5/" "http://swapi.co/api/films/6/"
+#&gt; 
+#&gt; [[80]]$created
+#&gt; [1] "2014-12-20T20:18:37.619000Z"
+#&gt; 
+#&gt; [[80]]$edited
+#&gt; [1] "2014-12-20T21:17:50.496000Z"
+#&gt; 
+#&gt; [[80]]$url
+#&gt; [1] "http://swapi.co/api/people/82/"
+#&gt; 
+#&gt; 
+#&gt; [[81]]
+#&gt; [[81]]$name
+#&gt; [1] "Tion Medon"
+#&gt; 
+#&gt; [[81]]$height
+#&gt; [1] "206"
+#&gt; 
+#&gt; [[81]]$mass
+#&gt; [1] "80"
+#&gt; 
+#&gt; [[81]]$hair_color
+#&gt; [1] "none"
+#&gt; 
+#&gt; [[81]]$skin_color
+#&gt; [1] "grey"
+#&gt; 
+#&gt; [[81]]$eye_color
+#&gt; [1] "black"
+#&gt; 
+#&gt; [[81]]$birth_year
+#&gt; [1] "unknown"
+#&gt; 
+#&gt; [[81]]$gender
+#&gt; [1] "male"
+#&gt; 
+#&gt; [[81]]$homeworld
+#&gt; [1] "http://swapi.co/api/planets/12/"
+#&gt; 
+#&gt; [[81]]$films
+#&gt; [1] "http://swapi.co/api/films/6/"
+#&gt; 
+#&gt; [[81]]$species
+#&gt; [1] "http://swapi.co/api/species/37/"
+#&gt; 
+#&gt; [[81]]$created
+#&gt; [1] "2014-12-20T20:35:04.260000Z"
+#&gt; 
+#&gt; [[81]]$edited
+#&gt; [1] "2014-12-20T21:17:50.498000Z"
+#&gt; 
+#&gt; [[81]]$url
+#&gt; [1] "http://swapi.co/api/people/83/"
+#&gt; 
+#&gt; 
+#&gt; [[82]]
+#&gt; [[82]]$name
+#&gt; [1] "Finn"
+#&gt; 
+#&gt; [[82]]$height
+#&gt; [1] "unknown"
+#&gt; 
+#&gt; [[82]]$mass
+#&gt; [1] "unknown"
+#&gt; 
+#&gt; [[82]]$hair_color
+#&gt; [1] "black"
+#&gt; 
+#&gt; [[82]]$skin_color
+#&gt; [1] "dark"
+#&gt; 
+#&gt; [[82]]$eye_color
+#&gt; [1] "dark"
+#&gt; 
+#&gt; [[82]]$birth_year
+#&gt; [1] "unknown"
+#&gt; 
+#&gt; [[82]]$gender
+#&gt; [1] "male"
+#&gt; 
+#&gt; [[82]]$homeworld
+#&gt; [1] "http://swapi.co/api/planets/28/"
+#&gt; 
+#&gt; [[82]]$films
+#&gt; [1] "http://swapi.co/api/films/7/"
+#&gt; 
+#&gt; [[82]]$species
+#&gt; [1] "http://swapi.co/api/species/1/"
+#&gt; 
+#&gt; [[82]]$created
+#&gt; [1] "2015-04-17T06:52:40.793621Z"
+#&gt; 
+#&gt; [[82]]$edited
+#&gt; [1] "2015-04-17T06:52:40.793674Z"
+#&gt; 
+#&gt; [[82]]$url
+#&gt; [1] "http://swapi.co/api/people/84/"
+#&gt; 
+#&gt; 
+#&gt; [[83]]
+#&gt; [[83]]$name
+#&gt; [1] "Rey"
+#&gt; 
+#&gt; [[83]]$height
+#&gt; [1] "unknown"
+#&gt; 
+#&gt; [[83]]$mass
+#&gt; [1] "unknown"
+#&gt; 
+#&gt; [[83]]$hair_color
+#&gt; [1] "brown"
+#&gt; 
+#&gt; [[83]]$skin_color
+#&gt; [1] "light"
+#&gt; 
+#&gt; [[83]]$eye_color
+#&gt; [1] "hazel"
+#&gt; 
+#&gt; [[83]]$birth_year
+#&gt; [1] "unknown"
+#&gt; 
+#&gt; [[83]]$gender
+#&gt; [1] "female"
+#&gt; 
+#&gt; [[83]]$homeworld
+#&gt; [1] "http://swapi.co/api/planets/28/"
+#&gt; 
+#&gt; [[83]]$films
+#&gt; [1] "http://swapi.co/api/films/7/"
+#&gt; 
+#&gt; [[83]]$species
+#&gt; [1] "http://swapi.co/api/species/1/"
+#&gt; 
+#&gt; [[83]]$created
+#&gt; [1] "2015-04-17T06:54:01.495077Z"
+#&gt; 
+#&gt; [[83]]$edited
+#&gt; [1] "2015-04-17T06:54:01.495128Z"
+#&gt; 
+#&gt; [[83]]$url
+#&gt; [1] "http://swapi.co/api/people/85/"
+#&gt; 
+#&gt; 
+#&gt; [[84]]
+#&gt; [[84]]$name
+#&gt; [1] "Poe Dameron"
+#&gt; 
+#&gt; [[84]]$height
+#&gt; [1] "unknown"
+#&gt; 
+#&gt; [[84]]$mass
+#&gt; [1] "unknown"
+#&gt; 
+#&gt; [[84]]$hair_color
+#&gt; [1] "brown"
+#&gt; 
+#&gt; [[84]]$skin_color
+#&gt; [1] "light"
+#&gt; 
+#&gt; [[84]]$eye_color
+#&gt; [1] "brown"
+#&gt; 
+#&gt; [[84]]$birth_year
+#&gt; [1] "unknown"
+#&gt; 
+#&gt; [[84]]$gender
+#&gt; [1] "male"
+#&gt; 
+#&gt; [[84]]$homeworld
+#&gt; [1] "http://swapi.co/api/planets/28/"
+#&gt; 
+#&gt; [[84]]$films
+#&gt; [1] "http://swapi.co/api/films/7/"
+#&gt; 
+#&gt; [[84]]$species
+#&gt; [1] "http://swapi.co/api/species/1/"
+#&gt; 
+#&gt; [[84]]$starships
+#&gt; [1] "http://swapi.co/api/starships/77/"
+#&gt; 
+#&gt; [[84]]$created
+#&gt; [1] "2015-04-17T06:55:21.622786Z"
+#&gt; 
+#&gt; [[84]]$edited
+#&gt; [1] "2015-04-17T06:55:21.622835Z"
+#&gt; 
+#&gt; [[84]]$url
+#&gt; [1] "http://swapi.co/api/people/86/"
+#&gt; 
+#&gt; 
+#&gt; [[85]]
+#&gt; [[85]]$name
+#&gt; [1] "BB8"
+#&gt; 
+#&gt; [[85]]$height
+#&gt; [1] "unknown"
+#&gt; 
+#&gt; [[85]]$mass
+#&gt; [1] "unknown"
+#&gt; 
+#&gt; [[85]]$hair_color
+#&gt; [1] "none"
+#&gt; 
+#&gt; [[85]]$skin_color
+#&gt; [1] "none"
+#&gt; 
+#&gt; [[85]]$eye_color
+#&gt; [1] "black"
+#&gt; 
+#&gt; [[85]]$birth_year
+#&gt; [1] "unknown"
+#&gt; 
+#&gt; [[85]]$gender
+#&gt; [1] "none"
+#&gt; 
+#&gt; [[85]]$homeworld
+#&gt; [1] "http://swapi.co/api/planets/28/"
+#&gt; 
+#&gt; [[85]]$films
+#&gt; [1] "http://swapi.co/api/films/7/"
+#&gt; 
+#&gt; [[85]]$species
+#&gt; [1] "http://swapi.co/api/species/2/"
+#&gt; 
+#&gt; [[85]]$created
+#&gt; [1] "2015-04-17T06:57:38.061346Z"
+#&gt; 
+#&gt; [[85]]$edited
+#&gt; [1] "2015-04-17T06:57:38.061453Z"
+#&gt; 
+#&gt; [[85]]$url
+#&gt; [1] "http://swapi.co/api/people/87/"
+#&gt; 
+#&gt; 
+#&gt; [[86]]
+#&gt; [[86]]$name
+#&gt; [1] "Captain Phasma"
+#&gt; 
+#&gt; [[86]]$height
+#&gt; [1] "unknown"
+#&gt; 
+#&gt; [[86]]$mass
+#&gt; [1] "unknown"
+#&gt; 
+#&gt; [[86]]$hair_color
+#&gt; [1] "unknown"
+#&gt; 
+#&gt; [[86]]$skin_color
+#&gt; [1] "unknown"
+#&gt; 
+#&gt; [[86]]$eye_color
+#&gt; [1] "unknown"
+#&gt; 
+#&gt; [[86]]$birth_year
+#&gt; [1] "unknown"
+#&gt; 
+#&gt; [[86]]$gender
+#&gt; [1] "female"
+#&gt; 
+#&gt; [[86]]$homeworld
+#&gt; [1] "http://swapi.co/api/planets/28/"
+#&gt; 
+#&gt; [[86]]$films
+#&gt; [1] "http://swapi.co/api/films/7/"
+#&gt; 
+#&gt; [[86]]$created
+#&gt; [1] "2015-10-13T10:35:39.229823Z"
+#&gt; 
+#&gt; [[86]]$edited
+#&gt; [1] "2015-10-13T10:35:39.229894Z"
+#&gt; 
+#&gt; [[86]]$url
+#&gt; [1] "http://swapi.co/api/people/88/"
+#&gt; 
+#&gt; 
+#&gt; [[87]]
+#&gt; [[87]]$name
+#&gt; [1] "Padmé Amidala"
+#&gt; 
+#&gt; [[87]]$height
+#&gt; [1] "165"
+#&gt; 
+#&gt; [[87]]$mass
+#&gt; [1] "45"
+#&gt; 
+#&gt; [[87]]$hair_color
+#&gt; [1] "brown"
+#&gt; 
+#&gt; [[87]]$skin_color
+#&gt; [1] "light"
+#&gt; 
+#&gt; [[87]]$eye_color
+#&gt; [1] "brown"
+#&gt; 
+#&gt; [[87]]$birth_year
+#&gt; [1] "46BBY"
+#&gt; 
+#&gt; [[87]]$gender
+#&gt; [1] "female"
+#&gt; 
+#&gt; [[87]]$homeworld
+#&gt; [1] "http://swapi.co/api/planets/8/"
+#&gt; 
+#&gt; [[87]]$films
+#&gt; [1] "http://swapi.co/api/films/5/" "http://swapi.co/api/films/4/"
+#&gt; [3] "http://swapi.co/api/films/6/"
+#&gt; 
+#&gt; [[87]]$species
+#&gt; [1] "http://swapi.co/api/species/1/"
+#&gt; 
+#&gt; [[87]]$starships
+#&gt; [1] "http://swapi.co/api/starships/49/" "http://swapi.co/api/starships/64/"
+#&gt; [3] "http://swapi.co/api/starships/39/"
+#&gt; 
+#&gt; [[87]]$created
+#&gt; [1] "2014-12-19T17:28:26.926000Z"
+#&gt; 
+#&gt; [[87]]$edited
+#&gt; [1] "2016-04-20T17:06:31.502555Z"
+#&gt; 
+#&gt; [[87]]$url
+#&gt; [1] "http://swapi.co/api/people/35/"
+```
+
+]
+
+.rightcol[
+
+&lt;center&gt;
+&lt;img src="images/logo_star-wars.png" width=500&gt;
+&lt;/center&gt;
+
+]
+
+---
+
+## How many films was each Star Wars character in?
+
+## `map(sw_people, f = 🤷)`
+
+--
+
+#### Workflow:
+
+### 1. Do it for one element.
+### 2. Find the general recipe.
+### 3. Drop into `map()` to do for all.
+
+---
+
+# 1. Do it for one element
+
+--
+
+.leftcol[
+
+
+```r
+x &lt;- sw_people[[1]]
+x
+```
+
+```
+#&gt; $name
+#&gt; [1] "Luke Skywalker"
+#&gt; 
+#&gt; $height
+#&gt; [1] "172"
+#&gt; 
+#&gt; $mass
+#&gt; [1] "77"
+#&gt; 
+#&gt; $hair_color
+#&gt; [1] "blond"
+#&gt; 
+#&gt; $skin_color
+#&gt; [1] "fair"
+#&gt; 
+#&gt; $eye_color
+#&gt; [1] "blue"
+#&gt; 
+#&gt; $birth_year
+#&gt; [1] "19BBY"
+#&gt; 
+#&gt; $gender
+#&gt; [1] "male"
+#&gt; 
+#&gt; $homeworld
+#&gt; [1] "http://swapi.co/api/planets/1/"
+#&gt; 
+#&gt; $films
+#&gt; [1] "http://swapi.co/api/films/6/" "http://swapi.co/api/films/3/"
+#&gt; [3] "http://swapi.co/api/films/2/" "http://swapi.co/api/films/1/"
+#&gt; [5] "http://swapi.co/api/films/7/"
+#&gt; 
+#&gt; $species
+#&gt; [1] "http://swapi.co/api/species/1/"
+#&gt; 
+#&gt; $vehicles
+#&gt; [1] "http://swapi.co/api/vehicles/14/" "http://swapi.co/api/vehicles/30/"
+#&gt; 
+#&gt; $starships
+#&gt; [1] "http://swapi.co/api/starships/12/" "http://swapi.co/api/starships/22/"
+#&gt; 
+#&gt; $created
+#&gt; [1] "2014-12-09T13:50:51.644000Z"
+#&gt; 
+#&gt; $edited
+#&gt; [1] "2014-12-20T21:17:56.891000Z"
+#&gt; 
+#&gt; $url
+#&gt; [1] "http://swapi.co/api/people/1/"
+```
+
+]
+
+--
+
+.rightcol[
+
+View the variables we have to work with:
+
+
+```r
+names(x)
+```
+
+```
+#&gt;  [1] "name"       "height"     "mass"       "hair_color" "skin_color"
+#&gt;  [6] "eye_color"  "birth_year" "gender"     "homeworld"  "films"     
+#&gt; [11] "species"    "vehicles"   "starships"  "created"    "edited"    
+#&gt; [16] "url"
+```
+
+Extract the films 
+
+
+```r
+x$films
+```
+
+```
+#&gt; [1] "http://swapi.co/api/films/6/" "http://swapi.co/api/films/3/"
+#&gt; [3] "http://swapi.co/api/films/2/" "http://swapi.co/api/films/1/"
+#&gt; [5] "http://swapi.co/api/films/7/"
+```
+
+]
+
+---
+
+# 1. Do it for one element
+
+### How many films was each Star Wars character in?
+
+--
+
+.leftcol[
+
+Character 1:
+
+
+```r
+x &lt;- sw_people[[1]]
+length(x$films)
+```
+
+```
+#&gt; [1] 5
+```
+
+]
+
+--
+
+.rightcol[
+
+Character 2:
+
+
+```r
+x &lt;- sw_people[[2]]
+length(x$films)
+```
+
+```
+#&gt; [1] 6
+```
+
+]
+
+---
+
+# 2. Find the general recipe
+
+### How many films was each Star Wars character in?
+
+
+```r
+x &lt;- sw_people[[1]]
+length(x$films)
+```
+
+```
+#&gt; [1] 5
+```
+
+#### Recipe:
+
+### `x &lt;- sw_people[[index]]`
+
+### `length(x$films)`
+
+---
+
+# 3. Drop into `map()` to do for all items in list.
+
+.leftcol[
+
+#### Recipe:
+
+### `x &lt;- sw_people[[index]]`
+
+### `length(x$films)`
+
+]
+
+.rightcol[
+
+#### Do for all items in list:
+
+
+```r
+get_film_length &lt;- function(x) {
+    return(length(x$films))
+}
+
+map(sw_people, get_film_length)
+```
+
+```
+#&gt; [[1]]
+#&gt; [1] 5
+#&gt; 
+#&gt; [[2]]
+#&gt; [1] 6
+#&gt; 
+#&gt; [[3]]
+#&gt; [1] 7
+#&gt; 
+#&gt; [[4]]
+#&gt; [1] 4
+#&gt; 
+#&gt; [[5]]
+#&gt; [1] 5
+#&gt; 
+#&gt; [[6]]
+#&gt; [1] 3
+#&gt; 
+#&gt; [[7]]
+#&gt; [1] 3
+#&gt; 
+#&gt; [[8]]
+#&gt; [1] 1
+#&gt; 
+#&gt; [[9]]
+#&gt; [1] 1
+#&gt; 
+#&gt; [[10]]
+#&gt; [1] 6
+#&gt; 
+#&gt; [[11]]
+#&gt; [1] 3
+#&gt; 
+#&gt; [[12]]
+#&gt; [1] 2
+#&gt; 
+#&gt; [[13]]
+#&gt; [1] 5
+#&gt; 
+#&gt; [[14]]
+#&gt; [1] 4
+#&gt; 
+#&gt; [[15]]
+#&gt; [1] 1
+#&gt; 
+#&gt; [[16]]
+#&gt; [1] 3
+#&gt; 
+#&gt; [[17]]
+#&gt; [1] 3
+#&gt; 
+#&gt; [[18]]
+#&gt; [1] 1
+#&gt; 
+#&gt; [[19]]
+#&gt; [1] 5
+#&gt; 
+#&gt; [[20]]
+#&gt; [1] 5
+#&gt; 
+#&gt; [[21]]
+#&gt; [1] 3
+#&gt; 
+#&gt; [[22]]
+#&gt; [1] 1
+#&gt; 
+#&gt; [[23]]
+#&gt; [1] 1
+#&gt; 
+#&gt; [[24]]
+#&gt; [1] 2
+#&gt; 
+#&gt; [[25]]
+#&gt; [1] 1
+#&gt; 
+#&gt; [[26]]
+#&gt; [1] 2
+#&gt; 
+#&gt; [[27]]
+#&gt; [1] 1
+#&gt; 
+#&gt; [[28]]
+#&gt; [1] 1
+#&gt; 
+#&gt; [[29]]
+#&gt; [1] 1
+#&gt; 
+#&gt; [[30]]
+#&gt; [1] 1
+#&gt; 
+#&gt; [[31]]
+#&gt; [1] 1
+#&gt; 
+#&gt; [[32]]
+#&gt; [1] 3
+#&gt; 
+#&gt; [[33]]
+#&gt; [1] 1
+#&gt; 
+#&gt; [[34]]
+#&gt; [1] 2
+#&gt; 
+#&gt; [[35]]
+#&gt; [1] 1
+#&gt; 
+#&gt; [[36]]
+#&gt; [1] 1
+#&gt; 
+#&gt; [[37]]
+#&gt; [1] 1
+#&gt; 
+#&gt; [[38]]
+#&gt; [1] 2
+#&gt; 
+#&gt; [[39]]
+#&gt; [1] 1
+#&gt; 
+#&gt; [[40]]
+#&gt; [1] 1
+#&gt; 
+#&gt; [[41]]
+#&gt; [1] 2
+#&gt; 
+#&gt; [[42]]
+#&gt; [1] 1
+#&gt; 
+#&gt; [[43]]
+#&gt; [1] 1
+#&gt; 
+#&gt; [[44]]
+#&gt; [1] 3
+#&gt; 
+#&gt; [[45]]
+#&gt; [1] 1
+#&gt; 
+#&gt; [[46]]
+#&gt; [1] 1
+#&gt; 
+#&gt; [[47]]
+#&gt; [1] 1
+#&gt; 
+#&gt; [[48]]
+#&gt; [1] 3
+#&gt; 
+#&gt; [[49]]
+#&gt; [1] 3
+#&gt; 
+#&gt; [[50]]
+#&gt; [1] 3
+#&gt; 
+#&gt; [[51]]
+#&gt; [1] 2
+#&gt; 
+#&gt; [[52]]
+#&gt; [1] 2
+#&gt; 
+#&gt; [[53]]
+#&gt; [1] 2
+#&gt; 
+#&gt; [[54]]
+#&gt; [1] 1
+#&gt; 
+#&gt; [[55]]
+#&gt; [1] 3
+#&gt; 
+#&gt; [[56]]
+#&gt; [1] 2
+#&gt; 
+#&gt; [[57]]
+#&gt; [1] 1
+#&gt; 
+#&gt; [[58]]
+#&gt; [1] 1
+#&gt; 
+#&gt; [[59]]
+#&gt; [1] 1
+#&gt; 
+#&gt; [[60]]
+#&gt; [1] 2
+#&gt; 
+#&gt; [[61]]
+#&gt; [1] 2
+#&gt; 
+#&gt; [[62]]
+#&gt; [1] 1
+#&gt; 
+#&gt; [[63]]
+#&gt; [1] 1
+#&gt; 
+#&gt; [[64]]
+#&gt; [1] 2
+#&gt; 
+#&gt; [[65]]
+#&gt; [1] 2
+#&gt; 
+#&gt; [[66]]
+#&gt; [1] 1
+#&gt; 
+#&gt; [[67]]
+#&gt; [1] 1
+#&gt; 
+#&gt; [[68]]
+#&gt; [1] 1
+#&gt; 
+#&gt; [[69]]
+#&gt; [1] 1
+#&gt; 
+#&gt; [[70]]
+#&gt; [1] 1
+#&gt; 
+#&gt; [[71]]
+#&gt; [1] 1
+#&gt; 
+#&gt; [[72]]
+#&gt; [1] 1
+#&gt; 
+#&gt; [[73]]
+#&gt; [1] 2
+#&gt; 
+#&gt; [[74]]
+#&gt; [1] 1
+#&gt; 
+#&gt; [[75]]
+#&gt; [1] 1
+#&gt; 
+#&gt; [[76]]
+#&gt; [1] 2
+#&gt; 
+#&gt; [[77]]
+#&gt; [1] 1
+#&gt; 
+#&gt; [[78]]
+#&gt; [1] 1
+#&gt; 
+#&gt; [[79]]
+#&gt; [1] 2
+#&gt; 
+#&gt; [[80]]
+#&gt; [1] 2
+#&gt; 
+#&gt; [[81]]
+#&gt; [1] 1
+#&gt; 
+#&gt; [[82]]
+#&gt; [1] 1
+#&gt; 
+#&gt; [[83]]
+#&gt; [1] 1
+#&gt; 
+#&gt; [[84]]
+#&gt; [1] 1
+#&gt; 
+#&gt; [[85]]
+#&gt; [1] 1
+#&gt; 
+#&gt; [[86]]
+#&gt; [1] 1
+#&gt; 
+#&gt; [[87]]
+#&gt; [1] 3
+```
+
+]
+
+---
+
+## for every element of `x` do `f`
+
+.leftcol[
+
+&lt;center&gt;
+&lt;img src="images/map.png" width=650&gt;
+&lt;/center&gt;
+
+]
+
+.rightcol[
+
+
+```r
+get_film_length &lt;- function(x) {
+    return(length(x$films))
+}
+
+map(sw_people, get_film_length)
+```
+
+```
+#&gt; [[1]]
+#&gt; [1] 5
+#&gt; 
+#&gt; [[2]]
+#&gt; [1] 6
+#&gt; 
+#&gt; [[3]]
+#&gt; [1] 7
+#&gt; 
+#&gt; [[4]]
+#&gt; [1] 4
+#&gt; 
+#&gt; [[5]]
+#&gt; [1] 5
+#&gt; 
+#&gt; [[6]]
+#&gt; [1] 3
+#&gt; 
+#&gt; [[7]]
+#&gt; [1] 3
+#&gt; 
+#&gt; [[8]]
+#&gt; [1] 1
+#&gt; 
+#&gt; [[9]]
+#&gt; [1] 1
+#&gt; 
+#&gt; [[10]]
+#&gt; [1] 6
+#&gt; 
+#&gt; [[11]]
+#&gt; [1] 3
+#&gt; 
+#&gt; [[12]]
+#&gt; [1] 2
+#&gt; 
+#&gt; [[13]]
+#&gt; [1] 5
+#&gt; 
+#&gt; [[14]]
+#&gt; [1] 4
+#&gt; 
+#&gt; [[15]]
+#&gt; [1] 1
+#&gt; 
+#&gt; [[16]]
+#&gt; [1] 3
+#&gt; 
+#&gt; [[17]]
+#&gt; [1] 3
+#&gt; 
+#&gt; [[18]]
+#&gt; [1] 1
+#&gt; 
+#&gt; [[19]]
+#&gt; [1] 5
+#&gt; 
+#&gt; [[20]]
+#&gt; [1] 5
+#&gt; 
+#&gt; [[21]]
+#&gt; [1] 3
+#&gt; 
+#&gt; [[22]]
+#&gt; [1] 1
+#&gt; 
+#&gt; [[23]]
+#&gt; [1] 1
+#&gt; 
+#&gt; [[24]]
+#&gt; [1] 2
+#&gt; 
+#&gt; [[25]]
+#&gt; [1] 1
+#&gt; 
+#&gt; [[26]]
+#&gt; [1] 2
+#&gt; 
+#&gt; [[27]]
+#&gt; [1] 1
+#&gt; 
+#&gt; [[28]]
+#&gt; [1] 1
+#&gt; 
+#&gt; [[29]]
+#&gt; [1] 1
+#&gt; 
+#&gt; [[30]]
+#&gt; [1] 1
+#&gt; 
+#&gt; [[31]]
+#&gt; [1] 1
+#&gt; 
+#&gt; [[32]]
+#&gt; [1] 3
+#&gt; 
+#&gt; [[33]]
+#&gt; [1] 1
+#&gt; 
+#&gt; [[34]]
+#&gt; [1] 2
+#&gt; 
+#&gt; [[35]]
+#&gt; [1] 1
+#&gt; 
+#&gt; [[36]]
+#&gt; [1] 1
+#&gt; 
+#&gt; [[37]]
+#&gt; [1] 1
+#&gt; 
+#&gt; [[38]]
+#&gt; [1] 2
+#&gt; 
+#&gt; [[39]]
+#&gt; [1] 1
+#&gt; 
+#&gt; [[40]]
+#&gt; [1] 1
+#&gt; 
+#&gt; [[41]]
+#&gt; [1] 2
+#&gt; 
+#&gt; [[42]]
+#&gt; [1] 1
+#&gt; 
+#&gt; [[43]]
+#&gt; [1] 1
+#&gt; 
+#&gt; [[44]]
+#&gt; [1] 3
+#&gt; 
+#&gt; [[45]]
+#&gt; [1] 1
+#&gt; 
+#&gt; [[46]]
+#&gt; [1] 1
+#&gt; 
+#&gt; [[47]]
+#&gt; [1] 1
+#&gt; 
+#&gt; [[48]]
+#&gt; [1] 3
+#&gt; 
+#&gt; [[49]]
+#&gt; [1] 3
+#&gt; 
+#&gt; [[50]]
+#&gt; [1] 3
+#&gt; 
+#&gt; [[51]]
+#&gt; [1] 2
+#&gt; 
+#&gt; [[52]]
+#&gt; [1] 2
+#&gt; 
+#&gt; [[53]]
+#&gt; [1] 2
+#&gt; 
+#&gt; [[54]]
+#&gt; [1] 1
+#&gt; 
+#&gt; [[55]]
+#&gt; [1] 3
+#&gt; 
+#&gt; [[56]]
+#&gt; [1] 2
+#&gt; 
+#&gt; [[57]]
+#&gt; [1] 1
+#&gt; 
+#&gt; [[58]]
+#&gt; [1] 1
+#&gt; 
+#&gt; [[59]]
+#&gt; [1] 1
+#&gt; 
+#&gt; [[60]]
+#&gt; [1] 2
+#&gt; 
+#&gt; [[61]]
+#&gt; [1] 2
+#&gt; 
+#&gt; [[62]]
+#&gt; [1] 1
+#&gt; 
+#&gt; [[63]]
+#&gt; [1] 1
+#&gt; 
+#&gt; [[64]]
+#&gt; [1] 2
+#&gt; 
+#&gt; [[65]]
+#&gt; [1] 2
+#&gt; 
+#&gt; [[66]]
+#&gt; [1] 1
+#&gt; 
+#&gt; [[67]]
+#&gt; [1] 1
+#&gt; 
+#&gt; [[68]]
+#&gt; [1] 1
+#&gt; 
+#&gt; [[69]]
+#&gt; [1] 1
+#&gt; 
+#&gt; [[70]]
+#&gt; [1] 1
+#&gt; 
+#&gt; [[71]]
+#&gt; [1] 1
+#&gt; 
+#&gt; [[72]]
+#&gt; [1] 1
+#&gt; 
+#&gt; [[73]]
+#&gt; [1] 2
+#&gt; 
+#&gt; [[74]]
+#&gt; [1] 1
+#&gt; 
+#&gt; [[75]]
+#&gt; [1] 1
+#&gt; 
+#&gt; [[76]]
+#&gt; [1] 2
+#&gt; 
+#&gt; [[77]]
+#&gt; [1] 1
+#&gt; 
+#&gt; [[78]]
+#&gt; [1] 1
+#&gt; 
+#&gt; [[79]]
+#&gt; [1] 2
+#&gt; 
+#&gt; [[80]]
+#&gt; [1] 2
+#&gt; 
+#&gt; [[81]]
+#&gt; [1] 1
+#&gt; 
+#&gt; [[82]]
+#&gt; [1] 1
+#&gt; 
+#&gt; [[83]]
+#&gt; [1] 1
+#&gt; 
+#&gt; [[84]]
+#&gt; [1] 1
+#&gt; 
+#&gt; [[85]]
+#&gt; [1] 1
+#&gt; 
+#&gt; [[86]]
+#&gt; [1] 1
+#&gt; 
+#&gt; [[87]]
+#&gt; [1] 3
+```
+
+]
+
+---
+
+# Simplify it with "anonymous" functions
+
+.leftcol[
+
+Version 1: **Custom function**
+
+
+```r
+get_film_length &lt;- function(x) {
+    return(length(x$films))
+}
+
+map(sw_people, get_film_length)
+```
+
+```
+#&gt; [[1]]
+#&gt; [1] 5
+#&gt; 
+#&gt; [[2]]
+#&gt; [1] 6
+#&gt; 
+#&gt; [[3]]
+#&gt; [1] 7
+#&gt; 
+#&gt; [[4]]
+#&gt; [1] 4
+#&gt; 
+#&gt; [[5]]
+#&gt; [1] 5
+#&gt; 
+#&gt; [[6]]
+#&gt; [1] 3
+#&gt; 
+#&gt; [[7]]
+#&gt; [1] 3
+#&gt; 
+#&gt; [[8]]
+#&gt; [1] 1
+#&gt; 
+#&gt; [[9]]
+#&gt; [1] 1
+#&gt; 
+#&gt; [[10]]
+#&gt; [1] 6
+#&gt; 
+#&gt; [[11]]
+#&gt; [1] 3
+#&gt; 
+#&gt; [[12]]
+#&gt; [1] 2
+#&gt; 
+#&gt; [[13]]
+#&gt; [1] 5
+#&gt; 
+#&gt; [[14]]
+#&gt; [1] 4
+#&gt; 
+#&gt; [[15]]
+#&gt; [1] 1
+#&gt; 
+#&gt; [[16]]
+#&gt; [1] 3
+#&gt; 
+#&gt; [[17]]
+#&gt; [1] 3
+#&gt; 
+#&gt; [[18]]
+#&gt; [1] 1
+#&gt; 
+#&gt; [[19]]
+#&gt; [1] 5
+#&gt; 
+#&gt; [[20]]
+#&gt; [1] 5
+#&gt; 
+#&gt; [[21]]
+#&gt; [1] 3
+#&gt; 
+#&gt; [[22]]
+#&gt; [1] 1
+#&gt; 
+#&gt; [[23]]
+#&gt; [1] 1
+#&gt; 
+#&gt; [[24]]
+#&gt; [1] 2
+#&gt; 
+#&gt; [[25]]
+#&gt; [1] 1
+#&gt; 
+#&gt; [[26]]
+#&gt; [1] 2
+#&gt; 
+#&gt; [[27]]
+#&gt; [1] 1
+#&gt; 
+#&gt; [[28]]
+#&gt; [1] 1
+#&gt; 
+#&gt; [[29]]
+#&gt; [1] 1
+#&gt; 
+#&gt; [[30]]
+#&gt; [1] 1
+#&gt; 
+#&gt; [[31]]
+#&gt; [1] 1
+#&gt; 
+#&gt; [[32]]
+#&gt; [1] 3
+#&gt; 
+#&gt; [[33]]
+#&gt; [1] 1
+#&gt; 
+#&gt; [[34]]
+#&gt; [1] 2
+#&gt; 
+#&gt; [[35]]
+#&gt; [1] 1
+#&gt; 
+#&gt; [[36]]
+#&gt; [1] 1
+#&gt; 
+#&gt; [[37]]
+#&gt; [1] 1
+#&gt; 
+#&gt; [[38]]
+#&gt; [1] 2
+#&gt; 
+#&gt; [[39]]
+#&gt; [1] 1
+#&gt; 
+#&gt; [[40]]
+#&gt; [1] 1
+#&gt; 
+#&gt; [[41]]
+#&gt; [1] 2
+#&gt; 
+#&gt; [[42]]
+#&gt; [1] 1
+#&gt; 
+#&gt; [[43]]
+#&gt; [1] 1
+#&gt; 
+#&gt; [[44]]
+#&gt; [1] 3
+#&gt; 
+#&gt; [[45]]
+#&gt; [1] 1
+#&gt; 
+#&gt; [[46]]
+#&gt; [1] 1
+#&gt; 
+#&gt; [[47]]
+#&gt; [1] 1
+#&gt; 
+#&gt; [[48]]
+#&gt; [1] 3
+#&gt; 
+#&gt; [[49]]
+#&gt; [1] 3
+#&gt; 
+#&gt; [[50]]
+#&gt; [1] 3
+#&gt; 
+#&gt; [[51]]
+#&gt; [1] 2
+#&gt; 
+#&gt; [[52]]
+#&gt; [1] 2
+#&gt; 
+#&gt; [[53]]
+#&gt; [1] 2
+#&gt; 
+#&gt; [[54]]
+#&gt; [1] 1
+#&gt; 
+#&gt; [[55]]
+#&gt; [1] 3
+#&gt; 
+#&gt; [[56]]
+#&gt; [1] 2
+#&gt; 
+#&gt; [[57]]
+#&gt; [1] 1
+#&gt; 
+#&gt; [[58]]
+#&gt; [1] 1
+#&gt; 
+#&gt; [[59]]
+#&gt; [1] 1
+#&gt; 
+#&gt; [[60]]
+#&gt; [1] 2
+#&gt; 
+#&gt; [[61]]
+#&gt; [1] 2
+#&gt; 
+#&gt; [[62]]
+#&gt; [1] 1
+#&gt; 
+#&gt; [[63]]
+#&gt; [1] 1
+#&gt; 
+#&gt; [[64]]
+#&gt; [1] 2
+#&gt; 
+#&gt; [[65]]
+#&gt; [1] 2
+#&gt; 
+#&gt; [[66]]
+#&gt; [1] 1
+#&gt; 
+#&gt; [[67]]
+#&gt; [1] 1
+#&gt; 
+#&gt; [[68]]
+#&gt; [1] 1
+#&gt; 
+#&gt; [[69]]
+#&gt; [1] 1
+#&gt; 
+#&gt; [[70]]
+#&gt; [1] 1
+#&gt; 
+#&gt; [[71]]
+#&gt; [1] 1
+#&gt; 
+#&gt; [[72]]
+#&gt; [1] 1
+#&gt; 
+#&gt; [[73]]
+#&gt; [1] 2
+#&gt; 
+#&gt; [[74]]
+#&gt; [1] 1
+#&gt; 
+#&gt; [[75]]
+#&gt; [1] 1
+#&gt; 
+#&gt; [[76]]
+#&gt; [1] 2
+#&gt; 
+#&gt; [[77]]
+#&gt; [1] 1
+#&gt; 
+#&gt; [[78]]
+#&gt; [1] 1
+#&gt; 
+#&gt; [[79]]
+#&gt; [1] 2
+#&gt; 
+#&gt; [[80]]
+#&gt; [1] 2
+#&gt; 
+#&gt; [[81]]
+#&gt; [1] 1
+#&gt; 
+#&gt; [[82]]
+#&gt; [1] 1
+#&gt; 
+#&gt; [[83]]
+#&gt; [1] 1
+#&gt; 
+#&gt; [[84]]
+#&gt; [1] 1
+#&gt; 
+#&gt; [[85]]
+#&gt; [1] 1
+#&gt; 
+#&gt; [[86]]
+#&gt; [1] 1
+#&gt; 
+#&gt; [[87]]
+#&gt; [1] 3
+```
+
+]
+
+.rightcol[
+
+Version 2: **Anonymous function**
+
+
+```r
+map(sw_people, function(x) length(x$films))
+```
+
+```
+#&gt; [[1]]
+#&gt; [1] 5
+#&gt; 
+#&gt; [[2]]
+#&gt; [1] 6
+#&gt; 
+#&gt; [[3]]
+#&gt; [1] 7
+#&gt; 
+#&gt; [[4]]
+#&gt; [1] 4
+#&gt; 
+#&gt; [[5]]
+#&gt; [1] 5
+#&gt; 
+#&gt; [[6]]
+#&gt; [1] 3
+#&gt; 
+#&gt; [[7]]
+#&gt; [1] 3
+#&gt; 
+#&gt; [[8]]
+#&gt; [1] 1
+#&gt; 
+#&gt; [[9]]
+#&gt; [1] 1
+#&gt; 
+#&gt; [[10]]
+#&gt; [1] 6
+#&gt; 
+#&gt; [[11]]
+#&gt; [1] 3
+#&gt; 
+#&gt; [[12]]
+#&gt; [1] 2
+#&gt; 
+#&gt; [[13]]
+#&gt; [1] 5
+#&gt; 
+#&gt; [[14]]
+#&gt; [1] 4
+#&gt; 
+#&gt; [[15]]
+#&gt; [1] 1
+#&gt; 
+#&gt; [[16]]
+#&gt; [1] 3
+#&gt; 
+#&gt; [[17]]
+#&gt; [1] 3
+#&gt; 
+#&gt; [[18]]
+#&gt; [1] 1
+#&gt; 
+#&gt; [[19]]
+#&gt; [1] 5
+#&gt; 
+#&gt; [[20]]
+#&gt; [1] 5
+#&gt; 
+#&gt; [[21]]
+#&gt; [1] 3
+#&gt; 
+#&gt; [[22]]
+#&gt; [1] 1
+#&gt; 
+#&gt; [[23]]
+#&gt; [1] 1
+#&gt; 
+#&gt; [[24]]
+#&gt; [1] 2
+#&gt; 
+#&gt; [[25]]
+#&gt; [1] 1
+#&gt; 
+#&gt; [[26]]
+#&gt; [1] 2
+#&gt; 
+#&gt; [[27]]
+#&gt; [1] 1
+#&gt; 
+#&gt; [[28]]
+#&gt; [1] 1
+#&gt; 
+#&gt; [[29]]
+#&gt; [1] 1
+#&gt; 
+#&gt; [[30]]
+#&gt; [1] 1
+#&gt; 
+#&gt; [[31]]
+#&gt; [1] 1
+#&gt; 
+#&gt; [[32]]
+#&gt; [1] 3
+#&gt; 
+#&gt; [[33]]
+#&gt; [1] 1
+#&gt; 
+#&gt; [[34]]
+#&gt; [1] 2
+#&gt; 
+#&gt; [[35]]
+#&gt; [1] 1
+#&gt; 
+#&gt; [[36]]
+#&gt; [1] 1
+#&gt; 
+#&gt; [[37]]
+#&gt; [1] 1
+#&gt; 
+#&gt; [[38]]
+#&gt; [1] 2
+#&gt; 
+#&gt; [[39]]
+#&gt; [1] 1
+#&gt; 
+#&gt; [[40]]
+#&gt; [1] 1
+#&gt; 
+#&gt; [[41]]
+#&gt; [1] 2
+#&gt; 
+#&gt; [[42]]
+#&gt; [1] 1
+#&gt; 
+#&gt; [[43]]
+#&gt; [1] 1
+#&gt; 
+#&gt; [[44]]
+#&gt; [1] 3
+#&gt; 
+#&gt; [[45]]
+#&gt; [1] 1
+#&gt; 
+#&gt; [[46]]
+#&gt; [1] 1
+#&gt; 
+#&gt; [[47]]
+#&gt; [1] 1
+#&gt; 
+#&gt; [[48]]
+#&gt; [1] 3
+#&gt; 
+#&gt; [[49]]
+#&gt; [1] 3
+#&gt; 
+#&gt; [[50]]
+#&gt; [1] 3
+#&gt; 
+#&gt; [[51]]
+#&gt; [1] 2
+#&gt; 
+#&gt; [[52]]
+#&gt; [1] 2
+#&gt; 
+#&gt; [[53]]
+#&gt; [1] 2
+#&gt; 
+#&gt; [[54]]
+#&gt; [1] 1
+#&gt; 
+#&gt; [[55]]
+#&gt; [1] 3
+#&gt; 
+#&gt; [[56]]
+#&gt; [1] 2
+#&gt; 
+#&gt; [[57]]
+#&gt; [1] 1
+#&gt; 
+#&gt; [[58]]
+#&gt; [1] 1
+#&gt; 
+#&gt; [[59]]
+#&gt; [1] 1
+#&gt; 
+#&gt; [[60]]
+#&gt; [1] 2
+#&gt; 
+#&gt; [[61]]
+#&gt; [1] 2
+#&gt; 
+#&gt; [[62]]
+#&gt; [1] 1
+#&gt; 
+#&gt; [[63]]
+#&gt; [1] 1
+#&gt; 
+#&gt; [[64]]
+#&gt; [1] 2
+#&gt; 
+#&gt; [[65]]
+#&gt; [1] 2
+#&gt; 
+#&gt; [[66]]
+#&gt; [1] 1
+#&gt; 
+#&gt; [[67]]
+#&gt; [1] 1
+#&gt; 
+#&gt; [[68]]
+#&gt; [1] 1
+#&gt; 
+#&gt; [[69]]
+#&gt; [1] 1
+#&gt; 
+#&gt; [[70]]
+#&gt; [1] 1
+#&gt; 
+#&gt; [[71]]
+#&gt; [1] 1
+#&gt; 
+#&gt; [[72]]
+#&gt; [1] 1
+#&gt; 
+#&gt; [[73]]
+#&gt; [1] 2
+#&gt; 
+#&gt; [[74]]
+#&gt; [1] 1
+#&gt; 
+#&gt; [[75]]
+#&gt; [1] 1
+#&gt; 
+#&gt; [[76]]
+#&gt; [1] 2
+#&gt; 
+#&gt; [[77]]
+#&gt; [1] 1
+#&gt; 
+#&gt; [[78]]
+#&gt; [1] 1
+#&gt; 
+#&gt; [[79]]
+#&gt; [1] 2
+#&gt; 
+#&gt; [[80]]
+#&gt; [1] 2
+#&gt; 
+#&gt; [[81]]
+#&gt; [1] 1
+#&gt; 
+#&gt; [[82]]
+#&gt; [1] 1
+#&gt; 
+#&gt; [[83]]
+#&gt; [1] 1
+#&gt; 
+#&gt; [[84]]
+#&gt; [1] 1
+#&gt; 
+#&gt; [[85]]
+#&gt; [1] 1
+#&gt; 
+#&gt; [[86]]
+#&gt; [1] 1
+#&gt; 
+#&gt; [[87]]
+#&gt; [1] 3
+```
+
+]
+
+---
+
+## Anonymous functions
+
+Three ways of specifying anonymous functions:
+
+
+```r
+map(sw_people, function(x) length( x$films)) # supported in base R
+map(sw_people,        \(x) length( x$films)) # supported R &gt; 4.1.0
+map(sw_people,           ~ length(.x$films)) # supported in purrr
+```
+
+---
+
+<div class="countdown" id="timer_b6f0a84c" data-update-every="1" tabindex="0" style="top:0;right:0;font-size:2em;">
+<div class="countdown-controls"><button class="countdown-bump-down">&minus;</button><button class="countdown-bump-up">&plus;</button></div>
+<code class="countdown-time"><span class="countdown-digits minutes">03</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
+</div>
+
+# Quick practice
+
+- How many `vehicles` does each Star Wars character have? 
+
+(use `sw_people`)
+
+- How many `titles` does each character in Game of Thrones have? 
+
+(use `got_chars`)
+
+---
+
+## Type specific map variants
+
+
+```r
+map_int(sw_people, \(x) length(x$films))
+```
+
+```
+#&gt;  [1] 5 6 7 4 5 3 3 1 1 6 3 2 5 4 1 3 3 1 5 5 3 1 1 2 1 2 1 1 1 1 1 3 1 2 1 1 1 2
+#&gt; [39] 1 1 2 1 1 3 1 1 1 3 3 3 2 2 2 1 3 2 1 1 1 2 2 1 1 2 2 1 1 1 1 1 1 1 2 1 1 2
+#&gt; [77] 1 1 2 2 1 1 1 1 1 1 3
+```
+
+--
+
+`map_lgl()`: Returns a _logical_ vector
+
+`map_int()`: Returns a _integer_ vector
+
+`map_dbl()`: Returns a _double_ vector
+
+`map_chr()`: Returns a _character_ vector
+
+---
+
+<div class="countdown" id="timer_0b8004c2" data-update-every="1" tabindex="0" style="top:0;right:0;font-size:2em;">
+<div class="countdown-controls"><button class="countdown-bump-down">&minus;</button><button class="countdown-bump-up">&plus;</button></div>
+<code class="countdown-time"><span class="countdown-digits minutes">03</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
+</div>
+
+# Quick practice
+
+#### Replace `map()` with type-specific `map()`.
+
+
+```r
+# What's each character's name?
+map(got_chars, \(x) x$name)
+map(sw_people, \(x) x$name)
+
+# What color is each SW character's hair?
+map(sw_people, \(x) x$hair_color)
+
+# Is the GoT character alive?
+map(got_chars, \(x) x$alive)
+
+# Is the SW character female?
+map(sw_people, \(x) x$gender == "female")
+
+# How heavy is each SW character?
+map(sw_people, \(x) x$mass)
+```
+
+---
+
+## How many films was each Star Wars character in?
+
+.leftcol[
+
+
+```r
+map(sw_people, \(x) length(x$films))
+```
+
+```
+#&gt; [[1]]
+#&gt; [1] 5
+#&gt; 
+#&gt; [[2]]
+#&gt; [1] 6
+#&gt; 
+#&gt; [[3]]
+#&gt; [1] 7
+#&gt; 
+#&gt; [[4]]
+#&gt; [1] 4
+#&gt; 
+#&gt; [[5]]
+#&gt; [1] 5
+#&gt; 
+#&gt; [[6]]
+#&gt; [1] 3
+#&gt; 
+#&gt; [[7]]
+#&gt; [1] 3
+#&gt; 
+#&gt; [[8]]
+#&gt; [1] 1
+#&gt; 
+#&gt; [[9]]
+#&gt; [1] 1
+#&gt; 
+#&gt; [[10]]
+#&gt; [1] 6
+#&gt; 
+#&gt; [[11]]
+#&gt; [1] 3
+#&gt; 
+#&gt; [[12]]
+#&gt; [1] 2
+#&gt; 
+#&gt; [[13]]
+#&gt; [1] 5
+#&gt; 
+#&gt; [[14]]
+#&gt; [1] 4
+#&gt; 
+#&gt; [[15]]
+#&gt; [1] 1
+#&gt; 
+#&gt; [[16]]
+#&gt; [1] 3
+#&gt; 
+#&gt; [[17]]
+#&gt; [1] 3
+#&gt; 
+#&gt; [[18]]
+#&gt; [1] 1
+#&gt; 
+#&gt; [[19]]
+#&gt; [1] 5
+#&gt; 
+#&gt; [[20]]
+#&gt; [1] 5
+#&gt; 
+#&gt; [[21]]
+#&gt; [1] 3
+#&gt; 
+#&gt; [[22]]
+#&gt; [1] 1
+#&gt; 
+#&gt; [[23]]
+#&gt; [1] 1
+#&gt; 
+#&gt; [[24]]
+#&gt; [1] 2
+#&gt; 
+#&gt; [[25]]
+#&gt; [1] 1
+#&gt; 
+#&gt; [[26]]
+#&gt; [1] 2
+#&gt; 
+#&gt; [[27]]
+#&gt; [1] 1
+#&gt; 
+#&gt; [[28]]
+#&gt; [1] 1
+#&gt; 
+#&gt; [[29]]
+#&gt; [1] 1
+#&gt; 
+#&gt; [[30]]
+#&gt; [1] 1
+#&gt; 
+#&gt; [[31]]
+#&gt; [1] 1
+#&gt; 
+#&gt; [[32]]
+#&gt; [1] 3
+#&gt; 
+#&gt; [[33]]
+#&gt; [1] 1
+#&gt; 
+#&gt; [[34]]
+#&gt; [1] 2
+#&gt; 
+#&gt; [[35]]
+#&gt; [1] 1
+#&gt; 
+#&gt; [[36]]
+#&gt; [1] 1
+#&gt; 
+#&gt; [[37]]
+#&gt; [1] 1
+#&gt; 
+#&gt; [[38]]
+#&gt; [1] 2
+#&gt; 
+#&gt; [[39]]
+#&gt; [1] 1
+#&gt; 
+#&gt; [[40]]
+#&gt; [1] 1
+#&gt; 
+#&gt; [[41]]
+#&gt; [1] 2
+#&gt; 
+#&gt; [[42]]
+#&gt; [1] 1
+#&gt; 
+#&gt; [[43]]
+#&gt; [1] 1
+#&gt; 
+#&gt; [[44]]
+#&gt; [1] 3
+#&gt; 
+#&gt; [[45]]
+#&gt; [1] 1
+#&gt; 
+#&gt; [[46]]
+#&gt; [1] 1
+#&gt; 
+#&gt; [[47]]
+#&gt; [1] 1
+#&gt; 
+#&gt; [[48]]
+#&gt; [1] 3
+#&gt; 
+#&gt; [[49]]
+#&gt; [1] 3
+#&gt; 
+#&gt; [[50]]
+#&gt; [1] 3
+#&gt; 
+#&gt; [[51]]
+#&gt; [1] 2
+#&gt; 
+#&gt; [[52]]
+#&gt; [1] 2
+#&gt; 
+#&gt; [[53]]
+#&gt; [1] 2
+#&gt; 
+#&gt; [[54]]
+#&gt; [1] 1
+#&gt; 
+#&gt; [[55]]
+#&gt; [1] 3
+#&gt; 
+#&gt; [[56]]
+#&gt; [1] 2
+#&gt; 
+#&gt; [[57]]
+#&gt; [1] 1
+#&gt; 
+#&gt; [[58]]
+#&gt; [1] 1
+#&gt; 
+#&gt; [[59]]
+#&gt; [1] 1
+#&gt; 
+#&gt; [[60]]
+#&gt; [1] 2
+#&gt; 
+#&gt; [[61]]
+#&gt; [1] 2
+#&gt; 
+#&gt; [[62]]
+#&gt; [1] 1
+#&gt; 
+#&gt; [[63]]
+#&gt; [1] 1
+#&gt; 
+#&gt; [[64]]
+#&gt; [1] 2
+#&gt; 
+#&gt; [[65]]
+#&gt; [1] 2
+#&gt; 
+#&gt; [[66]]
+#&gt; [1] 1
+#&gt; 
+#&gt; [[67]]
+#&gt; [1] 1
+#&gt; 
+#&gt; [[68]]
+#&gt; [1] 1
+#&gt; 
+#&gt; [[69]]
+#&gt; [1] 1
+#&gt; 
+#&gt; [[70]]
+#&gt; [1] 1
+#&gt; 
+#&gt; [[71]]
+#&gt; [1] 1
+#&gt; 
+#&gt; [[72]]
+#&gt; [1] 1
+#&gt; 
+#&gt; [[73]]
+#&gt; [1] 2
+#&gt; 
+#&gt; [[74]]
+#&gt; [1] 1
+#&gt; 
+#&gt; [[75]]
+#&gt; [1] 1
+#&gt; 
+#&gt; [[76]]
+#&gt; [1] 2
+#&gt; 
+#&gt; [[77]]
+#&gt; [1] 1
+#&gt; 
+#&gt; [[78]]
+#&gt; [1] 1
+#&gt; 
+#&gt; [[79]]
+#&gt; [1] 2
+#&gt; 
+#&gt; [[80]]
+#&gt; [1] 2
+#&gt; 
+#&gt; [[81]]
+#&gt; [1] 1
+#&gt; 
+#&gt; [[82]]
+#&gt; [1] 1
+#&gt; 
+#&gt; [[83]]
+#&gt; [1] 1
+#&gt; 
+#&gt; [[84]]
+#&gt; [1] 1
+#&gt; 
+#&gt; [[85]]
+#&gt; [1] 1
+#&gt; 
+#&gt; [[86]]
+#&gt; [1] 1
+#&gt; 
+#&gt; [[87]]
+#&gt; [1] 3
+```
+
+]
+
+.rightcol[
+
+&lt;br&gt;&lt;br&gt;
+
+### .center[.red[Wait, which character?]]
+
+]
+
+---
+
+# Use a tibble to get the character name as well!
+
+.leftcol[
+
+Returns a list of data frames:
+
+
+```r
+map(sw_people, \(x) tibble(
+    name = x$name, 
+    n_vehicles = length(x$films)
+  )
+)
+```
+
+```
+#&gt; [[1]]
+#&gt; # A tibble: 1 × 2
+#&gt;   name           n_vehicles
+#&gt;   &lt;chr&gt;               &lt;int&gt;
+#&gt; 1 Luke Skywalker          5
+#&gt; 
+#&gt; [[2]]
+#&gt; # A tibble: 1 × 2
+#&gt;   name  n_vehicles
+#&gt;   &lt;chr&gt;      &lt;int&gt;
+#&gt; 1 C-3PO          6
+#&gt; 
+#&gt; [[3]]
+#&gt; # A tibble: 1 × 2
+#&gt;   name  n_vehicles
+#&gt;   &lt;chr&gt;      &lt;int&gt;
+#&gt; 1 R2-D2          7
+#&gt; 
+#&gt; [[4]]
+#&gt; # A tibble: 1 × 2
+#&gt;   name        n_vehicles
+#&gt;   &lt;chr&gt;            &lt;int&gt;
+#&gt; 1 Darth Vader          4
+#&gt; 
+#&gt; [[5]]
+#&gt; # A tibble: 1 × 2
+#&gt;   name        n_vehicles
+#&gt;   &lt;chr&gt;            &lt;int&gt;
+#&gt; 1 Leia Organa          5
+#&gt; 
+#&gt; [[6]]
+#&gt; # A tibble: 1 × 2
+#&gt;   name      n_vehicles
+#&gt;   &lt;chr&gt;          &lt;int&gt;
+#&gt; 1 Owen Lars          3
+#&gt; 
+#&gt; [[7]]
+#&gt; # A tibble: 1 × 2
+#&gt;   name               n_vehicles
+#&gt;   &lt;chr&gt;                   &lt;int&gt;
+#&gt; 1 Beru Whitesun lars          3
+#&gt; 
+#&gt; [[8]]
+#&gt; # A tibble: 1 × 2
+#&gt;   name  n_vehicles
+#&gt;   &lt;chr&gt;      &lt;int&gt;
+#&gt; 1 R5-D4          1
+#&gt; 
+#&gt; [[9]]
+#&gt; # A tibble: 1 × 2
+#&gt;   name              n_vehicles
+#&gt;   &lt;chr&gt;                  &lt;int&gt;
+#&gt; 1 Biggs Darklighter          1
+#&gt; 
+#&gt; [[10]]
+#&gt; # A tibble: 1 × 2
+#&gt;   name           n_vehicles
+#&gt;   &lt;chr&gt;               &lt;int&gt;
+#&gt; 1 Obi-Wan Kenobi          6
+#&gt; 
+#&gt; [[11]]
+#&gt; # A tibble: 1 × 2
+#&gt;   name             n_vehicles
+#&gt;   &lt;chr&gt;                 &lt;int&gt;
+#&gt; 1 Anakin Skywalker          3
+#&gt; 
+#&gt; [[12]]
+#&gt; # A tibble: 1 × 2
+#&gt;   name           n_vehicles
+#&gt;   &lt;chr&gt;               &lt;int&gt;
+#&gt; 1 Wilhuff Tarkin          2
+#&gt; 
+#&gt; [[13]]
+#&gt; # A tibble: 1 × 2
+#&gt;   name      n_vehicles
+#&gt;   &lt;chr&gt;          &lt;int&gt;
+#&gt; 1 Chewbacca          5
+#&gt; 
+#&gt; [[14]]
+#&gt; # A tibble: 1 × 2
+#&gt;   name     n_vehicles
+#&gt;   &lt;chr&gt;         &lt;int&gt;
+#&gt; 1 Han Solo          4
+#&gt; 
+#&gt; [[15]]
+#&gt; # A tibble: 1 × 2
+#&gt;   name   n_vehicles
+#&gt;   &lt;chr&gt;       &lt;int&gt;
+#&gt; 1 Greedo          1
+#&gt; 
+#&gt; [[16]]
+#&gt; # A tibble: 1 × 2
+#&gt;   name                  n_vehicles
+#&gt;   &lt;chr&gt;                      &lt;int&gt;
+#&gt; 1 Jabba Desilijic Tiure          3
+#&gt; 
+#&gt; [[17]]
+#&gt; # A tibble: 1 × 2
+#&gt;   name           n_vehicles
+#&gt;   &lt;chr&gt;               &lt;int&gt;
+#&gt; 1 Wedge Antilles          3
+#&gt; 
+#&gt; [[18]]
+#&gt; # A tibble: 1 × 2
+#&gt;   name             n_vehicles
+#&gt;   &lt;chr&gt;                 &lt;int&gt;
+#&gt; 1 Jek Tono Porkins          1
+#&gt; 
+#&gt; [[19]]
+#&gt; # A tibble: 1 × 2
+#&gt;   name  n_vehicles
+#&gt;   &lt;chr&gt;      &lt;int&gt;
+#&gt; 1 Yoda           5
+#&gt; 
+#&gt; [[20]]
+#&gt; # A tibble: 1 × 2
+#&gt;   name      n_vehicles
+#&gt;   &lt;chr&gt;          &lt;int&gt;
+#&gt; 1 Palpatine          5
+#&gt; 
+#&gt; [[21]]
+#&gt; # A tibble: 1 × 2
+#&gt;   name      n_vehicles
+#&gt;   &lt;chr&gt;          &lt;int&gt;
+#&gt; 1 Boba Fett          3
+#&gt; 
+#&gt; [[22]]
+#&gt; # A tibble: 1 × 2
+#&gt;   name  n_vehicles
+#&gt;   &lt;chr&gt;      &lt;int&gt;
+#&gt; 1 IG-88          1
+#&gt; 
+#&gt; [[23]]
+#&gt; # A tibble: 1 × 2
+#&gt;   name  n_vehicles
+#&gt;   &lt;chr&gt;      &lt;int&gt;
+#&gt; 1 Bossk          1
+#&gt; 
+#&gt; [[24]]
+#&gt; # A tibble: 1 × 2
+#&gt;   name             n_vehicles
+#&gt;   &lt;chr&gt;                 &lt;int&gt;
+#&gt; 1 Lando Calrissian          2
+#&gt; 
+#&gt; [[25]]
+#&gt; # A tibble: 1 × 2
+#&gt;   name  n_vehicles
+#&gt;   &lt;chr&gt;      &lt;int&gt;
+#&gt; 1 Lobot          1
+#&gt; 
+#&gt; [[26]]
+#&gt; # A tibble: 1 × 2
+#&gt;   name   n_vehicles
+#&gt;   &lt;chr&gt;       &lt;int&gt;
+#&gt; 1 Ackbar          2
+#&gt; 
+#&gt; [[27]]
+#&gt; # A tibble: 1 × 2
+#&gt;   name       n_vehicles
+#&gt;   &lt;chr&gt;           &lt;int&gt;
+#&gt; 1 Mon Mothma          1
+#&gt; 
+#&gt; [[28]]
+#&gt; # A tibble: 1 × 2
+#&gt;   name         n_vehicles
+#&gt;   &lt;chr&gt;             &lt;int&gt;
+#&gt; 1 Arvel Crynyd          1
+#&gt; 
+#&gt; [[29]]
+#&gt; # A tibble: 1 × 2
+#&gt;   name                  n_vehicles
+#&gt;   &lt;chr&gt;                      &lt;int&gt;
+#&gt; 1 Wicket Systri Warrick          1
+#&gt; 
+#&gt; [[30]]
+#&gt; # A tibble: 1 × 2
+#&gt;   name      n_vehicles
+#&gt;   &lt;chr&gt;          &lt;int&gt;
+#&gt; 1 Nien Nunb          1
+#&gt; 
+#&gt; [[31]]
+#&gt; # A tibble: 1 × 2
+#&gt;   name         n_vehicles
+#&gt;   &lt;chr&gt;             &lt;int&gt;
+#&gt; 1 Qui-Gon Jinn          1
+#&gt; 
+#&gt; [[32]]
+#&gt; # A tibble: 1 × 2
+#&gt;   name        n_vehicles
+#&gt;   &lt;chr&gt;            &lt;int&gt;
+#&gt; 1 Nute Gunray          3
+#&gt; 
+#&gt; [[33]]
+#&gt; # A tibble: 1 × 2
+#&gt;   name          n_vehicles
+#&gt;   &lt;chr&gt;              &lt;int&gt;
+#&gt; 1 Finis Valorum          1
+#&gt; 
+#&gt; [[34]]
+#&gt; # A tibble: 1 × 2
+#&gt;   name          n_vehicles
+#&gt;   &lt;chr&gt;              &lt;int&gt;
+#&gt; 1 Jar Jar Binks          2
+#&gt; 
+#&gt; [[35]]
+#&gt; # A tibble: 1 × 2
+#&gt;   name         n_vehicles
+#&gt;   &lt;chr&gt;             &lt;int&gt;
+#&gt; 1 Roos Tarpals          1
+#&gt; 
+#&gt; [[36]]
+#&gt; # A tibble: 1 × 2
+#&gt;   name       n_vehicles
+#&gt;   &lt;chr&gt;           &lt;int&gt;
+#&gt; 1 Rugor Nass          1
+#&gt; 
+#&gt; [[37]]
+#&gt; # A tibble: 1 × 2
+#&gt;   name     n_vehicles
+#&gt;   &lt;chr&gt;         &lt;int&gt;
+#&gt; 1 Ric Olié          1
+#&gt; 
+#&gt; [[38]]
+#&gt; # A tibble: 1 × 2
+#&gt;   name  n_vehicles
+#&gt;   &lt;chr&gt;      &lt;int&gt;
+#&gt; 1 Watto          2
+#&gt; 
+#&gt; [[39]]
+#&gt; # A tibble: 1 × 2
+#&gt;   name    n_vehicles
+#&gt;   &lt;chr&gt;        &lt;int&gt;
+#&gt; 1 Sebulba          1
+#&gt; 
+#&gt; [[40]]
+#&gt; # A tibble: 1 × 2
+#&gt;   name          n_vehicles
+#&gt;   &lt;chr&gt;              &lt;int&gt;
+#&gt; 1 Quarsh Panaka          1
+#&gt; 
+#&gt; [[41]]
+#&gt; # A tibble: 1 × 2
+#&gt;   name           n_vehicles
+#&gt;   &lt;chr&gt;               &lt;int&gt;
+#&gt; 1 Shmi Skywalker          2
+#&gt; 
+#&gt; [[42]]
+#&gt; # A tibble: 1 × 2
+#&gt;   name       n_vehicles
+#&gt;   &lt;chr&gt;           &lt;int&gt;
+#&gt; 1 Darth Maul          1
+#&gt; 
+#&gt; [[43]]
+#&gt; # A tibble: 1 × 2
+#&gt;   name        n_vehicles
+#&gt;   &lt;chr&gt;            &lt;int&gt;
+#&gt; 1 Bib Fortuna          1
+#&gt; 
+#&gt; [[44]]
+#&gt; # A tibble: 1 × 2
+#&gt;   name        n_vehicles
+#&gt;   &lt;chr&gt;            &lt;int&gt;
+#&gt; 1 Ayla Secura          3
+#&gt; 
+#&gt; [[45]]
+#&gt; # A tibble: 1 × 2
+#&gt;   name     n_vehicles
+#&gt;   &lt;chr&gt;         &lt;int&gt;
+#&gt; 1 Dud Bolt          1
+#&gt; 
+#&gt; [[46]]
+#&gt; # A tibble: 1 × 2
+#&gt;   name    n_vehicles
+#&gt;   &lt;chr&gt;        &lt;int&gt;
+#&gt; 1 Gasgano          1
+#&gt; 
+#&gt; [[47]]
+#&gt; # A tibble: 1 × 2
+#&gt;   name           n_vehicles
+#&gt;   &lt;chr&gt;               &lt;int&gt;
+#&gt; 1 Ben Quadinaros          1
+#&gt; 
+#&gt; [[48]]
+#&gt; # A tibble: 1 × 2
+#&gt;   name       n_vehicles
+#&gt;   &lt;chr&gt;           &lt;int&gt;
+#&gt; 1 Mace Windu          3
+#&gt; 
+#&gt; [[49]]
+#&gt; # A tibble: 1 × 2
+#&gt;   name         n_vehicles
+#&gt;   &lt;chr&gt;             &lt;int&gt;
+#&gt; 1 Ki-Adi-Mundi          3
+#&gt; 
+#&gt; [[50]]
+#&gt; # A tibble: 1 × 2
+#&gt;   name      n_vehicles
+#&gt;   &lt;chr&gt;          &lt;int&gt;
+#&gt; 1 Kit Fisto          3
+#&gt; 
+#&gt; [[51]]
+#&gt; # A tibble: 1 × 2
+#&gt;   name      n_vehicles
+#&gt;   &lt;chr&gt;          &lt;int&gt;
+#&gt; 1 Eeth Koth          2
+#&gt; 
+#&gt; [[52]]
+#&gt; # A tibble: 1 × 2
+#&gt;   name       n_vehicles
+#&gt;   &lt;chr&gt;           &lt;int&gt;
+#&gt; 1 Adi Gallia          2
+#&gt; 
+#&gt; [[53]]
+#&gt; # A tibble: 1 × 2
+#&gt;   name        n_vehicles
+#&gt;   &lt;chr&gt;            &lt;int&gt;
+#&gt; 1 Saesee Tiin          2
+#&gt; 
+#&gt; [[54]]
+#&gt; # A tibble: 1 × 2
+#&gt;   name        n_vehicles
+#&gt;   &lt;chr&gt;            &lt;int&gt;
+#&gt; 1 Yarael Poof          1
+#&gt; 
+#&gt; [[55]]
+#&gt; # A tibble: 1 × 2
+#&gt;   name     n_vehicles
+#&gt;   &lt;chr&gt;         &lt;int&gt;
+#&gt; 1 Plo Koon          3
+#&gt; 
+#&gt; [[56]]
+#&gt; # A tibble: 1 × 2
+#&gt;   name       n_vehicles
+#&gt;   &lt;chr&gt;           &lt;int&gt;
+#&gt; 1 Mas Amedda          2
+#&gt; 
+#&gt; [[57]]
+#&gt; # A tibble: 1 × 2
+#&gt;   name         n_vehicles
+#&gt;   &lt;chr&gt;             &lt;int&gt;
+#&gt; 1 Gregar Typho          1
+#&gt; 
+#&gt; [[58]]
+#&gt; # A tibble: 1 × 2
+#&gt;   name  n_vehicles
+#&gt;   &lt;chr&gt;      &lt;int&gt;
+#&gt; 1 Cordé          1
+#&gt; 
+#&gt; [[59]]
+#&gt; # A tibble: 1 × 2
+#&gt;   name        n_vehicles
+#&gt;   &lt;chr&gt;            &lt;int&gt;
+#&gt; 1 Cliegg Lars          1
+#&gt; 
+#&gt; [[60]]
+#&gt; # A tibble: 1 × 2
+#&gt;   name              n_vehicles
+#&gt;   &lt;chr&gt;                  &lt;int&gt;
+#&gt; 1 Poggle the Lesser          2
+#&gt; 
+#&gt; [[61]]
+#&gt; # A tibble: 1 × 2
+#&gt;   name            n_vehicles
+#&gt;   &lt;chr&gt;                &lt;int&gt;
+#&gt; 1 Luminara Unduli          2
+#&gt; 
+#&gt; [[62]]
+#&gt; # A tibble: 1 × 2
+#&gt;   name          n_vehicles
+#&gt;   &lt;chr&gt;              &lt;int&gt;
+#&gt; 1 Barriss Offee          1
+#&gt; 
+#&gt; [[63]]
+#&gt; # A tibble: 1 × 2
+#&gt;   name  n_vehicles
+#&gt;   &lt;chr&gt;      &lt;int&gt;
+#&gt; 1 Dormé          1
+#&gt; 
+#&gt; [[64]]
+#&gt; # A tibble: 1 × 2
+#&gt;   name  n_vehicles
+#&gt;   &lt;chr&gt;      &lt;int&gt;
+#&gt; 1 Dooku          2
+#&gt; 
+#&gt; [[65]]
+#&gt; # A tibble: 1 × 2
+#&gt;   name                n_vehicles
+#&gt;   &lt;chr&gt;                    &lt;int&gt;
+#&gt; 1 Bail Prestor Organa          2
+#&gt; 
+#&gt; [[66]]
+#&gt; # A tibble: 1 × 2
+#&gt;   name       n_vehicles
+#&gt;   &lt;chr&gt;           &lt;int&gt;
+#&gt; 1 Jango Fett          1
+#&gt; 
+#&gt; [[67]]
+#&gt; # A tibble: 1 × 2
+#&gt;   name       n_vehicles
+#&gt;   &lt;chr&gt;           &lt;int&gt;
+#&gt; 1 Zam Wesell          1
+#&gt; 
+#&gt; [[68]]
+#&gt; # A tibble: 1 × 2
+#&gt;   name            n_vehicles
+#&gt;   &lt;chr&gt;                &lt;int&gt;
+#&gt; 1 Dexter Jettster          1
+#&gt; 
+#&gt; [[69]]
+#&gt; # A tibble: 1 × 2
+#&gt;   name    n_vehicles
+#&gt;   &lt;chr&gt;        &lt;int&gt;
+#&gt; 1 Lama Su          1
+#&gt; 
+#&gt; [[70]]
+#&gt; # A tibble: 1 × 2
+#&gt;   name    n_vehicles
+#&gt;   &lt;chr&gt;        &lt;int&gt;
+#&gt; 1 Taun We          1
+#&gt; 
+#&gt; [[71]]
+#&gt; # A tibble: 1 × 2
+#&gt;   name       n_vehicles
+#&gt;   &lt;chr&gt;           &lt;int&gt;
+#&gt; 1 Jocasta Nu          1
+#&gt; 
+#&gt; [[72]]
+#&gt; # A tibble: 1 × 2
+#&gt;   name          n_vehicles
+#&gt;   &lt;chr&gt;              &lt;int&gt;
+#&gt; 1 Ratts Tyerell          1
+#&gt; 
+#&gt; [[73]]
+#&gt; # A tibble: 1 × 2
+#&gt;   name   n_vehicles
+#&gt;   &lt;chr&gt;       &lt;int&gt;
+#&gt; 1 R4-P17          2
+#&gt; 
+#&gt; [[74]]
+#&gt; # A tibble: 1 × 2
+#&gt;   name       n_vehicles
+#&gt;   &lt;chr&gt;           &lt;int&gt;
+#&gt; 1 Wat Tambor          1
+#&gt; 
+#&gt; [[75]]
+#&gt; # A tibble: 1 × 2
+#&gt;   name     n_vehicles
+#&gt;   &lt;chr&gt;         &lt;int&gt;
+#&gt; 1 San Hill          1
+#&gt; 
+#&gt; [[76]]
+#&gt; # A tibble: 1 × 2
+#&gt;   name     n_vehicles
+#&gt;   &lt;chr&gt;         &lt;int&gt;
+#&gt; 1 Shaak Ti          2
+#&gt; 
+#&gt; [[77]]
+#&gt; # A tibble: 1 × 2
+#&gt;   name     n_vehicles
+#&gt;   &lt;chr&gt;         &lt;int&gt;
+#&gt; 1 Grievous          1
+#&gt; 
+#&gt; [[78]]
+#&gt; # A tibble: 1 × 2
+#&gt;   name    n_vehicles
+#&gt;   &lt;chr&gt;        &lt;int&gt;
+#&gt; 1 Tarfful          1
+#&gt; 
+#&gt; [[79]]
+#&gt; # A tibble: 1 × 2
+#&gt;   name            n_vehicles
+#&gt;   &lt;chr&gt;                &lt;int&gt;
+#&gt; 1 Raymus Antilles          2
+#&gt; 
+#&gt; [[80]]
+#&gt; # A tibble: 1 × 2
+#&gt;   name      n_vehicles
+#&gt;   &lt;chr&gt;          &lt;int&gt;
+#&gt; 1 Sly Moore          2
+#&gt; 
+#&gt; [[81]]
+#&gt; # A tibble: 1 × 2
+#&gt;   name       n_vehicles
+#&gt;   &lt;chr&gt;           &lt;int&gt;
+#&gt; 1 Tion Medon          1
+#&gt; 
+#&gt; [[82]]
+#&gt; # A tibble: 1 × 2
+#&gt;   name  n_vehicles
+#&gt;   &lt;chr&gt;      &lt;int&gt;
+#&gt; 1 Finn           1
+#&gt; 
+#&gt; [[83]]
+#&gt; # A tibble: 1 × 2
+#&gt;   name  n_vehicles
+#&gt;   &lt;chr&gt;      &lt;int&gt;
+#&gt; 1 Rey            1
+#&gt; 
+#&gt; [[84]]
+#&gt; # A tibble: 1 × 2
+#&gt;   name        n_vehicles
+#&gt;   &lt;chr&gt;            &lt;int&gt;
+#&gt; 1 Poe Dameron          1
+#&gt; 
+#&gt; [[85]]
+#&gt; # A tibble: 1 × 2
+#&gt;   name  n_vehicles
+#&gt;   &lt;chr&gt;      &lt;int&gt;
+#&gt; 1 BB8            1
+#&gt; 
+#&gt; [[86]]
+#&gt; # A tibble: 1 × 2
+#&gt;   name           n_vehicles
+#&gt;   &lt;chr&gt;               &lt;int&gt;
+#&gt; 1 Captain Phasma          1
+#&gt; 
+#&gt; [[87]]
+#&gt; # A tibble: 1 × 2
+#&gt;   name          n_vehicles
+#&gt;   &lt;chr&gt;              &lt;int&gt;
+#&gt; 1 Padmé Amidala          3
+```
+
+]
+
+--
+
+.rightcol[
+
+Use `map_df()` to merge the data frames 
+
+
+```r
+*map_df(sw_people, \(x) tibble(
+    name = x$name, 
+    n_vehicles = length(x$films)
+  )
+)
+```
+
+```
+#&gt; # A tibble: 87 × 2
+#&gt;    name               n_vehicles
+#&gt;    &lt;chr&gt;                   &lt;int&gt;
+#&gt;  1 Luke Skywalker              5
+#&gt;  2 C-3PO                       6
+#&gt;  3 R2-D2                       7
+#&gt;  4 Darth Vader                 4
+#&gt;  5 Leia Organa                 5
+#&gt;  6 Owen Lars                   3
+#&gt;  7 Beru Whitesun lars          3
+#&gt;  8 R5-D4                       1
+#&gt;  9 Biggs Darklighter           1
+#&gt; 10 Obi-Wan Kenobi              6
+#&gt; # … with 77 more rows
+```
+
+]
+
+---
+
+class: inverse
+
+<div class="countdown" id="timer_a45854a0" data-warn-when="30" data-update-every="1" tabindex="0" style="top:0;right:0;font-size:2em;">
+<div class="countdown-controls"><button class="countdown-bump-down">&minus;</button><button class="countdown-bump-up">&plus;</button></div>
+<code class="countdown-time"><span class="countdown-digits minutes">15</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
+</div>
+
+## Your turn 
+
+Try to answer these questions:
+
+1. Which SW film has the most characters? (use `sw_films`)
+2. Which SW species has the highest average lifespan? (use `sw_species`)
+3. Which GoT character(s) have been played by multiple actors? (use `got_chars`)
+
+---
+
+## Sometimes you really need do something on each row
+
+Use a `for` loop to iterate across each row in a data frame:
+
+
+```r
+for (i in 1:nrow(df)) {
+  row &lt;- df[i,]
+  # Do stuff with row
+}
+```
+
+---
+
+## .center[Example: tagging a new daily covid case record]
+
+
+```r
+covid_dc &lt;- read_csv(here::here('data', 'us_covid.csv')) %&gt;% 
+  filter(state == 'District of Columbia') %&gt;% 
+  select(-state)
+
+head(covid_dc)
+```
+
+```
+#&gt; # A tibble: 6 × 6
+#&gt;   date         day cases_daily deaths_daily cases_total deaths_total
+#&gt;   &lt;date&gt;     &lt;dbl&gt;       &lt;dbl&gt;        &lt;dbl&gt;       &lt;dbl&gt;        &lt;dbl&gt;
+#&gt; 1 2020-01-23     1           0            0           0            0
+#&gt; 2 2020-01-24     2           0            0           0            0
+#&gt; 3 2020-01-25     3           0            0           0            0
+#&gt; 4 2020-01-26     4           0            0           0            0
+#&gt; 5 2020-01-27     5           0            0           0            0
+#&gt; 6 2020-01-28     6           0            0           0            0
+```
+
+---
+
+## .center[Example: tagging a new daily covid case record]
+
+.leftcol[
+
+Initialize new column
+
+
+```r
+covid_dc$new_record &lt;- FALSE
+
+glimpse(covid_dc)
+```
+
+```
+#&gt; Rows: 403
+#&gt; Columns: 7
+#&gt; $ date         &lt;date&gt; 2020-01-23, 2020-01-24, 2020-01-25, 2020-01-26, 2020-01-…
+#&gt; $ day          &lt;dbl&gt; 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17…
+#&gt; $ cases_daily  &lt;dbl&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, …
+#&gt; $ deaths_daily &lt;dbl&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, …
+#&gt; $ cases_total  &lt;dbl&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, …
+#&gt; $ deaths_total &lt;dbl&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, …
+#&gt; $ new_record   &lt;lgl&gt; FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, F…
+```
+
+]
+
+.rightcol[
+
+Now loop through each row and check if a new record is met
+
+
+```r
+record &lt;- 0
+for (i in 1:nrow(covid_dc)) {
+  
+  # Get the nubmer of cases on row i
+  num_cases &lt;- covid_dc[i,]$cases_daily
+  
+  # Check if new record is met
+  if (num_cases &gt; record) {    
+    
+    # Update new record in covid_dc
+    covid_dc[i, ]$new_record &lt;- TRUE 
+    
+    # Update new record
+    record &lt;- num_cases
+  }
+}
+```
+
+]
+
+---
+
+&lt;center&gt;
+&lt;img src="images/covid-record.png" width=840&gt;
+&lt;/center&gt;
+
+---
+
+## Preview [HW 11](https://p4a.seas.gwu.edu/2023-Spring/hw/11-programming-with-data.html)
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false,
+"ratio": "16:9"
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+// add `data-at-shortcutkeys` attribute to <body> to resolve conflicts with JAWS
+// screen reader (see PR #262)
+(function(d) {
+  let res = {};
+  d.querySelectorAll('.remark-help-content table tr').forEach(tr => {
+    const t = tr.querySelector('td:nth-child(2)').innerText;
+    tr.querySelectorAll('td:first-child .key').forEach(key => {
+      const k = key.innerText;
+      if (/^[a-z]$/.test(k)) res[k] = t;  // must be a single letter (key)
+    });
+  });
+  d.body.setAttribute('data-at-shortcutkeys', JSON.stringify(res));
+})(document);
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>

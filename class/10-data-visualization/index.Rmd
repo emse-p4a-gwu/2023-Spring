@@ -1,0 +1,1196 @@
+---
+title: "Data Visualization"
+subtitle: "EMSE 4571: Intro to Programming for Analytics"
+date: April 13, 2023
+week: 10
+class: "10-data-visualization"
+author: "John Paul Helveston"
+institute: "The George Washington University | Dept. of Engineering Management and Systems Engineering"
+output:
+  xaringan::moon_reader:
+    css:
+      - default
+      - css/lexis.css
+      - css/lexis-fonts.css
+    lib_dir: libs
+    seal: false
+    nature:
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+      ratio: "16:9"
+---
+
+```{r, child="../setup.Rmd"}
+```
+
+```{r, include=FALSE}
+theme_set(theme_gray(base_size = 20))
+bears <- read_csv(here::here('data', 'bear_killings.csv'))
+birds <- read_csv(here::here('data', 'wildlife_impacts.csv'))
+```
+
+---
+
+```{r child="topics/0.Rmd"}
+```
+
+---
+
+```{r child="topics/1.Rmd"}
+```
+
+---
+
+# Today's data:
+
+## Bear attacks in North America
+
+Explore the `bears` data frame:
+
+```{r, eval=FALSE}
+glimpse(bears)
+head(bears)
+```
+
+---
+
+class: center
+
+## Two basic plots in R
+
+.leftcol[
+
+### Scatterplots
+
+```{r, base_scatter, echo=FALSE, fig.height=5, fig.width=7, message=FALSE, warning=FALSE}
+plot(
+  x    = bears$year,
+  y    = bears$age,
+  col  = 'darkblue', # "col" changes the point color
+  pch  = 19, # "pch" changes the point shape
+  main = "Age of bear killing victims over time",
+  xlab = "Year",
+  ylab = "Age"
+)
+box()
+```
+
+]
+
+.rightcol[
+
+### Histograms
+
+```{r, base_hist, echo=FALSE, fig.height=5, fig.width=7, message=FALSE, warning=FALSE, class = "thin-outline"}
+hist(
+  x      = bears$month,
+  breaks = 12,
+  col    = 'darkred',
+  main   = "Distribution of bear killings by month",
+  xlab   = "Month",
+  ylab   = "Count"
+)
+```
+
+]
+
+---
+
+# Scatterplots with `plot()`
+
+### Plot relationship between two variables
+
+--
+
+.leftcol[
+
+General syntax:
+
+```{r, eval=FALSE}
+plot(x = x_vector, y = y_vector)
+```
+
+]
+
+---
+
+# Scatterplots with `plot()`
+
+### Plot relationship between two variables
+
+.leftcol[
+
+General syntax:
+
+```{r, eval=FALSE}
+plot(x = x_vector, y = y_vector)
+```
+
+Example:
+
+```{r scatterplot, fig.show='hide'}
+var1 <- bears$year
+var2 <- bears$age
+plot(x = var1, y = var2)
+```
+
+]
+
+.rightcol[
+
+```{r ref.label='scatterplot', echo=FALSE, fig.height=5, fig.width=6}
+```
+
+]
+
+---
+
+# Scatterplots with `plot()`
+
+### `x` and `y` must have the same length!
+
+--
+
+```{r}
+var2 <- var2[-1]
+```
+
+--
+
+```{r}
+length(var1) == length(var2)
+```
+
+--
+
+```{r, message=FALSE, warning=FALSE, error=TRUE}
+plot(x = var1, y = var2)
+```
+
+---
+
+# Making `plot()` pretty
+
+.leftcol[.code80[
+
+```{r bear_prettyPlot, fig.show='hide'}
+plot(
+  x    = bears$year,
+  y    = bears$age,
+  col  = 'darkblue', # Point color
+  pch  = 19, # Point shape
+  main = "Age of victims over time",
+  xlab = "Year",
+  ylab = "Age of victim"
+)
+```
+
+]]
+
+.rightcol[
+
+```{r ref.label='bear_prettyPlot', echo=FALSE, fig.height=5, fig.width=7}
+```
+
+]
+
+---
+
+class: inverse
+
+```{r, echo=FALSE}
+countdown(
+  minutes      = 10,
+  warn_when    = 30,
+  update_every = 1,
+  top          = 0,
+  right        = 0,
+  font_size    = '2em'
+)
+```
+
+## Your turn: `plot()`
+
+Does the annual number of bird impacts appear to be changing over time?
+
+Make a plot using the `birds` data frame to justify your answer.
+
+<br>
+
+Hint: You may need to create a _summary_ data frame to answer this question!
+
+**Bonus**: Make your plot pretty!
+
+---
+
+# Histograms with `hist()`
+
+### Plot the _distribution_ of a single variable
+
+.leftcol[
+
+General syntax:
+
+```{r, eval=FALSE}
+hist(x = x_vector)
+```
+
+]
+
+---
+
+# Histograms with `hist()`
+
+### Plot the _distribution_ of a single variable
+
+.leftcol[
+
+General syntax:
+
+```{r, eval=FALSE}
+hist(x = x_vector)
+```
+
+Example:
+
+```{r bearHist, fig.show='hide'}
+hist(bears$month)
+```
+
+]
+
+.rightcol[
+
+```{r ref.label='bearHist', echo=FALSE, fig.height=5, fig.width=6}
+```
+
+]
+
+---
+
+# Making `hist()` pretty
+
+.leftcol[.code80[
+
+```{r prettyHist, fig.show='hide'}
+hist(
+  x      = bears$month,
+  breaks = 12,
+  col    = 'darkred',
+  main   = "Bear killings by month",
+  xlab   = "Month",
+  ylab   = "Count"
+)
+```
+
+]]
+
+.rightcol[
+
+```{r ref.label='prettyHist', echo=FALSE, fig.height=5, fig.width=6}
+```
+
+]
+
+---
+
+class: inverse
+
+```{r, echo=FALSE}
+countdown(
+  minutes      = 10,
+  warn_when    = 30,
+  update_every = 1,
+  top          = 0,
+  right        = 0,
+  font_size    = '2em'
+)
+```
+
+## Your turn: `hist()`
+
+Make plots using the `birds` data frame to answer these questions
+
+1. Which months have the highest and lowest number of bird impacts in the dataset?
+2. Which aircrafts experience more impacts: 2-engine, 3-engine, or 4-engine?
+3. At what height do most impacts occur?
+
+**Bonus**: Make your plots pretty!
+
+---
+
+```{r child="topics/2.Rmd"}
+```
+
+---
+
+class: center
+
+## Better figures with `ggplot2`
+
+<center>
+<img src="images/horst_monsters_ggplot2.png" width=600>
+</center>Art by [Allison Horst](https://www.allisonhorst.com/)
+
+---
+
+.leftcol[
+
+<img src="images/making_a_ggplot.jpeg" width=600>
+
+]
+
+.rightcol[
+
+# "Grammar of Graphics"
+
+Concept developed by Leland Wilkinson (1999)
+
+**ggplot2** package developed by Hadley Wickham (2005)
+
+]
+
+---
+
+# Making plot layers with ggplot2
+
+<br>
+
+### 1. The data (we'll use `bears`)
+### 2. The aesthetic mapping (what goes on the axes?)
+### 3. The geometries (points? bars? etc.)
+
+---
+
+# Layer 1: The data
+
+The `ggplot()` function initializes the plot with whatever data you're using
+
+.leftcol[
+
+```{r ggblank, fig.show='hide'}
+ggplot(data = bears)
+```
+
+]
+
+.rightcol[.blackborder[
+
+```{r ref.label='ggblank', echo=FALSE, fig.height=5, fig.width=7}
+```
+
+]]
+
+---
+
+# Layer 2: The aesthetic mapping
+
+The `aes()` function determines which variables will be _mapped_ to the geometries<br>(e.g. the axes)
+
+.leftcol[
+
+```{r ggaes, fig.show='hide'}
+ggplot(
+  data = bears,
+  mapping = aes(x = year, y = age)) #<<
+```
+]
+
+.rightcol[.blackborder[
+
+```{r ref.label='ggaes', echo=FALSE, fig.height=5, fig.width=7}
+```
+
+]]
+
+---
+
+# Layer 3: The geometries
+
+Use `+` to add geometries (e.g. points)
+
+.leftcol[
+
+```{r ggpoint, fig.show='hide'}
+ggplot(
+  data = bears,
+  mapping = aes(x = year, y = age)) +
+  geom_point() #<<
+```
+
+]
+
+.rightcol[.blackborder[
+
+```{r ref.label='ggpoint', echo=FALSE, fig.height=5, fig.width=7}
+```
+
+]]
+
+---
+
+# Other common geometries
+
+- `geom_point()`: scatter plots
+- `geom_line()`: lines connecting data points
+- `geom_col()`: bar charts
+- `geom_boxplot()`: boxes for boxplots
+
+---
+
+# Scatterplots with `geom_point()`
+
+Add points:
+
+.leftcol[
+
+```{r ggbears, fig.show='hide'}
+ggplot(
+  data = bears,
+  mapping = aes(x = year, y = age)) +
+  geom_point() #<<
+```
+
+]
+
+.rightcol[.blackborder[
+
+```{r ref.label='ggbears', echo=FALSE, fig.height=5, fig.width=7}
+```
+
+]]
+
+---
+
+# Scatterplots with `geom_point()`
+
+Change the color of all points:
+
+.leftcol[
+
+```{r ggbearsblue, fig.show='hide'}
+ggplot(
+  data = bears,
+  mapping = aes(x = year, y = age)) +
+  geom_point(color = 'blue') #<<
+```
+
+]
+
+.rightcol[.blackborder[
+
+```{r ref.label='ggbearsblue', echo=FALSE, fig.height=5, fig.width=7}
+```
+
+]]
+
+---
+
+# Scatterplots with `geom_point()`
+
+Map the point color to a **variable**:
+
+.leftcol[
+
+```{r ggbearsage, fig.show='hide'}
+ggplot(
+  data = bears,
+  mapping = aes(x = year, y = age)) +
+  geom_point(aes(color = gender)) #<<
+```
+
+Note that `color = gender` is _inside_ `aes()`
+
+]
+
+.rightcol[.blackborder[
+
+```{r ref.label='ggbearsage', echo=FALSE, fig.height=5, fig.width=7}
+```
+
+]]
+
+---
+
+# Scatterplots with `geom_point()`
+
+Adjust labels with `labs()` layer:
+
+.leftcol[
+
+```{r ggbearsagelabs, fig.show='hide'}
+ggplot(
+  data = bears,
+  mapping = aes(x = year, y = age)) +
+  geom_point(aes(color = gender)) +
+  labs(
+    x = "Year", #<<
+    y = "Age",  #<<
+    title = "Bear victim age over time", #<<
+    color = "Gender") #<<
+```
+
+]
+
+.rightcol[.blackborder[
+
+```{r ref.label='ggbearsagelabs', echo=FALSE, fig.height=5, fig.width=7}
+```
+
+]]
+
+---
+
+class: inverse
+
+```{r, echo=FALSE}
+countdown(
+  minutes      = 10,
+  warn_when    = 30,
+  update_every = 1,
+  top          = 0,
+  right        = 0,
+  font_size    = '2em'
+)
+```
+
+## Your turn: `geom_point()`
+
+Use the `birds` data frame to create the following plots
+
+.leftcol[
+
+```{r, ggpoint_p1, echo=FALSE, fig.height=5, fig.width=7}
+ggplot(
+  data = birds,
+  mapping = aes(x=cost_repairs_infl_adj, y=height)) +
+  geom_point()
+```
+
+]
+
+.rightcol[
+
+```{r, ggpoint_p2, echo=FALSE, fig.height=5, fig.width=7}
+birds %>%
+  mutate(phase_of_flt = str_to_lower(phase_of_flt)) %>%
+  ggplot(aes(x = speed, y = height)) +
+  geom_point(aes(color = phase_of_flt))
+```
+
+]
+
+---
+
+class: inverse, center
+
+# .fancy[Break]
+
+```{r, echo=FALSE}
+countdown(
+  minutes      = 5,
+  warn_when    = 30,
+  update_every = 1,
+  left         = 0,
+  right        = 0,
+  top          = 1,
+  bottom       = 0,
+  margin       = "5%",
+  font_size    = "8em"
+)
+```
+
+---
+
+```{r child="topics/3.Rmd"}
+```
+
+---
+
+## Make bar charts with `geom_col()`
+
+With bar charts, you'll often need to create summary variables to plot
+
+--
+
+.leftcol[
+
+Step 1: Summarize the data
+
+```{r}
+bear_months <- bears %>%
+  count(month) #<<
+```
+
+Step 2: Make the plot
+
+```{r bears_geom_col, fig.show='hide'}
+ggplot(data = bear_months) +
+  geom_col(aes(x = month, y = n)) #<<
+```
+
+]
+
+.rightcol[
+
+Example: count of attacks by month
+
+```{r ref.label='bears_geom_col', echo=FALSE, fig.height=5, fig.width=7, fig.align='center'}
+```
+
+]
+
+---
+
+## Make bar charts with `geom_col()`
+
+Alternative approach: piping directly into ggplot
+
+.leftcol[
+
+```{r bears_geom_col_pipe, fig.show='hide'}
+bears %>%
+  count(month) %>%  # Pipe into ggplot #<<
+  ggplot() +
+  geom_col(aes(x = month, y = n))
+```
+
+]
+
+.rightcol[
+
+```{r ref.label='bears_geom_col_pipe', echo=FALSE, fig.height=5, fig.width=7, fig.align='center'}
+```
+
+]
+
+---
+
+## Be careful with `geom_col()` vs. `geom_bar()`
+
+.leftcol[
+
+### .center[`geom_col()`]
+
+Map both `x` and `y`
+
+```{r, fig.height=3, fig.width=4}
+bears %>%
+  count(month) %>% #<<
+  ggplot() +
+  geom_col(aes(x = month, y = n)) #<<
+```
+
+]
+
+.rightcol[
+
+### .center[`geom_bar()`]
+
+Only map `x` (`y` is computed)
+
+```{r, fig.height=3, fig.width=4}
+bears %>%
+  ggplot() +
+  geom_bar(aes(x = month)) #<<
+```
+
+]
+
+---
+
+## Make bar charts with `geom_col()`
+
+.leftcol[
+
+Another example:<br>Mean age of victim in each year
+
+```{r bears_mean_age, fig.show='hide'}
+bears %>%
+  filter(!is.na(age)) %>%
+  group_by(year) %>%
+  summarise(meanAge = mean(age)) %>% #<<
+  ggplot() +
+  geom_col(aes(x = year, y = meanAge)) #<<
+```
+
+]
+
+.rightcol[.blackborder[
+
+```{r ref.label='bears_mean_age', echo=FALSE, fig.height=5, fig.width=7}
+```
+
+]]
+
+---
+
+### Change bar width:  `width`
+### Change bar color: `fill`
+### Change bar outline: `color`
+
+.leftcol[
+
+```{r bears_geom_col_colors, fig.show='hide'}
+bears %>%
+  count(month) %>%
+  ggplot() +
+  geom_col(
+    mapping = aes(x = month, y = n),
+    width = 0.7, #<<
+    fill = "blue", #<<
+    color = "red" #<<
+  )
+```
+
+]
+
+.rightcol[
+
+```{r ref.label='bears_geom_col_colors', echo=FALSE, fig.height=5, fig.width=7, fig.align='center'}
+```
+
+]
+
+---
+
+### Map the `fill` to `bearType`
+
+.leftcol[.code70[
+
+```{r bears_geom_col_fill, fig.show='hide'}
+bears %>% #<<
+  count(month, bearType) %>% #<<
+  ggplot() +
+  geom_col(
+    mapping = aes(
+      x = month, y = n, fill = bearType)
+  ) 
+```
+
+]
+
+Note that I had to summarize the count by both `month` and `bearType`
+
+.code70[
+
+```{r, eval=FALSE}
+bears %>%
+  count(month, bearType)
+```
+
+]
+
+.code60[
+
+```{r, echo=FALSE}
+bears %>%
+  count(month, bearType) %>%
+  arrange(month, bearType)
+```
+
+]]
+
+.rightcol[
+
+```{r ref.label='bears_geom_col_fill', echo=FALSE, fig.height=5, fig.width=7, fig.align='center'}
+```
+
+]
+
+---
+
+# "Factors" = Categorical variables
+
+By default, R makes numeric variables _continuous_
+
+.leftcol[
+
+```{r, eval=FALSE}
+bears %>%
+  count(month) %>%
+  ggplot() +
+  geom_col(aes(x = month, y = n))
+```
+**The variable `month` is a _number_**
+
+]
+
+.rightcol[.blackborder[
+
+```{r ref.label='bears_geom_col_pipe', echo=FALSE, fig.height=5, fig.width=7, fig.align='center'}
+```
+
+]]
+
+---
+
+# "Factors" = Categorical variables
+
+You can make a continuous variable _categorical_ using `as.factor()`
+
+.leftcol[.code80[
+
+```{r bears_geom_col_factor, fig.show='hide'}
+bears %>%
+  count(month) %>%
+  ggplot() +
+  geom_col(
+    mapping = aes(
+      x = as.factor(month), #<<
+      y = n)
+  )
+```
+
+]
+
+**The variable `month` is a _factor_**
+
+]
+
+.rightcol[.blackborder[
+
+```{r ref.label='bears_geom_col_factor', echo=FALSE, fig.height=5, fig.width=7}
+```
+
+]]
+
+---
+
+class: inverse
+
+```{r, echo=FALSE}
+countdown(
+  minutes      = 15,
+  warn_when    = 30,
+  update_every = 1,
+  top          = 0,
+  right        = 0,
+  font_size    = '2em'
+)
+```
+
+## Your turn: `geom_col()`
+
+Use the `bears` and `birds` data frame to create the following plots
+
+.leftcol[
+
+```{r, ggbar_p1, echo=FALSE, fig.height=5, fig.width=7}
+bears %>%
+  count(year, gender) %>%
+  ggplot() +
+  geom_col(aes(x = year, y = n, fill = gender)) +
+  labs(
+    x     = "Year",
+    y     = 'Number of killings',
+    fill  = "Victim gender",
+    title = "Annual deadly bear attacks over time")
+```
+
+]
+
+.rightcol[
+
+```{r, ggbar_p2, echo=FALSE, fig.height=5, fig.width=7}
+birds %>%
+  filter(!is.na(cost_repairs_infl_adj)) %>%
+  group_by(incident_year) %>%
+  summarise(maxCost = max(cost_repairs_infl_adj)) %>%
+  ggplot() +
+  geom_col(aes(x = incident_year, y = maxCost)) +
+  labs(
+    x     = "Year",
+    y     = 'Maximum cost ($)',
+    title = "Max annual cost from wildlife impact")
+```
+
+]
+
+---
+
+```{r child="topics/4.Rmd"}
+```
+
+---
+
+# Working with themes
+
+Themes change _global_ features of your plot, like the background color, grid lines, etc.
+
+--
+
+.leftcol[
+
+```{r ggbears_basic, fig.show='hide'}
+ggplot(
+  data = bears,
+  mapping = aes(x = year, y = age)) +
+  geom_point()
+```
+
+]
+
+.rightcol[
+
+```{r ref.label='ggbears_basic', echo=FALSE, fig.height=5, fig.width=7}
+```
+
+]
+
+---
+
+# Working with themes
+
+Themes change _global_ features of your plot, like the background color, grid lines, etc.
+
+.leftcol[
+
+```{r ggbears_theme, fig.show='hide'}
+ggplot(
+  data = bears,
+  mapping = aes(x = year, y = age)) +
+  geom_point() +
+  theme_bw() #<<
+```
+
+]
+
+.rightcol[
+
+```{r ref.label='ggbears_theme', echo=FALSE, fig.height=5, fig.width=7}
+```
+
+]
+
+---
+
+### Common themes
+
+.leftcol[
+
+`theme_bw()`
+
+```{r, fig.height=4, fig.width=6}
+ggplot(
+  data = bears,
+  mapping = aes(x = year, y = age)) +
+  geom_point() +
+  theme_bw() #<<
+```
+
+]
+
+.rightcol[
+
+`theme_minimal()`
+
+```{r, fig.height=4, fig.width=6}
+ggplot(
+  data = bears,
+  mapping = aes(x = year, y = age)) +
+  geom_point() +
+  theme_minimal() #<<
+```
+
+]
+
+---
+
+### Common themes
+
+
+.leftcol[
+
+`theme_classic()`
+
+```{r, fig.height=4, fig.width=6}
+ggplot(
+  data = bears,
+  mapping = aes(x = year, y = age)) +
+  geom_point() +
+  theme_classic() #<<
+```
+
+]
+
+.rightcol[
+
+`theme_void()`
+
+```{r, fig.height=4, fig.width=6}
+ggplot(
+  data = bears,
+  mapping = aes(x = year, y = age)) +
+  geom_point() +
+  theme_void() #<<
+```
+
+]
+
+---
+
+### Other themes: [hrbrthemes](https://github.com/hrbrmstr/hrbrthemes)
+
+.leftcol[
+
+```{r, fig.height=4, fig.width=6}
+library(hrbrthemes) #<<
+
+ggplot(
+  data = bears,
+  mapping = aes(x = year, y = age)) +
+  geom_point() +
+  theme_ipsum() #<<
+```
+
+]
+
+.rightcol[
+
+```{r, fig.height=4, fig.width=6}
+library(hrbrthemes) #<<
+
+ggplot(
+  data = bears,
+  mapping = aes(x = year, y = age)) +
+  geom_point() +
+  theme_ft_rc() #<<
+```
+
+]
+
+---
+
+### Other themes: **ggthemes**
+
+.leftcol[
+
+```{r, fig.height=4, fig.width=6}
+library(ggthemes) #<<
+
+ggplot(
+  data = bears,
+  mapping = aes(x = year, y = age)) +
+  geom_point() +
+  theme_economist() #<<
+```
+
+]
+
+.rightcol[
+
+```{r, fig.height=4, fig.width=6}
+library(ggthemes) #<<
+
+ggplot(
+  data = bears,
+  mapping = aes(x = year, y = age)) +
+  geom_point() +
+  theme_economist_white() #<<
+```
+
+]
+
+---
+
+# Save figures with `ggsave()`
+
+--
+
+First, assign the plot to an object name:
+
+```{r, eval=FALSE}
+scatterPlot <- ggplot(data = bears) +
+    geom_point(aes(x = year, y = age))
+```
+
+--
+
+Then use `ggsave()` to save the plot:
+
+```{r, eval=FALSE}
+ggsave(
+    filename = here('plots', 'scatterPlot.png'),
+    plot   = scatterPlot,
+    width  = 6, # inches
+    height = 4)
+```
+
+---
+
+class: inverse
+
+# Extra practice 1
+
+Use the `mtcars` data frame to create the following plots
+
+.cols3[
+
+```{r, mtcars_1, echo=FALSE, fig.height=4, fig.width=4.5}
+ggplot(mtcars, aes(x=wt, y=mpg)) +
+    geom_point() +
+    theme_bw() +
+    labs(
+      x = "Weight",
+      y = 'Fuel Economy (mpg)')
+```
+
+]
+
+.cols3[
+
+```{r, mtcars_2, echo=FALSE, fig.height=4, fig.width=4.5}
+ggplot(mtcars, aes(x = hp, y = mpg)) +
+    geom_point(aes(color = as.factor(cyl))) +
+    theme_bw() +
+    labs(
+      x = "Horsepower (hp)",
+      y = 'Fuel Economy (mpg)',
+      color = 'Num. Cylinders')
+```
+
+]
+
+.cols3[
+
+```{r, mtcars_3, echo=FALSE, fig.height=4, fig.width=4.5}
+mtcars %>%
+  group_by(cyl) %>%
+  summarise(meanMpg = mean(mpg)) %>%
+  ggplot(aes(x = cyl, y = meanMpg)) +
+    geom_bar(stat = 'identity') +
+    labs(
+      x = "Num. Cylinders",
+      y = 'Mean Fuel Economy (mpg)')
+```
+
+]
+
+---
+
+class: inverse
+
+# Extra practice 2
+
+Use the `mpg` data frame to create the following plot
+
+```{r, mtcars_4, echo=FALSE, fig.height=6, fig.width=8}
+mpg %>%
+    mutate(manufacturer = str_to_title(manufacturer)) %>%
+    group_by(manufacturer) %>%
+    summarise(meanHwy = mean(hwy)) %>%
+    arrange(desc(meanHwy)) %>% 
+    ggplot() +
+    geom_col(
+      aes(
+        x = meanHwy, 
+        y = reorder(manufacturer, meanHwy)
+      )
+    ) +
+    labs(
+        x = 'Mean highway fuel economy (mpg)',
+        y = 'Vehicle manufacturer'
+    )
+```
