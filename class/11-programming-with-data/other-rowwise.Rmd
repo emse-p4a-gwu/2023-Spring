@@ -1,0 +1,37 @@
+
+## dplyr "verbs" are designed to operate on _columns_
+
+```{r}
+lotr <- read_csv(here::here('data', 'lotr_words.csv'))
+
+lotr
+```
+
+---
+
+## dplyr "verbs" are designed to operate on _columns_
+
+```{r}
+lotr %>% 
+  mutate(total = Female + Male)
+```
+
+---
+
+## dplyr "verbs" are designed to operate on _columns_
+
+```{r}
+lotr %>% 
+  mutate(mean = mean(c(Female, Male)))
+```
+
+---
+
+# Insert `rowwise()` to compute across rows
+
+```{r}
+lotr %>% 
+  rowwise() %>% #<<
+  mutate(mean = mean(c(Female, Male)))
+```
+

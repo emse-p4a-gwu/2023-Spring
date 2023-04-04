@@ -1,0 +1,56 @@
+READINGS:
+
+> - Sections 26.3 (Data Frame Functions) & 26.4 (Plot Functions) in Hadley Wickham's book R4DS: https://r4ds.hadley.nz/functions.html#data-frame-functions
+> - This article on rowwise operations (read up to the section called "list columns"): https://dplyr.tidyverse.org/articles/rowwise.html
+
+
+Tidy eval functions:
+
+https://jthomasmock.github.io/pkg-building/#43
+
+
+Iterating with purrr:
+
+https://shannonpileggi.github.io/iterating-well-with-purrr/#/title-slide
+
+https://www.rebeccabarter.com/blog/2019-08-19_purrr/
+
+
+
+
+
+
+
+
+
+NOT USED:
+
+Motivation for writing your own function inside mutate:
+
+by_country <- organdata %>% group_by(consent_law, country) %>%
+    summarize(
+      donors_mean= mean(donors, na.rm = TRUE),
+      donors_sd = sd(donors, na.rm = TRUE),
+      gdp_mean = mean(gdp, na.rm = TRUE),
+      health_mean = mean(health, na.rm = TRUE),
+      roads_mean = mean(roads, na.rm = TRUE),
+      cerebvas_mean = mean(cerebvas, na.rm = TRUE)
+    )
+
+You could write:
+
+mean_na_rm <- function(x) {
+  return(mean(x, na.rm = TRUE))
+}
+
+by_country <- organdata %>% group_by(consent_law, country) %>%
+    summarize(
+      donors_mean= mean_na_rm(donors),
+      donors_sd = sd(donors),
+      gdp_mean = mean_na_rm(gdp),
+      health_mean = mean_na_rm(health),
+      roads_mean = mean_na_rm(roads),
+      cerebvas_mean = mean_na_rm(cerebvas)
+    )
+
+
