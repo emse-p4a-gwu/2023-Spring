@@ -9,4 +9,86 @@ params:
     > - To practice generating charts using the **ggplot2** package
 ---
 
-Coming soon!
+```{r child = here::here("fragments", "hw.qmd")}
+```
+
+### 1) Staying organized [5%]
+
+Download and use [this template](templates/hw10.zip) for your assignment. Inside the "hw10" folder, open and edit the R script called `hw10.R` and fill out your name, GW netID, and the names of anyone you worked with on this assignment.
+
+> ### **Using good style**
+>
+> For this assignment, you must use good style to receive full credit. Follow the best practices described in [this style guide](http://adv-r.had.co.nz/Style.html).
+
+### 2) Choose and load some data [5%]
+
+For this assignment, you will need to find a dataset of your choosing and create **three** summary visualizations. To keep things manageable, choose one of the following datasets from the following libraries. Note that to load any of these data frames, all you need to do is install and load the package.
+
+**dplyr**:
+
+- `storms`
+- `starwars`
+
+**ggplot2**:
+
+- `diamonds`
+- `economics`
+- `midwest`
+- `mpg`
+- `msleep`
+- `txhousing`
+
+**dslabs**:
+
+- `gapminder`
+- `movielens`
+- `murders`
+- `stars`
+
+### 3) Inspect your data [10%]
+
+Once you've chosen a data set, open your `hw11.R` file and begin exploring the data (be sure to load the package that contains the dataset at the top of your file). Write some code in code chunks to preview and summarize the data frame using some of the methods we've used in class. You should be able to quickly get an understanding of what variables are included and their nature. Consider the following questions in your exploration (you don't have to write out answers to these questions - just write code to help you answer them by previewing the data in different ways):
+
+- What is the total size of the data frame?
+- What type of data is each variable (numeric, character, logical, date)?
+- Do any variables have missing values? Why might that be?
+- What are the "boundaries" of each period of observation:
+    - For numeric variables, what are the min and max values?
+    - For character variables, what are the unique values in the variable?
+    - For date variables, what time period do the observations in these data frames span?
+
+**Do not brush this step off** - the more thoroughly you inspect your dataset, the easier (and better) you data exploration will be. This will be absolutely critical for making your charts. Make sure you take the time to develop an understanding of the variables in your dataset as it is nearly impossible to imagine what different charts might be worth creating otherwise.
+
+### 4) Make charts [50%]
+
+Now that you have a basic understanding of the dataset, make some charts to explore the variables in the data and their potential relationships. You may use base R plotting functions or the **ggplot2** package to make your figures, but you must make at least two different types of figures, including:
+
+1. A scatterplot of involving at least two variables.
+2. A bar chart involving at least one variable.
+
+You can choose to plot whichever variables you wish, but you must be able to interpret the results of your chart.
+
+### 5) Interpret your charts [15%]
+
+Below the code for each of your charts, write a description and interpretation of your chart in a comment. Make sure you address at least the following questions:
+
+1. Describe what variables you are plotting and why.
+2. Describe the primary relationship / trend / information you hope the reader will gain from your visualization.
+
+### 6) Save your charts [5%]
+
+At the bottom of your `hw11.R` file, write code to save each of your three charts in the `figs` folder. Save them as .png files.
+
+### 7) Read and reflect [SOLO, 10%]
+
+Read and reflect on the following readings to preview what we will be covering next:
+
+> - Sections 26.3 (Data Frame Functions) & 26.4 (Plot Functions) in Hadley Wickham's book R4DS: https://r4ds.hadley.nz/functions.html#data-frame-functions
+> - This blog post on iteration with the {purrr} package: https://www.rebeccabarter.com/blog/2019-08-19_purrr
+
+Afterwards, in a comment (`#`) in your .R file, write a short reflection on what you've learned and any questions or points of confusion you have about what we've covered thus far. This can just few a few sentences related to this assignment, next week's readings, things going on in the world that remind you something from class, etc. If there's anything that jumped out at you, write it down.
+
+
+### Submit
+
+Instructions for how to submit your assignment are at the [top of this page]().
