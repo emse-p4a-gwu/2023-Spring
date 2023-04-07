@@ -2,9 +2,6 @@ Readings:
 
 
 
-
-
-
 https://themockup.blog/posts/2020-05-22-parsing-json-in-r-with-jsonlite/
 
 
@@ -12,3 +9,6 @@ https://themockup.blog/posts/2020-12-13-extracting-json-from-websites-and-public
 
 
 https://r4ds.hadley.nz/webscraping.html
+
+
+https://github.com/s2t2/learning-r/tree/main/scripts
