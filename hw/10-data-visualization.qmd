@@ -12,13 +12,13 @@ params:
 ```{r child = here::here("fragments", "hw.qmd")}
 ```
 
+### **Using AI tools**
+
+> On this assignment, you are encouraged to use ChatGPT and other AI tools (e.g. Github Copilot). But don't just blindly copy-paste code. The code provided by these tools is not perfect, and you will likely need to modify it to get the correct solution. If you do use an AI tools, you must include the prompt(s) you used (using a comment with `#`) to recieve full credit. If you had to change anything to your prompt to get better results, write that down too in your code with a comment. Learn to use tools like ChatGPT as a learning assistant - a tool to help you accomplish the task - rather than just a solutions manual. One version of using it makes you a better and more efficient coder, the other robs you of that.
+
 ### 1) Staying organized [5%]
 
 Download and use [this template](templates/hw10.zip) for your assignment. Inside the "hw10" folder, open and edit the R script called `hw10.R` and fill out your name, GW netID, and the names of anyone you worked with on this assignment.
-
-> ### **Using good style**
->
-> For this assignment, you must use good style to receive full credit. Follow the best practices described in [this style guide](http://adv-r.had.co.nz/Style.html).
 
 ### 2) Choose and load some data [5%]
 
@@ -83,8 +83,8 @@ At the bottom of your `hw11.R` file, write code to save each of your three chart
 
 Read and reflect on the following readings to preview what we will be covering next:
 
-> - Sections 26.3 (Data Frame Functions) & 26.4 (Plot Functions) in Hadley Wickham's book R4DS: https://r4ds.hadley.nz/functions.html#data-frame-functions
-> - This blog post on iteration with the {purrr} package: https://www.rebeccabarter.com/blog/2019-08-19_purrr
+> - Sections 26.3 (Data Frame Functions) & 26.4 (Plot Functions) in Hadley Wickham's book R4DS: [https://r4ds.hadley.nz/functions.html#data-frame-functions](https://r4ds.hadley.nz/functions.html#data-frame-functions)
+> - This blog post on iteration with the {purrr} package: [https://www.rebeccabarter.com/blog/2019-08-19_purrr](https://www.rebeccabarter.com/blog/2019-08-19_purrr)
 
 Afterwards, in a comment (`#`) in your .R file, write a short reflection on what you've learned and any questions or points of confusion you have about what we've covered thus far. This can just few a few sentences related to this assignment, next week's readings, things going on in the world that remind you something from class, etc. If there's anything that jumped out at you, write it down.
 
