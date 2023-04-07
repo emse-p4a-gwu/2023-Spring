@@ -16,8 +16,8 @@ library(tidyverse)
 
 schedule <- get_schedule()
 
-# Set highlighting based on current week
-highlight <- which(Sys.Date() > schedule$date)
+# # Set highlighting based on current week
+# highlight <- which(Sys.Date() > (schedule$date + 1))
 
 # Make the final schedule
 names(schedule) <- str_to_title(names(schedule))
@@ -30,6 +30,7 @@ schedule %>%
   kable_styling(full_width = T, bootstrap_options = c("striped", "hover")) %>%
   column_spec(column = 2, width = '2em') %>%
   column_spec(column = 4, width = '15em') %>% 
-  column_spec(column = 5, width = '12em') %>% 
-  row_spec(highlight, background = "#e1e1e1")
+  column_spec(column = 5, width = '12em') 
+  # row_spec(highlight, background = "#A2A2A2")
 ```
+
