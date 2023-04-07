@@ -312,32 +312,29 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>On this assignment, you are encouraged to use ChatGPT and other AI tools (e.g.&nbsp;Github Copilot). But don’t just blindly copy-paste code. The code provided by these tools is not perfect, and you will likely need to modify it to get the correct solution. If you do use an AI tools, you must include the prompt(s) you used (using a comment with <code>#</code>) to recieve full credit. If you had to change anything to your prompt to get better results, write that down too in your code with a comment. Learn to use tools like ChatGPT as a learning assistant - a tool to help you accomplish the task - rather than just a solutions manual. One version of using it makes you a better and more efficient coder, the other robs you of that.</p>
 </blockquote>
 </section>
-<section id="note-this-whole-homework-is-collaborative" class="level2">
-<h2 class="anchored" data-anchor-id="note-this-whole-homework-is-collaborative">NOTE: This whole homework is <strong>COLLABORATIVE</strong></h2>
-<section id="staying-organized-5" class="level3">
-<h3 class="anchored" data-anchor-id="staying-organized-5">1) Staying organized [5%]</h3>
+<section id="staying-organized-solo-5" class="level3">
+<h3 class="anchored" data-anchor-id="staying-organized-solo-5">1) Staying organized [SOLO, 5%]</h3>
 <p>Download and use <a href="templates/hw11.zip">this template</a> for your assignment. Inside the “hw11” folder, open and edit the R script called <code>hw11.R</code> and fill out your name, GW netID, and the names of anyone you worked with on this assignment.</p>
-</section>
 </section>
 <section id="data-frame-functions" class="level2">
 <h2 class="anchored" data-anchor-id="data-frame-functions">Data Frame Functions</h2>
 <blockquote class="blockquote">
 <p>For questions 2 - 5, after writing your function, demonstrate it using a data frame of your choice from the <code>dslabs</code> package. For example, for question 2, you could use <code>var_summary(dslabs::movielens, rating)</code> (so, obviously, you should use a different example).</p>
 </blockquote>
-<section id="var_summarydf-var-5" class="level3">
-<h3 class="anchored" data-anchor-id="var_summarydf-var-5">2) <code>var_summary(df, var)</code> [5%]</h3>
+<section id="var_summarydf-var-solo-10" class="level3">
+<h3 class="anchored" data-anchor-id="var_summarydf-var-solo-10">2) <code>var_summary(df, var)</code> [SOLO, 10%]</h3>
 <p>Write the function <code>var_summary(df, var)</code> that takes a data frame (<code>df</code>) and a variable (<code>var</code>) as inputs, and returns the minimum, maximum, mean, and median value of that variable. The function should remove any <code>NA</code> values in <code>var</code> when computing these summary statistics. The object returned should be a single data frame / tibble (not a vector).</p>
 </section>
-<section id="group_summarydf-var-group_var-5" class="level3">
-<h3 class="anchored" data-anchor-id="group_summarydf-var-group_var-5">3) <code>group_summary(df, var, group_var)</code> [5%]</h3>
+<section id="group_summarydf-var-group_var-solo-10" class="level3">
+<h3 class="anchored" data-anchor-id="group_summarydf-var-group_var-solo-10">3) <code>group_summary(df, var, group_var)</code> [SOLO, 10%]</h3>
 <p>Write the function <code>group_summary(df, var, group_var)</code> that takes a data frame (<code>df</code>), a variable (<code>var</code>), and a grouping variable (<code>group_var</code>) as inputs, and returns a summary table showing the count, mean, and standard deviation of the variable <code>var</code> grouped by <code>group_var</code>. The function should remove any <code>NA</code> values in <code>var</code> when computing these summary statistics. The object returned should be a single data frame / tibble (not a vector).</p>
 </section>
-<section id="var_histdf-var-bins-5" class="level3">
-<h3 class="anchored" data-anchor-id="var_histdf-var-bins-5">4) <code>var_hist(df, var, bins)</code> [5%]</h3>
+<section id="var_histdf-var-bins-solo-10" class="level3">
+<h3 class="anchored" data-anchor-id="var_histdf-var-bins-solo-10">4) <code>var_hist(df, var, bins)</code> [SOLO, 10%]</h3>
 <p>Write the function <code>var_hist(df, var, bins)</code> that takes a data frame (<code>df</code>), a variable (<code>var</code>), and the number of bins (<code>bins</code>) as inputs, and returns a histogram of that variable with a user-specified number of bins as a ggplot object. The default number of bins should be <code>30</code>.</p>
 </section>
-<section id="scatterplotdf-x-y-5" class="level3">
-<h3 class="anchored" data-anchor-id="scatterplotdf-x-y-5">5) <code>scatterplot(df, x, y)</code> [5%]</h3>
+<section id="scatterplotdf-x-y-solo-10" class="level3">
+<h3 class="anchored" data-anchor-id="scatterplotdf-x-y-solo-10">5) <code>scatterplot(df, x, y)</code> [SOLO, 10%]</h3>
 <p>Write the function <code>scatterplot(df, x, y)</code> that takes a data frame (<code>df</code>) and two variables (<code>x</code> and <code>y</code>) as inputs, and returns a scatter plot of those two variables as a ggplot object.</p>
 </section>
 </section>
@@ -379,16 +376,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <p>We will use this <code>word_list</code> for questions 6 - 8.</p>
 </section>
-<section id="section" class="level3">
-<h3 class="anchored" data-anchor-id="section">6) [5%]</h3>
+<section id="collaborative-5" class="level3">
+<h3 class="anchored" data-anchor-id="collaborative-5">6) [COLLABORATIVE, 5%]</h3>
 <p>Using <code>map()</code>, write R code to obtain a vector of how many words are in each item in <code>word_list</code>.</p>
 </section>
-<section id="section-1" class="level3">
-<h3 class="anchored" data-anchor-id="section-1">7) [5%]</h3>
+<section id="collaborative-5-1" class="level3">
+<h3 class="anchored" data-anchor-id="collaborative-5-1">7) [COLLABORATIVE, 5%]</h3>
 <p>Using <code>map()</code>, write R code to obtain a vector of the total number of characters in each item in <code>word_list</code>.</p>
 </section>
-<section id="section-2" class="level3">
-<h3 class="anchored" data-anchor-id="section-2">8) [5%]</h3>
+<section id="collaborative-5-2" class="level3">
+<h3 class="anchored" data-anchor-id="collaborative-5-2">8) [COLLABORATIVE, 5%]</h3>
 <p>Using <code>map()</code>, write R code to obtain a vector of the number of times the word <code>"the"</code> appears in each item in <code>word_list</code>. Your result should ignore casing, so both <code>"the"</code> and <code>"The"</code> should count.</p>
 </section>
 <section id="problems-using-sw_people" class="level3">
@@ -399,12 +396,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <p>We will use the <code>sw_people</code> and <code>sw_films</code> lists for questions 9 &amp; 10.</p>
 </section>
-<section id="section-3" class="level3">
-<h3 class="anchored" data-anchor-id="section-3">9) [5%]</h3>
+<section id="collaborative-10" class="level3">
+<h3 class="anchored" data-anchor-id="collaborative-10">9) [COLLABORATIVE, 10%]</h3>
 <p>Using <code>map()</code> and the <code>sw_films</code> list, write R code to obtain a vector of integers that contains the number of characters in each Star Wars film.</p>
 </section>
-<section id="section-4" class="level3">
-<h3 class="anchored" data-anchor-id="section-4">10) [5%]</h3>
+<section id="collaborative-10-1" class="level3">
+<h3 class="anchored" data-anchor-id="collaborative-10-1">10) [COLLABORATIVE, 10%]</h3>
 <p>Using <code>map_df()</code>, create a data frame where each row represents a character from <code>sw_people</code>. The columns should contain the following:</p>
 <ul>
 <li><code>name</code>: The character’s name, as a character.</li>
@@ -413,12 +410,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><code>film_count</code>: The number of films they have appeared in, as an integer.</li>
 </ul>
 </section>
-<section id="section-5" class="level3">
-<h3 class="anchored" data-anchor-id="section-5">11)</h3>
+<section id="solo-10" class="level3">
+<h3 class="anchored" data-anchor-id="solo-10">11) [SOLO, 10%]</h3>
 <p>For the last problem, write your own homework question that requires the student (you) to use <code>map()</code> in the solution. You can use any lists of data you want for your question (e.g.&nbsp;<code>sw_people</code>, <code>sw_films</code>, <code>got_chars</code>, etc.). Then provide the answer to your question. As with all the other questions, if you use an AI tool to help you create and / or solve your question, include the prompt you used and comment on any changes you had to make to improve your outcome.</p>
 </section>
 <section id="read-and-reflect-solo-10" class="level3">
-<h3 class="anchored" data-anchor-id="read-and-reflect-solo-10">14) Read and reflect [SOLO, 10%]</h3>
+<h3 class="anchored" data-anchor-id="read-and-reflect-solo-10">12) Read and reflect [SOLO, 10%]</h3>
 <p>Read and reflect on the following readings to preview what we will be covering next:</p>
 <blockquote class="blockquote">
 <p>Chapter 25 (Web scraping) in Hadley Wickham’s book R4DS: <a href="https://r4ds.hadley.nz/webscraping.html">https://r4ds.hadley.nz/webscraping.html</a></p>
