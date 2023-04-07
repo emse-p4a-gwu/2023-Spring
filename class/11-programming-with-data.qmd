@@ -1,0 +1,8 @@
+---
+title: "Programming with Data"
+params:
+  class: "11-programming-with-data"
+---
+
+```{r child = here::here("fragments", "class.qmd")}
+```
