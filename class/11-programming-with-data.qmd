@@ -1,7 +1,7 @@
 ---
-title: "Monte Carlo Methods"
+title: "Programming with Data"
 params:
-  class: "11-monte-carlo-methods"
+  class: "11-programming-with-data"
 ---
 
 ```{r child = here::here("fragments", "class.qmd")}
