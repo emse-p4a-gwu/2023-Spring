@@ -32,6 +32,7 @@ Imports:
     nycflights13,
     palmerpenguins,
     remotes,
+    repurrrsive,
     reticulate,
     rmarkdown,
     roxygen2,
