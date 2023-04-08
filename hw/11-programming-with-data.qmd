@@ -105,7 +105,8 @@ For the last problem, write your own homework question that requires the student
 
 Read and reflect on the following readings to preview what we will be covering next:
 
-> Chapter 25 (Web scraping) in Hadley Wickham's book R4DS: [https://r4ds.hadley.nz/webscraping.html](https://r4ds.hadley.nz/webscraping.html)
+> - Chapter 25 (Web scraping) in Hadley Wickham's book R4DS: [https://r4ds.hadley.nz/webscraping.html](https://r4ds.hadley.nz/webscraping.html)
+> - This post on accessing and collecting data with APIs in R: [https://statisticsglobe.com/api-in-r](https://statisticsglobe.com/api-in-r)
 
 Afterwards, in a comment (`#`) in your .R file, write a short reflection on what you've learned and any questions or points of confusion you have about what we've covered thus far. This can just few a few sentences related to this assignment, next week's readings, things going on in the world that remind you something from class, etc. If there's anything that jumped out at you, write it down.
 

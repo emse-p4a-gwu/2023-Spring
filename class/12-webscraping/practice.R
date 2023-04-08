@@ -16,27 +16,7 @@ library(usethis)
 # - `director`: The film director
 # - `intro`: The opening film crawl
 
-url <- "http://quotes.toscrape.com"
-html <- read_html(url)
 
-quote_nodes <- html %>% 
-    html_elements(".quote")
-
-df <- tibble(
-    quote = quote_nodes %>%
-        html_element(".text") %>%
-        html_text(),
-    author = quote_nodes %>%
-        html_element(".author") %>%
-        html_text(), 
-    about_url = quote_nodes %>%
-        html_element("a") %>% 
-        html_attr("href")
-) %>% 
-    # Pasting on the root url since the scraped urls are only *relative* urls
-    mutate(about_url = paste0(url, about_url))
-
-head(df)
 
 
 
@@ -72,34 +52,13 @@ head(df)
 
 get_f1_data <- function(year) {
     
-    # Build the url
-    url_start <- "https://www.formula1.com/en/results.html/"
-    url_end <- "/drivers.html"
-    url <- paste(url_start, year, url_end, sep = "")
-    
-    # Get the data frame
-    df_list <- read_html(url) %>% 
-        html_table()
-    df <- df_list[[1]]
-    df$year <- year # Store the year (not in the scraped data)
-    
-    # Some formatting
-    df <- df %>% 
-        select(
-            year, position = Pos, driver = Driver, nationality = Nationality, 
-            team = Car, points = PTS
-        ) %>% 
-        separate(driver, into = c('first', 'last', 'abb'))
-    
-    return(df)
+    # Write code here
 }
 
 # Now map the function onto the desired set of years
 
-years <- 2010:2022
-df <- map_df(years, \(x) get_f1_data(x))
+# Write code here
 
-head(df)
 
 
 
@@ -161,22 +120,6 @@ api_key <- Sys.getenv("COVID_ACT_NOW_KEY")
 # 5. Build the url to request historical state-level data. Docs here:
 # https://apidocs.covidactnow.org/#historic-data-for-all-states-counties-or-metros
 
-url <- paste0(
-    "https://api.covidactnow.org/v2/states.timeseries.csv?apiKey=",
-    api_key
-)
 
 # 6. Read in the data, then make this figure of daily COVID19 cases in DC
 
-df <- read_csv(url)
-
-df %>% 
-    filter(state == "DC") %>% 
-    ggplot() + 
-    geom_line(
-        aes(
-            x = date, 
-            y = actuals.newCases
-        )
-    ) + 
-    theme_bw()

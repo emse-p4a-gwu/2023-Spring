@@ -824,7 +824,7 @@ class: center, middle, inverse
 
 <br>
 
-## 1. Is there a (formatted) dataset I can download?<br>(e.g. see [this page](https://eda.seas.gwu.edu/2022-Fall/help/finding-data.html))
+## 1. Is there a formatted dataset I can download?<br>(e.g. see [this page](https://eda.seas.gwu.edu/2022-Fall/help/finding-data.html))
 
 --
 
@@ -848,12 +848,141 @@ class: middle
 
 ---
 
+# APIs use the `url` to "ask" a website for data 
+
+### **Example**: Stock market prices from https://www.alphavantage.co/
+
+--
+
+API Request:<br>https://www.alphavantage.co/query?function=TIME_SERIES_DAILY_ADJUSTED&symbol={symbol}&apikey={api_key}&datatype=csv
+
+- `function`: The time series of your choice
+- `symbol`: Stock price symbol (e.g. `NFLX` = Netflix)
+- `apikey`: Your API key (have to register to get one)
+- `datatype`: `csv` or `json`
+
+---
+
+## Getting an API key
+
+### 1. Register for a key here: https://www.alphavantage.co/support/#api-key
+### 2. Store your key in your `.Renviron`:
+
+```{r}
+#| eval: false
+
+usethis::edit_r_environ()
+```
+
+### 3. Store your key:
+
+```{r}
+#| eval: false
+
+ALPHAVANTAGE_API_KEY={your_key}
+```
+
+### 4. Retrieve your key: 
+
+```{r}
+#| eval: false
+
+api_key <- Sys.getenv("ALPHAVANTAGE_API_KEY")
+```
+
+---
+
+## Using your key to get data
+
+.leftcol55[
+
+```{r}
+api_key <- Sys.getenv("ALPHAVANTAGE_API_KEY")
+symbol <- "NFLX" # Netflix
+
+# Build the url data request
+
+url <- paste0(
+  "https://www.alphavantage.co/query", 
+  "?function=TIME_SERIES_DAILY_ADJUSTED",
+  "&symbol=", symbol, 
+  "&apikey=", api_key, 
+  "&datatype=csv"
+)
+
+# Read in the data
+
+df <- read_csv(url)
+```
+
+]
+
+--
+
+.rightcol45[
+
+```{r}
+glimpse(df)
+```
+
+]
+
+---
+
+## Using your key to get data
+
+.leftcol55[
+
+```{r}
+#| fig.show: 'hide'
+#| label: 'stocks'
+
+df %>% 
+    ggplot() + 
+    geom_line(
+      aes(
+        x = timestamp, 
+        y = adjusted_close
+      )
+    ) + 
+    theme_bw() +
+    labs(
+        x = "Date",
+        y = "Closing Price ($USD)", 
+        title = paste0("Stock Prices: ", symbol)
+    )
+```
+
+]
+
+.rightcol45[
+
+```{r}
+#| echo: false
+#| ref.label: 'stocks'
+#| fig.height: 5
+#| fig.width: 7
+```
+
+]
+
+---
+
+class: center, middle
+
+# Want something else? 
+
+# Read the docs!
+
+## https://www.alphavantage.co/documentation/#dailyadj
+
+---
 
 class: inverse
 
 ```{r, echo=FALSE}
 countdown(
-  minutes      = 15,
+  minutes      = 20,
   warn_when    = 30,
   update_every = 1,
   top          = 0,
@@ -862,6 +991,39 @@ countdown(
 )
 ```
 
-## Your turn
+### Your turn: COVID case data from https://covidactnow.org/
+
+1. Register for a key here: https://apidocs.covidactnow.org/
+2. Edit your .Renviron:<br>`usethis::edit_r_environ()`
+3. Store your key as `COVID_ACT_NOW_KEY`
+4. Load your API key:<br>`api_key <- Sys.getenv("COVID_ACT_NOW_KEY")`
+5. Build the url to request historical state-level data
+6. Read in the data, then make this figure of daily COVID19 cases in DC
+
+```{r}
+#| echo: false
+#| label: 'covid_dc'
+#| fig.height: 3
+#| fig.width: 12
+
+api_key <- Sys.getenv("COVID_ACT_NOW_KEY")
+url <- paste0(
+    "https://api.covidactnow.org/v2/states.timeseries.csv?apiKey=",
+    api_key
+)
+df <- read_csv(url)
+df %>% 
+    filter(state == "DC") %>% 
+    ggplot() + 
+    geom_line(
+        aes(
+            x = date, 
+            y = actuals.newCases
+        )
+    ) + 
+    theme_bw()
+```
 
 ---
+
+# [HW12](https://p4a.seas.gwu.edu/2023-Spring/hw/12-webscraping.html)
