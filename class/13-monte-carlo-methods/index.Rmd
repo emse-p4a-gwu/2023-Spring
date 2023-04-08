@@ -1,0 +1,877 @@
+---
+title: "Monte Carlo Methods"
+subtitle: "EMSE 4571: Intro to Programming for Analytics"
+date: April 27, 2023
+week: 13
+class: "13-monte-carlo-methods"
+author: "John Paul Helveston"
+institute: "The George Washington University | Dept. of Engineering Management and Systems Engineering"
+output:
+  xaringan::moon_reader:
+    css:
+      - default
+      - css/lexis.css
+      - css/lexis-fonts.css
+    lib_dir: libs
+    seal: false
+    nature:
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+      ratio: "16:9"
+---
+
+```{r, child="../setup.Rmd"}
+```
+
+---
+
+class: inverse
+
+# Quiz 7
+
+```{r, echo=FALSE}
+countdown(
+  minutes      = 10,
+  warn_when    = 30,
+  update_every = 1,
+  top          = 0,
+  right        = 0,
+  font_size    = '3em'
+)
+```
+
+.leftcol[
+
+## Write your name on the quiz!
+
+## Rules:
+
+- Work alone; no outside help of any kind is allowed.
+- No calculators, no notes, no books, no computers, no phones.
+
+]
+
+.rightcol[
+
+<br>
+<center>
+<img src="https://github.com/emse-p4a-gwu/2022-Spring/raw/main/images/quiz_doge.png" width="400">
+</center>
+
+]
+
+---
+
+class: center
+
+# Monte Carlo, Monaco
+
+.leftcol[.circleborder[
+
+```{r, echo=FALSE, out.width='100%', fig.align='center'}
+include_graphics(file.path('images', 'monaco_big.png'))
+```
+
+]]
+
+.rightcol[.blackborder[
+
+```{r, echo=FALSE, out.width='80%', fig.align='center'}
+include_graphics(file.path('images', 'monaco_zoom.png'))
+```
+
+]]
+
+---
+
+class: center
+
+# "Monte Carlo" is associated with 3 things
+
+--
+
+.cols3[
+
+### .center[Gambling]
+
+```{r, echo=FALSE, out.width='60%', fig.align='center'}
+include_graphics(file.path('images', 'monte_carlo_slots.gif'))
+```
+
+]
+
+--
+
+.cols3[
+
+### .center[Racing]
+
+```{r, echo=FALSE, out.width='80%', fig.align='center'}
+include_graphics(file.path('images', 'monte_carlo_f1.gif'))
+```
+
+]
+
+--
+
+.cols3[
+
+### .center[Simulation]
+
+```{r, echo=FALSE, out.width='80%', fig.align='center'}
+include_graphics(file.path('images', 'monte_carlo_pi.gif'))
+```
+
+]
+
+---
+
+```{r child="topics/0.Rmd"}
+```
+
+---
+
+```{r child="topics/1.Rmd"}
+```
+
+---
+
+
+# Monte Carlo Simulation: _Computing Probability_
+
+--
+
+### General process:
+
+- Run a series of trials.
+- In each trial, simulate an event (e.g. a coin toss, a dice roll, etc.).
+- Count the number of "successful" trials
+<br><br>
+
+--
+
+### $\frac{\text{# Successful Trials}}{\text{# Total Trials}}$ = Observed Odds $\simeq$ Expected Odds
+
+--
+
+### **Law of large numbers**:<br>As _N_ increases, Observed Odds `r fa('angle-double-right')` Expected Odds
+
+---
+
+# How would you measure if a coin is "fair"?
+
+--
+
+Run a series of trials and record outcome: "heads" or "tails"
+
+--
+
+```{r}
+coin <- c("heads", "tails")
+N <- 10000
+tosses <- sample(x = coin, size = N, replace = TRUE) #<<
+head(tosses) # Preview first few tosses
+```
+
+--
+
+Probability of getting "heads":
+
+```{r}
+sum(tosses == "heads") / N
+```
+
+---
+
+# Tossing an unfair coin
+
+--
+
+Set the `prob` argument to a 40-60 coin
+
+--
+
+```{r}
+coin <- c("heads", "tails")
+N <- 10000
+tosses <- sample(x = coin, size = N, replace = TRUE, prob = c(0.4, 0.6)) #<<
+head(tosses) # Preview first few tosses
+```
+
+--
+
+Probability of getting "heads":
+
+```{r}
+sum(tosses == "heads") / N
+```
+
+---
+
+# A more complex simulation: _dice rolling_
+
+### What is the probability of rolling a 6-sided dice 3 times<br>and getting the sequence 1, 3, 5?
+
+--
+
+.leftcol65[.code80[
+
+```{r}
+library(tidyverse)
+dice <- c(1, 2, 3, 4, 5, 6)
+N <- 10000
+rolls <- tibble(
+  roll1 = sample(x = dice, size = N, replace = T),
+  roll2 = sample(x = dice, size = N, replace = T),
+  roll3 = sample(x = dice, size = N, replace = T)
+)
+```
+
+]]
+
+--
+
+.rightcol35[
+
+```{r}
+head(rolls)
+```
+
+]
+
+---
+
+# A more complex simulation: _dice rolling_
+
+Simulated probability of getting sequence 1, 3, 5:
+
+```{r}
+successes <- rolls %>%
+  filter(roll1 == 1 & roll2 == 3 & roll3 == 5)
+
+nrow(successes) / N
+```
+
+--
+
+_Actual_ probability of getting sequence 1, 3, 5:
+
+```{r}
+(1/6)^3
+```
+
+---
+
+name: tps1
+class: inverse
+
+```{r, echo=FALSE}
+countdown(
+  minutes      = 15,
+  warn_when    = 30,
+  update_every = 15,
+  top          = 0,
+  right        = 0,
+  font_size    = '2em'
+)
+```
+
+## Your Turn: Coins & Dice
+
+.leftcol70[
+
+Using the `sample()` function, conduct a monte carlo simulation to estimate the answers to these questions:
+
+- If you flipped a coin 3 times in a row, what is the probability that you'll get three "tails" in a row?
+- If you rolled 2 dice, what is the probability that you'll get "snake-eyes" (two 1's)?
+- If you rolled 2 dice, what is the probability that you'll get an outcome that sums to 8?
+
+]
+
+---
+
+.font150[When `replace = FALSE`]
+
+Sometimes events cannot be independently simulated
+
+<br>
+
+--
+
+What are the odds that 3 cards drawn from a 52-card deck will sum to 13?
+
+- Aces = 1
+- Jack = 10
+- Queen = 10
+- King = 10
+
+---
+
+.font150[When `replace = FALSE`]
+
+Sometimes events cannot be independently simulated
+
+<br>
+
+```{r}
+cards <- c(seq(1, 10), 10, 10, 10)
+deck <- rep(cards, 4) # Rep because there are 4 suits
+length(deck)
+```
+
+--
+
+Draw 3 cards from the deck _without replacement_:
+
+```{r}
+draw <- sample(x = deck, size = 3, replace = FALSE) #<<
+draw
+```
+
+---
+
+.font150[When `replace = FALSE`]
+
+<br>
+
+**Note**: You can't draw more than 52 cards _without replacement_:
+
+```{r}
+#| error: true
+
+draw <- sample(x = deck, size = 53, replace = FALSE)
+```
+
+---
+
+.font150[When `replace = FALSE`]
+
+What are the odds that 3 cards drawn from a 52-card deck will sum to 13?
+
+<br>
+
+Repeat the 3-card draw _N_ times:
+
+```{r}
+N <- 100000
+count <- 0
+
+for (i in 1:N) {
+   draw <- sample(x = deck, size = 3, replace = FALSE) #<<
+   if (sum(draw) == 13) {
+      count <- count + 1
+   }
+}
+
+count / N # Compute the probability
+```
+
+---
+
+name: tps2
+class: inverse
+
+```{r, echo=FALSE}
+countdown(
+  minutes      = 15,
+  warn_when    = 30,
+  update_every = 15,
+  top          = 0,
+  right        = 0,
+  font_size    = '2em'
+)
+```
+
+## Your Turn: Cards
+
+Use the `sample()` function and a monte carlo simulation to estimate the answers to these questions:
+
+.leftcol[
+
+- What are the odds that four cards drawn from a 52-card deck will have the same suit?
+- What are the odds that five cards drawn from a 52-card deck will sum to a prime number?
+
+- Aces = 1
+- Jack = 10
+- Queen = 10
+- King = 10
+
+]
+
+.rightcol[
+
+**Hint**: use `isPrime()` to help:
+
+```{r}
+isPrime <- function(n) {
+    if (n == 2) { return(TRUE) }
+    for (i in seq(2, n-1)) {
+        if (n %% i == 0) {
+            return(FALSE)
+        }
+    }
+    return(TRUE)
+}
+```
+
+]
+
+---
+
+class: inverse, center
+
+# .fancy[Break]
+
+```{r, echo=FALSE}
+countdown(
+  minutes      = 5,
+  warn_when    = 30,
+  update_every = 1,
+  left         = 0,
+  right        = 0,
+  top          = 1,
+  bottom       = 0,
+  margin       = "5%",
+  font_size    = "8em"
+)
+```
+
+---
+
+```{r child="topics/2.Rmd"}
+```
+
+---
+
+.fira[.font170[Discrete vs. continuous random numbers]]
+
+--
+
+.leftcol[
+
+### .center[Discrete]
+
+`sample()`<br>Takes random samples from vector `x`
+
+```{r}
+sample_discrete <- sample(
+  x       = c("heads", "tails"),
+  size    = 5,
+  replace = TRUE
+)
+
+sample_discrete
+```
+]
+
+--
+
+.rightcol[
+
+### .center[Continuous]
+
+`runif()`<br>Takes random samples between bounds
+
+```{r}
+sample_continuous <- runif(
+  n   = 5,
+  min = 0,
+  max = 1
+)
+
+sample_continuous
+```
+
+]
+
+---
+
+class: center
+
+# Monte Carlo Integration
+
+Integration = compute the area "under the curve"
+
+--
+
+.leftcol[.left[
+
+Find the area of $y = x^2$ between $4 < x < 8$
+
+```{r quadratic-area, echo=FALSE, message=FALSE, fig.width=6, fig.height=4, fig.align='center'}
+library(dplyr)
+library(ggplot2)
+
+x  <- seq(0, 10, by = 0.01)
+
+df <- data.frame(x = x, y = x^2)
+
+func_plot <- ggplot(data = df) +
+    geom_line(aes(x = x, y = y)) +
+    scale_x_continuous(breaks = seq(0, 10, 2), limits = c(0, 10)) +
+    theme_bw(base_size = 20) +
+    annotate(geom = 'text', x = 7, y = 85, label = "italic(y == x^2)",
+             hjust = 0, size = 8, parse = TRUE)
+func_plot +
+    geom_area(data = df %>% filter(x > 4 & x < 8),
+        aes(x = x, y = y), alpha = 0.2, fill = 'red')
+```
+
+]]
+
+--
+
+.rightcol[
+
+$\frac{\text{Area Under Curve}}{\text{Area of Rectangle}} = \frac{\text{# Points Under Curve}}{\text{# Total Points}}$
+<br>
+
+```{r points-plot, echo=FALSE, fig.show='hide',  message=FALSE}
+N <- 5000
+
+points <- tibble(
+    x = runif(N, min = 4, max = 8),
+    y = runif(N, min = 0, max = 8^2)) %>%
+    mutate(belowCurve = y <= x^2)
+
+points_plot <- func_plot +
+    geom_area(data = data.frame(x = c(4, 4, 8, 8), y = c(0, 8^2, 8^2, 0)),
+              aes(x = x, y = y), alpha = 0, color = 'black', linetype = 2) +
+    geom_point(data = points, aes(x = x, y = y, color = belowCurve), size = 0.1) +
+    # Change size of points in legend:
+    guides(colour = guide_legend(override.aes = list(size = 3))) +
+    labs(color = 'Below curve')
+
+points_plot
+```
+
+```{r ref.label='points-plot', echo=FALSE, fig.width=8, fig.height=4.5, fig.align='center'}
+```
+
+]
+
+---
+
+class: center
+
+.fira[.font150[Monte Carlo Integration]]
+
+$\frac{\text{Area Under Curve}}{\text{Area of Rectangle}} = \frac{\text{# Points Under Curve}}{\text{# Total Points}}$
+
+```{r ref.label='points-plot', echo=FALSE, fig.width=8, fig.height=4.5, fig.align='center'}
+```
+
+$\text{Area Under Curve} = \text{Area of Rectangle} \left( \frac{\text{# Points Under Curve}}{\text{# Total Points}} \right)$
+
+---
+
+.center[.fira[.font150[Monte Carlo Integration]]]
+
+.leftcol60[
+
+**Step 1**: Compute area of rectangle
+
+```{r}
+area_rectangle <- (8 - 4) * (8^2 - 0)
+area_rectangle
+```
+]
+
+.rightcol40[
+
+```{r ref.label='points-plot', echo=FALSE, fig.width=8, fig.height=4.5, fig.align='center'}
+```
+
+]
+
+---
+
+.center[.fira[.font150[Monte Carlo Integration]]]
+
+.leftcol60[
+
+**Step 2**: Simulate points
+
+```{r}
+N <- 100000
+points <- tibble(
+    x = runif(N, min = 4, max = 8), #<<
+    y = runif(N, min = 0, max = 8^2)) %>% #<<
+    mutate(belowCurve = y < x^2)
+
+head(points)
+```
+
+]
+
+.rightcol40[
+
+```{r ref.label='points-plot', echo=FALSE, fig.width=8, fig.height=4.5, fig.align='center'}
+```
+
+]
+
+---
+
+.center[.fira[.font150[Monte Carlo Integration]]]
+
+.leftcol70[
+
+**Step 3**: Compute area under curve
+
+```{r}
+N <- 100000
+points <- tibble(
+    x = runif(N, min = 4, max = 8),
+    y = runif(N, min = 0, max = 8^2)) %>%
+    mutate(belowCurve = y < x^2)
+
+points_ratio <- sum(points$belowCurve) / N #<<
+points_ratio
+
+area_under_curve <- area_rectangle * points_ratio #<<
+area_under_curve
+```
+]
+
+.rightcol30[
+
+```{r ref.label='points-plot', echo=FALSE, fig.width=8, fig.height=4.5, fig.align='center'}
+```
+
+]
+
+---
+
+### How did we do?
+
+Simulated area under curve:
+
+```{r}
+area_under_curve
+```
+
+--
+
+Actual area under curve:
+
+$\int_{4}^{8} x^2 \mathrm{dx} = \left ( \frac{x^3}{3} \right ) \Big|_4^8 = \frac{8^3}{3} - \frac{4^3}{3} = 149.33\bar{3}$
+
+--
+
+% Error:
+
+```{r}
+true_area <- ((8^3 / 3) - (4^3 / 3))
+100*((area_under_curve - true_area) / true_area)
+```
+
+---
+
+# Monte Carlo $\pi$
+
+--
+
+.leftcol[
+```{r, echo=FALSE, out.width='90%'}
+include_graphics(file.path('images', 'pi.png'))
+```
+
+]
+
+--
+
+.rightcol45[
+
+Area of a circle:
+
+$\quad\quad A_{circle} = \pi r^2$
+
+Area of square containing circle:
+
+$\quad\quad A_{square} = 4r^2$
+
+]
+
+---
+
+# Monte Carlo $\pi$
+
+.leftcol[
+
+```{r, echo=FALSE, out.width='90%'}
+include_graphics(file.path('images', 'pi.png'))
+```
+
+]
+
+.rightcol45[
+
+Area of a circle:
+
+$\quad\quad A_{circle} = \pi r^2$
+
+Area of square containing circle:
+
+$\quad\quad A_{square} = 4r^2$
+
+Ratio of areas = $\pi / 4$:
+
+$\quad\quad \frac{A_{circle}}{A_{square}} = \dfrac{\pi r^2}{4r^2} = \dfrac{\pi}{4}$
+
+]
+
+---
+
+# Monte Carlo $\pi$
+
+.leftcol[
+
+```{r, echo=FALSE, out.width='90%'}
+include_graphics(file.path('images', 'pi.png'))
+```
+
+]
+
+.rightcol45[
+
+Area of a circle:
+
+$\quad\quad A_{circle} = \pi r^2$
+
+Area of square containing circle:
+
+$\quad\quad A_{square} = 4r^2$
+
+Ratio of areas = $\pi / 4$:
+
+$\quad\quad \frac{A_{circle}}{A_{square}} = \dfrac{\pi r^2}{4r^2} = \dfrac{\pi}{4}$
+
+$\pi = 4 \left( \frac{A_{circle}}{A_{square}} \right)$
+
+]
+
+---
+
+name: tps3
+class: inverse
+
+```{r, echo=FALSE}
+countdown(
+  minutes      = 15,
+  warn_when    = 30,
+  update_every = 15,
+  top          = 0,
+  right        = 0,
+  font_size    = '2em'
+)
+```
+
+## Your Turn: Estimate $\pi$
+
+.leftcol30[
+
+```{r cirle-points, echo=FALSE, fig.width=5, fig.height=5}
+N <- 5000
+
+points <- tibble(
+    x = runif(N, min = -1, max = 1),
+    y = runif(N, min = -1, max = 1)) %>%
+    mutate(
+        radius = sqrt(x^2 + y^2),
+        pointInCircle = ifelse(radius <= 1, TRUE, FALSE))
+
+pi_points <- ggplot(points) +
+    geom_point(aes(x = x, y = y, color = pointInCircle), size = 0.3) +
+    theme_minimal() +
+    scale_color_manual(values=c('red', 'blue')) +
+    theme(text = element_text(size=20), legend.position = 'bottom') +
+    guides(colour = guide_legend(override.aes = list(size=8)))
+
+pi_points
+```
+
+$\pi = 4 \left( \frac{A_{circle}}{A_{square}} \right)$
+
+]
+.rightcol70[.font90[
+
+1. Create a tibble with variables `x` and `y` that each contain 10,000 random points between -1 and 1, representing the (x, y) coordinates to a random point inside a square of side length 2 centered at `(x, y) = (0, 0)`. **Hint**: use `runif()`
+
+2. Create a new column, `radius`, that is equal to the distance to each `(x, y)` point from the center of the square.
+
+3. Create a new column, `pointInCircle`, that is `TRUE` if the point lies _within_ the circle inscribed in the square, and `FALSE` otherwise.
+
+4. Create the scatterplot on the left (don't worry about the precise colors, dimensions, etc.).
+
+5. Estimate $\pi$ by multiplying 4 times the ratio of points inside the circle to the total number of points
+
+]]
+
+---
+
+class: center, middle, inverse
+
+```{r, echo=FALSE, out.width='80%', fig.align='center'}
+include_graphics(file.path('images', 'monte_hall.jpg'))
+```
+
+---
+
+name: tps4
+class: inverse
+
+```{r, echo=FALSE}
+countdown(
+  minutes      = 15,
+  warn_when    = 30,
+  update_every = 15,
+  top          = 0,
+  right        = 0,
+  font_size    = '2em'
+)
+```
+
+## Your Turn: Monte Hall Problem
+
+.leftcol40[
+
+```{r, echo=FALSE, out.width='80%'}
+include_graphics(file.path('images', 'monte_hall.jpg'))
+```
+
+1. You choose door 1, 2, or 3
+2. One door is removed
+3. Should you swap doors?
+
+]
+
+.rightcol60[.font90[
+
+In this simulation, the prize is always behind door #1:
+
+- If you choose door #1, you must KEEP it to win.
+- If you choose door #2 or #3, you must SWAP to win.
+
+1) Create the tibble, `choices`, with two variables:
+- `door` contains the first door chosen (`1`, `2`, or `3`)
+- `swap` contains a logical (`TRUE` or `FALSE`) for whether the contestant swaps doors. **Hint**: use `sample()`
+
+2) Create a new tibble, `wins`, which contains only the rows from `choices` that resulted in a win.
+
+3) Compute the percentage of times the contestant won after swapping doors.
+
+]]
+
+---
+
+# Reminders
+
+--
+
+### 1) Please fill the GW course feedback (see slack announcement)
+
+--
+
+### 2) Final is Thursday, May 11, 12:45pm-2:45pm
