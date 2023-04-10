@@ -1,0 +1,10 @@
+
+class: inverse, middle
+
+# Week `r rmarkdown::metadata$week`: .fancy[`r rmarkdown::metadata$title`]
+
+### 1. Monte Carlo Simulation
+
+### BREAK
+
+### 2. Monte Carlo Integration
