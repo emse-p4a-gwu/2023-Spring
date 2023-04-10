@@ -47,7 +47,7 @@ For this assignment, you will need to find a dataset of your choosing and create
 
 ### 3) Inspect your data [10%]
 
-Once you've chosen a data set, open your `hw11.R` file and begin exploring the data (be sure to load the package that contains the dataset at the top of your file). Write some code in code chunks to preview and summarize the data frame using some of the methods we've used in class. You should be able to quickly get an understanding of what variables are included and their nature. Consider the following questions in your exploration (you don't have to write out answers to these questions - just write code to help you answer them by previewing the data in different ways):
+Once you've chosen a data set, open your `hw10.R` file and begin exploring the data (be sure to load the package that contains the dataset at the top of your file). Write some code in code chunks to preview and summarize the data frame using some of the methods we've used in class. You should be able to quickly get an understanding of what variables are included and their nature. Consider the following questions in your exploration (you don't have to write out answers to these questions - just write code to help you answer them by previewing the data in different ways):
 
 - What is the total size of the data frame?
 - What type of data is each variable (numeric, character, logical, date)?
@@ -77,7 +77,7 @@ Below the code for each of your charts, write a description and interpretation o
 
 ### 6) Save your charts [5%]
 
-At the bottom of your `hw11.R` file, write code to save each of your three charts in the `figs` folder. Save them as .png files.
+At the bottom of your `hw10.R` file, write code to save each of your three charts in the `figs` folder. Save them as .png files.
 
 ### 7) Read and reflect [SOLO, 10%]
 
