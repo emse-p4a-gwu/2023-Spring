@@ -16,12 +16,9 @@ library(tidyverse)
 
 schedule <- get_schedule()
 
-# # Set highlighting based on current week
-# highlight <- which(Sys.Date() > (schedule$date + 1))
-
 # Make the final schedule
 names(schedule) <- str_to_title(names(schedule))
-schedule %>%
+done <- schedule %>%
   select(
       Week, Date = Date_md, Quiz, Class, Assignments, Readings
   ) %>%
@@ -30,7 +27,12 @@ schedule %>%
   kable_styling(full_width = T, bootstrap_options = c("striped", "hover")) %>%
   column_spec(column = 2, width = '2em') %>%
   column_spec(column = 4, width = '15em') %>% 
-  column_spec(column = 5, width = '12em') 
-  # row_spec(highlight, background = "#A2A2A2")
-```
+  column_spec(column = 5, width = '12em')
 
+# Add highlighting based on current week if we're still in the semester
+highlight <- which(Sys.Date() > (schedule$Date))
+if (Sys.Date() <= ymd("2023-05-12")) {
+  done %>% 
+    row_spec(highlight, background = "#C6C6C6")  
+}
+```
