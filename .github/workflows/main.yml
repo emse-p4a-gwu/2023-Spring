@@ -2,6 +2,9 @@ name: Render and Deploy Quarto Site
 on:
   push:
   pull_request:
+  schedule:
+    # Runs daily at midnight (EST)
+    - cron: '0 5 * * *'
 
 jobs:
   build:
