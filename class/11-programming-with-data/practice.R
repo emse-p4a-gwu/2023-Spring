@@ -1,3 +1,13 @@
+# install.package('tidyverse')
+# install.package('palmerpenguins')
+# install.package('gapminder')
+# install.package('repurrrsive')
+
+library(tidyverse)
+library(palmerpenguins)
+library(gapminder)
+library(repurrrsive)
+
 # Practice 1 ----
 
 # Write `my_subset(df, condition, cols)`, which returns a subset of `df` 
@@ -27,7 +37,7 @@ nycflights13::flights %>%
 
 # Practice 2 ----
 
-# Write the function `filtered_cols` which plots a bar chart based on a 
+# Write the function `filtered_scatter` which plots a scatterplot based on a
 # condition, then use it for the two examples below. 
 
 filtered_scatter <- function(df, condition, x, y) {
