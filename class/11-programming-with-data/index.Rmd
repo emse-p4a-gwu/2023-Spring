@@ -563,12 +563,12 @@ countdown(
 
 ## Your turn
 
-Write the function `filtered_cols` which plots a bar chart based on a condition, then use it for the two examples below. 
+Write the function `filtered_scatter` which plots a scatterplot based on a condition, then use it for the two examples below.
 
 ```{r}
 #| eval: false
 
-filtered_cols <- function(df, condition, x, y)
+filtered_scatter <- function(df, condition, x, y)
 ```
 
 ```{r}
