@@ -20,6 +20,69 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1.6em;
   vertical-align: middle;
 }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
 
@@ -64,11 +127,11 @@ ul.task-list li input[type="checkbox"] {
 
 <link rel="stylesheet" href="../styles.css">
 <meta property="og:title" content="EMSE 4571 / 6571 - Homework 12 - Webscraping">
-<meta property="og:description" content="Coming soon!">
+<meta property="og:description" content="The readings from the last week will serve as a helpful reference as you complete this assignment. You can review them here:">
 <meta property="og:site-name" content="https://p4a.seas.gwu.edu/">
 <meta property="og:locale" content="es_ES">
 <meta name="twitter:title" content="EMSE 4571 / 6571 - Homework 12 - Webscraping">
-<meta name="twitter:description" content="Coming soon!">
+<meta name="twitter:description" content="The readings from the last week will serve as a helpful reference as you complete this assignment. You can review them here:">
 <meta name="twitter:image" content="https://p4a.seas.gwu.edu/2023-Spring/images/logo-square.png">
 <meta name="twitter:creator" content="@johnhelveston">
 <meta name="twitter:site" content="@johnhelveston">
@@ -206,9 +269,133 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<p>Coming soon!</p>
+<div class="cell">
+
+</div>
+<blockquote class="blockquote">
+<p><strong>Due</strong>: Apr 26 by 11:59pm</p>
+<p><strong>Submission Instructions</strong>: Create a zip file of all the files in your R project folder for this assignment, then submit your zip file on the corresponding assignment submission on Blackboard.</p>
+<p><strong>Weight</strong>: This assignment is worth 4% of your final grade.</p>
+<p><strong>Purpose</strong>: The purposes of this assignment are:</p>
+<ul>
+<li>Be able to manage scrape data from static web pages in R.</li>
+<li>Be able to collect and format data from a website using an API in R.</li>
+</ul>
+<p><strong>Assessment</strong>: Each question indicates the % of the assignment grade, summing to 100%. The credit for each question will be assigned as follows:</p>
+<ul>
+<li>0% for not attempting a response.</li>
+<li>50% for attempting the question but with <em>major</em> errors.</li>
+<li>75% for attempting the question but with <em>minor</em> errors.</li>
+<li>100% for correctly answering the question.</li>
+</ul>
+<p>The reflection portion is always worth 10% and graded for completion.</p>
+<p><strong>Rules</strong>:</p>
+<ul>
+<li>Problems marked <strong>SOLO</strong> may not be worked on with other classmates, though you may consult instructors for help.</li>
+<li>For problems marked <strong>COLLABORATIVE</strong>, you may work in groups of up to 3 students who are in this course this semester. You may not split up the work – everyone must work on every problem. And you may not simply copy any code but rather truly work together and submit your own solutions.</li>
+</ul>
+</blockquote>
+<section id="readings" class="level3">
+<h3 class="anchored" data-anchor-id="readings">Readings</h3>
+<p>The readings from the last week will serve as a helpful reference as you complete this assignment. You can review them here:</p>
+<blockquote class="blockquote">
+<ul>
+<li>Chapter 25 (Web scraping) in Hadley Wickham’s book R4DS: <a href="https://r4ds.hadley.nz/webscraping.html">https://r4ds.hadley.nz/webscraping.html</a></li>
+<li>This post on accessing and collecting data with APIs in R: <a href="https://statisticsglobe.com/api-in-r">https://statisticsglobe.com/api-in-r</a></li>
+</ul>
+</blockquote>
+</section>
+<section id="using-ai-tools" class="level3">
+<h3 class="anchored" data-anchor-id="using-ai-tools"><strong>Using AI tools</strong></h3>
+<blockquote class="blockquote">
+<p>On this assignment, you are encouraged to use ChatGPT and other AI tools (e.g.&nbsp;Github Copilot). But don’t just blindly copy-paste code. The code provided by these tools is not perfect, and you will likely need to modify it to get the correct solution. If you do use an AI tools, you must include the prompt(s) you used (using a comment with <code>#</code>) to recieve full credit. If you had to change anything to your prompt to get better results, write that down too in your code with a comment. Learn to use tools like ChatGPT as a learning assistant - a tool to help you accomplish the task - rather than just a solutions manual. One version of using it makes you a better and more efficient coder, the other robs you of that.</p>
+</blockquote>
+</section>
+<section id="staying-organized-solo-5" class="level3">
+<h3 class="anchored" data-anchor-id="staying-organized-solo-5">1) Staying organized [SOLO, 5%]</h3>
+<p>Download and use <a href="templates/hw12.zip">this template</a> for your assignment. Inside the “hw12” folder, open and edit the R script called <code>hw12.R</code> and fill out your name, GW netID, and the names of anyone you worked with on this assignment.</p>
+</section>
+<section id="scrape-the-weather" class="level3">
+<h3 class="anchored" data-anchor-id="scrape-the-weather">2) Scrape the weather!</h3>
+<p>Write R code to scrape the current weather conditions for a city of your choice from the <a href="https://www.weather.gov/">National Weather Service</a>. Create a data frame with the location, temperature (in Fahrenheit), humidity (%), and wind speed (mph). Your final data frame should look like this (with values reflecting those from your location of choice):</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># A tibble: 1 × 4</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  location        temp humidity wind_speed</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  <span class="sc">&lt;</span>chr<span class="sc">&gt;</span>          <span class="er">&lt;</span>dbl<span class="sc">&gt;</span>    <span class="er">&lt;</span>dbl<span class="sc">&gt;</span>      <span class="er">&lt;</span>dbl<span class="sc">&gt;</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span> Kennett Square    <span class="dv">64</span>       <span class="dv">32</span>         <span class="dv">18</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><strong>Note</strong>: You will have to navigate and inspect the website to come up with a strategy to scrape it.</p>
+</section>
+<section id="scrape-the-emse-course-bulletin" class="level3">
+<h3 class="anchored" data-anchor-id="scrape-the-emse-course-bulletin">3) Scrape the EMSE course bulletin!</h3>
+<p>Write R code to scrape all of the EMSE courses listed on the <a href="http://bulletin.gwu.edu/courses/emse/">GW Course Bulletin</a>. You should create a data frame that contains the following fields:</p>
+<ul>
+<li><code>number</code>: The course number, e.g.&nbsp;<code>"EMSE 4571"</code>.</li>
+<li><code>title</code>: The course title, e.g.&nbsp;<code>"Intro. to Programming for Analytics"</code></li>
+<li><code>credits</code>: The number of credits, e.g.&nbsp;<code>1</code>, <code>3</code>, etc.</li>
+<li><code>desc</code>: The course description.</li>
+</ul>
+<p><strong>Hint</strong>: To get to this final format, you may want to use either <code>str_split()</code> or the <a href="https://tidyr.tidyverse.org/reference/separate.html"><code>separate()</code> function</a> to break up the scraped data into these variables. This will be helpful after you’ve scraped the data from the page.</p>
+<p><strong>Note</strong>: You will have to navigate and inspect the website to come up with a strategy to scrape it.</p>
+</section>
+<section id="scrape-the-top-movies" class="level3">
+<h3 class="anchored" data-anchor-id="scrape-the-top-movies">4) Scrape the top movies!</h3>
+<p>Write R code to scrape data on the top 1000 grossing movies of all time from <a href="https://www.boxofficemojo.com/chart/top_lifetime_gross/?ref_=bo_cso_ac">Box Office Mojo</a>. Create a data frame with the movie titles, lifetime box office gross, and year of release. In your solution, you should use some form of iteration (e.g.&nbsp;<code>map()</code>, <code>map_df()</code>, a <code>for</code> loop) to loop through the tables on multiple pages.</p>
+<p><strong>Note</strong>: You will have to navigate and inspect the website to come up with a strategy to scrape it.</p>
+</section>
+<section id="get-the-weather-from-an-api" class="level3">
+<h3 class="anchored" data-anchor-id="get-the-weather-from-an-api">5) Get the weather from an API!</h3>
+<p>Follow these steps:</p>
+<ol type="1">
+<li>Go to the <a href="https://openweathermap.org/price">openweathermap.org</a> site and register for a free account to get access to an API key:</li>
+</ol>
+<center>
+<img src="images/openweathermap.png" width="100%">
+</center>
+<ol start="2" type="1">
+<li>Once registered, go get your API key <a href="https://home.openweathermap.org/api_keys">here</a>.</li>
+<li>Open your .Renviron with the command <code>usethis::edit_r_environ()</code></li>
+<li>Copy-paste your key into your .Renviron: <code>OPEN_WEATHER_MAP_KEY=your_key_here</code></li>
+<li>Restart RStudio</li>
+<li>Go read the <a href="https://openweathermap.org/current">current weather</a> API documentation.</li>
+<li>Write R code to get the current weather in your location of choice.</li>
+</ol>
+<p><strong>Tips</strong>:</p>
+<ul>
+<li>You’ll need to install and load the <code>httr</code> and <code>jsonlite</code> packages.</li>
+<li>If you followed the instructions above, you can get your API key as an object in R with this code:</li>
+</ul>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>api_key <span class="ot">&lt;-</span> <span class="fu">Sys.getenv</span>(<span class="st">"OPEN_WEATHER_MAP_KEY"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ul>
+<li>Once you have constructed the url request you want to make, use the following code to get the request as a data frame:</li>
+</ul>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(httr)</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(jsonlite)</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>response <span class="ot">&lt;-</span> <span class="fu">content</span>(<span class="fu">GET</span>(url), <span class="at">as =</span> <span class="st">"text"</span>)</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>weather <span class="ot">&lt;-</span> <span class="fu">fromJSON</span>(response)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>The <code>GET()</code> function is from the <code>httr</code> package, and it retrieves whatever is returned from the website. This site returns data in JSON format, so the <code>fromJSON()</code> from the <code>jsonlite</code> package helps us convert that into a nice data frame.</p>
+</section>
+<section id="read-and-reflect-solo-10" class="level3">
+<h3 class="anchored" data-anchor-id="read-and-reflect-solo-10">6) Read and reflect [SOLO, 10%]</h3>
+<p>Read and reflect on the following readings to preview what we will be covering next:</p>
+<blockquote class="blockquote">
+<ul>
+<li>Chapter 14: <a href="https://p4a.jhelvy.com/monte-carlo-methods.html">14 Monte Carlo Methods</a> in the P4A book.</li>
+</ul>
+</blockquote>
+<p>Afterwards, in a comment (<code>#</code>) in your .R file, write a short reflection on what you’ve learned and any questions or points of confusion you have about what we’ve covered thus far. This can just few a few sentences related to this assignment, next week’s readings, things going on in the world that remind you something from class, etc. If there’s anything that jumped out at you, write it down.</p>
+</section>
+<section id="submit" class="level3">
+<h3 class="anchored" data-anchor-id="submit">Submit</h3>
+<p>Instructions for how to submit your assignment are at the <a href="">top of this page</a>.</p>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
