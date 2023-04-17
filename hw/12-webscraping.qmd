@@ -5,9 +5,112 @@ params:
   purpose: |
     The purposes of this assignment are:
     >
-    > - Be able to manage computational projects for reproducibility, reuse, and collaboration.
-    > - Use R tools and conventions to document code and analyses and produce reproducible reports.
-    > - Be able to publish, share materials, and collaborate through the web.
+    > - Be able to manage scrape data from static web pages in R.
+    > - Be able to collect and format data from a website using an API in R.
 ---
 
-Coming soon!
+```{r child = here::here("fragments", "hw.qmd")}
+```
+
+### Readings
+
+The readings from the last week will serve as a helpful reference as you complete this assignment. You can review them here:
+
+> - Chapter 25 (Web scraping) in Hadley Wickham's book R4DS: [https://r4ds.hadley.nz/webscraping.html](https://r4ds.hadley.nz/webscraping.html)
+> - This post on accessing and collecting data with APIs in R: [https://statisticsglobe.com/api-in-r](https://statisticsglobe.com/api-in-r)
+
+### **Using AI tools**
+
+> On this assignment, you are encouraged to use ChatGPT and other AI tools (e.g. Github Copilot). But don't just blindly copy-paste code. The code provided by these tools is not perfect, and you will likely need to modify it to get the correct solution. If you do use an AI tools, you must include the prompt(s) you used (using a comment with `#`) to recieve full credit. If you had to change anything to your prompt to get better results, write that down too in your code with a comment. Learn to use tools like ChatGPT as a learning assistant - a tool to help you accomplish the task - rather than just a solutions manual. One version of using it makes you a better and more efficient coder, the other robs you of that.
+
+### 1) Staying organized [SOLO, 5%]
+
+Download and use [this template](templates/hw12.zip) for your assignment. Inside the "hw12" folder, open and edit the R script called `hw12.R` and fill out your name, GW netID, and the names of anyone you worked with on this assignment.
+
+### 2) Scrape the weather!
+
+Write R code to scrape the current weather conditions for a city of your choice from the [National Weather Service](https://www.weather.gov/). Create a data frame with the location, temperature (in Fahrenheit), humidity (%), and wind speed (mph). Your final data frame should look like this (with values reflecting those from your location of choice):
+
+```{r}
+#| eval: false
+
+# A tibble: 1 × 4
+  location        temp humidity wind_speed
+  <chr>          <dbl>    <dbl>      <dbl>
+1 Kennett Square    64       32         18
+```
+
+**Note**: You will have to navigate and inspect the website to come up with a strategy to scrape it.
+
+### 3) Scrape the EMSE course bulletin!
+
+Write R code to scrape all of the EMSE courses listed on the [GW Course Bulletin](http://bulletin.gwu.edu/courses/emse/). You should create a data frame that contains the following fields:
+
+- `number`: The course number, e.g. `"EMSE 4571"`.
+- `title`: The course title, e.g. `"Intro. to Programming for Analytics"`
+- `credits`: The number of credits, e.g. `1`, `3`, etc.
+- `desc`: The course description.
+
+**Hint**: To get to this final format, you may want to use either `str_split()` or the [`separate()` function](https://tidyr.tidyverse.org/reference/separate.html) to break up the scraped data into these variables. This will be helpful after you've scraped the data from the page.
+
+**Note**: You will have to navigate and inspect the website to come up with a strategy to scrape it.
+
+### 4) Scrape the top movies!
+
+Write R code to scrape data on the top 1000 grossing movies of all time from [Box Office Mojo](https://www.boxofficemojo.com/chart/top_lifetime_gross/?ref_=bo_cso_ac). Create a data frame with the movie titles, lifetime box office gross, and year of release. In your solution, you should use some form of iteration (e.g. `map()`, `map_df()`, a `for` loop) to loop through the tables on multiple pages.
+
+**Note**: You will have to navigate and inspect the website to come up with a strategy to scrape it.
+
+### 5) Get the weather from an API!
+
+Follow these steps:
+
+1. Go to the [openweathermap.org](https://openweathermap.org/price) site and register for a free account to get access to an API key:
+
+<center>
+<img src="images/openweathermap.png" width=100%>
+</center>
+
+2. Once registered, go get your API key [here](https://home.openweathermap.org/api_keys).
+3. Open your .Renviron with the command `usethis::edit_r_environ()`
+4. Copy-paste your key into your .Renviron: `OPEN_WEATHER_MAP_KEY=your_key_here`
+5. Restart RStudio
+6. Go read the [current weather](https://openweathermap.org/current) API documentation.
+7. Write R code to get the current weather in your location of choice.
+
+**Tips**:
+
+- You'll need to install and load the `httr` and `jsonlite` packages.
+- If you followed the instructions above, you can get your API key as an object in R with this code:
+
+```{r}
+#| eval: false
+
+api_key <- Sys.getenv("OPEN_WEATHER_MAP_KEY")
+```
+
+- Once you have constructed the url request you want to make, use the following code to get the request as a data frame:
+
+```{r}
+#| eval: false
+
+library(httr)
+library(jsonlite)
+
+response <- content(GET(url), as = "text")
+weather <- fromJSON(response)
+```
+
+The `GET()` function is from the `httr` package, and it retrieves whatever is returned from the website. This site returns data in JSON format, so the `fromJSON()` from the `jsonlite` package helps us convert that into a nice data frame.
+
+### 6) Read and reflect [SOLO, 10%]
+
+Read and reflect on the following readings to preview what we will be covering next:
+
+> - Chapter 14: [14  Monte Carlo Methods](https://p4a.jhelvy.com/monte-carlo-methods.html) in the P4A book.
+
+Afterwards, in a comment (`#`) in your .R file, write a short reflection on what you've learned and any questions or points of confusion you have about what we've covered thus far. This can just few a few sentences related to this assignment, next week's readings, things going on in the world that remind you something from class, etc. If there's anything that jumped out at you, write it down.
+
+### Submit
+
+Instructions for how to submit your assignment are at the [top of this page]().

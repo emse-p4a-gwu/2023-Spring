@@ -12,6 +12,23 @@ params:
 ```{r child = here::here("fragments", "hw.qmd")}
 ```
 
+### Readings
+
+The readings from the last week will serve as a helpful reference as you complete this assignment. You can review them here:
+
+<blockquote class="blockquote">
+
+```{r}
+#| echo: false
+#| message: false
+#| results: asis
+
+htmltools::HTML(readings_current)
+```
+
+</blockquote>
+
+
 > ### Using the [autograder](../autograder.html)
 >
 > - You can check your solutions to problems 2 - 7 by logging into the [autograder](../autograder.html) and uploading your `hw7.R` file.

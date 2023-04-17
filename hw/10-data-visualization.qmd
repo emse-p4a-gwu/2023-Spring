@@ -12,6 +12,22 @@ params:
 ```{r child = here::here("fragments", "hw.qmd")}
 ```
 
+### Readings
+
+The readings from the last week will serve as a helpful reference as you complete this assignment. You can review them here:
+
+<blockquote class="blockquote">
+
+```{r}
+#| echo: false
+#| message: false
+#| results: asis
+
+htmltools::HTML(readings_current)
+```
+
+</blockquote>
+
 ### **Using AI tools**
 
 > On this assignment, you are encouraged to use ChatGPT and other AI tools (e.g. Github Copilot). But don't just blindly copy-paste code. The code provided by these tools is not perfect, and you will likely need to modify it to get the correct solution. If you do use an AI tools, you must include the prompt(s) you used (using a comment with `#`) to recieve full credit. If you had to change anything to your prompt to get better results, write that down too in your code with a comment. Learn to use tools like ChatGPT as a learning assistant - a tool to help you accomplish the task - rather than just a solutions manual. One version of using it makes you a better and more efficient coder, the other robs you of that.

@@ -13,6 +13,22 @@ params:
 ```{r child = here::here("fragments", "hw.qmd")}
 ```
 
+### Readings
+
+The readings from the last week will serve as a helpful reference as you complete this assignment. You can review them here:
+
+<blockquote class="blockquote">
+
+```{r}
+#| echo: false
+#| message: false
+#| results: asis
+
+htmltools::HTML(readings_current)
+```
+
+</blockquote>
+
 ### 1) Staying organized [SOLO, 5%]
 
 Download and use [this template](templates/hw8.zip) for your assignment. Inside the "hw8" folder, open and edit the R script called `hw8.R` and fill out your name, GW netID, and the names of anyone you worked with on this assignment.

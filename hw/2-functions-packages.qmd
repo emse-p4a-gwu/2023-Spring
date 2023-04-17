@@ -19,6 +19,22 @@ params:
 ```{r child = here::here("fragments", "hw.qmd")}
 ```
 
+### Readings
+
+The readings from the last week will serve as a helpful reference as you complete this assignment. You can review them here:
+
+<blockquote class="blockquote">
+
+```{r}
+#| echo: false
+#| message: false
+#| results: asis
+
+htmltools::HTML(readings_current)
+```
+
+</blockquote>
+
 ### 1) Staying organized [SOLO, 10%]
 
 Just like we did in HW1, we're going to use an R project to keep everything in this assignment tidy. Create a new R project called "hw2" and save a new R script in it called "hw2.R". Copy the following code to the top of this script and fill out your name, GW netID, and the names of anyone you worked with on this assignment:

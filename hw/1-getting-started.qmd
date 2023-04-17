@@ -22,6 +22,22 @@ params:
 ```{r child = here::here("fragments", "hw.qmd")}
 ```
 
+### Readings
+
+The readings from the last week will serve as a helpful reference as you complete this assignment. You can review them here:
+
+<blockquote class="blockquote">
+
+```{r}
+#| echo: false
+#| message: false
+#| results: asis
+
+htmltools::HTML(readings_current)
+```
+
+</blockquote>
+
 ### 1) Class setup [SOLO, 10%]
 
 For this class, you'll need to install some software and register for some tools. You should have already done this, but in case you haven't,go to the course [software](../software.html) page to get set up.

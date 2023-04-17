@@ -50,18 +50,3 @@ url_template <- paste0(
 > - Problems marked **SOLO** may not be worked on with other classmates, though you may consult instructors for help.
 > - For problems marked **COLLABORATIVE**, you may work in groups of up to 3 students who are in this course this semester. You may not split up the work -- everyone must work on every problem. And you may not simply copy any code but rather truly work together and submit your own solutions.
 
-### Readings
-
-The readings from the last week will serve as a helpful reference as you complete this assignment. You can review them here:
-
-<blockquote class="blockquote">
-
-```{r}
-#| echo: false
-#| message: false
-#| results: asis
-
-htmltools::HTML(readings_current)
-```
-
-</blockquote>
