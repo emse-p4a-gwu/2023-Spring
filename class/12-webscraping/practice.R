@@ -10,11 +10,10 @@ library(usethis)
 # http://quotes.toscrape.com/
 
 # Your resulting data frame should have these fields:
-    
-# - `title`: The film title 
-# - `release_date`: The film release date
-# - `director`: The film director
-# - `intro`: The opening film crawl
+
+# - `quote`: The quote
+# - `author`: The author of the quote
+# - `about_url`: The url to the "about" page
 
 
 
