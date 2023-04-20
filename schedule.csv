@@ -1,24 +1,24 @@
-week,date,quiz,quiz_coverage,n_class,stub_class,name_class,description_class,n_assign,stub_assign,name_assign,due_assign,name_reading,stub_reading
+week,date,quiz,quiz_coverage,n_class,stub_class,name_class,description_class,n_assign,stub_assign,name_assign,due_assign,name_reading,stub_reading,reading
 1,2023/01/19,,,1,getting-started,Getting Started,"Class orientation, intro to R, workflow, operators, data types",1,getting-started,Getting Started,2023/01/25,"Getting Started
 Operations & Data Types","getting-started
-operators-data-types"
-2,2023/01/26,1,Week 1,2,functions-packages,Functions & Packages,"Functions, arguments, installing external packages, problem solving",2,functions-packages,Functions & Packages,2023/02/01,Functions & Packages,functions-packages
-3,2023/02/02,2,Weeks 1 - 2,3,creating-functions,Creating Functions,"Defining your own functions, top-down structure",3,creating-functions,Creating Functions,2023/02/08,Creating Functions,creating-functions
+operators-data-types",
+2,2023/01/26,1,Week 1,2,functions-packages,Functions & Packages,"Functions, arguments, installing external packages, problem solving",2,functions-packages,Functions & Packages,2023/02/01,Functions & Packages,functions-packages,
+3,2023/02/02,2,Weeks 1 - 2,3,creating-functions,Creating Functions,"Defining your own functions, top-down structure",3,creating-functions,Creating Functions,2023/02/08,Creating Functions,creating-functions,
 4,2023/02/09,,,4,conditionals-testing,Conditionals & Testing,"If / else statements, writing unit tests",4,conditionals-testing,Conditionals & Testing,2023/02/15,"Conditionals
 Testing & Debugging","conditionals
-testing-debugging"
-5,2023/02/16,3,Weeks 3 - 4,5,iteration,Iteration,Ins and outs of loops,5,iteration,Iteration,2023/02/22,Iteration,iteration
-6,2023/02/23,,,6,vectors,Vectors,Creating and slicing collections of values,6,vectors,Vectors,2023/03/01,Vectors,vectors
-7,2023/03/02,4,Weeks 5 - 6,7,strings,Strings,All things between quotes,7,strings,Strings,2023/03/15,Strings,strings
-9,2023/03/09,,,,,Midterm,Don't panic!,,,,,,
-8,2023/03/16,,,,,Spring Break,No class,,,,,,
+testing-debugging",
+5,2023/02/16,3,Weeks 3 - 4,5,iteration,Iteration,Ins and outs of loops,5,iteration,Iteration,2023/02/22,Iteration,iteration,
+6,2023/02/23,,,6,vectors,Vectors,Creating and slicing collections of values,6,vectors,Vectors,2023/03/01,Vectors,vectors,
+7,2023/03/02,4,Weeks 5 - 6,7,strings,Strings,All things between quotes,7,strings,Strings,2023/03/15,Strings,strings,
+9,2023/03/09,,,,,Midterm,Don't panic!,,,,,,,
+8,2023/03/16,,,,,Spring Break,No class,,,,,,,
 10,2023/03/23,,,8,data-frames,Data Frames,Rows and columns of data,8,data-frames,Data Frames,2023/03/29,"Data Analysis
 Data Frames","data-analysis
-data-frames"
-11,2023/03/30,5,Week 10,9,data-wrangling,Data Wrangling,Modifying data frames,9,data-wrangling,Data Wrangling,2023/04/05,Data Wrangling,data-wrangling
-12,2023/04/06,,,10,data-visualization,Data Visualization,Visualizing your data,10,data-visualization,Data Visualization,2023/04/12,Data Visualization,data-visualization
-13,2023/04/13,6,Weeks 11 - 12,11,programming-with-data,Programming with Data,Iterating through data frames and writing functions to summarize data,11,programming-with-data,Programming with Data,2023/04/19,Programming with Data,programming-with-data
-14,2023/04/20,,,12,webscraping,Webscraping,Collecting data embedded in web pages,12,webscraping,Webscraping,2023/04/26,Webscraping,webscraping
-15,2023/04/27,7,Week 13,13,monte-carlo-methods,Monte Carlo Methods,Using simulation to solve problems,13,monte-carlo-methods,Monte Carlo Methods,2023/05/03,Monte Carlo Methods,monte-carlo-methods
-16,2023/05/04,,,,,Reading Day,,,,,,,
-17,2023/05/11,,,,,Final Exam,Don't panic!,,,,,,
+data-frames",
+11,2023/03/30,5,Week 10,9,data-wrangling,Data Wrangling,Modifying data frames,9,data-wrangling,Data Wrangling,2023/04/05,Data Wrangling,data-wrangling,
+12,2023/04/06,,,10,data-visualization,Data Visualization,Visualizing your data,10,data-visualization,Data Visualization,2023/04/12,Data Visualization,data-visualization,
+13,2023/04/13,6,Weeks 11 - 12,11,programming-with-data,Programming with Data,Iterating through data frames and writing functions to summarize data,11,programming-with-data,Programming with Data,2023/04/19,Programming with Data,,"<a href=https://r4ds.hadley.nz/functions.html#data-frame-functions target=""_blank""><i class=""bi-book-fill""></i></a> Sections 26.3 & 26.4 in R4DS<br><a href=https://www.rebeccabarter.com/blog/2019-08-19_purrr target=""_blank""><i class=""bi-book-fill""></i></a> Post on iteration with {purrr}"
+14,2023/04/20,,,12,webscraping,Webscraping,Collecting data embedded in web pages,12,webscraping,Webscraping,2023/04/26,Webscraping,,"<a href=https://r4ds.hadley.nz/webscraping.html target=""_blank""><i class=""bi-book-fill""></i></a> Chapter 25 in R4DS<br><a href=https://statisticsglobe.com/api-in-r target=""_blank""><i class=""bi-book-fill""></i></a> Post on APIs in R"
+15,2023/04/27,7,Week 13,13,monte-carlo-methods,Monte Carlo Methods,Using simulation to solve problems,13,monte-carlo-methods,Monte Carlo Methods,2023/05/03,Monte Carlo Methods,monte-carlo-methods,
+16,2023/05/04,,,,,Reading Day,,,,,,,,
+17,2023/05/11,,,,,Final Exam,Don't panic!,,,,,,,

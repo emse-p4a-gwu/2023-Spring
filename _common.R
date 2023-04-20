@@ -75,7 +75,7 @@ get_schedule <- function() {
     
     # Reading vars
     reading <- schedule_raw %>%
-        select(week, ends_with("_reading")) %>%
+        select(week, ends_with("_reading"), reading) %>%
         rename(name = name_reading, stub = stub_reading) %>%
         mutate(
             name = str_split(name, '\n'),
@@ -101,6 +101,8 @@ get_schedule <- function() {
     }
     reading$name <- NULL
     reading$stub <- NULL
+    reading <- reading %>% 
+        mutate(readings = ifelse(!is.na(reading), reading, readings))
     
     # Final schedule data frame
     schedule <- schedule_raw %>%
