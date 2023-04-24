@@ -5,9 +5,68 @@ params:
   purpose: |
     The purposes of this assignment are:
     >
-    > - Be able to manage computational projects for reproducibility, reuse, and collaboration.
-    > - Use R tools and conventions to document code and analyses and produce reproducible reports.
-    > - Be able to publish, share materials, and collaborate through the web.
+    > - Be able to implement a simple Monte Carlo simulation in R to estimate the probability an even occurring.
+    > - Be able to conduct a simple Monte Carlo simulation to integrate a function.
 ---
 
+```{r child = here::here("fragments", "hw.qmd")}
+```
+
+### Readings
+
+The readings from the last week will serve as a helpful reference as you complete this assignment. You can review them here:
+
+<blockquote class="blockquote">
+
+```{r}
+#| echo: false
+#| message: false
+#| results: asis
+
+htmltools::HTML(readings_current)
+```
+
+### **Using AI tools**
+
+> On this assignment, you are encouraged to use ChatGPT and other AI tools (e.g. Github Copilot). But don't just blindly copy-paste code. The code provided by these tools is not perfect, and you will likely need to modify it to get the correct solution. If you do use an AI tools, you must include the prompt(s) you used (using a comment with `#`) to recieve full credit. If you had to change anything to your prompt to get better results, write that down too in your code with a comment. Learn to use tools like ChatGPT as a learning assistant - a tool to help you accomplish the task - rather than just a solutions manual. One version of using it makes you a better and more efficient coder, the other robs you of that.
+
+### 1) Staying organized [SOLO, 5%]
+
+Download and use [this template](templates/hw13.zip) for your assignment. Inside the "hw13" folder, open and edit the R script called `hw13.R` and fill out your name, GW netID, and the names of anyone you worked with on this assignment.
 Coming soon!
+
+### 2) Monte Carlo Dice [SOLO, 10%]
+
+Using the `sample()` function, conduct a monte carlo simulation to estimate the probability of rolling a sum of 7 using two 6-sided dice.
+
+### 3) Monte Carlo Full House [COLLABORATIVE, 10%]
+
+Using the `sample()` function, conduct a monte carlo simulation to estimate the probability of drawing a ["Full House"](https://en.wikipedia.org/wiki/List_of_poker_hands#Full_house) poker hand from a standard 52-card deck.
+
+### 4) Monte Carlo Right Triangles [COLLABORATIVE, 10%]
+
+Using the `sample()` function, conduct a monte carlo simulation to estimate the probability of randomly picking three integer values between 1 and 1000 (inclusive) that can be used to form a right triangle. For example, drawing the points 3, 4, and 5 would work since `3^2 + 4^2 == 5^2`.
+
+### 5) Monte Carlo Integration [COLLABORATIVE, 10%]
+
+Use a Monte Carlo simulation to estimate the integral of the function $y = log(x)$ between $5 \le x \le 20$ by estimating the area under the curve of the function.
+
+### 6) Your Own Monte Carlo Simulation [SOLO, 10%]
+
+For the last problem, write your own homework question that requires the student (you) to use a Monte Carlo simulation to compute the probability of an event occurring. Provide both the question and the solution to your question. As with all the other questions, if you use an AI tool like ChatGPT to help you create and / or solve your question, include the prompt you used and comment on any changes you had to make to improve your outcome.
+
+### 7) Final reflection [SOLO, 10%]
+
+This is your last homework - congrats! 🎉
+
+For this reflection, please reflect on what we have covered in this class, then write about your reflection. I would appreciate it if you could answer the following questions:
+
+- What was the most _impactful_ thing you gained from this course?
+- What was the most _challenging_ thing you experience in this course?
+- What do you think I can do better in the future?
+
+Write your reflection in a comment (`#`) in your .R file.
+
+### Submit
+
+Instructions for how to submit your assignment are at the [top of this page]().
