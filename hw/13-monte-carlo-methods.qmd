@@ -35,23 +35,23 @@ htmltools::HTML(readings_current)
 Download and use [this template](templates/hw13.zip) for your assignment. Inside the "hw13" folder, open and edit the R script called `hw13.R` and fill out your name, GW netID, and the names of anyone you worked with on this assignment.
 Coming soon!
 
-### 2) Monte Carlo Dice [SOLO, 10%]
+### 2) Monte Carlo Dice [SOLO, 15%]
 
 Using the `sample()` function, conduct a monte carlo simulation to estimate the probability of rolling a sum of 7 using two 6-sided dice.
 
-### 3) Monte Carlo Full House [COLLABORATIVE, 10%]
+### 3) Monte Carlo Full House [COLLABORATIVE, 15%]
 
 Using the `sample()` function, conduct a monte carlo simulation to estimate the probability of drawing a ["Full House"](https://en.wikipedia.org/wiki/List_of_poker_hands#Full_house) poker hand from a standard 52-card deck.
 
-### 4) Monte Carlo Right Triangles [COLLABORATIVE, 10%]
+### 4) Monte Carlo Right Triangles [COLLABORATIVE, 15%]
 
 Using the `sample()` function, conduct a monte carlo simulation to estimate the probability of randomly picking three integer values between 1 and 1000 (inclusive) that can be used to form a right triangle. For example, drawing the points 3, 4, and 5 would work since `3^2 + 4^2 == 5^2`.
 
-### 5) Monte Carlo Integration [COLLABORATIVE, 10%]
+### 5) Monte Carlo Integration [COLLABORATIVE, 20%]
 
 Use a Monte Carlo simulation to estimate the integral of the function $y = log(x)$ between $5 \le x \le 20$ by estimating the area under the curve of the function.
 
-### 6) Your Own Monte Carlo Simulation [SOLO, 10%]
+### 6) Your Own Monte Carlo Simulation [SOLO, 20%]
 
 For the last problem, write your own homework question that requires the student (you) to use a Monte Carlo simulation to compute the probability of an event occurring. Provide both the question and the solution to your question. As with all the other questions, if you use an AI tool like ChatGPT to help you create and / or solve your question, include the prompt you used and comment on any changes you had to make to improve your outcome.
 
