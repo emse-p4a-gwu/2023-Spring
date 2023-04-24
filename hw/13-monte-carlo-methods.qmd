@@ -45,7 +45,7 @@ Using the `sample()` function, conduct a monte carlo simulation to estimate the 
 
 ### 4) Monte Carlo Triangles [COLLABORATIVE, 15%]
 
-Using the `sample()` function, conduct a monte carlo simulation to estimate the probability of randomly picking three integer values between 1 and 100 (inclusive, and without replacement) that can be used to form a triangle. As a hint, it would be helpful to first write a simple function called `isTriangle(a, b, c)` that takes the lengths of three line segments and returns `TRUE` if the lines can make a triangle and `FALSE` otherwise. The [Triangle Inequality Theorem](https://www.wikihow.com/Determine-if-Three-Side-Lengths-Are-a-Triangle) may come in handy here.
+Using the `sample()` function, conduct a Monte Carlo simulation to estimate the probability of randomly picking three integer values between 1 and 100 (inclusive, and without replacement) that can be used to form a triangle. As a hint, it would be helpful to first write a simple function called `isTriangle(a, b, c)` that takes the lengths of three line segments and returns `TRUE` if the lines can make a triangle and `FALSE` otherwise. The [Triangle Inequality Theorem](https://www.wikihow.com/Determine-if-Three-Side-Lengths-Are-a-Triangle) may come in handy here.
 
 ### 5) Monte Carlo Integration [COLLABORATIVE, 20%]
 
