@@ -61,14 +61,15 @@ ul.task-list li input[type="checkbox"] {
 }</script>
 <style>html{ scroll-behavior: smooth; }</style>
 
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 <link rel="stylesheet" href="../styles.css">
 <meta property="og:title" content="EMSE 4571 / 6571 - Homework 13 - Monte Carlo Methods">
-<meta property="og:description" content="Coming soon!">
+<meta property="og:description" content="The readings from the last week will serve as a helpful reference as you complete this assignment. You can review them here:">
 <meta property="og:site-name" content="https://p4a.seas.gwu.edu/">
 <meta property="og:locale" content="es_ES">
 <meta name="twitter:title" content="EMSE 4571 / 6571 - Homework 13 - Monte Carlo Methods">
-<meta name="twitter:description" content="Coming soon!">
+<meta name="twitter:description" content="The readings from the last week will serve as a helpful reference as you complete this assignment. You can review them here:">
 <meta name="twitter:image" content="https://p4a.seas.gwu.edu/2023-Spring/images/logo-square.png">
 <meta name="twitter:creator" content="@johnhelveston">
 <meta name="twitter:site" content="@johnhelveston">
@@ -206,9 +207,89 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<p>Coming soon!</p>
+<div class="cell">
+
+</div>
+<blockquote class="blockquote">
+<p><strong>Due</strong>: May 03 by 11:59pm</p>
+<p><strong>Submission Instructions</strong>: Create a zip file of all the files in your R project folder for this assignment, then submit your zip file on the corresponding assignment submission on Blackboard.</p>
+<p><strong>Weight</strong>: This assignment is worth 4% of your final grade.</p>
+<p><strong>Purpose</strong>: The purposes of this assignment are:</p>
+<ul>
+<li>Be able to implement a simple Monte Carlo simulation in R to estimate the probability an even occurring.</li>
+<li>Be able to conduct a simple Monte Carlo simulation to integrate a function.</li>
+</ul>
+<p><strong>Assessment</strong>: Each question indicates the % of the assignment grade, summing to 100%. The credit for each question will be assigned as follows:</p>
+<ul>
+<li>0% for not attempting a response.</li>
+<li>50% for attempting the question but with <em>major</em> errors.</li>
+<li>75% for attempting the question but with <em>minor</em> errors.</li>
+<li>100% for correctly answering the question.</li>
+</ul>
+<p>The reflection portion is always worth 10% and graded for completion.</p>
+<p><strong>Rules</strong>:</p>
+<ul>
+<li>Problems marked <strong>SOLO</strong> may not be worked on with other classmates, though you may consult instructors for help.</li>
+<li>For problems marked <strong>COLLABORATIVE</strong>, you may work in groups of up to 3 students who are in this course this semester. You may not split up the work – everyone must work on every problem. And you may not simply copy any code but rather truly work together and submit your own solutions.</li>
+</ul>
+</blockquote>
+<section id="readings" class="level3">
+<h3 class="anchored" data-anchor-id="readings">Readings</h3>
+<p>The readings from the last week will serve as a helpful reference as you complete this assignment. You can review them here:</p>
+<blockquote class="blockquote">
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<a href="https://p4a.jhelvy.com/monte-carlo-methods.html" target="_blank"><i class="bi-book-fill"></i></a> Monte Carlo Methods
+</div>
+</div>
+</blockquote></section>
+<section id="using-ai-tools" class="level3">
+<h3 class="anchored" data-anchor-id="using-ai-tools"><strong>Using AI tools</strong></h3>
+<blockquote class="blockquote">
+<p>On this assignment, you are encouraged to use ChatGPT and other AI tools (e.g.&nbsp;Github Copilot). But don’t just blindly copy-paste code. The code provided by these tools is not perfect, and you will likely need to modify it to get the correct solution. If you do use an AI tools, you must include the prompt(s) you used (using a comment with <code>#</code>) to recieve full credit. If you had to change anything to your prompt to get better results, write that down too in your code with a comment. Learn to use tools like ChatGPT as a learning assistant - a tool to help you accomplish the task - rather than just a solutions manual. One version of using it makes you a better and more efficient coder, the other robs you of that.</p>
+</blockquote>
+</section>
+<section id="staying-organized-solo-5" class="level3">
+<h3 class="anchored" data-anchor-id="staying-organized-solo-5">1) Staying organized [SOLO, 5%]</h3>
+<p>Download and use <a href="templates/hw13.zip">this template</a> for your assignment. Inside the “hw13” folder, open and edit the R script called <code>hw13.R</code> and fill out your name, GW netID, and the names of anyone you worked with on this assignment. Coming soon!</p>
+</section>
+<section id="monte-carlo-dice-solo-15" class="level3">
+<h3 class="anchored" data-anchor-id="monte-carlo-dice-solo-15">2) Monte Carlo Dice [SOLO, 15%]</h3>
+<p>Using the <code>sample()</code> function, conduct a monte carlo simulation to estimate the probability of rolling a sum of 7 using two 6-sided dice.</p>
+</section>
+<section id="monte-carlo-full-house-collaborative-15" class="level3">
+<h3 class="anchored" data-anchor-id="monte-carlo-full-house-collaborative-15">3) Monte Carlo Full House [COLLABORATIVE, 15%]</h3>
+<p>Using the <code>sample()</code> function, conduct a monte carlo simulation to estimate the probability of drawing a <a href="https://en.wikipedia.org/wiki/List_of_poker_hands#Full_house">“Full House”</a> poker hand from a standard 52-card deck.</p>
+</section>
+<section id="monte-carlo-right-triangles-collaborative-15" class="level3">
+<h3 class="anchored" data-anchor-id="monte-carlo-right-triangles-collaborative-15">4) Monte Carlo Right Triangles [COLLABORATIVE, 15%]</h3>
+<p>Using the <code>sample()</code> function, conduct a monte carlo simulation to estimate the probability of randomly picking three integer values between 1 and 1000 (inclusive) that can be used to form a right triangle. For example, drawing the points 3, 4, and 5 would work since <code>3^2 + 4^2 == 5^2</code>.</p>
+</section>
+<section id="monte-carlo-integration-collaborative-20" class="level3">
+<h3 class="anchored" data-anchor-id="monte-carlo-integration-collaborative-20">5) Monte Carlo Integration [COLLABORATIVE, 20%]</h3>
+<p>Use a Monte Carlo simulation to estimate the integral of the function <span class="math inline">\(y = log(x)\)</span> between <span class="math inline">\(5 \le x \le 20\)</span> by estimating the area under the curve of the function.</p>
+</section>
+<section id="your-own-monte-carlo-simulation-solo-20" class="level3">
+<h3 class="anchored" data-anchor-id="your-own-monte-carlo-simulation-solo-20">6) Your Own Monte Carlo Simulation [SOLO, 20%]</h3>
+<p>For the last problem, write your own homework question that requires the student (you) to use a Monte Carlo simulation to compute the probability of an event occurring. Provide both the question and the solution to your question. As with all the other questions, if you use an AI tool like ChatGPT to help you create and / or solve your question, include the prompt you used and comment on any changes you had to make to improve your outcome.</p>
+</section>
+<section id="final-reflection-solo-10" class="level3">
+<h3 class="anchored" data-anchor-id="final-reflection-solo-10">7) Final reflection [SOLO, 10%]</h3>
+<p>This is your last homework - congrats! 🎉</p>
+<p>For this reflection, please reflect on what we have covered in this class, then write about your reflection. I would appreciate it if you could answer the following questions:</p>
+<ul>
+<li>What was the most <em>impactful</em> thing you gained from this course?</li>
+<li>What was the most <em>challenging</em> thing you experience in this course?</li>
+<li>What do you think I can do better in the future?</li>
+</ul>
+<p>Write your reflection in a comment (<code>#</code>) in your .R file.</p>
+</section>
+<section id="submit" class="level3">
+<h3 class="anchored" data-anchor-id="submit">Submit</h3>
+<p>Instructions for how to submit your assignment are at the <a href="">top of this page</a>.</p>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
