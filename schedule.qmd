@@ -9,27 +9,29 @@ source("_common.R")
 
 ```{r}
 #| echo: false
+#| warning: false 
 #| message: false
 
-library(kableExtra)
 library(tidyverse)
+library(kableExtra)
 
 schedule <- get_schedule()
 
 # Make the final schedule
 names(schedule) <- str_to_title(names(schedule))
 done <- schedule %>%
-  select(
-      Week, Date = Date_md, Quiz, Class, Assignments, Readings
-  ) %>%
-  kbl(format = 'html', escape = FALSE,
-        align = c('c', 'c', 'l', 'l', 'l', 'l')) %>%
-  kable_styling(full_width = T, bootstrap_options = c("striped", "hover")) %>%
+  select(Week, Date = Date_md, Quiz, Class, Assignments, Readings) %>% 
+  kable(
+    format = 'html',
+    escape = FALSE,
+    align = c('c', 'c', 'l', 'l', 'l', 'l')
+  ) %>% 
+  kable_styling(full_width = FALSE) %>% 
+  column_spec(column = 1, width = '1em') %>% 
   column_spec(column = 2, width = '2em') %>%
-  column_spec(column = 4, width = '15em') %>% 
-  column_spec(column = 5, width = '12em')
+  column_spec(column = 4, width = '15em') 
 
-# Add highlighting based on current week if we're still in the semester
+# # Add highlighting based on current week if we're still in the semester
 # highlight <- which(Sys.Date() > (schedule$Date))
 # if (Sys.Date() <= ymd("2023-05-12")) {
 #   done <- done %>%
@@ -38,4 +40,3 @@ done <- schedule %>%
 
 done
 ```
-
