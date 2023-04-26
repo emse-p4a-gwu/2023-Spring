@@ -12,6 +12,10 @@ source("_common.R")
 #| warning: false 
 #| message: false
 
+# NOTE: The schedule.lua file is inserted as a filter in _quarto.yml to 
+# avoid the insertion of a <colgroup> in the html around this table: 
+# https://github.com/jgm/pandoc/issues/8139
+
 library(tidyverse)
 library(kableExtra)
 
@@ -27,9 +31,10 @@ done <- schedule %>%
     align = c('c', 'c', 'l', 'l', 'l', 'l')
   ) %>% 
   kable_styling(full_width = FALSE) %>% 
-  column_spec(column = 1, width = '1em') %>% 
-  column_spec(column = 2, width = '2em') %>%
-  column_spec(column = 4, width = '15em') 
+  column_spec(column = 1, width = '2em') %>%
+  column_spec(column = 2, width = '3em') %>%
+  column_spec(column = 4, width = '16em') %>% 
+  column_spec(column = 5, width = '15em')
 
 # # Add highlighting based on current week if we're still in the semester
 # highlight <- which(Sys.Date() > (schedule$Date))

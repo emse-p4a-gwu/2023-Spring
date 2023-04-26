@@ -25,11 +25,11 @@ get_schedule <- function() {
     
     # Icons
     # https://icons.getbootstrap.com/
-    fa <- list(
-        class      = '<i class="bi-laptop-fill"></i>',
-        assignment = '<i class="bi-pencil-fill"></i>',
-        reading    = '<i class="bi-book-fill"></i>'
-    )
+    # fa <- list(
+    #     class      = '<i class="bi-laptop-fill"></i>',
+    #     assignment = '<i class="bi-pencil-fill"></i>',
+    #     reading    = '<i class="bi-book-fill"></i>'
+    # )
     
     schedule_raw <- read_csv(here::here('schedule.csv'))
     
@@ -51,9 +51,8 @@ get_schedule <- function() {
                 is.na(due_assign),
                 "",
                 paste0(
-                    '<a href="hw/', n_assign, "-", stub_assign, '.html">',
-                    fa$assignment, ' HW ', n_assign,
-                    "</a><br>Due: ", due_assign))
+                    '<a href="hw/', n_assign, "-", stub_assign, '.html"><b>HW ',
+                    n_assign, "</b></a><br>Due: ", due_assign))
         ) %>%
         select(week, assignments)
     
@@ -68,8 +67,8 @@ get_schedule <- function() {
                 is.na(stub_class),
                 paste0("<b>", name_class, "</b><br>", description_class),
                 paste0(
-                    '<a href="class/', n_class, "-", stub_class, '.html">',
-                    fa$class, '<b> ', name_class, "</b></a><br> ",
+                    '<a href="class/', n_class, "-", stub_class, '.html"><b>',
+                    name_class, "</b></a><br> ",
                     description_class)),
         ) %>%
         select(week, class)
@@ -93,8 +92,8 @@ get_schedule <- function() {
         } else {
             stub <- reading[i,]$stub[[1]]
             result <- paste0(
-                '<a href=', reading_root, stub ,'.html target="_blank">',
-                fa$reading, name, "</a>")
+                '<a href=', reading_root, stub ,'.html target="_blank"><b>',
+                name, "</b></a>")
             result <- paste(result, collapse = '<br>')
             
         }
@@ -112,7 +111,8 @@ get_schedule <- function() {
         left_join(quiz, by = "week") %>%
         left_join(class, by = "week") %>%
         left_join(assignments, by = "week") %>%
-        left_join(reading, by = "week")
+        left_join(reading, by = "week") %>% 
+        ungroup()
     
     return(schedule)
 }

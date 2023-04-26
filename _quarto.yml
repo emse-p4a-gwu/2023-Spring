@@ -90,3 +90,6 @@ format:
     smooth-scroll: true
     link-external-newwindow: true
     link-external-icon: false
+
+filters:
+    - schedule.lua
