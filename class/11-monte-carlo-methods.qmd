@@ -1,8 +1,0 @@
----
-title: "Monte Carlo Methods"
-params:
-  class: "11-monte-carlo-methods"
----
-
-```{r child = here::here("fragments", "class.qmd")}
-```

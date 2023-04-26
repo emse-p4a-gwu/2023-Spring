@@ -1,7 +1,0 @@
----
-title: "Data Visualization"
-params:
-  class: "12-data-visualization"
----
-
-Coming soon!

@@ -1,7 +1,0 @@
----
-title: "Data Wrangling"
-params:
-  class: "11-data-wrangling"
----
-
-Coming soon!

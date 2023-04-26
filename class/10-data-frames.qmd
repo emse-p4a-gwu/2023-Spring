@@ -1,7 +1,0 @@
----
-title: "Data Frames"
-params:
-  class: "10-data-frames"
----
-
-Coming soon!
