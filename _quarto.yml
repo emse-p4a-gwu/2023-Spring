@@ -43,7 +43,7 @@ website:
         icon: map-fill
         href: syllabus.qmd
       - text: Schedule
-        icon: calendar-week-fill
+        icon: table
         href: schedule.qmd
       - text: Textbook
         icon: book-fill

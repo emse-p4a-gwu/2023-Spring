@@ -24,6 +24,7 @@ knitr::opts_chunk$set(
 get_schedule <- function() {
     
     # Icons
+    # https://icons.getbootstrap.com/
     fa <- list(
         class      = '<i class="bi-laptop-fill"></i>',
         assignment = '<i class="bi-pencil-fill"></i>',
@@ -51,8 +52,8 @@ get_schedule <- function() {
                 "",
                 paste0(
                     '<a href="hw/', n_assign, "-", stub_assign, '.html">',
-                    fa$assignment, '</a> HW ', n_assign,
-                    "<br>Due: ", due_assign))
+                    fa$assignment, ' HW ', n_assign,
+                    "</a><br>Due: ", due_assign))
         ) %>%
         select(week, assignments)
     
@@ -65,10 +66,10 @@ get_schedule <- function() {
                 description_class),
             class = ifelse(
                 is.na(stub_class),
-                paste0("<b>", name_class, "</b>"),
+                paste0("<b>", name_class, "</b><br>", description_class),
                 paste0(
                     '<a href="class/', n_class, "-", stub_class, '.html">',
-                    fa$class, '</a><b> ', name_class, "</b><br> ",
+                    fa$class, '<b> ', name_class, "</b></a><br> ",
                     description_class)),
         ) %>%
         select(week, class)
@@ -93,7 +94,7 @@ get_schedule <- function() {
             stub <- reading[i,]$stub[[1]]
             result <- paste0(
                 '<a href=', reading_root, stub ,'.html target="_blank">',
-                fa$reading, '</a> ', name)
+                fa$reading, name, "</a>")
             result <- paste(result, collapse = '<br>')
             
         }
