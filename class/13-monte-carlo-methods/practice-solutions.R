@@ -73,9 +73,20 @@ for (i in 1:N) {
 
 count / N
 
+# Solution using map():
+
+suits <- c('diamonds', 'spades', 'hearts', 'clubs')
+deck <- rep(suits, 13)
+count <- map_int(
+    1:100000,
+    \(x) length(unique(sample(x = deck, size = 4, replace = FALSE))) == 1
+)
+sum(count) / N
+
+
 # What are the odds that five cards drawn from a 52-card deck will sum
-# to a prime number? 
-# 
+# to a prime number?
+#
 # - Aces = 1
 # - Jack = 10
 # - Queen = 10
@@ -107,6 +118,15 @@ for (i in 1:N) {
 }
 
 count / N
+
+# Solution using map():
+
+deck <- rep(c(seq(10), 10, 10, 10), 4)
+count <- map_int(
+    1:100000,
+    \(x) isPrime(sum(sample(x = deck, size = 5, replace = FALSE)))
+)
+sum(count) / N
 
 
 # Practice 3: Monte Carlo pi ----------------------------
