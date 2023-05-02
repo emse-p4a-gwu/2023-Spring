@@ -1,0 +1,1397 @@
+---
+title: "Midterm Review"
+subtitle: "EMSE 4571: Intro to Programming for Analytics"
+date: May 04, 2023
+week: 14
+class: "14-final-review"
+author: "John Paul Helveston"
+institute: "The George Washington University | Dept. of Engineering Management and Systems Engineering"
+output:
+  xaringan::moon_reader:
+    css:
+      - default
+      - css/lexis.css
+      - css/lexis-fonts.css
+    lib_dir: libs
+    seal: false
+    nature:
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+      ratio: "16:9"
+---
+
+```{r, child="../setup.Rmd"}
+```
+
+---
+
+# Things to review
+
+--
+
+- Lecture slides, especially practice puzzles covered in class)
+
+--
+
+- Previous quizzes
+
+--
+
+- Memorize syntax for:
+  - if / else statements
+  - loops
+  - functions
+  - test functions
+
+---
+
+class: middle, inverse, center 
+
+# .fancy[Basics]
+
+---
+
+## Operators: Relational (`=`, `<`, `>`, `<=`, `>=`) and Logical (`&`, `|`, `!`)
+
+```{r}
+x <- FALSE
+y <- FALSE
+z <- TRUE
+```
+
+a Write a logical statement that compares the objects `x`, `y`, and `z` and returns `TRUE`
+
+b) Fill in **relational** operators to make this statement return `TRUE`:
+
+`! (x __ y) & ! (z __ y)`
+
+c) Fill in **logical** operators to make this statement return `FALSE`:
+
+`! (x __ y) | (z __ y)`
+
+---
+
+# Numeric Data
+
+--
+
+.leftcol[
+
+Doubles:
+
+```{r}
+typeof(3.14)
+```
+
+]
+
+--
+
+.rightcol[
+
+"Integers":
+
+```{r}
+typeof(3)
+```
+
+]
+
+---
+
+# Actual Integers
+
+--
+
+Check if a number is an "integer":
+
+--
+
+.leftcol[
+
+```{r}
+n <- 3
+is.integer(n) # Doesn't work!
+```
+
+]
+
+--
+
+.rightcol[
+
+```{r}
+n == as.integer(n) # Compare n to a converted version of itself
+```
+
+]
+
+---
+
+# Logical Data
+
+`TRUE` or `FALSE`
+
+--
+
+```{r}
+x <- 1
+y <- 2
+```
+
+--
+
+```{r}
+x > y # Is x greater than y?
+```
+
+--
+
+```{r}
+x == y
+```
+
+---
+
+## Tricky data type stuff
+
+--
+
+.leftcol[
+
+Logicals become numbers when doing math
+
+```{r}
+TRUE + 1 # TRUE becomes 1
+```
+
+```{r}
+FALSE + 1 # FALSE becomes 0
+```
+
+]
+
+--
+
+.rightcol[
+
+Be careful of accidental strings
+
+```{r}
+typeof("3.14")
+typeof("TRUE")
+```
+
+]
+
+---
+
+# Integer division: `%/%`
+
+Integer division drops the remainder
+
+--
+
+```{r}
+4 / 3 # Regular division
+4 %/% 3 # Integer division
+```
+
+---
+
+# Integer division: `%/%`
+
+Integer division drops the remainder
+
+--
+
+What will this return?
+
+```{r, eval=FALSE}
+4 %/% 4
+```
+
+--
+
+```{r, echo=FALSE}
+4 %/% 4
+```
+
+--
+
+What will this return?
+
+```{r, eval=FALSE}
+4 %/% 5
+```
+
+--
+
+```{r, echo=FALSE}
+4 %/% 5
+```
+
+---
+
+# Modulus operator: `%%`
+
+Modulus returns the remainder _after_ doing integer division
+
+--
+
+```{r}
+5 %% 3
+```
+
+--
+
+```{r}
+3.1415 %% 3
+```
+
+---
+
+# Modulus operator: `%%`
+
+Modulus returns the remainder _after_ doing integer division
+
+--
+
+What will this return?
+
+```{r, eval=FALSE}
+4 %% 4
+```
+
+--
+
+```{r, echo=FALSE}
+4 %% 4
+```
+
+--
+
+What will this return?
+
+```{r, eval=FALSE}
+4 %% 5
+```
+
+--
+
+```{r, echo=FALSE}
+4 %% 5
+```
+
+---
+
+## Number "chopping" with 10s (only works with `n > 0`)
+
+--
+.pull-left[
+The mod operator (`%%`) "chops" a number and returns everything to the _right_
+
+```{r}
+123456 %% 1
+123456 %% 10
+123456 %% 100
+```
+]
+--
+.pull-right[
+Integer division (`%/%`) "chops" a number and returns everything to the _left_
+
+```{r}
+123456 %/% 1
+123456 %/% 10
+123456 %/% 100
+```
+]
+
+---
+
+class: middle, inverse, center 
+
+# .fancy[Functions]
+
+---
+
+# Basic function syntax
+
+.code90[
+```{r eval=FALSE}
+functionName <- function(arguments) {
+    # Do stuff here
+    return(something)
+}
+```
+]
+
+---
+
+# Basic function syntax
+
+In English:
+
+> "`functionName` is a `function` of `arguments` that does..."
+
+.code90[
+```{r eval=FALSE}
+functionName <- function(arguments) {
+    # Do stuff here
+    return(something)
+}
+```
+]
+
+---
+
+# Basic function syntax
+
+Example:
+
+> "`squareRoot` is a `function` of `n` that...returns the square root of `n`"
+
+```{r}
+squareRoot <- function(n) {
+    return(n^0.5)
+}
+```
+
+--
+
+```{r}
+squareRoot(64)
+```
+
+---
+
+# Test function "syntax"
+
+--
+
+.leftcol[
+
+### Function:
+
+```{r, eval=FALSE}
+functionName <- function(arguments) {
+    # Do stuff here
+    return(something)
+}
+```
+
+]
+
+--
+
+.rightcol[
+
+### Test function:
+
+```{r, eval=FALSE}
+test_functionName <- function() {
+    cat("Testing functionName()...")
+    # Put test cases here
+    cat("Passed!\n")
+}
+```
+
+]
+
+---
+
+# Writing test cases with `stopifnot()`
+
+`stopifnot()` stops the function if whatever is inside the `()` is not `TRUE`.
+
+--
+
+.leftcol[
+
+### Function:
+
+```{r}
+isEven <- function(n) {
+    return((n %% 2) == 0)
+}
+```
+
+- `isEven(1)` should be `FALSE`
+- `isEven(2)` should be `TRUE`
+- `isEven(-7)` should be `FALSE`
+
+]
+
+--
+
+.rightcol[
+
+### Test function:
+
+```{r}
+test_isEven <- function() {
+    cat("Testing isEven()...")
+    stopifnot(isEven(1) == FALSE)
+    stopifnot(isEven(2) == TRUE)
+    stopifnot(isEven(-7) == FALSE)
+    cat("Passed!\n")
+}
+```
+
+]
+
+---
+
+# When testing _numbers_, use `almostEqual()`
+
+--
+
+.leftcol[
+
+Rounding errors can cause headaches:
+
+```{r}
+x <- 0.1 + 0.2
+x
+x == 0.3
+print(x, digits = 20)
+```
+
+]
+
+--
+
+.rightcol[
+
+Define a function that checks if two values are _almost_ the same:
+
+```{r}
+almostEqual <- function(n1, n2, threshold = 0.00001) {
+    return(abs(n1 - n2) <= threshold)
+}
+```
+
+```{r}
+x <- 0.1 + 0.2
+almostEqual(x, 0.3)
+```
+
+]
+
+---
+
+## Make sure you know how to write `almostEqual()`
+
+.leftcol70[
+
+```{r}
+almostEqual <- function(n1, n2, threshold = 0.00001) {
+    return(abs(n1 - n2) <= threshold)
+}
+```
+
+]
+
+---
+
+class: middle, inverse, center 
+
+# .fancy[Conditionals]
+
+---
+
+# Use `if` statements to filter function inputs
+
+Example: Write the function `isEvenNumber(n)` that returns `TRUE` if `n` is an even number and `FALSE` otherwise. **If `n` is not a number, the function should return `FALSE`**.
+
+--
+
+.leftcol40[
+
+```{r}
+isEvenNumber <- function(n) {
+    return((n %% 2) == 0)
+}
+```
+
+```{r, error=TRUE}
+isEvenNumber(2)
+isEvenNumber("not_a_number")
+```
+
+]
+
+--
+
+.rightcol60[
+
+```{r}
+isEvenNumber <- function(n) {
+    if (! is.numeric(n)) { return(FALSE) } #<<
+    return((n %% 2) == 0)
+}
+```
+
+```{r}
+isEvenNumber(2)
+isEvenNumber("not_a_number")
+```
+
+]
+
+---
+
+class: middle, inverse, center 
+
+# .fancy[Loops]
+
+---
+
+.leftcol[
+
+### Use `for` loops when the number of iterations is **_known_**.
+
+1. Build the sequence
+2. Iterate over it
+
+```{r}
+for (i in 1:5) { # Define the sequence #<<
+    cat(i, '\n')
+}
+```
+
+]
+
+--
+
+.rightcol[
+
+### Use `while` loops when the number of iterations is **_unknown_**.
+
+1. Define stopping condition
+2. Manually increase condition
+
+```{r}
+i <- 1
+while (i <= 5) { # Define stopping condition #<<
+    cat(i, '\n')
+    i <- i + 1 # Increase condition #<<
+}
+```
+
+]
+
+---
+
+## Search for something in a sequence
+
+Example: count the **even** numbers in sequence: `1, (2), 3, (4), 5`
+
+--
+
+.leftcol[
+
+### `for` loop
+
+```{r}
+count <- 0 # Initialize count #<<
+for (i in seq(5)) {
+    if (i %% 2 == 0) { #<<
+        count <- count + 1 # Update #<<
+    } #<<
+}
+```
+
+```{r}
+count
+```
+
+]
+
+--
+
+.rightcol[
+
+### `while` loop
+
+```{r}
+count <- 0 # Initialize count #<<
+i <- 1
+while (i <= 5) {
+    if (i %% 2 == 0) { #<<
+        count <- count + 1 # Update #<<
+    } #<<
+    i <- i + 1
+}
+```
+
+```{r}
+count
+```
+
+]
+---
+
+class: middle, inverse, center 
+
+# .fancy[Vectors]
+
+---
+
+# The universal vector generator: `c()`
+
+--
+
+.cols3[
+
+## Numeric vectors
+
+```{r}
+x <- c(1, 2, 3)
+x
+```
+
+]
+
+--
+
+.cols3[
+
+## Character vectors
+
+```{r}
+y <- c('a', 'b', 'c')
+y
+```
+
+]
+
+--
+
+.cols3[
+
+## Logical vectors
+```{r}
+z <- c(TRUE, FALSE, TRUE)
+z
+```
+
+]
+
+---
+
+# Elements in vectors must be the same type
+
+### Type hierarchy:
+
+- `character` > `numeric` > `logical`
+- `double` > `integer`
+
+--
+
+.cols3[
+
+Coverts to characters:
+
+```{r}
+c(1, "foo", TRUE)
+```
+
+]
+
+--
+
+.cols3[
+
+Coverts to numbers:
+
+```{r}
+c(7, TRUE, FALSE)
+```
+
+]
+
+--
+
+.cols3[
+
+Coverts to double:
+
+```{r}
+c(1L, 2, pi)
+```
+
+]
+
+---
+
+# Most functions operate on vector _elements_
+
+--
+
+```{r}
+x <- c(3.14, 7, 10, 15)
+```
+
+--
+
+```{r}
+round(x)
+```
+
+--
+
+```{r}
+isEven <- function(n) {
+    return((n %% 2) == 0)
+}
+```
+
+```{r}
+isEven(x)
+```
+
+---
+
+## "Summary" functions **return one value**
+
+--
+
+```{r}
+x <- c(3.14, 7, 10, 15)
+```
+
+--
+
+.leftcol[
+
+```{r}
+length(x)
+sum(x)
+prod(x)
+```
+
+]
+
+.rightcol[
+
+```{r}
+min(x)
+max(x)
+mean(x)
+```
+
+]
+
+---
+
+# Use brackets `[]` to get elements from a vector
+
+```{r}
+x <- seq(1, 10)
+```
+
+--
+
+.leftcol[.code80[
+
+Indices start at 1:
+
+```{r}
+x[1] # Returns the first element
+```
+
+```{r}
+x[3] # Returns the third element
+```
+
+```{r}
+x[length(x)] # Returns the last element
+```
+
+]]
+
+--
+
+.rightcol[.code80[
+
+Slicing with a vector of indices:
+
+```{r}
+x[1:3]  # Returns the first three elements
+```
+```{r}
+x[c(2, 7)] # Returns the 2nd and 7th elements
+```
+
+]]
+
+---
+
+# Use negative integers to _remove_ elements
+
+
+.code70[
+
+```{r}
+x <- seq(1, 10)
+```
+
+]
+
+--
+
+.code70[
+
+```{r}
+x[-1] # Drops the first element
+```
+```{r}
+x[-1:-3] # Drops the first three elements
+```
+```{r}
+x[-c(2, 7)] # Drops the 2nd and 7th elements
+```
+```{r}
+x[-length(x)] # Drops the last element
+```
+
+]
+
+---
+
+# Slicing with logical indices
+
+--
+
+```{r}
+x <- seq(1, 20, 3)
+x
+```
+
+--
+
+```{r}
+x > 10 # Create a logical vector based on some condition
+```
+
+--
+
+Slice `x` with logical vector - only `TRUE` elements will be returned:
+
+```{r}
+x[x > 10]
+```
+
+---
+
+# Comparing vectors
+
+Check if 2 vectors are the same:
+
+```{r}
+x <- c(1, 2, 3)
+y <- c(1, 2, 3)
+```
+
+```{r, eval=FALSE}
+x == y
+```
+
+--
+
+```{r, echo=FALSE}
+x == y
+```
+
+---
+
+# Comparing vectors with `all()` and `any()`
+
+--
+
+.leftcol[
+
+`all()`: Check if _all_ elements are the same
+```{r}
+x <- c(1, 2, 3)
+y <- c(1, 2, 3)
+all(x == y)
+```
+
+```{r}
+x <- c(1, 2, 3)
+y <- c(-1, 2, 3)
+all(x == y)
+```
+
+]
+
+--
+
+.rightcol[
+
+`any()`: Check if _any_ elements are the same
+
+```{r}
+x <- c(1, 2, 3)
+y <- c(1, 2, 3)
+any(x == y)
+```
+
+```{r}
+x <- c(1, 2, 3)
+y <- c(-1, 2, 3)
+any(x == y)
+```
+
+]
+
+---
+
+class: middle, inverse, center 
+
+# .fancy[Strings]
+
+---
+
+class: center
+
+## Case conversion & substrings
+
+|Function         |  Description                            |
+|:----------------|:----------------------------------------|
+|`str_to_lower()` | converts string to lower case           |
+|`str_to_upper()` | converts string to upper case           |
+|`str_to_title()` | converts string to title case           |
+|`str_length()`   | number of characters                    |
+|`str_sub()`      | extracts substrings                     |
+|`str_locate()`   | returns indices of substrings           |
+|`str_dup()`      | duplicates characters                   |
+
+
+---
+
+# Quick practice:
+
+```{r, echo=FALSE}
+countdown(
+  minutes      = 5,
+  warn_when    = 30,
+  update_every = 1,
+  top          = 0,
+  right        = 0,
+  font_size    = '2em'
+)
+```
+
+---
+
+Create this string object: 
+
+```{r, eval=FALSE}
+x <- 'thisIsGoodPractice'
+```
+
+Then use **stringr** functions to transform `x` into the following strings:
+
+.leftcol[
+
+- `'thisIsGood'`
+- `'practice'`
+- `'GOOD'`
+- `'thisthisthis'`
+- `'GOODGOODGOOD'`
+
+]
+
+.rightcol[
+
+**Hint**: You'll need these:
+
+- `str_to_lower()`
+- `str_to_upper()`
+- `str_locate()`
+- `str_sub()`
+- `str_dup()`
+
+]
+
+---
+
+class: center
+
+## Padding, splitting, & merging
+
+|Function         |  Description                            |
+|:----------------|:----------------------------------------|
+|`str_trim()`     | removes leading and trailing whitespace |
+|`str_pad()`      | pads a string                           |
+|`paste()`        | string concatenation                    |
+|`str_split()`    | split a string into a vector            |
+
+---
+
+## Quick practice:
+
+```{r, echo=FALSE}
+countdown(
+  minutes      = 5,
+  warn_when    = 30,
+  update_every = 1,
+  top          = 0,
+  right        = 0,
+  font_size    = '2em'
+)
+```
+
+.font90[
+
+Create the following objects:
+
+```{r, eval=FALSE}
+x <- 'this_is_good_practice'
+y <- c('hello', 'world')
+```
+
+Use `stringr` functions to transform `x` and `y` into the following:
+
+.leftcol60[
+
+- `"hello world"`
+- `"***hello world***"`
+- `c("this", "is", "good", "practice")`
+- `"this is good practice"`
+- `"hello world, this is good practice"`
+
+]
+
+.rightcol40[
+
+**Hint**: You'll need these:
+
+- `str_trim()`
+- `str_pad()`
+- `paste()`
+- `str_split()`
+
+]]
+
+---
+
+class: center
+
+## Detecting & replacing
+
+|Function         |  Description                            |
+|:----------------|:----------------------------------------|
+|`str_sort()`     | sort a string alphabetically            |
+|`str_order()`    | get the order of a sorted string        |
+|`str_detect()`   | match a string in another string        |
+|`str_replace()`  | replace a string in another string      |
+
+---
+
+# Quick practice:
+
+```{r, echo=FALSE}
+countdown(
+  minutes      = 5,
+  warn_when    = 30,
+  update_every = 1,
+  top          = 0,
+  right        = 0,
+  font_size    = '2em'
+)
+```
+
+```{r}
+fruit[1:5]
+```
+
+Use `stringr` functions to answer the following questions about the  `fruit` vector:
+
+1. How many fruit have the string `"rr"` in it?
+2. Which fruit end with string `"fruit"`?
+3. Which fruit contain more than one `"o"` character?
+
+**Hint**: You'll need to use `str_detect()` and `str_count()`
+
+---
+
+class: inverse, center, middle
+
+# Begin list of all problems solved in class
+
+---
+
+class: inverse
+
+## General function writing
+
+.leftcol[
+
+`eggCartons(eggs)`: Write a function that reads in a non-negative number of eggs and prints the number of egg cartons required to hold that many eggs. Each egg carton holds one dozen eggs, and you cannot buy fractional egg cartons.
+
+- eggCartons(0) == 0
+- eggCartons(1) == 1
+- eggCartons(12) == 1
+- eggCartons(25) == 3
+
+]
+
+.rightcol[
+
+`militaryTimeToStandardTime(n)`: Write a function that takes an integer between 0 and 23 (representing the hour in [military time](http://militarytimechart.com/)), and returns the same hour in standard time.
+
+- militaryTimeToStandardTime(0) == 12
+- militaryTimeToStandardTime(3) == 3
+- militaryTimeToStandardTime(12) == 12
+- militaryTimeToStandardTime(13) == 1
+- militaryTimeToStandardTime(23) == 11
+
+]
+
+---
+
+class: inverse
+
+# Number chopping
+
+.leftcol[
+`onesDigit(x)`: Write a function that takes an integer and returns its ones digit.
+
+Tests:
+- onesDigit(123) == 3
+- onesDigit(7890) == 0
+- onesDigit(6) == 6
+- onesDigit(-54) == 4
+]
+
+.rightcol[
+`tensDigit(x)`: Write a function that takes an integer and returns its tens digit.
+
+Tests:
+- tensDigit(456) == 5
+- tensDigit(23) == 2
+- tensDigit(1) == 0
+- tensDigit(-7890) == 9
+]
+
+---
+
+class: inverse
+
+# Top-down design
+
+Create a function, `isRightTriangle(a, b, c)` that returns `TRUE` if the triangle formed by the lines of length `a`, `b`, and `c` is a right triangle and `FALSE` otherwise. Use the `hypotenuse(a, b)` function in your solution. **Hint**: you may not know which value (`a`, `b`, or `c`) is the hypotenuse.
+
+.leftcol[.code80[
+```{r}
+hypotenuse <- function(a, b) {
+    return(sqrt(sumOfSquares(a, b)))
+}
+```
+```{r}
+sumOfSquares <- function(a, b) {
+    return(a^2 + b^2)
+}
+```
+]]
+
+---
+
+class: inverse
+
+# Conditionals (if / else)
+
+`getType(x)`: Write the function `getType(x)` that returns the type of the data (either `integer`, `double`, `character`, or `logical`). Basically, it does the same thing as the `typeof()` function (but you can't use `typeof()` in your solution).
+
+- `getType(3) == "double"`
+- `getType(3L) == "integer"`
+- `getType("foo") == "character"`
+- `getType(TRUE) == "logical"`
+
+---
+
+class: inverse
+
+# Conditionals (if / else)
+
+For each of the following functions, start by writing a test function that tests the function for a variety of values of inputs. Consider cases that you might not expect!
+
+.leftcol[
+`isFactor(f, n)`: Write the function `isFactor(f, n)` that takes two integer values and returns `TRUE` if `f` is a factor of `n`, and `FALSE` otherwise. Note that every integer is a factor of `0`. Assume `f` and `n` will only be numeric values, e.g. `2` is a factor of `6`.
+]
+
+.rightcol[
+`isMultiple(m, n)`: Write the function `isMultiple(m, n)` that takes two integer values and returns `TRUE` if `m` is a multiple of `n` and `FALSE` otherwise. Note that `0` is a multiple of every integer other than itself. Hint: You may want to use the `isFactor(f, n)` function you just wrote above. Assume `m` and `n` will only be numeric values.
+]
+
+---
+
+class: inverse
+
+# Conditionals (if / else)
+
+Write the function `getInRange(x, bound1, bound2)` which takes 3 numeric values: `x`, `bound1`, and `bound2` (`bound1` is not necessarily less than `bound2`). If `x` is between the two bounds, just return `x`, but if `x` is less than the lower bound, return the lower bound, or if `x` is greater than the upper bound, return the upper bound. For example:
+
+- `getInRange(1, 3, 5)` returns `3` (the lower bound, since 1 is below [3,5])
+- `getInRange(4, 3, 5)` returns `4` (the original value, since 4 is between [3,5])
+- `getInRange(6, 3, 5)` returns `5` (the upper bound, since 6 is above [3,5])
+- `getInRange(6, 5, 3)` returns `5` (the upper bound, since 6 is above [3,5])
+
+**Bonus**: Re-write `getInRange(x, bound1, bound2)` without using conditionals
+
+---
+
+class: inverse
+
+## `for` loops
+
+.font80[
+`sumFromMToN(m, n)`: Write a function that sums the total of the integers between `m` and `n`.<br>**Challenge**: Try solving this without a loop!
+
+- `sumFromMToN(5, 10) == (5 + 6 + 7 + 8 + 9 + 10)`
+- `sumFromMToN(1, 1) == 1`
+
+`sumEveryKthFromMToN(m, n, k)`: Write a function to sum every kth integer from `m` to `n`.
+
+- `sumEveryKthFromMToN(1, 10, 2) == (1 + 3 + 5 + 7 + 9)`
+- `sumEveryKthFromMToN(5, 20, 7) == (5 + 12 + 19)`
+- `sumEveryKthFromMToN(0, 0, 1) == 0`
+
+`sumOfOddsFromMToN(m, n)`: Write a function that sums every _odd_ integer between `m` and `n`.
+
+- `sumOfOddsFromMToN(4, 10) == (5 + 7 + 9)`
+- `sumOfOddsFromMToN(5, 9) == (5 + 7 + 9)`
+]
+
+---
+
+class: inverse
+
+## `for` loop with `break` & `next`
+
+`sumOfOddsFromMToNMax(m, n, max)`: Write a function that sums every _odd_ integer from `m` to `n` until the sum is less than the value `max`. Your solution should use both `break` and `next` statements.
+
+- `sumOfOddsFromMToNMax(1, 5, 4) == (1 + 3)`
+- `sumOfOddsFromMToNMax(1, 5, 3) == (1)`
+- `sumOfOddsFromMToNMax(1, 5, 10) == (1 + 3 + 5)`
+
+---
+
+class: inverse
+
+## `while` loops
+
+.leftcol[
+`isMultipleOf4Or7(n)`: Write a function that returns `TRUE` if `n` is a multiple of 4 or 7 and `FALSE` otherwise.
+
+- `isMultipleOf4Or7(0) == FALSE`
+- `isMultipleOf4Or7(1) == FALSE`
+- `isMultipleOf4Or7(4) == TRUE`
+- `isMultipleOf4Or7(7) == TRUE`
+- `isMultipleOf4Or7(28) == TRUE`
+]
+
+.rightcol[
+`nthMultipleOf4Or7(n)`: Write a function that returns the nth positive integer that is a multiple of either 4 or 7.
+
+- `nthMultipleOf4Or7(1) == 4`
+- `nthMultipleOf4Or7(2) == 7`
+- `nthMultipleOf4Or7(3) == 8`
+- `nthMultipleOf4Or7(4) == 12`
+- `nthMultipleOf4Or7(5) == 14`
+- `nthMultipleOf4Or7(6) == 16`
+]
+
+---
+
+class: inverse
+
+## Loops / Vectors
+
+.leftcol[
+`isPrime(n)`: Write a function that takes a non-negative integer, `n`, and returns `TRUE` if it is a prime number and `FALSE` otherwise. Use a loop or vector:
+
+- `isPrime(1) == FALSE`
+- `isPrime(2) == TRUE`
+- `isPrime(7) == TRUE`
+- `isPrime(13) == TRUE`
+- `isPrime(14) == FALSE`
+]
+
+.rightcol[
+`nthPrime(n)`: Write a function that takes a non-negative integer, `n`, and returns the nth prime number, where `nthPrime(1)` returns the first prime number (2). Hint: use a while loop!
+
+- `nthPrime(1) == 2`
+- `nthPrime(2) == 3`
+- `nthPrime(3) == 5`
+- `nthPrime(4) == 7`
+- `nthPrime(7) == 17`
+]
+
+---
+
+class: inverse
+
+# Vectors
+
+.font80[
+`reverse(x)`: Write a function that returns the vector in reverse order. You cannot use the `rev()` function.
+
+- `all(reverseVector(c(5, 1, 3)) == c(3, 1, 5))`
+- `all(reverseVector(c('a', 'b', 'c')) == c('c', 'b', 'a'))`
+- `all(reverseVector(c(FALSE, TRUE, TRUE)) == c(TRUE, TRUE, FALSE))`
+
+
+`alternatingSum(a)`: Write a function that takes a vector of numbers `a` and returns the alternating sum, where the sign alternates from positive to negative or vice versa.
+
+- `alternatingSum(c(5,3,8,4)) == (5 - 3 + 8 - 4)`
+- `alternatingSum(c(1,2,3)) == (1 - 2 + 3)`
+- `alternatingSum(c(0,0,0)) == 0`
+- `alternatingSum(c(-7,5,3)) == (-7 - 5 + 3)`
+]
+
+---
+
+class: inverse
+
+# Strings
+
+1) `reverseString(s)`: Write a function that returns the string `s` in reverse order.
+
+- `reverseString("aWordWithCaps") == "spaChtiWdroWa"`
+- `reverseString("abcde") == "edcba"`
+- `reverseString("") == ""`
+
+2) `isPalindrome(s)`: Write a function that returns `TRUE` if the string `s` is a [Palindrome](https://en.wikipedia.org/wiki/Palindrome) and `FALSE` otherwise.
+
+- `isPalindrome("abcba") == TRUE`
+- `isPalindrome("abcb") == FALSE`
+- `isPalindrome("321123") == TRUE`
+
+---
+
+class: inverse
+
+# Strings
+
+.font90[
+
+1) `sortString(s)`: Write the function `sortString(s)` that takes a string `s` and returns back an alphabetically sorted string.
+
+- `sortString("cba") == "abc"`
+- `sortString("abedhg") == "abdegh"`
+- `sortString("AbacBc") == "aAbBcc"`
+
+2) `areAnagrams(s1, s2)`: Write the function `areAnagrams(s1, s2)` that takes two strings, `s1` and `s2`, and returns `TRUE` if the strings are [anagrams](https://en.wikipedia.org/wiki/Anagram), and `FALSE` otherwise. **Treat lower and upper case as the same letters**.
+
+- `areAnagrams("", "") == TRUE`
+- `areAnagrams("aabbccdd", "bbccddee") == FALSE`
+- `areAnagrams("TomMarvoloRiddle", "IAmLordVoldemort") == TRUE`
+
+]
