@@ -39,6 +39,7 @@ Imports:
     tidyverse,
     TurtleGraphics,
     viridis,
+    viridisLite,
     xaringanExtra,
     wikifacts,
     yaml
