@@ -1,0 +1,8 @@
+---
+title: "Final Exam Review"
+params:
+  class: "14-final-review"
+---
+
+```{r child = here::here("fragments", "class.qmd")}
+```
