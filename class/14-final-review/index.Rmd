@@ -1,5 +1,5 @@
 ---
-title: "Midterm Review"
+title: "Final Review"
 subtitle: "EMSE 4571: Intro to Programming for Analytics"
 date: May 04, 2023
 week: 14
@@ -24,6 +24,28 @@ output:
 ```{r, child="../setup.Rmd"}
 ```
 
+```{r, include=FALSE}
+beatles <- tibble(
+    firstName   = c("John", "Paul", "Ringo", "George"),
+    lastName    = c("Lennon", "McCartney", "Starr", "Harrison"),
+    instrument  = c("guitar", "bass", "drums", "guitar"),
+    yearOfBirth = c(1940, 1942, 1940, 1943),
+    deceased    = c(TRUE, FALSE, FALSE, TRUE)
+)
+
+spicegirls <- tibble(
+    firstName   = c("Melanie", "Melanie", "Emma", "Geri", "Victoria"),
+    lastName    = c("Brown", "Chisholm", "Bunton", "Halliwell", "Beckham"),
+    spice       = c("Scary", "Sporty", "Baby", "Ginger", "Posh"),
+    yearOfBirth = c(1975, 1974, 1976, 1972, 1974),
+    deceased    = c(FALSE, FALSE, FALSE, FALSE, FALSE)
+)
+
+theme_set(theme_gray(base_size = 20))
+bears <- read_csv(here::here('data', 'bear_killings.csv'))
+birds <- read_csv(here::here('data', 'wildlife_impacts.csv'))
+```
+
 ---
 
 # Things to review
@@ -39,10 +61,24 @@ output:
 --
 
 - Memorize syntax for:
+
+  - operators (e.g. mod `%%` and integer division `%/%`)
+  - "number choping" 
   - if / else statements
   - loops
   - functions
   - test functions
+  - dplyr functions (`select`, `filter`, `mutate`, `arrange`, `group_by`, `summarise`)
+
+---
+
+```{r child="topics/0.Rmd"}
+```
+
+---
+
+```{r child="topics/1.Rmd"}
+```
 
 ---
 
@@ -971,7 +1007,6 @@ class: center
 |`str_locate()`   | returns indices of substrings           |
 |`str_dup()`      | duplicates characters                   |
 
-
 ---
 
 # Quick practice:
@@ -986,8 +1021,6 @@ countdown(
   font_size    = '2em'
 )
 ```
-
----
 
 Create this string object: 
 
@@ -1118,6 +1151,842 @@ Use `stringr` functions to answer the following questions about the  `fruit` vec
 3. Which fruit contain more than one `"o"` character?
 
 **Hint**: You'll need to use `str_detect()` and `str_count()`
+
+---
+
+```{r child="topics/2.Rmd"}
+```
+
+---
+
+class: inverse, center, middle
+
+# Data Frame Basics
+
+---
+
+## **Columns**: _Vectors_ of values (must be same data type)
+
+```{r}
+beatles
+```
+
+--
+
+Extract a column using `$`
+
+```{r}
+beatles$firstName
+```
+
+---
+
+# Create new variables with the `$` symbol
+
+--
+
+Add the hometown of the bandmembers:
+
+```{r}
+beatles$hometown <- 'Liverpool'
+beatles
+```
+
+---
+
+## **Rows**: Information about individual observations
+
+--
+
+Information about _John Lennon_ is in the first row:
+
+```{r}
+beatles[1,]
+```
+
+--
+
+Information about _Paul McCartney_ is in the second row:
+
+```{r}
+beatles[2,]
+```
+
+---
+
+## Access elements by index: `DF[row, column]`
+
+```{r, echo=FALSE}
+beatles <- tibble(
+    firstName   = c("John", "Paul", "Ringo", "George"),
+    lastName    = c("Lennon", "McCartney", "Starr", "Harrison"),
+    instrument  = c("guitar", "bass", "drums", "guitar"),
+    yearOfBirth = c(1940, 1942, 1940, 1943),
+    deceased    = c(TRUE, FALSE, FALSE, TRUE)
+)
+```
+
+General form for indexing elements:
+
+```{r, eval=FALSE}
+DF[row, column]
+```
+
+--
+
+.leftcol[
+
+Select the element in row 1, column 2:
+
+```{r}
+beatles[1, 2]
+```
+
+]
+
+--
+
+.rightcol[
+
+Select the elements in rows 1 & 2 and columns 2 & 3:
+
+```{r}
+beatles[c(1, 2), c(2, 3)]
+```
+
+]
+
+---
+
+# Steps to importing external data files
+
+--
+
+## 1. Create a path to the data
+
+```{r}
+library(here)
+pathToData <- here('data', 'data.csv') #<<
+pathToData
+```
+
+--
+
+## 2. Import the data
+
+```{r, eval=FALSE}
+library(readr)
+df <- read_csv(pathToData)#<<
+```
+
+---
+
+class: inverse, center, middle
+
+# Data Wrangling
+
+---
+
+class: center
+
+### The tidyverse: `stringr` + `dplyr` + `readr` +  `ggplot2` + ...
+
+<center>
+<img src="images/horst_monsters_tidyverse.jpeg" width="950">
+</center>Art by [Allison Horst](https://www.allisonhorst.com/)
+
+---
+
+# **Know how to use these functions!**
+
+- `select()`: subset columns
+- `filter()`: subset rows on conditions
+- `arrange()`: sort data frame
+- `mutate()`: create new columns by using information from other columns
+- `group_by()`: group data to perform grouped operations
+- `summarize()`: create summary statistics (usually on grouped data)
+- `count()`: count discrete rows
+
+---
+
+# Select columns with `select()`
+
+<br>
+<center>
+<img src="images/rstudio-cheatsheet-select.png" width="900">
+</center>
+
+---
+
+# Select columns with `select()`
+
+```{r}
+spicegirls %>% 
+    select(firstName, lastName)
+```
+
+---
+
+# Select rows with `filter()`
+
+<br>
+<center>
+<img src="images/rstudio-cheatsheet-filter.png" width="900">
+</center>
+
+---
+
+# Select rows with `filter()`
+
+Example: Filter the band members born after 1974
+
+```{r}
+spicegirls %>% 
+    filter(yearOfBirth > 1974)
+```
+
+---
+
+# Removing missing values
+
+Drop all rows where `variable` is `NA`
+
+```{r, eval=FALSE}
+data %>% 
+    filter(!is.na(variable))
+```
+
+---
+
+# **Don't make this common mistake!**
+
+.leftcol[
+
+## Wrong! 
+
+```{r}
+#| eval: false 
+
+data %>% 
+  filter(data, condition)
+```
+
+]
+
+.rightcol[
+
+## Right! 
+
+```{r}
+#| eval: false 
+
+data %>% 
+  filter(condition)
+```
+
+Or: 
+
+```{r}
+#| eval: false 
+
+filter(data, condition)
+```
+
+]
+
+---
+
+class: center, middle
+
+## Create new variables with `mutate()`
+
+<br>
+<center>
+<img src="images/rstudio-cheatsheet-mutate.png" width="900">
+</center>
+
+---
+
+# Create new variables with `mutate()`
+
+Example: Use the `yearOfBirth` variable to compute the age of each band member
+
+```{r}
+spicegirls %>%
+    mutate(age = 2022 - yearOfBirth)
+```
+
+---
+
+class: center
+
+# Split-apply-combine with `group_by`
+
+<br>
+<center>
+<img src="images/rstudio-cheatsheet-group_by.png" width="900">
+</center>
+
+---
+
+## Compute values by group with `group_by`
+
+Compute the mean band member age for **each band**
+
+```{r}
+bands %>%
+    mutate(
+        age = 2020 - yearOfBirth,
+        mean_age = mean(age)) # This is the mean across both bands #<<
+```
+
+---
+
+## Compute values by group with `group_by`
+
+Compute the mean band member age for each band
+
+```{r}
+bands %>%
+    mutate(age = 2020 - yearOfBirth) %>%
+    group_by(band) %>% # Everything after this will be done each band #<<
+    mutate(mean_age = mean(age))
+```
+
+---
+
+class: center
+
+# Summarize data frames with `summarise()`
+
+<br>
+<center>
+<img src="images/rstudio-cheatsheet-summarise.png" width="900">
+</center>
+
+---
+
+## Summarize data frames with `summarise()`
+
+Compute the mean band member age for **each band**
+
+```{r}
+bands %>%
+    mutate(age = 2020 - yearOfBirth) %>%
+    group_by(band) %>%
+    summarise(mean_age = mean(age)) # Drops all variables except for group #<<
+```
+
+---
+
+## If you only want a quick count, use `count()`
+
+These do the same thing:
+
+.leftcol[
+
+```{r}
+bands %>%
+    group_by(band) %>%
+    summarise(n = n())
+```
+
+]
+
+.rightcol[
+
+```{r}
+bands %>%
+    count(band)
+```
+
+]
+
+---
+
+class: inverse, center, middle
+
+# Data Visualization
+
+---
+
+.leftcol[
+
+<img src="images/making_a_ggplot.jpeg" width=600>
+
+]
+
+.rightcol[
+
+# "Grammar of Graphics"
+
+Concept developed by Leland Wilkinson (1999)
+
+**ggplot2** package developed by Hadley Wickham (2005)
+
+]
+
+---
+
+# Making plot layers with ggplot2
+
+<br>
+
+### 1. The data (we'll use `bears`)
+### 2. The aesthetic mapping (what goes on the axes?)
+### 3. The geometries (points? bars? etc.)
+
+---
+
+# Layer 1: The data
+
+The `ggplot()` function initializes the plot with whatever data you're using
+
+.leftcol[
+
+```{r ggblank, fig.show='hide'}
+bears %>% 
+  ggplot()
+```
+
+]
+
+.rightcol[.blackborder[
+
+```{r ref.label='ggblank', echo=FALSE, fig.height=5, fig.width=7}
+```
+
+]]
+
+---
+
+# Layer 2: The aesthetic mapping
+
+The `aes()` function determines which variables will be _mapped_ to the geometries<br>(e.g. the axes)
+
+.leftcol[
+
+```{r ggaes, fig.show='hide'}
+bears %>% 
+  ggplot(aes(x = year, y = age))  #<<
+```
+]
+
+.rightcol[.blackborder[
+
+```{r ref.label='ggaes', echo=FALSE, fig.height=5, fig.width=7}
+```
+
+]]
+
+---
+
+# Layer 3: The geometries
+
+Use `+` to add geometries (e.g. points)
+
+.leftcol[
+
+```{r ggpoint, fig.show='hide'}
+bears %>% 
+  ggplot(aes(x = year, y = age)) +
+  geom_point() #<<
+```
+
+]
+
+.rightcol[.blackborder[
+
+```{r ref.label='ggpoint', echo=FALSE, fig.height=5, fig.width=7}
+```
+
+]]
+
+---
+
+# Scatterplots with `geom_point()`
+
+Change the color of all points:
+
+.leftcol[
+
+```{r ggbearsblue, fig.show='hide'}
+bears %>% 
+  ggplot(aes(x = year, y = age)) +
+  geom_point(color = 'blue') #<<
+```
+
+]
+
+.rightcol[.blackborder[
+
+```{r ref.label='ggbearsblue', echo=FALSE, fig.height=5, fig.width=7}
+```
+
+]]
+
+---
+
+# Scatterplots with `geom_point()`
+
+Map the point color to a **variable**:
+
+.leftcol[
+
+```{r ggbearsage, fig.show='hide'}
+bears %>% 
+  ggplot(aes(x = year, y = age)) +
+  geom_point(aes(color = gender)) #<<
+```
+
+Note that `color = gender` is _inside_ `aes()`
+
+]
+
+.rightcol[.blackborder[
+
+```{r ref.label='ggbearsage', echo=FALSE, fig.height=5, fig.width=7}
+```
+
+]]
+
+---
+
+## Make bar charts with `geom_col()`
+
+.leftcol[
+
+```{r bears_geom_col_pipe, fig.show='hide'}
+bears %>%
+  count(month) %>% #<<
+  ggplot() +
+  geom_col(aes(x = month, y = n))
+```
+
+]
+
+.rightcol[
+
+```{r ref.label='bears_geom_col_pipe', echo=FALSE, fig.height=5, fig.width=7, fig.align='center'}
+```
+
+]
+
+---
+
+### Change bar width:  `width`
+### Change bar color: `fill`
+### Change bar outline: `color`
+
+.leftcol[
+
+```{r bears_geom_col_colors, fig.show='hide'}
+bears %>%
+  count(month) %>%
+  ggplot() +
+  geom_col(
+    mapping = aes(x = month, y = n),
+    width = 0.7, #<<
+    fill = "blue", #<<
+    color = "red" #<<
+  )
+```
+
+]
+
+.rightcol[
+
+```{r ref.label='bears_geom_col_colors', echo=FALSE, fig.height=5, fig.width=7, fig.align='center'}
+```
+
+]
+
+---
+
+## Rearrange bars by reordering the factors
+
+.leftcol[
+
+```{r bears_geom_col_reorder, fig.show='hide'}
+bears %>%
+  count(month) %>%
+  ggplot() +
+  geom_col(
+    aes(
+      x = reorder(month, n), #<<
+      y = n
+    )
+  )
+```
+
+]
+
+.rightcol[
+
+```{r ref.label='bears_geom_col_reorder', echo=FALSE, fig.height=5, fig.width=7, fig.align='center'}
+```
+
+]
+
+---
+
+class: inverse, center, middle
+
+# Programming with Data
+
+---
+
+# Convert this to a function
+
+.leftcol[
+
+Single-use pipeline
+
+```{r}
+diamonds %>%
+  group_by(color) %>%
+  summarise(
+    n = n(),
+    mean = mean(price),
+    sd = sd(price)
+  )
+```
+
+]
+
+--
+
+.rightcol[
+
+As a function by "embracing" variable 🤗
+
+```{r}
+my_summary <- function(df, group, var) {
+  df %>%
+    group_by({{ group }}) %>% #<<
+    summarise(
+      n = n(),
+      mean = mean({{ var }}), #<<
+      sd = sd({{ var }}) #<<
+    ) 
+}
+```
+
+]
+
+---
+
+### Use it on a different data frame!
+
+.leftcol[
+
+```{r}
+library(palmerpenguins)
+
+my_summary(penguins, sex, body_mass_g)
+```
+
+]
+
+.rightcol[
+
+```{r}
+my_summary(penguins, species, bill_length_mm)
+```
+
+]
+
+---
+
+class: center, middle 
+
+## Iterating on data with `purrr`
+
+<center>
+<img src="https://purrr.tidyverse.org/logo.png" width=200>
+</center>
+
+Loaded automatically with `library(tidyverse)`
+
+---
+
+class: center, middle
+
+## `purrr::map(x, f, ...)`
+
+<br>
+
+## for every element of `x` do `f`
+
+---
+
+background-image: url("images/lego1.jpeg")
+background-size: contain
+class: center
+
+<br>
+
+## `x = minis`
+
+## `f = add_antenna`
+
+---
+
+background-image: url("images/lego2.jpeg")
+background-size: contain
+class: center
+
+<br>
+
+## `map(minis, add_antenna)`
+
+---
+
+class: center 
+background-color: #fff
+
+## for every element of `x` do `f`
+
+<center>
+<img src="images/map.png" width=650>
+</center>
+
+---
+
+# Some examples
+
+What will this return?
+
+```{r}
+# eval: false
+
+map(1:3, \(x) x %% 2 == 0)
+```
+
+--
+
+```{r}
+map(1:3, \(x) x %% 2 == 0)
+```
+
+---
+
+# Some examples
+
+What will this return?
+
+```{r}
+# eval: false
+
+sum(map_int(1:3, \(x) x %% 2 == 0))
+```
+
+--
+
+```{r}
+sum(map_int(1:3, \(x) x %% 2 == 0))
+```
+
+---
+
+class: inverse, center, middle
+
+# Webscraping
+
+---
+
+## There will be a bonus question on scraping a website
+
+## General tips:
+
+`html_element()`:
+
+- Know when to use `html_element()` vs `html_elements()`
+- **Warning**: ChatGPT doesn't know `html_element()` - it only knows `html_node()`
+
+`html_table()`:
+
+- If you use `html_table()`, remember it returns a **list** of tables.
+- Usually you want the first table, something like this:
+
+```{r}
+#| eval: false 
+
+tables <- html %>% html_table()
+df <- tables[[1]]
+```
+
+---
+
+class: inverse, center, middle
+
+# Monte Carlo
+
+---
+
+# Monte Carlo Simulation: _Computing Probability_
+
+### General process:
+
+- Run a series of trials.
+- In each trial, simulate an event (e.g. a coin toss, a dice roll, etc.).
+- Count the number of "successful" trials
+<br><br>
+
+--
+
+### $\frac{\text{# Successful Trials}}{\text{# Total Trials}}$ = Observed Odds $\simeq$ Expected Odds
+
+--
+
+### **Law of large numbers**:<br>As _N_ increases, Observed Odds `r fa('angle-double-right')` Expected Odds
+
+---
+
+### Discrete, **Independent** Events: `sample(replace = TRUE)`
+
+What is the probability of rolling a 6-sided dice 3 times<br>and getting the sequence 1, 3, 5?
+
+```{r}
+library(tidyverse)
+
+dice <- c(1, 2, 3, 4, 5, 6)
+N <- 10000
+
+rolls <- tibble(
+  roll1 = sample(x = dice, size = N, replace = T),
+  roll2 = sample(x = dice, size = N, replace = T),
+  roll3 = sample(x = dice, size = N, replace = T)
+)
+
+successes <- rolls %>%
+  filter(roll1 == 1 & roll2 == 3 & roll3 == 5)
+
+nrow(successes) / N
+```
+
+---
+
+### Discrete, **Dependent** Events: `sample(replace = FALSE)`
+
+What are the odds that 3 cards drawn from a 52-card deck will sum to 13?
+
+Repeat the 3-card draw _N_ times:
+
+```{r}
+deck <- rep(c(seq(1, 10), 10, 10, 10), 4) 
+
+N <- 100000
+count <- 0
+for (i in 1:N) {
+   draw <- sample(x = deck, size = 3, replace = FALSE) #<<
+   if (sum(draw) == 13) {
+      count <- count + 1
+   }
+}
+
+count / N # Compute the probability
+```
 
 ---
 
@@ -1395,3 +2264,431 @@ class: inverse
 - `areAnagrams("TomMarvoloRiddle", "IAmLordVoldemort") == TRUE`
 
 ]
+
+---
+
+class: inverse
+
+## Data Frame Basics
+
+Answer these questions using the `beatles` data frame:
+
+1. Create a new column, `playsGuitar`, which is `TRUE` if the band member plays the guitar and `FALSE` otherwise.
+2. Filter the data frame to select only the rows for the band members who have four-letter first names.
+3. Create a new column, `fullName`, which contains the band member's first and last name separated by a space (e.g. `"John Lennon"`)
+
+---
+
+class: inverse
+
+### Data Wrangling: `select()` & `filter()`
+
+.font90[
+
+1) Create the data frame object `df` by using `here()` and `read_csv()` to load the `wildlife_impacts.csv` file in the `data` folder.
+
+2) Use the `df` object and the `select()` and `filter()` functions to answer the following questions:
+
+- Create a new data frame, `df_birds`, that contains only the variables (columns) about the species of bird.
+- Create a new data frame, `dc`, that contains only the observations (rows) from DC airports.
+- Create a new data frame, `dc_birds_known`, that contains only the observations (rows) from DC airports and those where the species of bird is known.
+- How many _known_ unique species of birds have been involved in accidents at DC airports?
+
+]
+
+---
+
+class: inverse
+
+### Data Wrangling: `select()` & `filter()` w/Pipes
+
+.font90[
+
+1) Create the data frame object `df` by using `here()` and `read_csv()` to load the `wildlife_impacts.csv` file in the `data` folder.
+
+2) Use the `df` object and `select()`, `filter()`, and `%>%` to answer the following questions:
+
+- Create a new data frame, `dc_dawn`, that contains only the observations (rows) from DC airports that occurred at dawn.
+- Create a new data frame, `dc_dawn_birds`, that contains only the observations (rows) from DC airports that occurred at dawn and only the variables (columns) about the species of bird.
+- Create a new data frame, `dc_dawn_birds_known`, that contains only the observations (rows) from DC airports that occurred at dawn and only the variables (columns) about the KNOWN species of bird.
+- How many _known_ unique species of birds have been involved in accidents at DC airports at dawn?
+
+]
+
+---
+
+class: inverse
+
+### Data Wrangling: `mutate()` & `arrange()`
+
+.font90[
+
+1) Create the data frame object `df` by using `here()` and `read_csv()` to load the `wildlife_impacts.csv` file in the `data` folder.
+
+2) Use the `df` object with `%>%` and `mutate()` to create the following new variables:
+
+- `height_miles`: The `height` variable converted to miles (Hint: there are 5,280 feet in a mile).
+- `cost_mil`: Is `TRUE` if the repair costs was greater or equal to $1 million, `FALSE` otherwise.
+- `season`: One of four seasons based on the `incident_month` variable:
+
+  - `spring`: March, April, May
+  - `summer`: June, July, August
+  - `fall`: September, October, November
+  - `winter`: December, January, February
+
+]
+
+---
+
+class: inverse
+
+### Data Wrangling: `group_by()` & `summarise()`
+
+.font90[
+
+1) Create the data frame object `df` by using `here()` and `read_csv()` to load the `wildlife_impacts.csv` file in the `data` folder.
+
+2) Use the `df` object and `group_by()`, `summarise()`, `count()`, and `%>%` to answer the following questions:
+
+- Create a summary data frame that contains the mean `height` for each different time of day.
+- Create a summary data frame that contains the maximum `cost_repairs_infl_adj` for each year.
+- Which _month_ has had the greatest number of reported incidents?
+- Which _year_ has had the greatest number of reported incidents?
+
+]
+
+---
+
+class: inverse
+
+## Data Viz: `geom_point()`
+
+Use the `birds` data frame to create the following plots
+
+.leftcol[
+
+```{r, ggpoint_p1, echo=FALSE, fig.height=5, fig.width=7}
+ggplot(
+  data = birds,
+  mapping = aes(x=cost_repairs_infl_adj, y=height)) +
+  geom_point()
+```
+
+]
+
+.rightcol[
+
+```{r, ggpoint_p2, echo=FALSE, fig.height=5, fig.width=7}
+birds %>%
+  mutate(phase_of_flt = str_to_lower(phase_of_flt)) %>%
+  ggplot(aes(x = speed, y = height)) +
+  geom_point(aes(color = phase_of_flt))
+```
+
+]
+
+---
+
+## Data Viz: `geom_col()`
+
+Use the `bears` and `birds` data frame to create the following plots
+
+.leftcol[
+
+```{r, ggbar_p1, echo=FALSE, fig.height=5, fig.width=7}
+bears %>%
+  count(year, gender) %>%
+  ggplot() +
+  geom_col(aes(x = year, y = n, fill = gender)) +
+  labs(
+    x     = "Year",
+    y     = 'Number of killings',
+    fill  = "Victim gender",
+    title = "Annual deadly bear attacks over time")
+```
+
+]
+
+.rightcol[
+
+```{r, ggbar_p2, echo=FALSE, fig.height=5, fig.width=7}
+birds %>%
+  filter(!is.na(cost_repairs_infl_adj)) %>%
+  group_by(incident_year) %>%
+  summarise(maxCost = max(cost_repairs_infl_adj)) %>%
+  ggplot() +
+  geom_col(aes(x = incident_year, y = maxCost)) +
+  labs(
+    x     = "Year",
+    y     = 'Maximum cost ($)',
+    title = "Max annual cost from wildlife impact")
+```
+
+]
+
+---
+
+class: inverse
+
+## Writing Data Functions 1
+
+.leftcol[
+
+```{r}
+#| eval: false
+
+my_subset <- function(df, condition, cols)
+```
+
+Returns a subset of `df` by filtering the rows based on `condition` and only includes the select `cols`. Example:
+
+```{r}
+#| echo: false
+
+my_subset <- function(df, condition, cols) {
+  df %>% 
+    filter({{ condition }}) %>% 
+    select({{ cols }})
+}
+```
+
+```{r}
+#| eval: false
+
+nycflights13::flights %>% 
+  my_subset(
+    condition = month == 12, 
+    cols = c("carrier", "flight")
+  )
+```
+
+```{r}
+#| echo: false
+
+nycflights13::flights %>% 
+  my_subset(month == 12, c("carrier", "flight")) %>% 
+  head(5)
+```
+
+]
+
+.rightcol[
+
+```{r}
+#| eval: false
+
+count_p <- function(df, group)
+```
+
+Returns a summary data frame of the count of rows in `df` by `group` as well as the percentage of those counts.
+
+```{r}
+#| echo: false
+
+count_p <- function(df, group) {
+  df %>% 
+    count({{ group }}, sort = TRUE) %>% 
+    mutate(p = n / sum(n))
+}
+```
+
+```{r}
+#| eval: false
+nycflights13::flights %>%
+  count_p(carrier)
+```
+
+```{r}
+#| echo: false
+nycflights13::flights %>%
+  count_p(carrier) %>% 
+  head()
+```
+
+]
+
+---
+
+class: inverse
+
+## Writing Data Functions 2
+
+Write the function `filtered_scatter` which plots a scatterplot based on a condition, then use it for the two examples below.
+
+```{r}
+#| eval: false
+
+filtered_scatter <- function(df, condition, x, y)
+```
+
+```{r}
+#| echo: false
+
+filtered_scatter <- function(df, condition, x, y) {
+  df %>% 
+    filter({{ condition }}) %>% 
+    ggplot() +
+    geom_point(aes(x = {{ x }}, y = {{ y }} ))
+}
+```
+
+.leftcol[
+
+```{r}
+#| fig.height: 3
+#| fig.width: 5
+
+filtered_scatter(
+  penguins, sex == "male", 
+  x = body_mass_g, y = bill_length_mm)
+```
+
+]
+
+.rightcol[
+
+```{r}
+#| fig.height: 3
+#| fig.width: 5
+
+filtered_scatter(
+  penguins, species == "Gentoo", 
+  x = body_mass_g, y = flipper_length_mm)
+```
+
+]
+
+---
+
+class: inverse
+ 
+## Monte Carlo: Coins & Dice
+
+.leftcol70[
+
+Using the `sample()` function, conduct a monte carlo simulation to estimate the answers to these questions:
+
+- If you flipped a coin 3 times in a row, what is the probability that you'll get three "tails" in a row?
+- If you rolled 2 dice, what is the probability that you'll get "snake-eyes" (two 1's)?
+- If you rolled 2 dice, what is the probability that you'll get an outcome that sums to 8?
+
+]
+
+---
+
+class: inverse
+
+## Monte Carlo: Cards
+
+Use the `sample()` function and a monte carlo simulation to estimate the answers to these questions:
+
+.leftcol[
+
+- What are the odds that four cards drawn from a 52-card deck will have the same suit?
+- What are the odds that five cards drawn from a 52-card deck will sum to a prime number?
+
+- Aces = 1
+- Jack = 10
+- Queen = 10
+- King = 10
+
+]
+
+.rightcol[
+
+**Hint**: use `isPrime()` to help:
+
+```{r}
+isPrime <- function(n) {
+    if (n == 2) { return(TRUE) }
+    for (i in seq(2, n-1)) {
+        if (n %% i == 0) {
+            return(FALSE)
+        }
+    }
+    return(TRUE)
+}
+```
+
+]
+
+---
+
+class: inverse
+
+## Monte Carlo: Estimate $\pi$
+
+.leftcol30[
+
+```{r cirle-points, echo=FALSE, fig.width=5, fig.height=5}
+N <- 5000
+
+points <- tibble(
+    x = runif(N, min = -1, max = 1),
+    y = runif(N, min = -1, max = 1)) %>%
+    mutate(
+        radius = sqrt(x^2 + y^2),
+        pointInCircle = ifelse(radius <= 1, TRUE, FALSE))
+
+pi_points <- ggplot(points) +
+    geom_point(aes(x = x, y = y, color = pointInCircle), size = 0.3) +
+    theme_minimal() +
+    scale_color_manual(values=c('red', 'blue')) +
+    theme(text = element_text(size=20), legend.position = 'bottom') +
+    guides(colour = guide_legend(override.aes = list(size=8)))
+
+pi_points
+```
+
+$\pi = 4 \left( \frac{A_{circle}}{A_{square}} \right)$
+
+]
+
+.rightcol70[.font90[
+
+1. Create a tibble with variables `x` and `y` that each contain 10,000 random points between -1 and 1, representing the (x, y) coordinates to a random point inside a square of side length 2 centered at `(x, y) = (0, 0)`. **Hint**: use `runif()`
+
+2. Create a new column, `radius`, that is equal to the distance to each `(x, y)` point from the center of the square.
+
+3. Create a new column, `pointInCircle`, that is `TRUE` if the point lies _within_ the circle inscribed in the square, and `FALSE` otherwise.
+
+4. Create the scatterplot on the left (don't worry about the precise colors, dimensions, etc.).
+
+5. Estimate $\pi$ by multiplying 4 times the ratio of points inside the circle to the total number of points
+
+]]
+
+---
+
+class: inverse
+
+## Monte Carlo: Monte Hall Problem
+
+.leftcol40[
+
+```{r, echo=FALSE, out.width='80%'}
+include_graphics(file.path('images', 'monte_hall.jpg'))
+```
+
+1. You choose door 1, 2, or 3
+2. One door is removed
+3. Should you swap doors?
+
+]
+
+.rightcol60[.font90[
+
+In this simulation, the prize is always behind door #1:
+
+- If you choose door #1, you must KEEP it to win.
+- If you choose door #2 or #3, you must SWAP to win.
+
+1) Create the tibble, `choices`, with two variables:
+- `door` contains the first door chosen (`1`, `2`, or `3`)
+- `swap` contains a logical (`TRUE` or `FALSE`) for whether the contestant swaps doors. **Hint**: use `sample()`
+
+2) Create a new tibble, `wins`, which contains only the rows from `choices` that resulted in a win.
+
+3) Compute the percentage of times the contestant won after swapping doors.
+
+]]
