@@ -151,6 +151,7 @@ Reasons to not cheat:
   - functions
   - test functions
   - dplyr functions (`select`, `filter`, `mutate`, `arrange`, `group_by`, `summarise`)
+  - How to use ggplot
 
 ---
 
@@ -1487,7 +1488,7 @@ class: center
 
 # Quick practice:
 
-<div class="countdown" id="timer_10d57f9f" data-warn-when="30" data-update-every="1" tabindex="0" style="top:0;right:0;font-size:2em;">
+<div class="countdown" id="timer_2b3cb710" data-warn-when="30" data-update-every="1" tabindex="0" style="top:0;right:0;font-size:2em;">
 <div class="countdown-controls"><button class="countdown-bump-down">&minus;</button><button class="countdown-bump-up">&plus;</button></div>
 <code class="countdown-time"><span class="countdown-digits minutes">05</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>
@@ -1540,7 +1541,7 @@ class: center
 
 ## Quick practice:
 
-<div class="countdown" id="timer_8ff0ee41" data-warn-when="30" data-update-every="1" tabindex="0" style="top:0;right:0;font-size:2em;">
+<div class="countdown" id="timer_67ac23ca" data-warn-when="30" data-update-every="1" tabindex="0" style="top:0;right:0;font-size:2em;">
 <div class="countdown-controls"><button class="countdown-bump-down">&minus;</button><button class="countdown-bump-up">&plus;</button></div>
 <code class="countdown-time"><span class="countdown-digits minutes">05</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>
@@ -1595,7 +1596,7 @@ class: center
 
 # Quick practice:
 
-<div class="countdown" id="timer_754366b5" data-warn-when="30" data-update-every="1" tabindex="0" style="top:0;right:0;font-size:2em;">
+<div class="countdown" id="timer_aca4aa3f" data-warn-when="30" data-update-every="1" tabindex="0" style="top:0;right:0;font-size:2em;">
 <div class="countdown-controls"><button class="countdown-bump-down">&minus;</button><button class="countdown-bump-up">&plus;</button></div>
 <code class="countdown-time"><span class="countdown-digits minutes">05</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>
@@ -2003,18 +2004,18 @@ bands %&gt;%
 ```
 
 ```
-#&gt; # A tibble: 9 × 7
-#&gt;   firstName lastName  yearOfBirth deceased band         age mean_age
-#&gt;   &lt;chr&gt;     &lt;chr&gt;           &lt;dbl&gt; &lt;lgl&gt;    &lt;chr&gt;      &lt;dbl&gt;    &lt;dbl&gt;
-#&gt; 1 Melanie   Brown            1975 FALSE    spicegirls    45     60.4
-#&gt; 2 Melanie   Chisholm         1974 FALSE    spicegirls    46     60.4
-#&gt; 3 Emma      Bunton           1976 FALSE    spicegirls    44     60.4
-#&gt; 4 Geri      Halliwell        1972 FALSE    spicegirls    48     60.4
-#&gt; 5 Victoria  Beckham          1974 FALSE    spicegirls    46     60.4
-#&gt; 6 John      Lennon           1940 TRUE     beatles       80     60.4
-#&gt; 7 Paul      McCartney        1942 FALSE    beatles       78     60.4
-#&gt; 8 Ringo     Starr            1940 FALSE    beatles       80     60.4
-#&gt; 9 George    Harrison         1943 TRUE     beatles       77     60.4
+#&gt; # A tibble: 9 × 8
+#&gt;   firstName lastName  yearOfBirth deceased band       instrument   age mean_age
+#&gt;   &lt;chr&gt;     &lt;chr&gt;           &lt;dbl&gt; &lt;lgl&gt;    &lt;chr&gt;      &lt;chr&gt;      &lt;dbl&gt;    &lt;dbl&gt;
+#&gt; 1 Melanie   Brown            1975 FALSE    spicegirls &lt;NA&gt;          45     60.4
+#&gt; 2 Melanie   Chisholm         1974 FALSE    spicegirls &lt;NA&gt;          46     60.4
+#&gt; 3 Emma      Bunton           1976 FALSE    spicegirls &lt;NA&gt;          44     60.4
+#&gt; 4 Geri      Halliwell        1972 FALSE    spicegirls &lt;NA&gt;          48     60.4
+#&gt; 5 Victoria  Beckham          1974 FALSE    spicegirls &lt;NA&gt;          46     60.4
+#&gt; 6 John      Lennon           1940 TRUE     &lt;NA&gt;       guitar        80     60.4
+#&gt; 7 Paul      McCartney        1942 FALSE    &lt;NA&gt;       bass          78     60.4
+#&gt; 8 Ringo     Starr            1940 FALSE    &lt;NA&gt;       drums         80     60.4
+#&gt; 9 George    Harrison         1943 TRUE     &lt;NA&gt;       guitar        77     60.4
 ```
 
 ---
@@ -2032,19 +2033,19 @@ bands %&gt;%
 ```
 
 ```
-#&gt; # A tibble: 9 × 7
+#&gt; # A tibble: 9 × 8
 #&gt; # Groups:   band [2]
-#&gt;   firstName lastName  yearOfBirth deceased band         age mean_age
-#&gt;   &lt;chr&gt;     &lt;chr&gt;           &lt;dbl&gt; &lt;lgl&gt;    &lt;chr&gt;      &lt;dbl&gt;    &lt;dbl&gt;
-#&gt; 1 Melanie   Brown            1975 FALSE    spicegirls    45     45.8
-#&gt; 2 Melanie   Chisholm         1974 FALSE    spicegirls    46     45.8
-#&gt; 3 Emma      Bunton           1976 FALSE    spicegirls    44     45.8
-#&gt; 4 Geri      Halliwell        1972 FALSE    spicegirls    48     45.8
-#&gt; 5 Victoria  Beckham          1974 FALSE    spicegirls    46     45.8
-#&gt; 6 John      Lennon           1940 TRUE     beatles       80     78.8
-#&gt; 7 Paul      McCartney        1942 FALSE    beatles       78     78.8
-#&gt; 8 Ringo     Starr            1940 FALSE    beatles       80     78.8
-#&gt; 9 George    Harrison         1943 TRUE     beatles       77     78.8
+#&gt;   firstName lastName  yearOfBirth deceased band       instrument   age mean_age
+#&gt;   &lt;chr&gt;     &lt;chr&gt;           &lt;dbl&gt; &lt;lgl&gt;    &lt;chr&gt;      &lt;chr&gt;      &lt;dbl&gt;    &lt;dbl&gt;
+#&gt; 1 Melanie   Brown            1975 FALSE    spicegirls &lt;NA&gt;          45     45.8
+#&gt; 2 Melanie   Chisholm         1974 FALSE    spicegirls &lt;NA&gt;          46     45.8
+#&gt; 3 Emma      Bunton           1976 FALSE    spicegirls &lt;NA&gt;          44     45.8
+#&gt; 4 Geri      Halliwell        1972 FALSE    spicegirls &lt;NA&gt;          48     45.8
+#&gt; 5 Victoria  Beckham          1974 FALSE    spicegirls &lt;NA&gt;          46     45.8
+#&gt; 6 John      Lennon           1940 TRUE     &lt;NA&gt;       guitar        80     78.8
+#&gt; 7 Paul      McCartney        1942 FALSE    &lt;NA&gt;       bass          78     78.8
+#&gt; 8 Ringo     Starr            1940 FALSE    &lt;NA&gt;       drums         80     78.8
+#&gt; 9 George    Harrison         1943 TRUE     &lt;NA&gt;       guitar        77     78.8
 ```
 
 ---
@@ -2076,8 +2077,8 @@ bands %&gt;%
 #&gt; # A tibble: 2 × 2
 #&gt;   band       mean_age
 #&gt;   &lt;chr&gt;         &lt;dbl&gt;
-#&gt; 1 beatles        78.8
-#&gt; 2 spicegirls     45.8
+#&gt; 1 spicegirls     45.8
+#&gt; 2 &lt;NA&gt;           78.8
 ```
 
 ---
@@ -2099,8 +2100,8 @@ bands %&gt;%
 #&gt; # A tibble: 2 × 2
 #&gt;   band           n
 #&gt;   &lt;chr&gt;      &lt;int&gt;
-#&gt; 1 beatles        4
-#&gt; 2 spicegirls     5
+#&gt; 1 spicegirls     5
+#&gt; 2 &lt;NA&gt;           4
 ```
 
 ]
@@ -2117,8 +2118,8 @@ bands %&gt;%
 #&gt; # A tibble: 2 × 2
 #&gt;   band           n
 #&gt;   &lt;chr&gt;      &lt;int&gt;
-#&gt; 1 beatles        4
-#&gt; 2 spicegirls     5
+#&gt; 1 spicegirls     5
+#&gt; 2 &lt;NA&gt;           4
 ```
 
 ]
@@ -2656,7 +2657,7 @@ nrow(successes) / N
 ```
 
 ```
-#&gt; [1] 0.0056
+#&gt; [1] 0.0054
 ```
 
 ---
@@ -2684,7 +2685,7 @@ count / N # Compute the probability
 ```
 
 ```
-#&gt; [1] 0.03685
+#&gt; [1] 0.03642
 ```
 
 ---

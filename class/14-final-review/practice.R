@@ -36,3 +36,8 @@ animals_pet <- tibble(
     aveWeightLbs   = c(40, 8),
     aveLifeSpanYrs = c(10, 12)
 )
+
+# External data sets
+
+birds <- read_csv(here('data', 'wildlife_impacts.csv'))
+bears <- read_csv(here('data', 'bear_killings.csv'))

@@ -41,6 +41,11 @@ spicegirls <- tibble(
     deceased    = c(FALSE, FALSE, FALSE, FALSE, FALSE)
 )
 
+bands <- spicegirls %>%
+    select(-spice) %>%
+    mutate(band = 'spicegirls') %>% 
+    bind_rows(beatles)
+
 theme_set(theme_gray(base_size = 20))
 bears <- read_csv(here::here('data', 'bear_killings.csv'))
 birds <- read_csv(here::here('data', 'wildlife_impacts.csv'))
@@ -131,6 +136,7 @@ Reasons to not cheat:
   - functions
   - test functions
   - dplyr functions (`select`, `filter`, `mutate`, `arrange`, `group_by`, `summarise`)
+  - How to use ggplot
 
 ---
 
