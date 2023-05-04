@@ -48,6 +48,68 @@ birds <- read_csv(here::here('data', 'wildlife_impacts.csv'))
 
 ---
 
+# Format: 2-part exam
+
+.leftcol[
+
+## Part 1
+
+- Hand-written exam (like midterm).
+- You may use a single 8.5 x 11 sheet of notes.
+- No calculators, no books, no computers, no phones, no internet.
+
+]
+
+.rightcol[
+
+## Part 2 (data analysis)
+
+- Need your laptop (make sure it's charged!). 
+- Can only start Part 2 after turning in Part 1.
+- You may use RStudio, the course website, and chatGPT.
+
+]
+
+---
+
+# What's on the final? 
+
+## Comprehensive, except for Webscraping & Monte Carlo
+
+.leftcol[
+
+## Part 1
+
+- 10 True / False questions.
+- 4 Short answer questions.
+- Hand-write one function and test function.
+
+]
+
+.rightcol[
+
+## Part 2
+
+- Read in a dataset. 
+- Answer questions about the data (using tidyverse tools).
+- Make a visualization about the data.
+- Bonus: Scrape a website.
+
+]
+
+---
+
+# Zero tolerance policy on cheating
+
+Reasons to not cheat:
+
+- Evidence of working with another person on the final results in a 0 for all individuals involved (and I'll push for class failure too).
+- It's sooooooo easy to tell if you cheated (trust me, I'll know).
+- I'm letting you use chatGPT for part 2!
+- I'm a pretty soft grader anyway (you'll get 50% for just _trying_!).
+
+---
+
 # Things to review
 
 --
