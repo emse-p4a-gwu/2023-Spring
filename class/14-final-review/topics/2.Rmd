@@ -1,0 +1,7 @@
+
+class: inverse, middle
+
+# Week `r rmarkdown::metadata$week`: .fancy[`r rmarkdown::metadata$title`]
+
+### 1. Programming
+### 2. .orange[Data Analytics]
